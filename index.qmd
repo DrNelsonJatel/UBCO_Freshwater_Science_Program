@@ -88,6 +88,20 @@ The [Methodology page](docs/methodology.qmd) details the data
 pipeline and refresh cadence.
 :::
 
+## Talk to your advisor
+
+::: {.contact-card}
+::: {.contact-card-body}
+### Dr. Nelson Jatel, PAg
+Freshwater Science Program Advisor, UBC Okanagan
+
+Email for advising appointments, course planning, designation
+questions, Honours / Co-op / NSERC USRA enquiries, or anything else.
+
+<a class="contact-card-cta" href="mailto:nelson.jatel@ubc.ca?subject=UBCO%20Freshwater%20Science%20-%20Student%20enquiry">📧 nelson.jatel@ubc.ca</a>
+:::
+:::
+
 ## Who maintains this
 
 Built and maintained by [Limnology Research Corp](https://limnology.ca)

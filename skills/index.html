@@ -343,7 +343,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/limnology\.ca\/ubco-freshwater\/");
+        var filterRegex = new RegExp("https:\/\/drnelsonjatel\.github\.io\/UBCO_Freshwater_Science_Program\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -671,6 +671,19 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Maintained by Dr.&nbsp;Nelson Jatel, PAg — Lecturer and Freshwater Science Program Advisor, Department of Earth, Environmental and Geographic Sciences, UBC Okanagan. <a href="mailto:nelson.jatel@ubc.ca">nelson.jatel@ubc.ca</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>This is a curated advising resource. <strong>The <a href="https://okanagan.calendar.ubc.ca/">UBC Okanagan Academic Calendar</a> is the authoritative source for all degree requirements.</strong></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program">Source code</a> · Last updated <code>May 28, 2026</code></p>
+</div>
+  </div>
+</footer>
 
 
 

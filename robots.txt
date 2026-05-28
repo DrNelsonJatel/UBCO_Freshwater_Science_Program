@@ -1,1 +1,1 @@
-Sitemap: https://limnology.ca/ubco-freshwater/sitemap.xml
+Sitemap: https://drnelsonjatel.github.io/UBCO_Freshwater_Science_Program/sitemap.xml

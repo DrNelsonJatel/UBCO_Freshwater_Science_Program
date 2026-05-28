@@ -1,0 +1,7 @@
+/* Minimal site-wide overrides. The Quarto cosmo theme handles the rest. */
+.callout {
+  font-size: 0.95rem;
+}
+.navbar .nav-link {
+  font-weight: 500;
+}

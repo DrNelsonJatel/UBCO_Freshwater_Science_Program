@@ -1,0 +1,74 @@
+---
+title: "Course catalogue"
+subtitle: "Every UBCO course relevant to the Freshwater Science program"
+date: last-modified
+---
+
+::: {.callout-warning}
+## Scaffold placeholder
+The catalogue is populated by `data-raw/01_scrape_ubco_calendar.R` and
+rendered from `data/courses.parquet`. The scraper has not yet run.
+:::
+
+# Browse by subject
+
+The Freshwater Science program draws from these UBCO subjects (codes in
+the format the calendar uses):
+
+- **FWSC_O** — Freshwater Science (program-specific courses)
+- **BIOL_O** — Biology
+- **EESC_O** — Earth and Environmental Sciences
+- **CHEM_O** — Chemistry
+- **GEOG_O** — Geography
+- **MATH_O** — Mathematics
+- **PHYS_O** — Physics
+- **STAT_O** — Statistics
+- **INDG_O** — Indigenous Studies
+- **ENGL_O** — English
+
+When the scraper is wired up, this page will render a sortable table
+with: course code, title, credits, lecture-lab pattern, prerequisites,
+equivalencies, and an "offered next academic year?" badge.
+
+# Year structure (Freshwater Science Major)
+
+::: {#year-1}
+
+## Year 1 (30 credits)
+
+- BIOL_O 116 and 125 (6)
+- CHEM_O 121 and 123 (6)
+- EESC_O 111 and 112 (6)
+- MATH_O 100 (3) plus one of MATH_O 101 or 103 (3)
+- One of PHYS_O 111 or 112 (3) plus one of PHYS_O 121 or 122 (3)
+
+:::
+
+## Year 2 (30 credits)
+
+- BIOL_O 201 (3)
+- One of BIOL_O 202, GEOG_O 271, STAT_O 121, STAT_O 230 (3)
+- One of CHEM_O 201 or 210 (3) plus CHEM_O 211 (3)
+- EESC_O 205 and 222 (6)
+- English / communication electives (6)
+- INDG_O 100 or ENGL_O 114 (3)
+- Non-science electives (3)
+
+## Years 3 and 4 (60 credits)
+
+- BIOL_O 308 (3)
+- FWSC_O 375 (3)
+- CHEM_O 301 (3)
+- EESC_O 212, 301, 402 (9)
+- One of EESC_O 342, 413, 435 (3)
+- Two of EESC_O 309, 323, 423 (6)
+- One of EESC_O 313, 314, 315 (3)
+- Upper-level science electives (9)
+- Non-science electives (6)
+- General electives (15)
+
+# Honours
+
+The Honours track requires a 76% minimum grade average in 24 credits
+from designated upper-level courses plus EESC_O 449 (Honours Thesis, 6
+credits).

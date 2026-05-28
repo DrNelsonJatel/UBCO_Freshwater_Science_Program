@@ -1,0 +1,61 @@
+---
+title: "PAg — Professional Agrologist (BC Institute of Agrologists)"
+subtitle: "What you need from your UBCO Freshwater Science degree"
+date: last-modified
+---
+
+::: {.callout-warning}
+## Scaffold placeholder
+This page is a scaffold. The authoritative course mapping comes from the
+[BCIA UBCO Approved Course List (2025-06-27)](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf).
+That PDF is image-based and needs to be OCR'd into a curated YAML before
+this page can render the actual list. See `data-raw/02_ocr_bcia_pag_list.R`.
+:::
+
+# The designation
+
+The **PAg** (Professional Agrologist) is the senior registration tier of
+the BC Institute of Agrologists. To get there, you must first qualify
+as an **Articling Agrologist** (AAg) directly from your degree, then
+complete BCIA's Articling Program plus two years of agrology-related
+work experience.
+
+## Academic eligibility for AAg
+
+Per BCIA, you need:
+
+- A four-year accredited B.Sc. (which Freshwater Science is) with a
+  science focus.
+- **At least 8 entry-level foundational courses** (100/200 level) from
+  the BCIA Academic Worksheet categories.
+- **At least 20 courses in agriculture, natural sciences, or
+  agriculture / resource economics** that relate to agrology under the
+  Agrologists Regulation, 2021.
+- **At least 8 senior-level courses** (can be drawn from the 20 above)
+  in those same categories.
+
+## Eligible course categories
+
+BCIA recognises courses in:
+
+- Agrology
+- Foundational Natural Science
+- Mathematics or Statistics
+- Economics
+- Communications / Writing
+- Computer Science
+
+## Your gap-finder
+
+::: {.callout-tip}
+## When this is wired up
+The interactive planner reads your completed-courses list and the
+authoritative BCIA UBCO course mapping, then shows you exactly which
+BCIA categories you have covered and which still need fills.
+:::
+
+## References
+
+- [New Registrant Requirements (BCIA)](https://www.bcia.com/how-apply/application-requirements/new-registrant-requirements)
+- [BCIA UBCO Approved Course List (2025-06-27 PDF)](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf)
+- [Agrologists Regulation, 2021](https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/47_2021)

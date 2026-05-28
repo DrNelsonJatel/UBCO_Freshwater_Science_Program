@@ -1,0 +1,41 @@
+---
+title: "Learning outcomes"
+subtitle: "Program, department, and course-level outcomes mapped against each other"
+date: last-modified
+---
+
+::: {.callout-warning}
+## Scaffold placeholder
+Outcomes are stored as YAML files under `outcomes/data/` (one file per
+level) and rendered into this page. The mapping work has not started.
+This page is the eventual home of the outcomes cross-reference matrix.
+:::
+
+# The three levels
+
+| Level | Authority | Granularity |
+|---|---|---|
+| Program | Faculty of Science / EESC | "A Freshwater Science graduate will..." |
+| Department | EESC / Biology | Subject-area outcomes |
+| Course | Individual instructor | Per-course / per-module outcomes |
+
+# Why this matters
+
+Mapping outcomes against each other reveals two things students rarely see
+clearly:
+
+1. **Vertical coherence** — does each program-level outcome map to a
+   department-level outcome map to one or more course-level outcomes?
+   Gaps point to missing course content.
+2. **Lateral coverage** — does the program graduate students with
+   *transferable* skills, or do skills stay siloed within their
+   teaching course?
+
+# Pending content
+
+- [ ] Define schema for `program_outcomes.yml`, `department_outcomes.yml`,
+      and `course_outcomes.yml`.
+- [ ] Seed program-level outcomes from the Faculty of Science statement.
+- [ ] Interview each Freshwater Science instructor for course-level
+      outcomes (estimated 20-40 hours of structured interviews).
+- [ ] Render the outcomes-by-course matrix here.

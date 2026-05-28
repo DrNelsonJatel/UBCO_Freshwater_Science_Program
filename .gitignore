@@ -1,0 +1,40 @@
+# R / RStudio
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Quarto
+_site/
+_freeze/
+.quarto/
+
+# renv (keep lock file, exclude library)
+renv/library/
+renv/local/
+renv/lock/
+renv/python/
+renv/staging/
+renv/sandbox/
+
+# targets pipeline cache (keep manifest if we add one later)
+_targets/
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+# Local data caches (the daily-scrape parquets get rebuilt, not committed)
+data/cache/
+data/courses_raw_*.parquet
+
+# Secrets (no Gmail / API tokens in this repo, but defensive)
+.secrets/
+.env
+*.env.local

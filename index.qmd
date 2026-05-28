@@ -1,0 +1,83 @@
+---
+title: "UBCO Freshwater Science"
+subtitle: "Course pathways, designations, and learning outcomes"
+date: last-modified
+---
+
+# A planning resource for current and prospective students
+
+Welcome to the planning hub for the **Freshwater Science** undergraduate
+program at the [UBC Okanagan campus](https://ok.ubc.ca/). This site
+helps you:
+
+- **Browse the courses** that count toward Freshwater Science, with
+  current-year prerequisites, equivalencies, and offering status.
+- **Plan a path** to the **PAg** (BC Institute of Agrologists) or
+  **RPBio** (College of Applied Biology) professional designation
+  alongside your degree.
+- **Track learning outcomes** at the program, department, and
+  individual course level.
+- **See where each skill is scaffolded** across the four-year arc
+  (from "intro to R" to "designing a field study").
+- **Use the interactive planner** to test course combinations against
+  your degree requirements and designation goals.
+
+## Quick starts
+
+::: {.grid}
+
+::: {.g-col-md-6 .g-col-12}
+
+### I'm a current student
+- Use the [Planner](https://example.shinyapps.io/ubco-freshwater-planner/)
+  to map remaining terms.
+- Check the [PAg pathway](designations/pag.qmd) and [RPBio
+  pathway](designations/rpbio.qmd) to see what gaps you still need
+  to fill before graduation.
+- Browse the [course catalogue](courses/index.qmd) for prerequisites
+  and "is this offered next year?" signals.
+
+:::
+
+::: {.g-col-md-6 .g-col-12}
+
+### I'm a prospective student
+- Skim the [program description](#about-the-program) below.
+- Compare the [designation pathways](designations/pag.qmd) to see what
+  professional qualifications this degree can lead to.
+- Browse the [first-year courses](courses/index.qmd#year-1) to get a
+  feel for the workload.
+
+:::
+
+:::
+
+## About the program
+
+The Freshwater Science program integrates aquatic biology, chemistry,
+geography, and earth and environmental sciences. Students study water
+quality and quantity, aquatic organisms, and the health of aquatic
+ecosystems.
+
+The four-year B.Sc. requires 120 credits with at least 78 in Science,
+at least 42 at the upper level (300+), and at least 36 of those
+upper-level credits in Science. The Honours track adds a research
+thesis (EESC_O 449).
+
+::: {.callout-note}
+## Source of truth
+Course descriptions and prerequisites are pulled daily from the
+[UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/).
+Designation requirements are curated from the
+[BCIA UBCO Approved Course List](https://www.bcia.com/) and the
+[CAB Credentialing Standard](https://cab-bc.org/) by the program lead.
+The [Methodology page](docs/methodology.qmd) details the data
+pipeline and refresh cadence.
+:::
+
+## Who maintains this
+
+Built and maintained by [Limnology Research Corp](https://limnology.ca)
+on behalf of the program lead, Nelson R. Jatel, PAg. Source code at
+[github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program).
+Issues and suggestions welcome.

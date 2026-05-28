@@ -1,0 +1,79 @@
+---
+title: "Skills scaffolding"
+subtitle: "Where each transferable skill is introduced, practised, and expected across the four-year arc"
+date: last-modified
+---
+
+::: {.callout-warning}
+## Scaffold placeholder
+Skills are stored in `skills/skills_vocab.yml` (the controlled
+vocabulary) and `skills/course_tags.yml` (per-course tagging with
+introduce/practise/expect markers). Neither file exists yet. The
+heatmap viz on this page is the eventual rendering of those YAMLs.
+:::
+
+# The idea
+
+Skills get **scaffolded** through a degree: introduced in one course,
+practised in several, and expected as background in upper-year courses.
+Without an explicit map, neither students nor instructors can see this
+arc clearly.
+
+This page shows the scaffolded coverage as a heatmap: rows are skills
+from a controlled vocabulary, columns are the four years of the
+program, cells are coloured by introduce / practise / expect status.
+
+# Controlled skill vocabulary (draft)
+
+Three top-level skill families to start, each with sub-skills. These
+are stubs; the real vocabulary will be co-developed with department
+instructors.
+
+::: {.grid}
+
+::: {.g-col-md-4 .g-col-12}
+
+### Quantitative / computational
+- R basics
+- R intermediate (tidyverse)
+- R for hydrology (tidyhydat, dataRetrieval)
+- Statistical inference
+- Geostatistics
+- Spatial analysis (sf, terra)
+- Modelling (GLM, GAM)
+
+:::
+
+::: {.g-col-md-4 .g-col-12}
+
+### Field / lab
+- Sampling design
+- Water-quality sampling
+- Macroinvertebrate identification
+- Hydrometric measurement
+- Lab safety
+- Calibration and QC
+
+:::
+
+::: {.g-col-md-4 .g-col-12}
+
+### Communication / professional
+- Scientific writing
+- Public-facing communication
+- Peer review
+- Project management
+- Ethics
+- Working with First Nations
+
+:::
+
+:::
+
+# Pending content
+
+- [ ] Co-develop the controlled skill vocabulary with the program
+      instructor cohort.
+- [ ] Tag each Freshwater Science course with the skills it
+      introduces / practises / expects.
+- [ ] Render the skills-by-year heatmap.

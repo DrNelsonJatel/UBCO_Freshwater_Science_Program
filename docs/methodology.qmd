@@ -1,0 +1,86 @@
+---
+title: "Methodology"
+subtitle: "How this site is built, where its data come from, and how often it refreshes"
+date: last-modified
+---
+
+# Architecture
+
+The site has three coupled layers:
+
+1. **Static Quarto site** — all content pages (course catalogue,
+   designation pathways, learning outcomes, skills scaffold, methodology,
+   announcements). Authored in markdown / qmd; rendered to HTML and
+   served as static files.
+2. **Shiny degree planner** — the interactive component, embedded as
+   an iframe in the static site. Lets a student drag courses into year
+   slots, pick a designation goal, and see real-time gap analysis.
+3. **`targets` data pipeline** — daily scrape of the UBCO Academic
+   Calendar, normalisation to a tidy parquet, plus the curated
+   designation-mapping YAMLs. Output artefacts feed both the Quarto
+   site (via embedded chunks) and the Shiny planner.
+
+# Data sources and refresh cadence
+
+| Feed | Source URL | How | Cadence |
+|---|---|---|---|
+| Course descriptions | `okanagan.calendar.ubc.ca/course-descriptions/subject/<code>` | `rvest` scrape, per-subject | Daily, 12:00 UTC |
+| Program structure | `okanagan.calendar.ubc.ca/.../freshwater-science` | `rvest` scrape | Daily, 12:00 UTC |
+| Course schedule (offered next year?) | UBCO Workday Student / SSC | TBD — scrape vs. API | Daily, 12:00 UTC |
+| BCIA PAg UBCO-approved list | `bcia.com/sites/.../UBCO Approved Courses_*.pdf` | Manual OCR + curated YAML | Triggered on PDF update (BCIA edits the file ~annually) |
+| CAB RPBio Credentialing Standard | `cab-bc.org/wp-content/uploads/Credentialing_Standard_*.pdf` | Manual OCR + curated YAML | Triggered on standard update |
+| Program learning outcomes | Faculty of Science / EESC departmental docs | Manual transcription | Annual |
+| Course learning outcomes | Instructor interviews | Manual collection | Per-course, on rolling basis |
+
+# Scrape policy
+
+UBCO's calendar is publicly accessible. The scraper respects the
+following constraints:
+
+- Single sequential scrape (no parallel requests) with a polite
+  `User-Agent: limnology.ca UBCO Freshwater Pathways v0.x`.
+- Per-request delay of 1 second between subject pages.
+- Local cache (file mtime check) so a re-run within the same day is a
+  no-op.
+- All scraping happens server-side in GitHub Actions, never in the
+  user's browser.
+
+If UBCO's registrar office can provide a data feed or API, the scraper
+will be retired in favour of that.
+
+# Designation-mapping authority
+
+The **PAg** and **RPBio** mappings are not scraped. The source documents
+(BCIA UBCO list, CAB Credentialing Standard) are PDF publications by
+the respective regulatory bodies. The workflow:
+
+1. Download the latest PDF when published.
+2. OCR locally to a text file in `docs/reference/`.
+3. Hand-curate the UBCO course-code -> designation-category map into
+   `data/designation_mappings/pag.yml` and `.../rpbio.yml`.
+4. Versioned, dated YAMLs so historical pathways are preserved.
+
+This preserves traceability: every course-counts-for-X claim on the
+site is backed by a citable, dated source.
+
+# Pipeline reproducibility
+
+The `targets` pipeline plus the GitHub Actions cron workflow give:
+
+- Full provenance for every artefact (which scrape run, which source
+  version, which curator).
+- Deterministic re-renders.
+- Public commit history of when designation mappings changed.
+
+# Stack inventory
+
+| Component | Library |
+|---|---|
+| Site | Quarto 1.6+ |
+| Scraping | `rvest`, `httr2`, `xml2` |
+| Tidying | `dplyr`, `tidyr`, `stringr`, `lubridate` |
+| Storage | `arrow` (parquet) |
+| Pipeline | `targets` |
+| Planner | `shiny`, `bslib`, `DT`, `visNetwork` (prereq graph) |
+| Validation | `assertr`, `testthat` |
+| Deploy | GitHub Actions, shinyapps.io (planner), `limnology.ca` (static site) |

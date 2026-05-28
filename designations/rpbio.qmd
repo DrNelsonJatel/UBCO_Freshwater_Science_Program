@@ -1,0 +1,55 @@
+---
+title: "RPBio — Registered Professional Biologist (College of Applied Biology)"
+subtitle: "What you need from your UBCO Freshwater Science degree"
+date: last-modified
+---
+
+::: {.callout-warning}
+## Scaffold placeholder
+This page is a scaffold. The authoritative course mapping comes from the
+[CAB Credentialing Standard (June 2025)](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf).
+That PDF is image-based and needs to be OCR'd into a curated YAML before
+this page can render the actual list. See `data-raw/03_ocr_cab_rpbio_list.R`.
+:::
+
+# The designation
+
+The **RPBio** (Registered Professional Biologist) is granted by the
+[College of Applied Biology](https://cab-bc.org/), the regulatory body
+for applied biology professionals in British Columbia.
+
+## Academic eligibility (Streams 1 and 2)
+
+Per the June 2025 Credentialing Standard:
+
+- A bachelor's or master's degree with **25 science courses, 13 of
+  which are in biology**.
+- **At least three** of those biology courses must be from:
+  genetics, cellular biology, physiology, systematics, or evolution.
+
+## Work experience and professional work products
+
+- **Streams 1 and 2** require a minimum of **three years of work
+  experience** in applied biology within the last 10 years.
+- **Stream 3** allows entry with the same 25 science courses plus
+  **15 years of practice** experience in applied biology.
+- You must submit at least one **scientific or risk-assessment
+  report** that meets College criteria, plus at least one **public-
+  facing communication piece** (annotated presentation, briefing note,
+  interpretation document).
+
+## How your Freshwater Science degree maps
+
+::: {.callout-tip}
+## When this is wired up
+The interactive planner cross-checks your completed-courses list
+against the CAB biology categories and flags which of the five
+required-area courses you have versus still need (genetics, cellular,
+physiology, systematics, evolution).
+:::
+
+## References
+
+- [RPBio Requirements (CAB)](https://cab-bc.org/applicant-self-assessment-tool-general-information/applicant-self-assessment-tool/rpbio-form/)
+- [Credentialing Standard (June 2025 PDF)](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf)
+- [College of Applied Biology Act](https://www.bclaws.gov.bc.ca/civix/document/id/consol14/consol14/00_02068_01)

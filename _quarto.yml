@@ -1,0 +1,57 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - courses/*.qmd
+    - designations/*.qmd
+    - outcomes/*.qmd
+    - skills/*.qmd
+    - docs/methodology.qmd
+
+website:
+  title: "UBCO Freshwater Science"
+  description: "Course pathways, professional designations, and learning outcomes for the UBC Okanagan Freshwater Science program."
+  site-url: "https://limnology.ca/ubco-freshwater/"
+  favicon: assets/favicon.png
+  navbar:
+    background: "#1f3a5f"
+    foreground: "#ffffff"
+    title: "UBCO Freshwater Science"
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Courses
+        href: courses/index.qmd
+      - text: Designations
+        menu:
+          - href: designations/pag.qmd
+            text: PAg (BC Institute of Agrologists)
+          - href: designations/rpbio.qmd
+            text: RPBio (College of Applied Biology)
+      - text: Outcomes
+        href: outcomes/index.qmd
+      - text: Skills
+        href: skills/index.qmd
+      - text: Planner
+        href: https://example.shinyapps.io/ubco-freshwater-planner/
+        target: _blank
+    right:
+      - href: docs/methodology.qmd
+        text: Methodology
+      - icon: github
+        href: https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program
+        aria-label: GitHub
+
+format:
+  html:
+    theme:
+      light: cosmo
+    css: assets/styles.css
+    toc: true
+    toc-depth: 3
+    code-tools: false
+    smooth-scroll: true
+
+execute:
+  freeze: auto

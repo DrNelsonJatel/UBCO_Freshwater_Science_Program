@@ -1,0 +1,57 @@
+---
+title: "Interactive Degree Planner"
+subtitle: "Drag-and-drop course planning with live designation gap analysis"
+date: last-modified
+---
+
+::: {.callout-warning}
+## Coming soon
+The interactive planner is under active development. The Shiny app at
+`app/app.R` in the [project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program)
+is currently a scaffold; it will go live once:
+
+1. The daily UBCO calendar scraper is implemented (so the planner has
+   live course-offering data).
+2. The PAg and RPBio designation YAMLs are curated from the source PDFs
+   (so the planner can compute live gap analysis against your goals).
+3. A shinyapps.io or Cloud Run deployment is wired up and the
+   `_quarto.yml` Planner link is repointed at it.
+
+Until then, the static designation pages and the curriculum-map source
+documents in this repository are the working reference:
+:::
+
+# What it will do
+
+When live, the planner will let you:
+
+- **Drag courses** into year slots (Year 1, 2, 3, 4 and post-Year-4
+  summer).
+- **Toggle designation goals** (PAg, RPBio, neither, both).
+- See **live gap analysis**:
+  - Which prerequisites are missing for the courses you have chosen.
+  - Which BCIA / CAB category requirements are still unfilled.
+  - Whether your total credits clear the 120 / 78 Science / 42
+    upper-level / 36 upper-level-Science thresholds.
+- View the **prerequisite graph** for your selected courses (`visNetwork`).
+- **Export your plan** as a PDF or text summary you can share with the
+  program advisor.
+
+# In the meantime
+
+- Use the [course catalogue](../courses/index.qmd) for the year-by-year
+  course list and prerequisite notes.
+- Use the [PAg pathway](../designations/pag.qmd) and
+  [RPBio pathway](../designations/rpbio.qmd) for the curated 4-year sample
+  plans + designation-fit narrative.
+- Use the [Complementary pathways](../designations/complementary.qmd)
+  page for Chemistry, Biology, and hydrology/water-resources bundles.
+
+# Want to help shape it?
+
+If you are a Freshwater Science student or instructor and want input
+into how the planner should behave — what gap signals matter most, what
+visual encoding is most useful, how aggressively it should flag
+prerequisite conflicts — please drop a note to **Nelson.Jatel@UBC.ca**
+or open a GitHub issue at the
+[project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/issues).

@@ -29,8 +29,8 @@ helps you:
 ::: {.g-col-md-6 .g-col-12}
 
 ### I'm a current student
-- Use the [Planner](https://example.shinyapps.io/ubco-freshwater-planner/)
-  to map remaining terms.
+- The interactive [Planner](planner/index.qmd) is in development;
+  preview the design intent on its placeholder page.
 - Check the [PAg pathway](designations/pag.qmd) and [RPBio
   pathway](designations/rpbio.qmd) to see what gaps you still need
   to fill before graduation.

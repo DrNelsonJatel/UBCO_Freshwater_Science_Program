@@ -7,6 +7,7 @@ project:
     - designations/*.qmd
     - outcomes/*.qmd
     - skills/*.qmd
+    - planner/*.qmd
     - docs/methodology.qmd
 
 website:
@@ -36,8 +37,7 @@ website:
       - text: Skills
         href: skills/index.qmd
       - text: Planner
-        href: https://example.shinyapps.io/ubco-freshwater-planner/
-        target: _blank
+        href: planner/index.qmd
     right:
       - href: docs/methodology.qmd
         text: Methodology

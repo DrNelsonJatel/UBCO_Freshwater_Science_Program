@@ -1,0 +1,99 @@
+UBCO Freshwater Science (B.Sc.) → Professional
+Designations (BC)
+Purpose: Quick checklist to help students map the Freshwater Science major to common BC designations
+and pick electives strategically. Always confirm current rules with the regulator.
+
+A) Registered Professional Biologist (RPBio) — College of Applied Biologists
+(CAB)
+  • Core academics: Bachelor’s degree + 25 science courses (13 in biology) + core courses:
+  communications; chemistry; numeracy; statistics at 2nd-year or higher; applied biology/management;
+  ecology; and 3 of 5 from genetics, cell biology, physiology, systematics/taxonomy, evolution.
+  • Freshwater fit: Communication (first-year writing); Chemistry (CHEM 121/123, 201/210/211);
+  Numeracy (MATH 100/101); Statistics (STAT 230 or GEOG 271 or BIOL 202 at 2nd-year+);
+  Ecology/applied biology (BIOL 201, BIOL 308, FWSC/BIOL 375).
+  • Electives to close gaps: BIOL 200 (Cell), BIOL 265 (Genetics), one of BIOL 356/358 (Physiology) or
+  BIOL 371 (Systematics).
+  • Experience path: BIT → RPBio with validated experience, competencies, and work products.
+
+B) Professional Agrologist (P.Ag.) — BC Institute of Agrologists (BCIA)
+  • Core academics: Bachelor’s degree with 8 foundational 100/200-level science courses + 20
+  agrology-related courses (including 8 senior at 3rd/4th-year).
+  • Freshwater fit: Year■1 science + EESC 205/222 cover foundations; upper-level
+  EESC/BIOL/CHEM/GEOG/GISC/ECON can satisfy the 20 agrology courses with ≥8 senior.
+  • Electives (examples): EESC 301/309/313/314/315/333/342/402/413/422/423/429/431/435;
+  GEOG/GISC 380/381; ECON 371/372; CHEM 301/302/317.
+  • Experience path: AAg → P.Ag. after articling/competencies.
+
+C) Professional Geoscientist (P.Geo.) — EGBC (Environmental Geoscience)
+  • Evaluation: EGBC self-evaluation checklist against foundations + compulsory geoscience +
+  environmental areas.
+  • Freshwater strengths: MATH 100/101; CHEM 121/123; PHYS 111/112; Hydrology (EESC 205);
+  Geochemistry (EESC 309/323/423); Geomorph/Soils (EESC 222). Choose Hydrogeology (EESC 342)
+  and GIS/RS (GEOG/GISC 380/381).
+  • Add to satisfy compulsory geoscience: Mineralogy/Petrology (EESC 200 or 201), Sed/Strat (EESC
+  356), Structural (EESC 325), Field Techniques (EESC 435). Recommended: Geophysics (EESC 350).
+  • Experience path: GIT → P.Geo.; exams may be assigned if gaps remain.
+
+D) Professional Engineer (P.Eng.) — EGBC
+  • Reality■check: P.Eng. normally requires a CEAB■accredited engineering degree. A B.Sc. alone
+  typically doesn't meet standard academics.
+  • Options: EIT with assigned academics (case-by-case), second degree/MEng/bridging, or P.L.Eng.
+  after specialized experience.
+  • Helpful electives: ENGR 341/342 (seat/prereq limits apply), APSC 254, GISC 380/381, EESC 413,
+  programming/data (STAT/DATA).
+Sample 4■Year Study Plans (with Co■op Options)
+Advising note: Illustrative only. Verify current UBCO Calendar, term offerings, prerequisites, and seat
+restrictions. “ex.” marks examples; substitutes with comparable content may also work for your regulator.
+
+Track 1 — RPBio (College of Applied Biologists)
+   • Year 1 — T1: BIOL 116; CHEM 121/123 (one); MATH 100; WRDS/ENGL/COMM; elective.
+   • Year 1 — T2: BIOL 125; CHEM 123/121 (the other); PHYS 111 or 112; elective.
+   • Year 2 — T1: BIOL 201; STAT 230 or GEOG 271 or BIOL 202 (ensure ≥2nd■year stats); EESC 205;
+   elective.
+   • Year 2 — T2: EESC 222; CHEM 211; BIOL 200 (Cell); elective.
+   • Year 3 — T1: EESC 301 (Limnology); FWSC/BIOL 375; CHEM 301; elective.
+   • Year 3 — T2: BIOL 265 (Genetics); BIOL 356/358 (Physiology) or BIOL 371 (Systematics); BIO
+   upper■level.
+   • Year 4 — T1: EESC 402; EESC 309/323/423 (choose 1–2); BIO upper■level (reach 13 BIO courses).
+   • Year 4 — T2: EESC 342 or EESC 413; BIO upper■level; Directed Studies/Field/Special Topics.
+   • Co■op: after Year■2 (summer start) for 8–12 months or Year■3 summer. Target biomonitoring,
+   fisheries, consulting, government.
+   • Seat/prereq cautions: some 3xx BIO seats prioritize Biology majors; request permissions early.
+
+Track 2 — P.Ag. (BC Institute of Agrologists)
+   • Year 1 — T1: BIOL 116; CHEM 121/123; MATH 100; WRDS/ENGL; elective.
+   • Year 1 — T2: BIOL 125; CHEM 123/121; PHYS 111/112; elective.
+   • Year 2 — T1: EESC 205; STAT 230 / GEOG 271 / BIOL 202; ECON 371/372 (ex.); elective.
+   • Year 2 — T2: EESC 222; CHEM 211; CHEM 201/210 (ex.); elective.
+   • Year 3 — T1: EESC 301; EESC 402 or other policy/management upper■level (ex.); GISC/GEOG
+   380/381 (GIS/RS).
+   • Year 3 — T2: Choose among EESC 333/413/422/429/431/435 (ex.); consider CHEM 301/302 as
+   relevant.
+   • Year 4: Round out to ≥20 agrology■related courses with ≥8 at 3rd/4th■year across
+   EESC/BIOL/CHEM/GEOG/GISC/ECON; add field/industry projects.
+   • Co■op: after Year■2 or Year■3; target utilities, local/regional governments, consulting,
+   agriculture/watershed NGOs.
+   • Seat/prereq cautions: GIS may have priority rules; ECON seats fill quickly; plan early.
+
+Track 3 — P.Geo. (Environmental Geoscience, EGBC)
+   • Year 1 — T1: CHEM 121/123; MATH 100; PHYS 111/112; BIOL 116; elective.
+   • Year 1 — T2: CHEM 123/121; MATH 101/103 (ex.); PHYS 112/121 (ex.); BIOL 125; elective.
+   • Year 2 — T1: EESC 205; EESC 200 or 201 (Mineralogy/Petrology — compulsory); STAT 230 or
+   GEOG 271; elective.
+   • Year 2 — T2: EESC 222; Intro GIS (ex. GEOG/GISC 272/280 if offered) or defer to 3rd year; CHEM
+   211; elective.
+   • Year 3 — T1: EESC 301; EESC 325 (Structural — compulsory); EESC 309/323 (Geochemistry);
+   GISC/GEOG 380/381 (GIS/RS).
+   • Year 3 — T2: EESC 356 (Sed/Strat — compulsory); EESC 350 (Geophysics — recommended);
+   upper■level elective.
+   • Year 4 — T1: EESC 342 (Hydrogeology); EESC 423 (Advanced Geochem, ex.); elective.
+   • Year 4 — T2: EESC 435 (Field Techniques — compulsory/field); capstone/Directed Studies aligned to
+   environmental geoscience.
+   • Co■op: after Year■2 into Year■3; target environmental consulting, mining■environment,
+   groundwater, government hydrology.
+   • Seat/prereq cautions: Some EESC 3xx/4xx need specific lower■division geoscience; take EESC
+   200/201 early. GIS/RS courses have priority rules.
+
+Disclaimer: This advising pack is illustrative. Verify all requirements with current CAB, BCIA, and EGBC
+rules and the UBCO Academic Calendar. Course availability and seat priorities vary by term.
+

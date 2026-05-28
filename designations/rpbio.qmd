@@ -1,55 +1,134 @@
 ---
-title: "RPBio — Registered Professional Biologist (College of Applied Biology)"
-subtitle: "What you need from your UBCO Freshwater Science degree"
+title: "RPBio — Registered Professional Biologist (College of Applied Biologists)"
+subtitle: "Mapping the UBCO Freshwater Science degree to CAB's coursework requirements"
 date: last-modified
 ---
 
-::: {.callout-warning}
-## Scaffold placeholder
-This page is a scaffold. The authoritative course mapping comes from the
-[CAB Credentialing Standard (June 2025)](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf).
-That PDF is image-based and needs to be OCR'd into a curated YAML before
-this page can render the actual list. See `data-raw/03_ocr_cab_rpbio_list.R`.
-:::
-
 # The designation
 
-The **RPBio** (Registered Professional Biologist) is granted by the
-[College of Applied Biology](https://cab-bc.org/), the regulatory body
-for applied biology professionals in British Columbia.
+**RPBio** = Registered Professional Biologist, granted by the
+[College of Applied Biologists](https://cab-bc.org/) — the regulatory
+body for applied biology professionals in BC. Entry-level is
+**Biologist in Training (BIT)** with the academic credential complete;
+RPBio follows after validated experience, competencies, and submitted
+work products.
 
-## Academic eligibility (Streams 1 and 2)
+## Academic requirements
 
-Per the June 2025 Credentialing Standard:
+A bachelor's degree (or master's) with:
 
-- A bachelor's or master's degree with **25 science courses, 13 of
-  which are in biology**.
-- **At least three** of those biology courses must be from:
-  genetics, cellular biology, physiology, systematics, or evolution.
+- **25 science courses, 13 in biology.**
+- Required core courses across:
+  - **Communications** (typically first-year writing)
+  - **Chemistry**
+  - **Numeracy** (math)
+  - **Statistics** at 2nd-year or higher
+  - **Applied biology / management**
+  - **Ecology**
+  - **Three of five** from: **genetics, cell biology, physiology,
+    systematics/taxonomy, evolution**
 
-## Work experience and professional work products
+# How Freshwater Science maps to RPBio
 
-- **Streams 1 and 2** require a minimum of **three years of work
-  experience** in applied biology within the last 10 years.
-- **Stream 3** allows entry with the same 25 science courses plus
-  **15 years of practice** experience in applied biology.
-- You must submit at least one **scientific or risk-assessment
-  report** that meets College criteria, plus at least one **public-
-  facing communication piece** (annotated presentation, briefing note,
-  interpretation document).
+The Freshwater Science core already covers most of the chemistry,
+numeracy, statistics, applied-biology, and ecology requirements. The
+gap to close is the biology course count (need 13) and the
+"three-of-five subject areas" requirement.
 
-## How your Freshwater Science degree maps
+## What's already covered
 
-::: {.callout-tip}
-## When this is wired up
-The interactive planner cross-checks your completed-courses list
-against the CAB biology categories and flags which of the five
-required-area courses you have versus still need (genetics, cellular,
-physiology, systematics, evolution).
+- **Communications**: first-year writing block (ENGL or
+  program-approved alternatives).
+- **Chemistry**: CHEM 121/123, 201/210/211, 301 — comfortable coverage.
+- **Numeracy**: MATH 100/101.
+- **Statistics (≥2nd-year)**: STAT 230 or GEOG 271 or BIOL 202.
+- **Ecology / applied biology**: BIOL 201 (Ecology & Evolution),
+  BIOL 308 (Population Biology), FWSC/BIOL 375 (Flora & Fauna of
+  Inland Waters).
+
+## Electives to close gaps
+
+To reach the 13-biology count and the three-of-five subject areas:
+
+- **Cell biology** → BIOL 200
+- **Genetics** → BIOL 265
+- **Physiology** → BIOL 356 or BIOL 358
+- **Systematics / taxonomy** → BIOL 371
+- **Evolution** → BIOL 201 (already in the core)
+
+Pick whichever combination of three covers your gap without doubling up
+on areas you already hold.
+
+## Sample 4-year plan for the RPBio track
+
+Illustrative; verify with the program advisor and current CAB rules.
+
+::: {.callout-note collapse="true"}
+## Year 1
+- **T1**: BIOL 116; CHEM 121 or 123; MATH 100; WRDS/ENGL/COMM; elective.
+- **T2**: BIOL 125; the other of CHEM 121/123; PHYS 111 or 112;
+  elective.
 :::
 
-## References
+::: {.callout-note collapse="true"}
+## Year 2
+- **T1**: BIOL 201; STAT 230 / GEOG 271 / BIOL 202 (≥2nd-year stats);
+  EESC 205 (Hydrology); elective.
+- **T2**: EESC 222 (Geomorphology); CHEM 211; **BIOL 200 (Cell)**;
+  elective.
+:::
+
+::: {.callout-note collapse="true"}
+## Year 3
+- **T1**: EESC 301 (Limnology); FWSC/BIOL 375 (Flora & Fauna of Inland
+  Waters); CHEM 301; elective.
+- **T2**: **BIOL 265 (Genetics)**; **BIOL 356 or 358 (Physiology)** or
+  **BIOL 371 (Systematics)**; BIO upper-level.
+:::
+
+::: {.callout-note collapse="true"}
+## Year 4
+- **T1**: EESC 402 (Freshwater Resources); pick 1-2 of EESC 309 / 323 /
+  423 (geochem requirement); BIO upper-level (reaching the 13-BIO total).
+- **T2**: EESC 342 (Hydrogeology) or EESC 413 (Analytical Methods); BIO
+  upper-level; Directed Studies / Field / Special Topics.
+:::
+
+## Co-op and experience
+
+Co-op terms after Year 2 (summer start) for 8-12 months, or after
+Year 3 summer. Target biomonitoring, fisheries, environmental
+consulting, and government. Experience accumulated during BIT counts
+toward the RPBio bridge.
+
+## Seat / prerequisite cautions
+
+- Some 3xx BIOL seats prioritise Biology majors. Request permission
+  early.
+- BIOL 200, 265, 356, 358, 371 are the gap-filler electives — plan
+  registration so they aren't squeezed by required EESC courses.
+
+## Professional work products
+
+To convert BIT → RPBio you must submit at least one **scientific or
+risk-assessment report** that meets College criteria, plus at least one
+**public-facing communication piece** (annotated presentation, briefing
+note, interpretation document, etc.). Directed Studies, Honours Thesis,
+and co-op term reports are the natural vehicles for these.
+
+# Your gap-finder (interactive)
+
+::: {.callout-tip}
+## When the planner is wired up
+The interactive planner cross-checks your completed-courses list
+against the CAB biology categories and flags which of the five
+required-area courses (genetics, cell, physiology, systematics,
+evolution) you have versus still need.
+:::
+
+# References
 
 - [RPBio Requirements (CAB)](https://cab-bc.org/applicant-self-assessment-tool-general-information/applicant-self-assessment-tool/rpbio-form/)
 - [Credentialing Standard (June 2025 PDF)](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf)
 - [College of Applied Biology Act](https://www.bclaws.gov.bc.ca/civix/document/id/consol14/consol14/00_02068_01)
+- Source notes in this repo: `docs/reference/advising/UBCO_Freshwater_Professional_Paths_Advising_Pack.pdf`.

@@ -1,0 +1,81 @@
+---
+title: "Complementary pathways"
+subtitle: "How the Freshwater Science degree pairs with Chemistry, Biology, and other directions"
+date: last-modified
+---
+
+Many students who pick Freshwater Science want a *focus* on top of the
+broad core — an applied direction they can take into work or graduate
+school. The patterns below come from the program lead's curated
+advising map (`docs/reference/advising/Map UBCO Freshwater Science
+(BSc) - Pathways.docx`). Use them as starting points; the program
+advisor will sharpen the specific course choices to your goals.
+
+# Water quality and biogeochemistry
+
+A Chemistry-leaning track that builds applied analytical and
+contaminant-cycling expertise.
+
+- **Core EESC**: EESC 301 (Limnology), EESC 309 (Global
+  Biogeochemistry), EESC 423 (Tracers of Natural Processes).
+- **Core CHEM**: CHEM 211 (Analytical), CHEM 301 (Aqueous
+  Environmental Chemistry).
+- **GISC Minor** to add spatial analysis and remote sensing.
+- **Suits**: contaminant monitoring, redox / speciation work, trace
+  analysis in waters, water-utility lab roles.
+- **Lab home**: UBCO Chemistry FiLTER (Field Lab for Trace Element
+  Research) is a frequent collaborator.
+
+# Aquatic ecology and conservation
+
+A Biology-leaning track for biomonitoring, fisheries, and
+species-level work.
+
+- **Core EESC**: EESC 301 (Limnology), EESC 402 (Freshwater
+  Resources).
+- **Core BIOL**: BIOL 308 (Population Biology), BIOL 375 / FWSC 375
+  (Flora & Fauna of Inland Waters).
+- **Year-4 capstone**: Directed Studies or EESC 449 (Honours Thesis).
+- **Co-op targets**: provincial and federal biology agencies,
+  fisheries consulting, NGOs.
+- **Designation fit**: this is the natural pairing with the
+  [RPBio pathway](rpbio.qmd).
+
+# Hydrology and water resources
+
+A Civil-Engineering-adjacent track for watershed modelling,
+flood/drought risk, and water infrastructure.
+
+- **Core EESC**: EESC 413 (Analytical Methods in Hydrology),
+  EESC 435 (Fluvial Field Techniques), EESC 423 (Tracers),
+  EESC 342 (Hydrogeology).
+- **ENGR pairing**: ENGR 342 (Open Channel Flow) — *seat and
+  prerequisite limits apply; coordinate with Engineering advising*.
+- **GISC Minor** for geospatial modelling.
+- **Co-op targets**: hydrometric agencies (ECCC, WSC), engineering
+  consulting (NHC, Associated Engineering, etc.), utilities.
+- **Designation fit**: this is the natural pairing with the
+  [P.Geo pathway](pgeo.qmd) (Environmental Geoscience).
+
+# Practical notes for mixing and matching
+
+- **Co-op across programs.** Co-op is available in Freshwater,
+  Chemistry, Biology, and Engineering — ideal for stitching together
+  applied experience.
+- **Credit double-counting.** The UBCO Academic Calendar caps
+  double-counting of upper-level credits toward a second major or
+  minor (generally max 6 credits for program-specified requirements).
+  Schedule intentionally if you're aiming for a double credential.
+- **Advising.** Use the official Program Plan and meet program
+  advisors early — especially if you're eyeing Honours, co-op, or
+  cross-faculty electives.
+
+# References
+
+- [UBCO Freshwater Science (program page)](https://you.ubc.ca/ubc_programs/freshwater-science/)
+- [UBC Academic Calendar — Freshwater Science requirements](https://okanagan.calendar.ubc.ca/faculties-schools-and-colleges/faculty-science/bachelor-science-programs/major-programs/freshwater-science)
+- [UBCO BSc Freshwater Science — Program Plan (PDF)](https://students.ok.ubc.ca/wp-content/uploads/sites/90/2025/06/BSc-Freshwater-Science_Program-Plan.pdf)
+- [UBCO Chemistry — undergraduate page](https://chemistry.ok.ubc.ca/undergraduate/)
+- [UBCO Civil Engineering — programs](https://engineering.ok.ubc.ca/programs-admissions/civil/)
+- [UBCO GISC Minor](https://eesc.ok.ubc.ca/undergraduate/gisc-minor/)
+- Source notes in this repo: `docs/reference/advising/Map UBCO Freshwater Science (BSc) - Pathways.docx`.

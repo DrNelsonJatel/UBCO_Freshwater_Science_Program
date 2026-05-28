@@ -1,0 +1,119 @@
+---
+title: "P.Geo — Professional Geoscientist (Engineers and Geoscientists BC)"
+subtitle: "Environmental Geoscience track for the UBCO Freshwater Science degree"
+date: last-modified
+---
+
+# The designation
+
+**P.Geo** = Professional Geoscientist, granted by
+[Engineers and Geoscientists BC (EGBC)](https://www.egbc.ca/). Entry
+is **Geoscientist in Training (GIT)** with the academic credential
+complete; P.Geo follows after experience and competency assessment.
+Exams may be assigned if academic gaps remain.
+
+## Academic requirements (Environmental Geoscience)
+
+EGBC uses a self-evaluation checklist against three pillars:
+
+- **Foundations** — math, chemistry, physics, biology, statistics
+- **Compulsory geoscience** — mineralogy / petrology, sedimentology /
+  stratigraphy, structural geology, geomorphology, hydrology,
+  hydrogeology, geochemistry, geophysics, field techniques
+- **Environmental areas** — environmental chemistry, environmental
+  geoscience applications
+
+# How Freshwater Science maps to P.Geo
+
+The Freshwater Science core covers the foundations and several
+compulsory pillars naturally (hydrology, hydrogeology, geochemistry,
+geomorphology, field techniques). The gap to close is the
+mineralogy/petrology + sed-strat + structural + geophysics block, plus
+intro GIS.
+
+## What's already covered
+
+- **Foundations**: MATH 100/101; CHEM 121/123; PHYS 111/112; BIOL 116.
+- **Hydrology**: EESC 205.
+- **Geomorphology / soils**: EESC 222.
+- **Geochemistry**: EESC 309 / 323 / 423.
+- **Environmental chemistry**: CHEM 301.
+
+## Gap-filler courses
+
+To satisfy the compulsory geoscience pillar:
+
+- **Mineralogy / petrology** → **EESC 200 or 201**
+- **Sedimentology / stratigraphy** → **EESC 356**
+- **Structural geology** → **EESC 325**
+- **Field techniques** → **EESC 435**
+- **Geophysics (recommended)** → EESC 350
+- **Hydrogeology** → **EESC 342**
+- **GIS / Remote Sensing** → GEOG / GISC 380, 381
+
+## Sample 4-year plan for the P.Geo track
+
+Illustrative; verify with the program advisor and current EGBC rules.
+
+::: {.callout-note collapse="true"}
+## Year 1
+- **T1**: CHEM 121 or 123; MATH 100; PHYS 111 or 112; BIOL 116;
+  elective.
+- **T2**: The other of CHEM 121/123; MATH 101 or 103; PHYS 112 or 121;
+  BIOL 125; elective.
+:::
+
+::: {.callout-note collapse="true"}
+## Year 2
+- **T1**: EESC 205 (Hydrology); **EESC 200 or 201
+  (Mineralogy/Petrology — compulsory)**; STAT 230 or GEOG 271; elective.
+- **T2**: EESC 222 (Geomorphology); intro GIS (GEOG/GISC 272/280 if
+  offered, or defer to Year 3); CHEM 211; elective.
+:::
+
+::: {.callout-note collapse="true"}
+## Year 3
+- **T1**: EESC 301 (Limnology); **EESC 325 (Structural — compulsory)**;
+  EESC 309 / 323 (Geochemistry); GISC/GEOG 380/381 (GIS/RS).
+- **T2**: **EESC 356 (Sed/Strat — compulsory)**; EESC 350 (Geophysics
+  — recommended); upper-level elective.
+:::
+
+::: {.callout-note collapse="true"}
+## Year 4
+- **T1**: **EESC 342 (Hydrogeology)**; EESC 423 (Advanced Geochem
+  example); elective.
+- **T2**: **EESC 435 (Field Techniques — compulsory/field)**;
+  capstone / Directed Studies aligned to environmental geoscience.
+:::
+
+## Co-op and experience
+
+Co-op terms after Year 2 into Year 3, targeting environmental
+consulting, mining-environment, groundwater, and government hydrology
+work. These count toward the GIT post-degree experience that bridges
+to P.Geo.
+
+## Seat / prerequisite cautions
+
+- Some EESC 3xx and 4xx courses require specific lower-division
+  geoscience prerequisites — take **EESC 200/201 early** to keep the
+  upper-level path open.
+- GIS / Remote Sensing courses (GISC 380/381) have priority rules for
+  majors. Request permission early.
+
+# Your gap-finder (interactive)
+
+::: {.callout-tip}
+## When the planner is wired up
+The interactive planner cross-checks your completed-courses list
+against the EGBC environmental-geoscience pillars (foundations,
+compulsory geoscience, environmental areas) and flags which
+compulsory courses you have versus still need.
+:::
+
+# References
+
+- [Engineers and Geoscientists BC — Become a Member](https://www.egbc.ca/Become-a-Member)
+- [EGBC Environmental Geoscience Syllabus](https://www.egbc.ca/) — locate the geoscience syllabi PDF in the EGBC publications portal.
+- Source notes in this repo: `docs/reference/advising/UBCO_Freshwater_Professional_Paths_Advising_Pack.pdf`.

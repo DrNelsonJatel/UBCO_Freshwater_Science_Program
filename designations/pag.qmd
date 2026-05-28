@@ -1,42 +1,31 @@
 ---
 title: "PAg — Professional Agrologist (BC Institute of Agrologists)"
-subtitle: "What you need from your UBCO Freshwater Science degree"
+subtitle: "Mapping the UBCO Freshwater Science degree to BCIA's coursework requirements"
 date: last-modified
 ---
 
-::: {.callout-warning}
-## Scaffold placeholder
-This page is a scaffold. The authoritative course mapping comes from the
-[BCIA UBCO Approved Course List (2025-06-27)](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf).
-That PDF is image-based and needs to be OCR'd into a curated YAML before
-this page can render the actual list. See `data-raw/02_ocr_bcia_pag_list.R`.
-:::
-
 # The designation
 
-The **PAg** (Professional Agrologist) is the senior registration tier of
-the BC Institute of Agrologists. To get there, you must first qualify
-as an **Articling Agrologist** (AAg) directly from your degree, then
+**PAg** = Professional Agrologist, the senior tier of the
+[BC Institute of Agrologists](https://www.bcia.com/). You first qualify
+as an **Articling Agrologist (AAg)** straight from your degree, then
 complete BCIA's Articling Program plus two years of agrology-related
-work experience.
+work experience to bridge to PAg.
 
-## Academic eligibility for AAg
+## Academic requirements (AAg entry)
 
-Per BCIA, you need:
+A four-year accredited B.Sc. with a science focus, where the coursework
+includes:
 
-- A four-year accredited B.Sc. (which Freshwater Science is) with a
-  science focus.
-- **At least 8 entry-level foundational courses** (100/200 level) from
-  the BCIA Academic Worksheet categories.
+- **At least 8 entry-level foundational courses** (100/200-level) in
+  the subjects on BCIA's Academic Worksheet.
 - **At least 20 courses in agriculture, natural sciences, or
-  agriculture / resource economics** that relate to agrology under the
+  agriculture/resource economics** that relate to agrology under the
   Agrologists Regulation, 2021.
-- **At least 8 senior-level courses** (can be drawn from the 20 above)
-  in those same categories.
+- **At least 8 senior-level courses** (drawn from the 20 above) in
+  those same subject areas.
 
-## Eligible course categories
-
-BCIA recognises courses in:
+Eligible course categories:
 
 - Agrology
 - Foundational Natural Science
@@ -45,17 +34,98 @@ BCIA recognises courses in:
 - Communications / Writing
 - Computer Science
 
-## Your gap-finder
+# How Freshwater Science maps to PAg
 
-::: {.callout-tip}
-## When this is wired up
-The interactive planner reads your completed-courses list and the
-authoritative BCIA UBCO course mapping, then shows you exactly which
-BCIA categories you have covered and which still need fills.
+The Freshwater Science core already covers most of BCIA's foundational
+requirements. The gap-closers are the senior-level course count and a
+small set of category-specific electives.
+
+## What's already covered
+
+- **Foundations (8 required)**: Year 1 science (BIOL 116, CHEM 113 or
+  121/123, MATH 100, PHYS 111/112 or 112/122) plus **EESC 205**
+  (Hydrology) and **EESC 222** (Geomorphology) cover the foundational
+  natural-science count.
+- **Communications / Writing**: the program's 6-credit English /
+  communications block satisfies BCIA's communications requirement.
+- **Mathematics / Statistics**: MATH 100 + STAT 230 / GEOG 271 / BIOL 202.
+
+## Suggested electives to satisfy the 20-course / 8-senior requirement
+
+From BCIA's UBCO-specific approved list (June 2025), the most relevant
+electives for a Freshwater student:
+
+- **EESC**: 301, 309, 313, 314, 315, 333, 342, 402, 413, 422, 423, 429,
+  431, 435
+- **GIS / Geography**: GISC 380, GISC 381, GEOG 380, GEOG 381
+- **Economics**: ECON 371, 372
+- **Chemistry (advanced)**: CHEM 301, 302, 317
+
+(See the [authoritative BCIA UBCO course list (PDF)](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf)
+for the complete approved list. The pathway documents in this repo at
+`docs/reference/program-pathways/` and
+`docs/reference/advising/` reflect the program lead's curated picks.)
+
+## Sample 4-year plan for the PAg track
+
+Illustrative; verify with the program advisor and current BCIA rules.
+
+::: {.callout-note collapse="true"}
+## Year 1
+- **T1**: BIOL 116; CHEM 121/123; MATH 100; WRDS/ENGL; elective.
+- **T2**: BIOL 125; CHEM 123/121; PHYS 111 or 112; elective.
 :::
 
-## References
+::: {.callout-note collapse="true"}
+## Year 2
+- **T1**: EESC 205 (Hydrology); STAT 230 / GEOG 271 / BIOL 202; ECON 371
+  or 372 (example); elective.
+- **T2**: EESC 222 (Geomorphology); CHEM 211; CHEM 201 or 210
+  (example); elective.
+:::
+
+::: {.callout-note collapse="true"}
+## Year 3
+- **T1**: EESC 301 (Limnology); EESC 402 or other policy/management
+  upper-level; GISC/GEOG 380/381 (GIS/Remote Sensing).
+- **T2**: Choose among EESC 333, 413, 422, 429, 431, 435; consider CHEM
+  301/302 as relevant.
+:::
+
+::: {.callout-note collapse="true"}
+## Year 4
+- Round out to **≥20 agrology-related courses with ≥8 at 3rd/4th-year**
+  across EESC, BIOL, CHEM, GEOG, GISC, ECON. Add a field or industry
+  project (Directed Studies, Honours Thesis, or co-op term).
+:::
+
+## Co-op and experience
+
+Co-op terms after Year 2 or Year 3 target utilities, local and regional
+governments, environmental consulting, and agriculture / watershed
+NGOs. These count toward the post-degree articling experience required
+to convert AAg → PAg.
+
+## Seat / prerequisite cautions
+
+- GIS courses (GISC 380/381) often have priority rules for majors.
+  Request permission early.
+- ECON seats fill quickly; plan registration day.
+- Some upper-level EESC courses alternate years (313/413). Coordinate
+  with the program advisor.
+
+# Your gap-finder (interactive)
+
+::: {.callout-tip}
+## When the planner is wired up
+The interactive planner will read your completed-courses list and the
+authoritative BCIA UBCO course mapping and show exactly which BCIA
+categories are covered and which still need fills.
+:::
+
+# References
 
 - [New Registrant Requirements (BCIA)](https://www.bcia.com/how-apply/application-requirements/new-registrant-requirements)
-- [BCIA UBCO Approved Course List (2025-06-27 PDF)](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf)
+- [BCIA UBCO Approved Course List (June 2025 PDF)](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf)
 - [Agrologists Regulation, 2021](https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/47_2021)
+- Source notes in this repo: `docs/reference/advising/UBCO_Freshwater_Professional_Paths_Advising_Pack.pdf`.

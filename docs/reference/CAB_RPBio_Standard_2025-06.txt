@@ -1,0 +1,1359 @@
+Credentialing Standard
+     Effective June 2025
+
+
+
+
+                           1
+Contents
+1.0 The College of Applied Biologists ................................................................................................................................................... 3
+2.0 Registration ................................................................................................................................................................................... 3
+3.0 Registration Applications for Apply to Join or Reclassify ............................................................................................................... 3
+4.0 College Accredited Programs – Stream 1........................................................................................................................................ 6
+5.0 Credential Requirements for All Applications ............................................................................................................................... 6
+6.0 Applied Biology Technician (ABT) and ABT in Training Application Requirements ........................................................................ 8
+7.0 Registered Biology Technologist (RBTech) and RBTech in Training Application Requirements .................................................. 11
+8.0 Registered Professional Biologist (RPBio) and Biologist in Training (BIT) Application Requirements ........................................ 13
+9.0 Applied Biology – Limited Licensee (AB-LL.) Application Requirements ...................................................................................... 17
+10.0       Options to Resolve Education Deficiencies ........................................................................................................................... 19
+11.0       Steps Required After an Application is Approved ................................................................................................................. 19
+12.0       Definitions ............................................................................................................................................................................. 19
+APPENDIX A – Professional Practice Competencies and Competence Standard............................................................................... 21
+APPENDIX B – Course Requirements and Definitions........................................................................................................................ 25
+APPENDIX C – Registrant Application Checklists ............................................................................................................................... 31
+
+
+
+
+                                                                                                                                                                                  2
+1.0 The College of Applied Biologists
+The College of Applied Biologists (the College) is the regulatory body for applied biology professionals in
+British Columbia (BC) who work in the natural resource sector. The College has been granted authority
+from the province of BC to register applied biology professionals, grant licenses and protected titles and
+regulate its registrants under the Professional Governance Act, Professional Governance Regulations,
+Applied Biologists Regulation and the College Bylaws.
+
+2.0 Registration
+This document is specific to the “Apply to Join” and “Reclassify” applications for registration.
+
+Details on registration streams and associated requirements are provided below in section 5.0 and in
+each registrant category section of this document (Sections 6.0 – 9.0).
+
+Registration with the College requires the following:
+    1. A completed application that meets the College’s requirements for the registrant category applied
+        for (e.g., Applied Biology Technician)
+    2. Completion of all mandatory training, and
+   3. Paying all applicable fees (e.g., annual dues and seal)
+
+The Registrar may approve an application for registration under Part 5 of the College Bylaws.
+
+For details on how applications are assessed please refer to Policy 5 – 200 Registration Application
+Assessment.
+
+3.0 Registration Applications for Apply to Join or Reclassify
+The application, assessment and registration process is completed online through the College’s portal
+https://portal.cab-bc.org/applicants/start.
+
+Tables 1.0 and 2.0 below summarize the application requirements for practicing registrants and in Training
+registrants.
+
+Practicing Registrants – are registrants who have met all the College’s education/training and experience
+requirements in one of the following registrant categories:
+    • Registered Professional Biologist (RPBio)
+    • Registered Biology Technologist (RBTech)
+     • Applied Biologist Limited License (AB-LL.)
+     • Applied Biology Technician (ABT)
+
+
+
+
+                                                                                                              3
+ Table 1.0 Summary of the requirements for the RPBio, RBTech, ABT and AB-LL. application for
+ registration with the College.
+
+  Practicing Registrant            RPBio            RBTech                 AB-LL.           ABT
+  Category
+  Proof of                          Yes               Yes                   Yes             Yes
+  Education/Training
+  Experience                        Yes               Yes                   Yes             Yes
+  Professional Practice             Yes               Yes                   Yes             Yes
+  Competencies
+  Professional Work                 Yes               Yes                   Yes             No
+  Products
+  References                        Yes               Yes                   Yes             Yes
+  Indictable Offence                Yes               Yes                   Yes             Yes
+  Declaration
+  Application Fee                   Yes               Yes                   Yes             Yes
+
+
+In Training Registrants – are registrants who have meet all the College’s education requirements and are
+working towards fulfilling the experience requirements in one of the following registrant categories:
+    • Biologist In training (BIT)
+   •    Registered biology technologist in training (RBTech in Training)
+   •    Applied biology technician in training (ABT in Training)
+
+ Table 2.0 Summary of the requirements for the BIT, RBTech in Training and ABT in Training application
+ for registration with the College.
+
+
+  In Training Registrant                    BIT              RBTech in Training       ABT in Training
+  Category
+  Proof of Education/Training               Yes                     Yes                    Yes
+
+  Indictable Offence Declaration            Yes                     Yes                    Yes
+
+  Application Fee                           Yes                     Yes                    Yes
+
+
+
+ Figures 1.0 and 2.0 outline the application and fee payment processes.
+
+
+
+
+                                                                                                           4
+                                Figure 1.0 College’s Application Process
+
+
+
+
+A Completed application means the application fee has been paid and all documentation (e.g.,
+transcripts, lead author declaration, references etc.) have been received. See Understanding your
+application status for details.
+
+
+
+
+                                                                                                    5
+                                          Figure 2.0 College’s Fee Payment Schedule
+
+
+
+
+*See Schedule 2 of the College Bylaws for details of fees.
+
+
+ 4.0 College Accredited Programs – Stream 1
+ Accredited programs have met the education requirements set by the College in this Credential Standard
+ for the registrant category the program is accredited for. Applicants can only apply through Stream 1 if
+ they have completed/graduated from a College Accredited program during the timeframe of the
+ program’s accreditation.
+
+ 5.0 Credential Requirements for All Applications
+ 5.1 Education/Training Requirements
+
+ Each registrant application category requires proof of education (e.g., official transcripts, certificate, on the
+ job training). These are summarized below in Table 3.0. Details of specific education requirements (e.g.,
+ courses, training modules) for each registration category are provided in Sections 6.0 – 9.0..
+
+ Table 3.0 Summary of the proof of education required for each category for registration with the College.
+
+    Registrant Application                                   Proof of Education/Training Required
+    Category                        Stream 1                     Stream          Stream 3               Stream 4
+                                                                    2
+    ABT                             Official                                                        Not Applicable
+    ABT in Training                 Transcripts/Certification                Not Applicable
+    RBTech                          Official Transcripts showing             Official Transcripts
+    RBTech in Training              diploma(s) granted.                      Not Applicable
+    RPBio                           Official Transcripts showing             Official               Official
+                                    degree(s) granted.                       Transcripts            Transcripts
+
+
+                                                                                                                     6
+                                                                   showing                 showing M.Sc.
+                                                                   degree(s)               &/or PhD
+                                                                   granted.                degree(s) granted
+                                                                                           in an applied
+                                                                                           biology topic.
+  Biologist in Training                                            Not Applicable
+  (BIT)
+  AB - LL                                                   AB – LL (Steam 1)
+                                Proof of education that supports the limited license area being applied for
+
+
+ Note:
+ • An applicant with a diploma(s), degree(s) can apply for the ABT or ABT in Training category, if they
+    meet the required course work/module requirements.
+ • An applicant with a degree(s) can apply for the RBTech or RBTech in Training category, if they meet
+    the required course requirements.
+
+
+5.2 Experience
+All practicing registrant applicants are required to demonstrate that they meet the experience
+requirements for the registrant category they have applied for. Experience must fall within the definition
+of the “practice of applied biology” in the Applied Biologists Regulation, which is the provision of
+    (a) advice or services that
+        (i) are based on biological sciences, and
+        (ii) relate to aquatic or terrestrial ecosystems or the living organisms, habitats or processes of those
+              ecosystems, or
+    (b) advice or services that are ancillary to those described in paragraph (a).
+
+
+5.2.1 Volunteer Experience
+Applicants can use volunteer experience towards meeting the experience requirement, if it falls within the
+practice of applied biology as defined in the Applied Biologists Regulation.
+
+5.2.2 Graduate Degree Experience
+Applicants with a thesis-based Master of Science degree in an applied biology topic can claim 12 months to
+meet the experience requirement.
+
+Applicants with a Doctor of Philosophy – (PhD) degree in an applied biology topic can claim 24 months to
+meet the experience requirement.
+
+5.2.3 Registrant Experience
+An applicant who is already a registrant with the College (or an equivalent professional regulator in
+another jurisdiction) may claim all their applied biology experience gained while registered (pre- or post-
+graduation).
+
+
+5.3 Professional Practice Competencies
+All practicing registrant applicants are required to demonstrate that they meet 1 of the three key
+indicators of all 7 of the College’s Professional Practice Competencies (Appendix A). The College's
+
+                                                                                                               7
+Professional Practice Competencies are broadly encompassing and not limited to applied biology to
+represent all the functions of a professional and can include those specific to an organization or employer.
+
+5.4 Professional Work Products
+Applicants for the following registrant categories are required to submit Professional Work Products (see
+Section 13.0 for definition and examples of what the College accepts as a PWP) as part of their
+application:
+    • Registered Professional Biologist (RPBio)
+    • Registered Biology Technologist (RBTech)
+     • Applied Biologist Limited License (AB-LL)
+
+Where a report has multiple authors, the role of the applicant must be corroborated by the lead author. A
+lead author is sent an email directly from the online application and they receive a link directly to the lead
+author section in the applicant’s application. They cannot see or have access to any other portion of the
+application.
+
+See specific registrant application requirements in Sections 6.0 – 9.0.
+
+
+5.5 Reference Requirements
+
+A reference needs to:
+    • Confirm the applicant demonstrates the Professional Practice competencies defined by the College
+    • Be knowledgeable of the applicant’s ability and work as an applied biology professional (i.e., they
+        must be someone the applicant has worked with), and
+    • Not be related to the applicant unless the relative is the supervising professional.
+
+Note: The College recognizes the variety of experience and employer(s) an applicant may have. It is not
+required that references be registrants of the College or be from different employers. Applicants are
+encouraged to include references from more than one employer when possible.
+
+A reference is sent an email directly from the online application. The reference(s) receives a link directly to
+the reference section in the applicant’s application. They cannot see or have access to any other portion of
+the application.
+
+5.6 Mandatory Training
+All applicants who have been approved are required to complete the College’s mandatory training as set
+out by the College Bylaws.
+
+
+6.0 Applied Biology Technician (ABT) and ABT in Training Application Requirements
+There are three streams to registration in the ABT category (Figure 3.0). Streams 1 and 2 require education
+and a minimum of 1 year of experience in applied biology in the 10 years prior to application. Stream 3
+requires 3 years of experience in applied biology in the 10 years prior to application. Table 4.0 summarizes
+the requirements for each stream.
+
+
+
+                                                                                                             8
+          Figure 3.0 Streams of Entrance for the Applied Biology Technician Registrant Category.
+
+
+
+
+Table 4.0 provides the requirements for ABT and ABT in Training applicants for all 3 streams. An ABT in
+Training application only needs to meet the academic requirement and will work on other requirements
+(e.g., experience) during their training period.
+
+Table 4.0 A Summary of the ABT and ABT in Training Application Requirements
+
+  Requirements                        ABT                 ABT in Training                 ABT
+                                               Streams 1 & 2                           Stream 3
+  Academics                 A minimum of 200 hours or 5 instructional weeks
+                            of course work, with or without a certificate,      Not Applicable
+                            which includes courses or modules in each of the
+                            following areas:
+                              • Natural Resource Survey Skills
+                              • Applied Biology Identification Skills
+                              • Field Navigation
+  Experience                ≥ 1 year of applied       Not Applicable            ≥ 3 years of applied
+                            biology experience                                  biology experience
+                            within the 10 years                                 within the 10 years
+                            prior to application.                               prior to application.
+
+
+                                                                                                          9
+  Professional Practice      Demonstrate that you                                 Demonstrate that you
+  Competencies               meet all the College’s                               meet all the College’s
+                             Professional Practice                                Professional Practice
+                             Competencies.                                        Competencies.
+  References                 1                                                    2
+  Complete the College’s       • Code of Ethics & Professional Conduct
+  Mandatory Training           • Indigenous Awareness
+  Courses                      • Legal Requirements
+
+
+6.1 Proof of Education
+ The applicant must submit official transcripts or a certificate demonstrating successful completion of a
+ training course (diploma, degree(s)) from a recognized training or post-secondary institution which
+ includes the course or course modules required as set out above.
+
+6.2 Experience Requirements
+Experience must align with the definition of the “practice of applied biology” as defined
+in the Applied Biologists Regulation.
+
+    •    Streams 1 and 2 - The applicant must demonstrate a minimum of 1 year of work experience
+         practicing applied biology within the 10 years prior to application.
+    •    Stream 3 – The applicant must demonstrate a minimum of 3 years’ experience practicing
+         applied biology within the 10 years prior to application.
+
+Additional information on experience requirements is set out in section 5.0.
+
+
+
+
+                                                                                                            10
+6.3 Professional Practice Competencies
+Applicants of all streams must demonstrate how they meet 1 of the 3 key indicators of each of the
+College’s Professional Practice Competencies.
+
+
+
+7.0 Registered Biology Technologist (RBTech) and RBTech in Training Application
+Requirements
+There are 3 streams to register as an RBTech:
+   • Streams 1 and 2 require a diploma, courses in 5 areas (Table 5.0), and a minimum of 2 years’
+        experience in applied biology in the 10 years prior to application.
+   • Stream 3 requires 20 post-secondary courses including courses in 5 areas (Table 5.0) and a
+        minimum of 3 years’ experience in applied biology in the 10 years prior to application.
+
+Figure 4.0 illustrates the streams, and Table 5.0 summarizes the requirements for RBTech applications.
+
+        Figure 4.0 Streams of Entrance for the Registered Biology Technologist Registrant Category.
+
+
+
+
+                                                                                                         11
+Table 5.0 Summary of the RBTech and RBTech in Training Application Requirements
+
+ Requirements                       RBTech                 RBTech in                        RBTech
+                                                            Training
+                                          Streams 1 & 2                                   Stream 3
+ Education/Training        • Diploma                                       Minimum of 20 courses, including
+                           • Courses in each of the following              courses in each of the following
+                             categories:                                   categories:
+                              • Applied Biology                             • Applied Biology
+                              • Communications                              • Communications
+                              • Environmental Science                       • Environmental Science
+                              • Field/Laboratory Techniques                 • Field/Laboratory Techniques
+                              • Numeracy (Mathematics/Statistics)           • Numeracy
+                                                                               (Mathematics/Statistics)
+ Experience                ≥ 2 years of applied                            ≥ 3 years of applied biology
+                           biology experience                              experience within the 10 years prior
+                           within the 10 years prior                       to application.
+                           to application.
+ Professional Practice     Demonstrate that you        Not Applicable      Demonstrate that you meet all the
+ Competencies              meet all the College’s                          College’s Professional Practice
+ Refer to Section          Professional Practice                           Competencies.
+                           Competencies.
+ Professional Work         2 to 4 PWPs that meets                          2 to 4 PWPs that meets the criteria
+ Products (PWPs) (see      the criteria below                              below
+ below)
+ References                2                                               2
+ Complete the              • Code of Ethics & Professional Conduct
+ College’s Mandatory       • Indigenous Awareness
+ Training Courses          • Legal Requirements
+
+
+7.1 Proof of Education
+The applicant must submit official transcripts demonstrating successful completion of a diploma (or
+degree(s)) or 20 completed courses from a recognized post-secondary institution which includes the
+course requirements as set out above.
+
+7.2 Experience Requirements
+Experience must align with the definition of the “practice of applied biology” as defined
+in the Applied Biologists Regulation.
+
+    •    Streams 1 and 2 - The applicant must demonstrate a minimum of 2 years (24 months)
+         experience practicing applied biology within the 10 years prior to application. Up to 1 year
+         (12 months) of this experience may be pre-diploma.
+    •    Stream 3 – The applicant must demonstrate a minimum of 3 years (36 months) experience
+         practicing applied biology within the 10 years prior to application.
+
+Additional information on experience requirements is set out in section 5.0.
+
+
+                                                                                                          12
+7.3 Professional Practice Competencies
+Applicants of all streams must demonstrate how they meet 1 of the 3 key indicators of each of the
+College’s Professional Practice Competencies.
+
+7.4 Professional Work Products Requirements
+Intent: The professional work product requirement is important to the RBTech application as it is a
+mechanism for applicants to demonstrate a combination of their independent thought as an applied
+biology professional, and how their practice in applied biology and professional competence align with the
+College’s Professional Practice Competencies.
+
+In their application, an applicant must:
+
+1. Provide a minimum of 2 and up to a maximum of 4 separate professional work products in applied
+   biology that, between the provided products, includes the following:
+        • Method(s)
+        • Data analysis within established standards, parameters, or guidelines
+        • Conclusion(s) and/or Recommendations, and
+        • Communicates technical scientific information to a non-expert audience.
+
+
+2. Explain how, between the professional work products, they meet at least one key indicator in each the
+   following professional competencies:
+        • Scientific Knowledge & Concepts
+        • Laws, regulations & policy
+        • Standards & Practices, and
+        • Communication.
+
+
+3. Describe the purpose/intent/background of each of the professional work product(s) submitted.
+
+
+8.0 Registered Professional Biologist (RPBio) and Biologist in Training (BIT)
+ Application Requirements
+There are 4 registration streams in the RPBio category:
+   • Streams 1 and 2 require a bachelor’s or a master’s degree with 25 science courses, 13 in biology
+        and several required courses in a variety of areas, and a minimum of 3 years’ experience in applied
+        biology in the 10 years prior to application.
+   • Stream 3 requires a bachelor’s or a master’s degree with 25 science courses, 13 in biology, and a
+        minimum of 15 years’ experience in the practice of applied biology.
+   • Stream 4 requires either a Master of Science degree or a Doctor of Philosophy degree in an applied
+        biology topic, 25 science courses, 13 in biology, and a minimum of 13 or 11 years’ experience in
+        the practice of applied biology (MSc or PhD, respectively).
+
+Figure 5.0 illustrates the streams, and Table 6.0 summarizes the requirements for an RPBio application.
+
+
+                                                                                                          13
+Figure 5.0 Streams of Entrance for the Registered Professional Biologist Registrant Category.
+
+
+
+
+                                                                                                14
+Table 6.0 A Summary of the RPBio and Biologist in Training Application Requirements
+ Requirements                RPBio              Biologist in                          RPBio
+                                               Training (BIT)
+                                   Streams 1 & 2                     Stream 3                   Stream 4
+ Academics           • Bachelor’s or Master’s Degree            Bachelor’s or         Master of Science
+                     • 25 Science Courses, 13 in biology        Master’s Degree       degree/PhD in an applied
+                     • Core courses in the following:           with 25 Science       biology topic, with 25
+                     1st year or higher                         Courses, 13 in        Science Courses & 13 in
+                          • Communications                      biology.              biology.
+                          • Chemistry
+                          • Numeracy
+                              (Mathematics/Statistics)
+                      nd
+                     2 year or higher
+                          • Applied Biology
+                          • Ecology
+                          • Numeracy must be Statistics
+                     3 of the following 2nd year or higher
+                     courses:
+                          • Cell Biology
+                          • Genetics
+                          • Physiology
+                          • Systematics
+                          • Evolution
+ Experience          ≥ 3 years of applied     Not applicable    ≥ 15 years of        • Master of Science degree
+                     biology experience                         applied biology        in an applied biology
+                     within the 10 years                        experience             topic plus ≥ 13 years of
+                     prior to application                                              applied biology
+                                                                                       experience
+                                                                                     • PhD in an applied biology
+                                                                                       topic plus ≥ 11 years of
+                                                                                       applied biology
+                                                                                       experience
+ Professional        Demonstrate that                           Demonstrate that you meet all the College’s
+ Practice            you meet all the                           Professional Practice Competencies.
+ Competencies        College’s
+ Refer to Section    Professional
+                     Practice
+                     Competencies.
+ Professional        2 to 4 PWPs that                        2 to 4 PWPs that meets the criteria below
+ Work Products       meets the criteria
+ (PWPs)              below
+ References          3                                       3                   3
+ Complete the        • Code of Ethics & Professional Conduct
+ College’s           • Indigenous Awareness
+ Mandatory           • Legal Requirements
+ Training Courses
+
+
+
+                                                                                                        15
+8.1 Proof of Education
+The applicant must submit official transcripts demonstrating successful completion of an undergraduate
+orgraduate degree from a recognized post-secondary institution or in another biological science which
+includes 25 science courses, 13 of which must be in biology plus additional course requirements as set out
+above in Table 6.0.
+
+
+8.2 Experience Requirements
+Experience must align with the definition of the “practice of applied biology” as defined in the Applied
+Biologists Regulation.
+
+     •   Streams 1 and 2 - The applicant must demonstrate a minimum of 3 years (36 months)
+         experience practicing applied biology within the 10 years prior to application. Up to one
+         year (12 months) of this experience may be pre-degree.
+    •    Stream 3 – Bachelor’s or Master’s degree and ≥ 15 years (180 months) of applied biology
+         experience. Up to one year (12 months) of this experience may be pre-degree.
+    •    Stream 4 – Either:
+           o a Master of Science degree in an applied biology topic and ≥ 13 years (156 months) of
+               applied biology experience, OR
+           o a PhD degree in an applied biology topic plus ≥ 11 years (132 months) of applied
+               biology experience.
+           Up to one year (12 months) of this experience may be pre-undergraduate degree.
+
+Additional information on experience requirements is set out in section 5.0.
+
+8.3 Professional Practice Competencies
+Applicants of all streams must demonstrate how they meet 1 of the 3 key indicators of each of the
+College’s Professional Practice Competencies.
+
+8.4 Professional Work Products Requirements for RPBio application
+Intent: The professional work product (PWPs) requirement is important to the RPBio application as it is a
+mechanism for applicants to demonstrate a combination of their independent thought as an applied
+biology professional, and how their practice in applied biology and professional competence align with the
+College’s Professional Practice Competencies.
+
+In their application, an applicant must:
+
+1. Provide a minimum of 2 and up to a maximum of 4 separate professional work products in applied
+   biology that, between the provided products, includes the following:
+        • Method(s)
+        • Data analysis
+        • Conclusion(s) and/or Recommendations
+        • Communicates technical scientific information to a non-expert audience.
+
+ 2. Explain how, between the professional work products, they meet at least one key indicator in each the
+    following professional competencies (see Appendix A for definitions):
+
+
+                                                                                                           16
+        •   Scientific Knowledge & Concepts
+        •   Laws, regulations & policy
+        •   Standards & Practices
+        •   Communication
+
+3. Describe the purpose/intent/background of each of the work product(s) submitted.
+
+
+9.0 Applied Biology – Limited Licensee (AB-LL.) Application Requirements
+
+There is 1 stream of registration for the AB-LL. Registrant category. This category requires
+education/training in the area of the limited license being applied for, and five years of experience in
+applied biology, with a minimum of 2 years in the specific area of the Limited License application.
+
+Figure 6.0 illustrates the registration process, and Table 7.0 summarizes the requirements for the AB-LL.
+
+       Figure 6.0 Stream of Entrance for the Applied Biology – Limited Licensee Registrant Category.
+
+
+
+
+                                                                                                            17
+Table 7.0 Summary of the AB-LL Application Requirements
+
+
+ Requirements                                            AB-LL.
+
+ Education/Training                                      Proof of education that supports the license being
+                                                         applied for
+ Experience                                              ≥ 5 years of applied biology experience with 2
+                                                         years’ experience specific to the area of the license
+                                                         application
+ Professional Practice Competencies                      Demonstrate that you meet all the College’s
+                                                         Professional Practice Competencies
+ Professional Work Products (PWPs)                       2 to 4 PWPs that meets the criteria below
+ References                                              3
+ Complete the College’s Mandatory Training               • Code of Ethics & Professional Conduct
+ Courses                                                 • Indigenous Awareness
+                                                         • Legal Requirements
+
+
+9.1 Description of the specific area the limited license is for
+Applicants must provide a description of the proposed specific area of the reserved practice the Limited
+License (LL) is for.
+
+9.2 Proof of Education/Training
+The applicant must submit official documents demonstrating successful completion of education/training
+in the specific area they are applying for. This could include official transcripts, certificate(s), diploma,
+degree(s).
+
+
+9.3 Experience Requirements
+5 years’ experience in the practice of applied biology as defined in the Applied Biologists Regulation with 2
+years’ experience in the specific area of the Limited License application.
+
+9.4 Professional Work Products Requirements
+Intent: The professional work product requirement is important to the AB-LL application as it is a
+mechanism for applicants to demonstrate a combination of their independent thought as an applied
+biology professional in the area of their LL application, and how their practice in applied biology, specific to
+their LL application and professional competence align with the College’s Professional Practice
+Competencies.
+
+In their application, an applicant must:
+
+1. Provide a minimum of two and up to a maximum of four separate professional work products in the
+   specific area of applied biology that the limited license application is for, between the provided
+   products, includes the following:
+        • Method(s)
+        • Data analysis within established standards, parameters &/or guidelines
+        • Conclusion(s) and/or Recommendations, and
+
+                                                                                                              18
+          •   Communicates technical scientific information to a non-expert audience.
+
+2. Explain how, between the professional work products, they meet at least one key indicator in each the
+   following professional competencies:
+   • Scientific Knowledge & Concepts
+   • Laws, regulations & policy
+   • Standards & Practices
+   • Communication
+
+3. Describe the purpose/intent/background of each of the professional work product submitted.
+
+
+
+
+10.0 Options to Resolve Education Deficiencies
+ An applicant who is deficient in meeting the specific course requirements may resolve the deficiency by:
+
+     a)   Challenging the course exam(s) through a recognized post-secondary institution
+     b)   Successfully completing the GRE examination in the area(s) in which they are deemed deficient
+     c)   Completing the missing course(s) at a recognized post-secondary institution, or
+     d)   Obtaining course credit from a post-secondary institution through Prior Learning Assessment
+          and Recognition (PLAR) if available.
+
+11.0 Steps Required After an Application is Approved
+After an application has been approved, applicants must:
+    1. Pay for and complete the College’s mandatory training courses, and
+    2. Pay fees (e.g., annual registration dues, seal fee).
+
+Table 8.0 outlines the registrant categories with a seal fee applied. Annual dues are pro-rated to reflect the
+period during the College’s fiscal year (January 1 to December 31) in which the application was approved.
+
+Table 8.0 Summary of fee requirements for approved registrant categories.
+
+  Practicing Registrant           RPBio             RBTech                AB-LL.                ABT
+  Category
+  Mandatory Training Fee                                            Yes
+  Registration Fee                                                  Yes
+  Seal Fee                                              Yes                                Not Applicable
+
+
+Schedule 2 – Fees and Charges of the College Bylaws sets out the current fees.
+
+
+12.0 Definitions
+Accredited program - has met the standard education requirements set by the College of Applied
+
+
+                                                                                                            19
+Biologists for the registrant category the program is accredited for (e.g., RPBio, RBTech, ABT)
+
+Communication - is written or presented to a non-expert audience (see definitions of ‘non-expert
+audience’ below).
+
+Conclusion(s) - a summation of outcomes of data analysis, along with an interpretation of significance and
+implications.
+
+Course - is defined as a one-semester course, which includes at least 3 lecture or lab hours per week
+
+Data - facts, information, and/or statistics (e.g., measurements, metrics) collected for reference or
+analysis.
+
+Data Analysis – the study and/or examination of data applying logical techniques to describe and illustrate,
+condense and recap, and evaluate data.
+
+Methods – implementing a systematic or a particular form of procedure or process for accomplishing or
+approaching something such as, a task (e.g., information/data gathering, statistical analysis).
+
+Non-expert audience – an individual or individuals who is not a subject matter expert(s) in the topic being
+communicated. This can include other applied biology professionals, clients, the public, other
+professionals.
+
+Official transcript(s) – means a transcript(s) issued by the granting institution directly or via a third party
+(e.g., My eQuals, Mycreds, National Student Clearingouse etc.) that includes a record of courses, marks,
+degrees, diploma or certificates or obtained from each university, college or training institute attended.
+Degree(s) granted or any foreign education earned at a post- secondary institution outside of Canada or
+the United States of America will be required to be evaluated by a credential evaluation service identified
+by the College (e.g., World Education Services (WES), International Credential Evaluation Service (ICES), or
+Comparative Education Service (CES)).
+
+Professional Work Product(s) - includes but is not limited to a report, policy, assessment, plan, briefing
+note, memorandum, a review report (e.g., literature review) or scientific publication(s), thesis,
+dissertation, poster, presentation, email communication. Draft work products written by the applicant
+such as draft report, draft briefing note are accepted as long as they meet the intent. Draft work products
+are often provided to supervisors and others (e.g., clients, another professional signing off) for review and
+may be changed by supervisors, higher-level staff within the applicant’s organization prior to being
+finalized. Bachelor’s Honours Theses are accepted as a professional work product if they meet the
+communication competency1. The College may accept other professional work products that meet the
+requirements.
+
+Recognized - means the academic institution has met a quality assurance programs as defined by the
+British Columbia Council on Admission and Transfer (https://www.bccat.ca/system/accreditation) or
+similar definition in another jurisdiction.
+
+Recommendation – an informed suggestion regarding the best course of action.
+
+
+1
+    College’s Professional Competencies
+
+                                                                                                              20
+               APPENDIX A – Professional Practice Competencies and Competence Standard
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                                                                                                        V2.0 2022
+
+
+
+
+PROFESSIONAL PRACTICE COMPETENCIES & COMPETENCE STANDARD
+Fundamental principles of professional reliance are that all applied biology professionals meet high professional
+standards such as competence, expertise and work within their own area(s) of practice and level(s) of competency.
+A competency is more comprehensive than skill set(s) alone, it is measurable, assessable and verifiable.
+
+
+The College of Applied Biologists (the College) uses a competency framework of seven (7) Professional Practice
+Competencies (figure 1.0) each with their own key indicators, and a competence continuum (figure 2.0) to align
+registrants’ skills, capabilities, knowledge and competence with their professional practice. The intent of the
+competency framework, key indicators and competency continuum is to provide the College (the regulator),
+registrants, employers and the public with clear and consistent expectations and an understanding of what is
+required of an applied biology professional that is registered and certified by the College.
+
+The Competency Framework, its Key Indicators and the Competence Continuum:
+♦ Were developed to ensure that College registrants meet and maintain high level practice and competence
+   standards to uphold and protect the public interest;
+♦ Encompass the required credentials through the registration process to become a College registrant ; and
+♦ Ensure registrants maintain and enhance the required credentials through the Continued Education, Audit and
+   Practice Review Programs.
+
+
+                                  Figure 1.0 Professional Practice Competencies.
+The College uses the following key indicators (KIs) in each Professional Practice category to assess and verify
+that a professional meets the minimum competency level requirement: Competent (Figure 2.0). College appli-
+cants and registrants are required to demonstrate and maintain competence in at least one (1) key indicator in
+each Professional Practice Competency category during the Registration, Audit and Practice Review processes.
+A registrants Professional Practice Competencies and associated competence level (competent, proficient,
+expert) (Figure 2.0) are acquired through knowledge (education & training), skills and abilities (work experience,
+professional practice experience) in each of the Professional Practice Competency categories. The two are linked
+together.
+
+                                          2.0 Competency Continuum.
+
+
+
+
+During the registration process an applicant is required to:
+♦ Be respectful and professional while interacting with College Staff and employees throughout the process;
+♦ Demonstrate they meet at least one (1) key indicator in each Professional Practice Competency category;
+♦ Establish they have a minimum competence level of Competent in each competency category; and
+♦ Provide References who can verify they meet the Professional Practice Competency categories and are com-
+   petent.
+
+The College:
+♦ Assesses the application using the key indicators and competence level requirements;
+♦ Verifies the information provided by the applicant through information provided by references; and
+♦ Determines if the applicant is accepted or not accepted. If not accepted, the College provides information
+   regarding any deficiency(ies) and associated resolution(s).
+
+A Registrant is required to:
+♦ Self-declare their area of expertise and associated competence level with each Professional Practice Compe-
+   tency category;
+♦ Continue to demonstrate they maintain competence with at least one (1) key indicator in each Professional
+   Practice Competency category through the Audit and Practice Review Processes; and
+♦ Maintain or enhance their competence and area(s) of expertise though the Continuing Education Program.
+
+The College:
+♦ Assesses and verifies a Registrants Professional Practice Competencies through the Audit and Practice Re-
+   view processes, using the key indicators, competent level requirements and Continuing Education activities.
+                                   APPENDIX B – Course Requirements and Definitions
+        The following table summarizes the courses required for each registrant category and associated streams
+        that require specific academic courses.
+
+          Academic Requirements                ABT/ABT in          RBTech/RBTech in         RPBio/Biologist in       RPBio
+                                                Training                Training             Training (BIT) -    Streams 3 & 4
+                                              Streams 1 & 2         Streams 1, 2 & 3         Streams 1 & 2
+          Communication                       Not Applicable              Yes                      Yes               Not
+          Numeracy 1st year or                                            Yes                      Yes            Applicable
+          higher (mathematics
+          /statistics)
+          Applied Biology and                                             Yes                      Yes
+          Management 2nd year or
+          higher
+          Science Courses                                         Will accept to meet            Yes - 25           Yes - 25
+          Biology Courses                                            the 20 post-                Yes - 13           Yes - 13
+                                                                  secondary course
+                                                                    requirements
+          Chemistry 1st year or                                    No - will accept to             Yes               Not
+          higher                                                   meet the 20 post-                              Applicable
+                                                                   secondary course
+          Ecology 2nd year or                                                                      Yes
+                                                                     requirements
+          higher
+          Statistics 2nd year or                                                                   Yes
+          higher
+          Environmental Science                                           Yes                Will accept to
+          Field/Laboratory                                                Yes               meet the science
+                                                                                            or biology course
+          Techniques
+                                                                                              requirements
+          Natural resource survey                   Yes           Will accept to meet
+          skills                                                     the 20 post-
+                                                    Yes           secondary course
+          Applied biology
+                                                                    requirements
+          identification skills
+          Field navigation                          Yes
+                                  3 of the Following 5 2nd year or higher Biology courses
+          1. Genetics                         Not Applicable      Will accept to meet              Yes
+          2. Cellular                                                the 20 post-                  Yes
+                                                                  secondary course
+          3. Systematics or                                                                        Yes
+                                                                    requirements
+             Classification
+          4. Physiology                                                                            Yes
+          5. Evolution                                                                             Yes
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                                                   Course Definitions
+        The following course definitions are provided to assist applicants to understand the College’s academic
+        requirements.
+
+        Biology courses (general)
+        Biology courses must include a majority (>50%) of biological concepts, theory, or practice, from a range
+        of disciplines such as geography, environmental science, forestry and forest sciences, ecological
+        restoration, and environmental engineering.
+
+        Science courses (general)
+        Science courses must include a majority (>50%) of scientific concepts, theory, or practice, and may
+        include subject areas such as physics, chemistry, mathematics, geology, geography, environmental
+        science, forestry and forest sciences, ecological restoration, and engineering.
+
+        Applied Biology and Management
+        A course in applied biology will focus on the application of biological, ecological or socioeconomic
+        principles, including law and governance, to the management or conservation of biological resources,
+        elements or systems. The course can focus on a specific group of organisms or consider broader
+        ecosystem-level issues, however, the majority of the course content (i.e., >80%) must consider biological
+        resources, elements or systems, not topics related to the management or conservation of abiotic
+        resources or the more general idea of environmental sustainability.
+
+        Courses that typically meet the requirements for this subject category include Conservation Biology,
+        Environmental Biology, Wildlife Management, Fisheries Management, Range Management, Natural
+        Resource Policy, or Landscape Ecology.
+
+        The following list represents the general range of topics of Applied Biology and Management:
+            •    Discussion of the application of biological and ecological principles on the use, management or
+                 conservation of biological resources
+            •    Discussion of the management or conservation of biological resources
+            •    Discussion of law or governance with direct application to biological resources
+            •    Discussion of the principles of sustainability in the context of biological resources
+
+        Applied biology identification skills
+        Courses or a course module should cover identification of flora and fauna such as plants, fish, mammals,
+        birds, insects and the differences between groups (e.g., trees, shrubs, mosses). Course or course module
+        can also include collection, labeling and preservation of a specimen(s).
+
+        Cellular
+        A cellular course should include cellular chemistry, bioenergetics, enzyme production and function,
+        membranes and cell signaling, membrane transport processes, signal transduction mechanisms,
+        extracellular structures (adhesions, junctions, etc.), chemotrophic energy metabolism, intracellular
+        compartments, phototrophic metabolism, structural basis of cellular information, sexual reproduction,
+        gene expression – transcription and protein synthesis, regulation of gene expression, cytoskeletal
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+        systems, as well as motility and contractility. Courses that would meet this requirement include Cell
+        Biology, Molecular Biology, and Biochemistry.
+
+        The following list represents the general range of topics of Cellular biology.
+
+        • Cell chemistry, bioenergetics, enzyme                     • Chemotrophic energy metabolism,
+          structure and function                                      phototrophic metabolism,
+        • Membrane transport                                          structural basis of cellular
+        • Membranes and signal transduction                           information
+          mechanisms                                                • Nucleic acid structure and function –
+        • Extracellular structures (adhesions, junctions,             replication, transcription, translation
+          etc.)                                                       and regulation ofgene expression
+        • Intracellular compartments                                • Cytoskeleton systems, motility and
+                                                                      contractility
+
+
+        Chemistry
+        Chemistry courses can be survey-level first year courses. Courses in chemistry should cover classification
+        of matter, periodic properties of elements, atomic and molecular structure, stoichiometry, chemical
+        reactions, thermochemistry, chemical bonding and an introduction to organic chemistry. Completion of
+        the lab component is not mandatory.
+
+        Communications
+        First year or higher courses that focus on communication skills may include technical writing, scientific
+        writing, or English composition. The aim of this requirement is to ensure the applicant has the ability to
+        provide clear and concise communications which can be interpreted by people at all levels of a decision-
+        making process.
+
+        More specifically the graduating student should demonstrate competence in some or all of the following
+        topic areas:
+           • Development of skills in research and writing academic essays or reports
+           • Technical writing skills including memos, briefing notes, technical reports and bulletins
+           • Development of grammatical skills, organizational skills and appropriate use of vocabulary
+           • Prepare and deliver oral presentations
+
+
+        Ecology
+        A course in ecology will consider the relationships between living organisms and the abiotic systems
+        within which they occur. Courses focused on ecology can consider a broad range of content from the
+        description and distribution of biomes at the ecosystem level to the factors and theory underlying
+        population and community dynamics. Courses in specific areas of ecology such as population,
+        community or microbial ecology are acceptable as are courses that take a more general perspective on
+        ecology or ecosystem-level processes.
+
+        The following list represents the general range of topics of Ecology.
+            • The relationships between living organisms and the abiotic systems within which they occur
+            • Description and distribution of biomes at the ecosystem level
+            • Understanding of the factors and theory underlying population and community dynamics
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+        Evolution
+        Courses in evolution will cover the contemporary theory of evolution, such as variation, descent, natural
+        selection, adaptation, speciation, and extinction on both micro- and macro-evolutionary scales. Topics
+        include origins of living systems; species and their origins and extinctions; adaptation and constraints;
+        systematics; evolutionary ethics.
+
+        Examples of courses that may meet these criteria include but are not limited to:
+        • Evolution                                              • Evolutionary Genetics
+        • Diversity and Evolution                                • Ecology and Evolution
+
+        Environmental Science
+        A course in environmental science will discuss multi-disciplinary topics related to natural resource use and
+        sustainability. The course may be as specific as discussing one resource, to the broader global scale of
+        environmental sustainability.
+
+        Courses that typically meet the requirements for this subject category include Fish and wildlife ecology,
+        environmental legislation and policy, earth science, soils, hydrology, climatology.
+        The following list represents the general range of topics of Environmental Science.
+
+            •    Environmental sustainability                           •   Ecological restoration
+            •    Natural resource management                            •   Legislation and policy
+
+
+
+        Field/Laboratory Techniques
+        A course in field/laboratory techniques will focus on the skills and techniques required either in the field or
+        laboratory (lab) for the practice of applied biology as defined in the Applied Biologists Regulation. There
+        should be a focus on following standardized data collection methodology.
+
+        Courses that typically meet the requirements for this subject category include chemistry with a lab
+        component, biology with a lab component, field studies, surveying, maps and navigation, fish or plant
+        identification.
+
+        The following list represents the general range of topics of Field/Laboratory Techniques.
+            • Field survey methods                                       • GPS data collection
+            • Laboratory methods                                         • Ecosystem classification
+
+
+        Field Navigation
+        Courses or a course module should cover navigation skills required for field work. This may include the use of
+        and interpretation of (hardcopy and digital) maps, compasses, GPS systems (handheld and software), hip chain,
+        navigation data collection and storage.
+
+        Genetics
+        Courses in genetics should cover structure and function of genes, chromosomes and genomes, biological
+        variation resulting from recombination, mutation, and selection, population genetics, use of genetic
+        methods to analyze protein function, gene regulation and inherited disease.
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+        Examples of courses that meet these criteria include Genetics, Molecular Genetics, or Genomics.
+
+
+        Natural Resource Survey Skills
+        Courses or a course module should cover data collection (e.g., hard copy and/or digital), proper field note
+        taking, common field equipment requirements, use, maintenance and care (e.g., calibration, storage), quality
+        assurance and data integrity and security.
+
+        Numeracy (Mathematics)
+        Mathematics courses need to be at a first year or higher university level. Introductory courses in
+        calculus, applied calculus, finite math, linear algebra or a fist year statistics course will generally meet this
+        requirement. Technical math courses may not meet the requirement unless they transfer to an
+        equivalent first year math course at a college or university through a recognized transfer agreement.
+
+
+        Numeracy (Statistics)
+        A course in statistics will include applications of parametric and non-parametric statistical methods.
+
+        The following list represents the general range of topics found in a Statistics course. It is not expected
+        that all topics will be addressed during a major or degree. However, it is expected that graduating
+        students will engage with enough topics to gain fundamental knowledge necessary to be competent in
+        this area.
+
+            • Descriptive statistics and probability                  •    Experimental and sampling design
+            • Types of distributions                                  •    Analysis of variance, regression and
+            • Hypothesis testing on means and                              correlation
+              proportions                                             •    Understand or conduct survival analyses
+
+        Physiology
+        A course in physiology will focus on the relationship between the structure and functioning of individual
+        organisms relative to the environments they occupy. The majority of course content (i.e. >80%) should
+        consider the physiology of the organism in the context of environmental responses and/or the interaction
+        between anatomical structure and life history including adaptive behaviour. The course can include the
+        study of a single taxonomic group or a broader perspective across a number of Kingdoms.
+
+        The following table represents the general range of topics of cell, animal, or plant physiology courses.
+
+
+           Cell Physiology Course                 Animal Physiology Course             Plant Physiology Course
+                                                  (including human physiology)
+           •   Structure and function of         • Principles of homeostasis           •   Mechanisms and
+               the cytoskeleton                  • Discussions of                          regulation of functional
+           •   Structure and function of             cardiovascular systems                processes contributing
+               the cell membrane                 • Discussions of respiratory              to assimilation,
+           •   Structure and function of             system                                transport and
+               cell organelles                   • Discussion of                           utilization of water,
+           •   Topics on cell dynamics and           osmoregulatory system                 mineral nutrients and
+                                                                                           carbon
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                                                                                     •   Understanding of cell
+
+
+
+
+               bioenergetics                    •   Discussions of endocrine             division, sexual and asexual
+           •   Topics on regulation of              system                               reproduction
+               cellular activities              •   Discussions of excitable         •   Understanding of
+                                                    membranes of nerve and               differentiation and functions
+                                                    muscle                               of various tissue types
+                                                •   Discussions of reproduction      •   Understanding of the action
+                                                                                         of major growth regulators
+                                                                                         and photomorphogenesis
+
+
+
+        Systematics or Classification
+        A course in systematics or classification will focus on the nomenclature, identification, and categorization
+        of organisms from within one or more taxonomic groups. Course content often includes a description of
+        the unique anatomy or other differentiating characteristics of the organisms under study. Courses in
+        Systematics or Classification may require students to develop a collection of specimens (e.g. herbarium)
+        or develop the skills to identify individual species or genera from a broader set of related organisms.
+
+        The following list represents the general range of topics of systematics or classification.
+            • Nomenclature, identification and categorization within one or more taxonomic group
+            • Description of unique anatomy or other differing characteristics
+            • Development of a collection of specimens or development of skills to identify species
+
+        Examples of courses that typically meet this subject category include:
+        • Invertebrate Zoology                                   • Herpetology
+        • Vertebrate Zoology                                     • Mammalogy
+        • Vascular Plants                                        • Phylogenetics
+        • Non-Vascular Plants                                    • Forest Classification and Silvics
+        • Ornithology
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                                  APPENDIX C – Registrant Application Checklists
+
+                   Applied Biology Technician (ABT) and ABT in Training Streams 1 and 2 Checklist
+
+                                      Applied Biology Technician (ABT) and ABT in Training
+                                                                                    ABT Streams   ABT in Training
+                                       Requirement:
+                                                                                        1&2          Streams
+                                                                                        Y/N            1&2
+                                                                                                       Y/N
+                                              Education/Training
+          ≥ 200 hours or 5 instructional weeks of course work with or without a
+          certificate
+          Including courses or course modules in each of the following areas:
+             Natural resource survey skills
+             Applied biology identification skills
+             Field navigation
+             Experience - meets the practice of applied biology (Applied Biologists Regulation)   Not Applicable
+          12 months experience in applied biology in the 10 years prior to
+          application
+                                     Professional Practice Competencies
+          Meets all 7 Professional Practice Competencies
+          1 Reference to support Professional Practice Competencies
+
+
+
+
+                                   Applied Biology Technician (ABT) Stream 3 Checklist
+
+                                                 Applied Biology Technician (ABT)
+                                                Requirement                                        Stream 3
+                                                                                                      Y/N
+                                                       Education/Training
+          36 months (≥3 years) experience in applied biology in the last years prior to
+          application
+                                              Professional Practice Competencies
+          Meets all 7 Professional Practice Competencies
+          2 References to support Professional Practice Competencies
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+           Registered Biology Technologist (RBTech) and RBTech in Training Streams 1 and 2 Checklist
+
+          Registered Biology Technologist (RBTech) and RBTech in Training           RBTech       RBTech in Training
+                                  Requirements                                   Streams 1 & 2     Streams 1 & 2
+                                                                                      Y/N               Y/N
+                                          Education/Training
+          Diploma
+          Required Courses:
+             Communications
+             Mathematics/Statistics (Numeracy)
+             Environmental Science
+             Field/Laboratory Techniques
+             Applied Biology and Management
+            Experience - meets the practice of applied biology (Applied Biologists Regulation)    Not Applicable
+          ≥ 24 months (≥ 2 years) experience in applied biology in the 10
+          years prior to application
+                                     Professional Work Products (PWPs)
+          1. Do your PWPs meet 1 of the key indicators for each of the following Professional
+          Practice Competences
+          • Scientific Knowledge
+          • Laws, Regulations and Policies
+          • Standards & Practices
+          • Communication
+          And include the following:
+          • Methods
+          • Data analysis within established standards, parameters &/or
+              guidelines
+          • Conclusion(s) and/or Recommendations
+          • Communicates technical scientific information to a non-expert
+              audience.
+          2. Describe the purpose/intent/background of each of the
+          professional work product(s) submitted
+                                     Professional Practice Competencies
+          Meets all 7 Professional Practice Competencies
+          2 References to support Professional Practice Competencies
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                              Registered Biology Technologist (RBTech) Stream 3 Checklist
+
+                  Registered Biology Technologist (RBTech) Requirement                         Stream 3
+                                                                                                  Y/N
+                                                      Education/Training
+          ≥2O Post Secondary Courses
+          Required Courses:
+            Communications
+            Mathematics/Statistics (Numeracy)
+            Environmental Science
+            Field/Laboratory Techniques
+            Applied Biology and Management
+                        Experience - meets the practice of applied biology (Applied Biologists Regulation)
+          24 months’ experience in applied biology in the 10 years prior to
+          application
+                                              Professional Work Products (PWPs)
+          1. Do your PWPs meet 1 of the key indicators for each of the following Professional Practice Competences
+          • Scientific Knowledge
+          • Laws, Regulations and Policies
+          • Standards & Practices
+          • Communication
+          And include the following:
+          • Methods
+          • Data analysis within established standards, parameters &/or
+              guidelines
+          • Conclusion(s) and/or Recommendations
+          • Communicates technical scientific information to a non-expert
+              audience.
+          2. Describe the purpose/intent/background of each of the professional
+          work product(s) submitted
+                                              Professional Practice Competencies
+          Meets all 7 Professional Practice Competencies
+          2 References to support Professional Practice Competencies
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                        Registered Professional Biologist (RPBio) and Biologist in Training (BIT)
+                                              Streams 1 and 2 Checklist
+
+              Registered Professional Biologist (RPBio) and           RPBio Streams 1 and 2     BIT Streams 1 and 2
+                 Biologist in Training (BIT) Requirements                      Y/N                     Y/N
+                                             Education/Training
+          Bachelor’s or Master’s degree
+          25 Science Courses
+          13 Biology Courses
+          Core Course Requirements
+          Communications (1styear or higher)
+          Chemistry (1styear or higher)
+          Numeracy (1styear or higher)
+          Statistics (2nd year or higher)
+          Applied Biology or Management (2nd year or higher)
+          Ecology (2nd year or higher)
+          Do you have 3 of the 5 following courses (2nd year
+          or higher):
+          Genetics
+          Cellular
+          Systematics
+          Physiology
+          Evolution
+          Experience - meets the practice of applied biology (Applied Biologists Regulation)     Not Applicable
+          36 months’ experience in the 10 years prior to
+          application
+                                     Professional Work Products (PWPs)
+          1. Do your PWPs meet 1 of the key indicators for each of the following Professional
+          Practice Competences
+          • Scientific Knowledge
+          • Laws, Regulations and Policies
+          • Standards & Practices
+          • Communication
+          And include the following:
+          • Methods
+          • Data analysis
+          • Conclusion(s) and/or Recommendations
+          • Communicates technical scientific information
+              to a non-expert audience.
+          2. Describe the purpose/intent/background of each
+          of the professional work product(s) submitted
+                                     Professional Practice Competencies
+          Meets all 7 Professional Practice Competencies
+          3 References to support Professional Practice
+          Competencies
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                              Registered Professional Biologist (RPBio) Stream 3 Checklist
+
+                                                                                               Stream 3
+                  Registered Professional Biologist (RPBio) Requirement
+                                                                                                  Y/N
+                                                      Education/Training
+          Bachelor’s or Master’s degree
+          25 Science Courses
+          13 Biology Courses
+                       Experience - meets the practice of applied biology (Applied Biologists Regulation)
+          Degree plus ≥ 15 years (180 months) of applied biology experience
+          Professional Work Products (PWPs)
+          1. Do your PWP meet 1 of the key indicators for each of the following Professional Practice Competences
+          • Scientific Knowledge
+          • Laws, Regulations and Policies
+          • Standards & Practices
+          • Communication
+          And include the following:
+          • Methods
+          • Data analysis
+          • Conclusion(s) and/or Recommendations
+          • Communicates technical scientific information to a non-expert
+              audience.
+
+          2. Describe the purpose/intent/background of each of the professional
+          work product(s) submitted
+                                              Professional Practice Competencies
+          Meets all 7 Professional Practice Competencies
+          3 References to support Professional Practice Competencies
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                              Registered Professional Biologist (RPBio) Stream 4 Checklist
+
+                                                                                            Streams 3 & 4
+                  Registered Professional Biologist (RPBio) Requirement:
+                                                        Education/Training
+          Master of Science (MSc) &/or Doctor of Philosophy (PhD) in an
+          applied biology topic
+          25 Science Courses
+          13 Biology Courses
+                        Experience - meets the practice of applied biology (Applied Biologists Regulation)
+          MSc plus 13 years (156 months) of applied biology experience
+          PhD plus 11 years (122 months) of applied biology experience
+                                               Professional Work Products (PWPs)
+          1. Do your PWP meet 1 of the key indicators for each of the following Professional Practice Competences
+          meet 1 of the key indicators for each of the following Professional Practice Competences
+          Scientific Knowledge
+          Laws, Regulations and Policies
+          Standards & Practices
+          Communication
+          And include the following:
+          Methods
+          Data analysis
+          Conclusion(s) and/or Recommendations
+          Communicates technical scientific information to a non-expert
+          audience.
+          2. Describe the purpose/intent/background of each of the professional
+          work product(s) submitted
+                                               Professional Practice Competencies
+          Meets all 7 Professional Practice Competencies
+          3 References to support Professional Practice Competencies
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+                                Applied Biology – Limited Licensee Application Checklist
+
+                     Applied Biology – Limited Licensee Requirements                             Y/N
+                                                   Education/Training
+          Proof of education that supports the license being applied for
+                                                        Experience
+          ≥ 5 years (≥ 60 months) of applied biology experience as defined in the
+          Applied Biologists Regulation with 2 years in the specific area of the
+          license being applied for
+                                           Professional Work Products (PWPs)
+          1. Do your PWPs meet 1 of the key indicators for each of the following Professional Practice
+          Competences
+          • Scientific Knowledge
+          • Laws, Regulations and Policies
+          • Standards & Practices
+          • Communication
+          And include the following:
+          • Methods
+          • Data analysis within established standards, parameters &/or
+              guidelines
+          • Conclusion(s) and/or Recommendations
+          • Communicates technical scientific information to a non-expert
+              audience.
+          2. Describe the purpose/intent/background of each of the professional
+          work product(s) submitted
+                                           Professional Practice Competencies
+          Meets all 7 Professional Practice Competencies
+          3 References to support Professional Practice Competencies
+
+
+
+
+#310-1207 Douglas Street, Victoria BC V8W 2E7
+T 250.383.3306 | www.cab-bc.org
+

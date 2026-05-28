@@ -5,3 +5,52 @@
 .navbar .nav-link {
   font-weight: 500;
 }
+
+/* Style the "Contact advisor" navbar item as a pill button so it
+   reads as a primary call-to-action without a Bootstrap class
+   override. The cosmo navbar is dark, so the button sits on top
+   with a contrasting warm fill. */
+.navbar .nav-link[href^="mailto:"] {
+  background: #ffd166;
+  color: #1f3a5f !important;
+  border-radius: 999px;
+  padding: 4px 14px !important;
+  margin: 4px 6px;
+  font-weight: 600;
+}
+.navbar .nav-link[href^="mailto:"]:hover {
+  background: #ffb703;
+  color: #1f3a5f !important;
+}
+
+/* Contact card on landing page. */
+.contact-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: #f4f7fb;
+  border: 1px solid #d6deea;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 24px 0;
+}
+.contact-card .contact-card-body {
+  flex: 1;
+}
+.contact-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+.contact-card .contact-card-cta {
+  display: inline-block;
+  background: #1f3a5f;
+  color: #ffffff !important;
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.contact-card .contact-card-cta:hover {
+  background: #2c517f;
+}

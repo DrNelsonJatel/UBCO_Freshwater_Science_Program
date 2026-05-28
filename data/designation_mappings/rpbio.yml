@@ -40,23 +40,23 @@ categories:
     description: Communications / writing requirement (typically first-year writing).
     requires: ['1 course']
     courses_eligible:
-      - { code: ENGL 109, title: 'Writing Across the Curriculum' }
-      - { code: ENGL 112, title: 'Strategies for University Writing' }
-      - { code: ENGL 113, title: 'Introduction to Literature and Composition' }
-      - { code: ENGL 114, title: 'Introduction to Literature: Genre and Themes' }
-      - { code: ENGL 150, title: 'Introduction to Literature: Honours' }
-      - { code: ENGL 153, title: 'Critical Analysis and Composition' }
-      - { code: WRDS 150, title: 'Writing in the University' }
+      - { code: ENGL 104, title: 'University Writing: Indigenous Perspectives' }
+      - { code: ENGL 109, title: 'Studies in Composition (Enhanced)' }
+      - { code: ENGL 112, title: 'Studies in Composition' }
+      - { code: ENGL 114, title: 'Studies in Composition: Indigenous Perspectives' }
+      - { code: ENGL 150, title: 'Introduction to Literary Genre' }
+      - { code: ENGL 151, title: 'Critical Studies in Literature' }
+      - { code: ENGL 153, title: 'Readings in Narrative' }
+      - { code: BIOL 313, title: 'Science Writing' }
+      - { code: EESC 398, title: 'Technical Communication' }
 
   chemistry:
     name: Chemistry
     description: General chemistry sequence; analytical and aqueous environmental chemistry.
-    requires: ['CHEM 121/123 or CHEM 111/113 (1 year)', 'CHEM 211 (analytical)']
+    requires: ['CHEM 121 + CHEM 123 (Year-1 sequence)', 'CHEM 211 (analytical)']
     courses_eligible:
-      - { code: CHEM 121, title: 'Structural Chemistry' }
+      - { code: CHEM 121, title: 'Atomic and Molecular Chemistry' }
       - { code: CHEM 123, title: 'Physical and Organic Chemistry' }
-      - { code: CHEM 111, title: 'Principles of Chemistry I' }
-      - { code: CHEM 113, title: 'Principles of Chemistry II' }
       - { code: CHEM 201, title: 'Introduction to Physical Chemistry' }
       - { code: CHEM 210, title: 'Organic Chemistry I' }
       - { code: CHEM 211, title: 'Analytical Chemistry' }
@@ -95,12 +95,16 @@ categories:
     description: Ecology and ecological thinking across populations, communities, and ecosystems.
     requires: ['1+ course']
     courses_eligible:
+      - { code: BIOL 117, title: 'Evolution and Ecology' }
       - { code: BIOL 201, title: 'Introduction to Evolution and Ecology' }
-      - { code: BIOL 203, title: 'Introduction to Ecology' }
+      - { code: BIOL 306, title: 'Ecology of Animals' }
       - { code: BIOL 308, title: 'Population Biology' }
+      - { code: BIOL 401, title: 'Spatial Ecology' }
+      - { code: BIOL 414, title: 'Advanced Field Ecology' }
+      - { code: BIOL 417, title: 'Evolutionary Ecology' }
+      - { code: BIOL 459, title: 'Behavioural Ecology' }
       - { code: EESC 301, title: 'Limnology' }
-      - { code: FWSC 375, title: 'Flora and Fauna of Inland Waters' }
-      - { code: BIOL 375, title: 'Flora and Fauna of Inland Waters (cross-listed FWSC 375)' }
+      - { code: FWSC 375, title: 'Flora and Fauna of Inland Waters (cross-listed BIOL 375)' }
 
   # The three-of-five required subject areas.
   genetics:
@@ -128,63 +132,80 @@ categories:
     description: One of the five required subject areas; need at least 3 of 5.
     requires: ['1 course']
     courses_eligible:
-      - { code: BIOL 356, title: 'Plant Physiology' }
-      - { code: BIOL 358, title: 'Animal Physiology' }
+      - { code: BIOL 356, title: 'Comparative Animal Physiology' }
+      - { code: BIOL 358, title: 'Plant Ecophysiology' }
     notes: |
-      The advising pack flags BIOL 356 (plant) or BIOL 358 (animal) as
-      acceptable; pick whichever aligns with your applied interest.
+      BIOL 356 (animal) or BIOL 358 (plant ecophysiology) - pick
+      whichever aligns with your applied interest. (The September-2025
+      advising pack listed these with the plant/animal labels swapped;
+      the values above match the current UBCO Academic Calendar.)
 
   systematics_taxonomy:
     name: Systematics / taxonomy
     description: One of the five required subject areas; need at least 3 of 5.
     requires: ['1 course']
-    courses_eligible:
-      - { code: BIOL 371, title: 'Plant Systematics' }
+    courses_eligible: []
     notes: |
-      BIOL 371 is the advising pack's canonical pick for this area.
+      ATTENTION - UBCO does not currently offer a dedicated systematics
+      or taxonomy undergraduate course. Students targeting RPBio should
+      either (a) plan to fulfil this requirement via a course taken at
+      another institution and transferred in, or (b) choose two of the
+      remaining four three-of-five areas (genetics, cell biology,
+      physiology, evolution) instead. Confirm with the program advisor
+      and CAB before registering. This gap was identified during the
+      May 2026 QAQC pass against the live UBCO Academic Calendar.
 
   evolution:
     name: Evolution
     description: One of the five required subject areas; need at least 3 of 5.
     requires: ['1 course']
     courses_eligible:
+      - { code: BIOL 117, title: 'Evolution and Ecology' }
       - { code: BIOL 201, title: 'Introduction to Evolution and Ecology' }
-      - { code: BIOL 250, title: 'Evolutionary Biology' }
+      - { code: BIOL 301, title: 'Evolutionary Principles and Methods' }
+      - { code: BIOL 417, title: 'Evolutionary Ecology' }
+      - { code: BIOL 468, title: 'Molecular Approaches in Ecology and Evolution' }
     notes: |
       BIOL 201 is already in the Freshwater Science core, so the
-      evolution requirement is satisfied "for free" by the program;
-      the advising pack therefore typically frames the 3-of-5 as
-      "evolution (BIOL 201) + 2 more of the four remaining areas".
+      evolution requirement is satisfied for most students by the
+      program; the practical 3-of-5 target therefore becomes "evolution
+      (BIOL 201) + 2 more of cell / genetics / physiology" because the
+      systematics gap (above) makes that area harder to fill at UBCO.
 
 # Biology-count helpers. The planner uses this list to compute "13
-# biology courses" coverage from a transcript.
+# biology courses" coverage from a transcript. Verified against the
+# scraped UBCO Academic Calendar at QAQC pass 2026-05-28: every code
+# below exists in data/courses.parquet (or is a confirmed cross-listing).
 biology_count_eligible_codes:
   - BIOL 116
+  - BIOL 117
+  - BIOL 122
   - BIOL 125
   - BIOL 200
   - BIOL 201
   - BIOL 202
-  - BIOL 203
   - BIOL 204
   - BIOL 205
   - BIOL 209
   - BIOL 210
   - BIOL 228
-  - BIOL 250
   - BIOL 265
+  - BIOL 306
   - BIOL 308
   - BIOL 311
   - BIOL 319
   - BIOL 354
-  - BIOL 356
-  - BIOL 357
-  - BIOL 358
+  - BIOL 356  # Comparative Animal Physiology
+  - BIOL 358  # Plant Ecophysiology
   - BIOL 363
   - BIOL 364
   - BIOL 366
-  - BIOL 371
-  - BIOL 375
-  - FWSC 375
+  - BIOL 375  # Cross-listing of FWSC 375
+  - FWSC 375  # Flora and Fauna of Inland Waters
+  - BIOL 414
+  - BIOL 417
+  - BIOL 459
+  - BIOL 468
   - EESC 301  # Limnology - applied biology
   - EESC 402  # Freshwater Resources - applied biology
 
@@ -220,9 +241,9 @@ sample_plan:
     - 'elective'
   year_3_t2:
     - BIOL 265
-    - 'BIOL 356 or BIOL 358 (Physiology)'
-    - 'BIOL 371 (Systematics)'
+    - 'BIOL 356 (animal) or BIOL 358 (plant ecophysiology)'
     - 'BIO upper-level (reach 13 BIO courses)'
+    - 'Systematics: confirm transfer-credit plan with advisor (no UBCO equivalent currently offered)'
   year_4_t1:
     - EESC 402
     - 'EESC 309 / 323 / 423 (choose 1-2)'

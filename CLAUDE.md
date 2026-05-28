@@ -1,9 +1,13 @@
 # CLAUDE.md — UBCO Freshwater Science Program tool
 
-Student-facing interactive website + degree planner for the **Freshwater
-Science** undergraduate program at the UBC Okanagan campus. Built by
-Limnology Research Corp. Hosting at a `limnology.ca` subpath. Repo at
-`DrNelsonJatel/UBCO_Freshwater_Science_Program` (public).
+Student-facing interactive website + degree planner for the **Bachelor of
+Science Freshwater Science** major at the UBC Okanagan campus. Curated and
+maintained by Dr. Nelson Jatel, PAg, Lecturer and Freshwater Science Program
+Advisor. Repo at `DrNelsonJatel/UBCO_Freshwater_Science_Program` (public).
+Live site at https://drnelsonjatel.github.io/UBCO_Freshwater_Science_Program/
+and embedded into a Squarespace page at https://www.limnologyresearch.com/ubco-freshwater
+(LRC corporate chrome hidden via per-page CSS injection so the embed reads as
+a UBCO academic resource, not an LRC product).
 
 ## Audience priority
 

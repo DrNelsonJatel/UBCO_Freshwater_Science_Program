@@ -4,6 +4,38 @@ subtitle: "Course pathways, designations, and learning outcomes"
 date: last-modified
 ---
 
+::: {.callout-note}
+## Land acknowledgement
+The UBC Okanagan campus is situated within the unceded, ancestral, and
+traditional territory of the **Syilx Okanagan Nation**. The Freshwater
+Science program — its teaching, its research, its applied work in
+freshwater systems — depends on this land and on relationships with
+the Indigenous Peoples and rights-holders who continue to steward it.
+:::
+
+::: {.callout-important}
+## About this resource
+This is a curated **advising and planning resource**, maintained by the
+program lead. **The
+[UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/)
+is the authoritative source for all degree requirements, course
+prerequisites, and program rules.** Whenever this site and the calendar
+disagree, the calendar wins. Always confirm your degree plan with the
+program advisor.
+:::
+
+<!--
+  Watershed photo gallery + advisor headshot land here once the
+  image files are saved into assets/photos/. CSS in assets/styles.css
+  is already styled for the .watershed-gallery and the .contact-card
+  .contact-card-photo class. Markup to drop back in:
+
+  ::: {.watershed-gallery}
+  <figure><img src="assets/photos/skaha-okfalls.jpg" alt="..."><figcaption>...</figcaption></figure>
+  ...four figures total...
+  :::
+-->
+
 # A planning resource for current and prospective students
 
 Welcome to the planning hub for the **Freshwater Science** undergraduate
@@ -104,7 +136,25 @@ questions, Honours / Co-op / NSERC USRA enquiries, or anything else.
 
 ## Who maintains this
 
-Built and maintained by [Limnology Research Corp](https://limnology.ca)
-on behalf of the program lead, Nelson R. Jatel, PAg. Source code at
+Curated and maintained by **Dr. Nelson Jatel, PAg** — Lecturer and
+Freshwater Science Program Advisor, Department of Earth, Environmental
+and Geographic Sciences, UBC Okanagan. For advising appointments or to
+flag a correction, email
+[nelson.jatel@ubc.ca](mailto:nelson.jatel@ubc.ca?subject=UBCO%20Freshwater%20Science%20-%20Student%20enquiry).
+
+Source code is open and at
 [github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program).
-Issues and suggestions welcome.
+Issues and suggestions welcome via the GitHub issues tracker.
+
+### Status of this resource (as of last update)
+
+| Section | Status |
+|---|---|
+| Course catalogue | **Live data** — scraped daily from the UBC Okanagan Academic Calendar |
+| Designations (PAg) | **Live data** — rendered from the [BCIA UBCO approved-course list](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf) (June 2025) |
+| Designations (RPBio) | **Curated** by the program advisor from the [CAB Credentialing Standard](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf) (June 2025) — CAB does not publish a UBCO-specific list |
+| Program Learning Outcomes | **Curated** from the v2 PLO memo (28 April 2026) |
+| Complementary pathways | **Curated** from the program advisor's pathway map |
+| Curriculum-map matrix (PLOs × courses) | **In development** — EESC 301 pilot only; instructor interviews pending |
+| Skills scaffolding | **In development** — draft vocabulary only |
+| Interactive Degree Planner | **In development** — see [Planner page](planner/index.qmd) for the design intent |

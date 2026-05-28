@@ -38,3 +38,6 @@ data/courses_raw_*.parquet
 .secrets/
 .env
 *.env.local
+
+/.quarto/
+**/*.quarto_ipynb

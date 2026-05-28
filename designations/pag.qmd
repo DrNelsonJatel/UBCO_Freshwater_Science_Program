@@ -42,10 +42,10 @@ small set of category-specific electives.
 
 ## What's already covered
 
-- **Foundations (8 required)**: Year 1 science (BIOL 116, CHEM 113 or
-  121/123, MATH 100, PHYS 111/112 or 112/122) plus **EESC 205**
-  (Hydrology) and **EESC 222** (Geomorphology) cover the foundational
-  natural-science count.
+- **Foundations (8 required)**: Year 1 science (BIOL 116, CHEM 121 +
+  CHEM 123, MATH 100, PHYS 111/112 paired with PHYS 121/122) plus
+  **EESC 205** (Hydrology) and **EESC 222** (Geomorphology) cover the
+  foundational natural-science count.
 - **Communications / Writing**: the program's 6-credit English /
   communications block satisfies BCIA's communications requirement.
 - **Mathematics / Statistics**: MATH 100 + STAT 230 / GEOG 271 / BIOL 202.
@@ -121,7 +121,7 @@ Illustrative; verify with the program advisor and current BCIA rules.
 
 ::: {.callout-note collapse="true"}
 ## Year 1
-- **T1**: BIOL 116; CHEM 121/123; MATH 100; WRDS/ENGL; elective.
+- **T1**: BIOL 116; CHEM 121; MATH 100; ENGL 109/112/114 (writing requirement); elective.
 - **T2**: BIOL 125; CHEM 123/121; PHYS 111 or 112; elective.
 :::
 

@@ -28,6 +28,18 @@ A bachelor's degree (or master's) with:
   - **Three of five** from: **genetics, cell biology, physiology,
     systematics/taxonomy, evolution**
 
+::: {.callout-warning}
+## Known UBCO gap: systematics / taxonomy
+UBCO does not currently offer a dedicated undergraduate course in
+systematics or taxonomy. Students targeting RPBio should either
+(a) plan to satisfy this requirement via a course taken at another
+institution and transferred in, or (b) cover the three-of-five via
+**evolution + cell biology + genetics** (or + physiology) instead.
+**Confirm with the program advisor and CAB before registering.**
+This gap was identified during the May 2026 QAQC pass against the
+live UBC Okanagan Academic Calendar.
+:::
+
 # How Freshwater Science maps to RPBio
 
 The Freshwater Science core already covers most of the chemistry,
@@ -180,7 +192,7 @@ Illustrative; verify with the program advisor and current CAB rules.
 
 ::: {.callout-note collapse="true"}
 ## Year 1
-- **T1**: BIOL 116; CHEM 121 or 123; MATH 100; WRDS/ENGL/COMM; elective.
+- **T1**: BIOL 116; CHEM 121; MATH 100; ENGL 109/112/114 (writing requirement); elective.
 - **T2**: BIOL 125; the other of CHEM 121/123; PHYS 111 or 112;
   elective.
 :::
@@ -198,7 +210,7 @@ Illustrative; verify with the program advisor and current CAB rules.
 - **T1**: EESC 301 (Limnology); FWSC/BIOL 375 (Flora & Fauna of Inland
   Waters); CHEM 301; elective.
 - **T2**: **BIOL 265 (Genetics)**; **BIOL 356 or 358 (Physiology)** or
-  **BIOL 371 (Systematics)**; BIO upper-level.
+  BIO upper-level toward the 13-biology count.
 :::
 
 ::: {.callout-note collapse="true"}

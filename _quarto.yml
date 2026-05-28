@@ -12,9 +12,22 @@ project:
 
 website:
   title: "UBCO Freshwater Science"
-  description: "Course pathways, professional designations, and learning outcomes for the UBC Okanagan Freshwater Science program."
-  site-url: "https://limnology.ca/ubco-freshwater/"
+  description: "Course pathways, professional designations, and learning outcomes for the UBC Okanagan Bachelor of Science - Freshwater Science major."
+  site-url: "https://drnelsonjatel.github.io/UBCO_Freshwater_Science_Program/"
   favicon: assets/favicon.png
+  page-footer:
+    left: |
+      Maintained by Dr. Nelson Jatel, PAg — Lecturer and Freshwater
+      Science Program Advisor, Department of Earth, Environmental and
+      Geographic Sciences, UBC Okanagan.
+      [nelson.jatel@ubc.ca](mailto:nelson.jatel@ubc.ca)
+    center: |
+      This is a curated advising resource. **The
+      [UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/)
+      is the authoritative source for all degree requirements.**
+    right: |
+      [Source code](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program)
+      · Last updated `{{< meta date >}}`
   navbar:
     background: "#1f3a5f"
     foreground: "#ffffff"

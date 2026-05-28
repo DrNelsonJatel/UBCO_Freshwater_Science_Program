@@ -1,9 +1,9 @@
 # UBCO Freshwater Science Program — Pathways & Resources
 
-Interactive student-facing website for the **Freshwater Science** undergraduate
-program at the UBC Okanagan campus. Built and maintained by
-[Limnology Research Corp](https://limnology.ca) on behalf of the program lead
-(Nelson R. Jatel, PAg).
+Interactive student-facing website for the **Bachelor of Science — Freshwater
+Science** major at the UBC Okanagan campus. Curated and maintained by
+**Dr. Nelson Jatel, PAg**, Lecturer and Freshwater Science Program Advisor,
+Department of Earth, Environmental and Geographic Sciences, UBC Okanagan.
 
 **Live site**: https://drnelsonjatel.github.io/UBCO_Freshwater_Science_Program/
 

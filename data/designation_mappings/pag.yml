@@ -1,0 +1,470 @@
+designation: PAg
+designation_body: BC Institute of Agrologists (BCIA)
+source_document: docs/reference/BCIA_UBCO_PAg_2025-06-27.txt
+source_document_url: https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf
+source_dated: '2025-06-27'
+parsed_at: '2026-05-28T22:27:59Z'
+categories:
+  foundational:
+    name: Foundational (8 required, 100/200-level)
+    description: Entry-level foundational courses from BCIA's Academic Worksheet categories.
+    courses:
+    - code: BIOL 116
+      title: Biology for Science Majors I
+      cross_codes: []
+    - code: BIOL 125
+      title: Biology for Science Majors II
+      cross_codes: []
+    - code: BIOL 200
+      title: Cell Biology
+      cross_codes: []
+    - code: BIOL 201
+      title: Introduction to Evolution and Ecology
+      cross_codes: []
+    - code: BIOL 228
+      title: Introductory Microbiology
+      cross_codes: []
+    - code: BIOL 203
+      title: Introduction to Ecology
+      cross_codes: []
+    - code: BIOL 265
+      title: Principles of Genetics
+      cross_codes: []
+    - code: BIOL 311
+      title: Biochemistry I
+      cross_codes: []
+    - code: BIOL 319
+      title: Biochemistry II
+      cross_codes: []
+    - code: CHEM 111
+      title: Principles of Chemistry I
+      cross_codes: []
+    - code: CHEM 113
+      title: Principles of Chemistry II
+      cross_codes: []
+    - code: CHEM 121
+      title: Structural Chemistry
+      cross_codes: []
+    - code: CHEM 123
+      title: Physical and Organic Chemistry
+      cross_codes: []
+    - code: CHEM 201
+      title: Introduction to Physical Chemistry
+      cross_codes: []
+    - code: CHEM 203
+      title: Introduction to Organic Chemistry
+      cross_codes: []
+    - code: CHEM 204
+      title: Organic Chemistry
+      cross_codes: []
+    - code: CHEM 211
+      title: Analytical Chemistry
+      cross_codes: []
+    - code: CHEM 213
+      title: Organic Chemistry for Biological Sciences I
+      cross_codes: []
+    - code: CHEM 214
+      title: Organic Chemistry for Biological Sciences II
+      cross_codes: []
+    - code: CHEM 220
+      title: Atomic Structure and Molecular Bonding
+      cross_codes: []
+    - code: CHEM 311
+      title: Instrumental Analytical Chemistry
+      cross_codes: []
+    - code: EESC 101
+      title: Environmental Science
+      cross_codes: []
+    - code: EESC 111
+      title: Earth Science
+      cross_codes: []
+    - code: EESC 112
+      title: Environmental Earth Science
+      cross_codes: []
+    - code: EESC 121
+      title: Earth History
+      cross_codes: []
+    - code: EESC 200
+      title: Mineralogy
+      cross_codes: []
+    - code: GEOG 207
+      title: Introduction to Biogeography
+      cross_codes: []
+    - code: INDG 307
+      title: Traditional Ecological Knowledge
+      cross_codes: []
+    - code: INDG 420
+      title: Indigenous Perspectives on Food, Place, Identity, and Biodiversity
+      cross_codes: []
+    - code: PHYS 102
+      title: Electricity, Light, and Radiation
+      cross_codes: []
+    - code: PHYS 111
+      title: Introductory Physics for the Physical Sciences I
+      cross_codes: []
+    - code: PHYS 112
+      title: Introductory Physics for the Life Sciences I
+      cross_codes: []
+    - code: PHYS 121
+      title: Introductory Physics for the Physical Sciences II
+      cross_codes: []
+    - code: PHYS 122
+      title: Introductory Physics for the Life Sciences II
+      cross_codes: []
+    - code: MATH 100
+      title: Differential Calculus with Applications to Physical Sciences and Engineering
+      cross_codes: []
+    - code: MATH 101
+      title: Integral Calculus with Applications to Physical Sciences and Engineering
+      cross_codes: []
+    - code: MATH 103
+      title: Integral Calculus with Applications to Life Sciences
+      cross_codes: []
+    - code: MATH 200
+      title: Calculus III
+      cross_codes: []
+    - code: BIOL 202
+      title: Introduction to Biostatistics
+      cross_codes: []
+    - code: DATA 101
+      title: Making Predictions with Data
+      cross_codes: []
+    - code: GEOG 271
+      title: Geographic Data Analysis
+      cross_codes: []
+    - code: STAT 121
+      title: Elementary Statistics
+      cross_codes: []
+    - code: STAT 230
+      title: Introductory Statistics
+      cross_codes: []
+    - code: BIO 313
+      title: Science Writing
+      cross_codes: []
+    - code: ECON 101
+      title: Microeconomics
+      cross_codes: []
+    - code: ECON 102
+      title: Macroeconomics
+      cross_codes: []
+    - code: EESC 398
+      title: Technical Communication
+      cross_codes: []
+    - code: ENGL 112
+      title: Strategies for University Writing
+      cross_codes: []
+  agrology_lower:
+    name: Agrology - 100/200 level
+    description: Lower-level agrology courses BCIA accepts toward the 20-course requirement.
+    courses:
+    - code: BIOL 204
+      title: Vertebrate Structure and Function
+      cross_codes: []
+    - code: BIOL 205
+      title: Comparative Invertebrate Zoology
+      cross_codes: []
+    - code: BIOL 209
+      title: Fungi (Algae, Fungi and Bryophytes)
+      cross_codes: []
+    - code: BIOL 210
+      title: Land Plants (Vascular Plants)
+      cross_codes: []
+    - code: BIOL 250
+      title: Evolutionary Biology
+      cross_codes: []
+    - code: EESC 205
+      title: Introduction to Hydrology
+      cross_codes: GEOG 205
+    - code: EESC 212
+      title: Atmospheric Environments
+      cross_codes: GEOG 200
+    - code: EESC 213
+      title: Introductory Forest Science and Management
+      cross_codes: []
+    - code: EESC 222
+      title: Geomorphology
+      cross_codes: GEOG 222
+    - code: FDSY 221
+      title: 'Food Systems 1: System Thinking'
+      cross_codes: GEOG 221
+    - code: GEOG 108
+      title: 'Earth Systems: Weather, Climate and Life'
+      cross_codes: []
+    - code: GEOG 109
+      title: 'Earth Systems: Landscape Dynamics'
+      cross_codes: []
+    - code: GEOG 200
+      title: Atmospheric Environments
+      cross_codes: EESC 212
+    - code: GEOG 205
+      title: Introduction to Hydrology
+      cross_codes: EESC 205
+    - code: GEOG 221
+      title: 'Food Systems 1: System Thinking'
+      cross_codes: FDSY 221
+    - code: GEOG 222
+      title: Geomorphology
+      cross_codes: EESC 222
+    - code: GEOG 272
+      title: Cartography and Remote Sensing
+      cross_codes: []
+  agrology_senior:
+    name: Agrology - 300/400+ level (>=8 senior)
+    description: Senior-level agrology courses BCIA accepts toward the 20-course /
+      8-senior requirement.
+    courses:
+    - code: APBI 428
+      title: Integrated Pest Management
+      cross_codes: []
+    - code: BIOC 307
+      title: Wine Biochemistry (Enology 1)
+      cross_codes: []
+    - code: BIOC 310
+      title: Plant Biochemistry
+      cross_codes: []
+    - code: BIOL 306
+      title: Ecology of Animals
+      cross_codes: []
+    - code: BIOL 307
+      title: Limnology
+      cross_codes: []
+    - code: BIOL 308
+      title: Population Biology
+      cross_codes: []
+    - code: BIOL 309
+      title: Field Ecology of Plants and Soil
+      cross_codes: []
+    - code: BIOL 314
+      title: Medical Microbiology
+      cross_codes: []
+    - code: BIOL 330
+      title: Freshwater Microbiology
+      cross_codes: []
+    - code: BIOL 341
+      title: Neurobiology
+      cross_codes: []
+    - code: BIOL 354
+      title: Cell Physiology
+      cross_codes: []
+    - code: BIOL 356
+      title: Comparative Animal Physiology
+      cross_codes: []
+    - code: BIOL 357
+      title: Introduction to Entomology
+      cross_codes: []
+    - code: BIOL 358
+      title: Plant Ecophysiology
+      cross_codes: []
+    - code: BIOL 363
+      title: Developmental Biology
+      cross_codes: []
+    - code: BIOL 364
+      title: Evolutionary Development
+      cross_codes: []
+    - code: BIOL 366
+      title: Molecular Genetics
+      cross_codes: []
+    - code: BIOL 371
+      title: Flora of British Columbia
+      cross_codes: []
+    - code: BIOL 372
+      title: Field Ornithology
+      cross_codes: []
+    - code: BIOL 375
+      title: Flora and Fauna of Inland Waters
+      cross_codes: FWSC 375
+    - code: BIOL 380
+      title: Food and Industrial Microbiology
+      cross_codes: []
+    - code: BIOL 381
+      title: Environmental Microbiology
+      cross_codes: []
+    - code: BIOL 401
+      title: Spatial Ecology
+      cross_codes: []
+    - code: BIOL 410
+      title: Plant-Microbe Interactions
+      cross_codes: []
+    - code: BIOL 422
+      title: Conservation Biology
+      cross_codes: []
+    - code: BIOL 459
+      title: Behavioural Ecology
+      cross_codes: []
+    - code: BIOL 460
+      title: Population Genetics
+      cross_codes: []
+    - code: BIOL 467
+      title: Comparative Environmental Physiology
+      cross_codes: []
+    - code: BIOL 468
+      title: Molecular Approaches in Ecology and Evolution
+      cross_codes: []
+    - code: BIOL 480
+      title: Mycology
+      cross_codes: []
+    - code: BIOL 510
+      title: Plant–Microbe Interactions
+      cross_codes: []
+    - code: BIOL 512
+      title: Spatial Ecology
+      cross_codes: []
+    - code: BIOL 513
+      title: Conservation Biology
+      cross_codes: []
+    - code: BIOL 560
+      title: Population Genetics
+      cross_codes: []
+    - code: BIOL 567
+      title: Comparative Environmental Physiology
+      cross_codes: []
+    - code: BIOL 568
+      title: Molecular Approaches in Ecology and Evolution
+      cross_codes: []
+    - code: CHEM 301
+      title: Aqueous Environmental Chemistry
+      cross_codes: []
+    - code: CHEM 302
+      title: Atmospheric Environmental Chemistry
+      cross_codes: []
+    - code: CHEM 317
+      title: Environmental Organic Chemistry
+      cross_codes: []
+    - code: ECON 371
+      title: Economics of the Environment
+      cross_codes: []
+    - code: ECON 372
+      title: Natural Resource Economics
+      cross_codes: []
+    - code: EESC 301
+      title: Limnology
+      cross_codes: []
+    - code: EESC 303
+      title: Oceanography
+      cross_codes: []
+    - code: EESC 304
+      title: Anthropogenic Climate Change
+      cross_codes: GEOG 304
+    - code: EESC 305
+      title: Land Use Hydrology
+      cross_codes: []
+    - code: EESC 309
+      title: Global Biogeochemistry
+      cross_codes: []
+    - code: EESC 313
+      title: Management of Forested Watersheds
+      cross_codes: []
+    - code: EESC 314
+      title: 'Environmental Impact Assessment: Process, Regulation and Admin'
+      cross_codes: []
+    - code: EESC 315
+      title: 'Environmental Impact Assessment: Techniques and Practice'
+      cross_codes: []
+    - code: EESC 323
+      title: Geochemistry
+      cross_codes: []
+    - code: EESC 333
+      title: Analytical Geochemistry
+      cross_codes: []
+    - code: EESC 342
+      title: Hydrogeology
+      cross_codes: []
+    - code: EESC 380
+      title: Fundamentals of Geographic Information Science I
+      cross_codes: GISC 380
+    - code: EESC 381
+      title: Fundamentals of Geographic Information Science II
+      cross_codes: GISC 381
+    - code: EESC 402
+      title: Freshwater Resources
+      cross_codes: []
+    - code: EESC 413
+      title: Analytical Methods in Hydrology
+      cross_codes: []
+    - code: EESC 422
+      title: Fluvial Geomorphology
+      cross_codes: GEOG 422
+    - code: EESC 423
+      title: Tracers of Natural Processes
+      cross_codes: []
+    - code: EESC 429
+      title: Contaminant Hydrogeology
+      cross_codes: []
+    - code: EESC 431
+      title: Quaternary Glacial Environments
+      cross_codes: []
+    - code: EESC 435
+      title: Fluvial Field Techniques
+      cross_codes: []
+    - code: EESC 437
+      title: Terrain Analysis
+      cross_codes: GEOG 437
+    - code: EESC 444
+      title: Dynamic Modelling of Human-Environment Systems
+      cross_codes: EESC 544
+    - code: EESC 456
+      title: Soil Science
+      cross_codes: []
+    - code: EESC 502
+      title: Environmetrics
+      cross_codes: []
+    - code: EESC 512
+      title: Applied Data Analysis in Geosciences
+      cross_codes: []
+    - code: EESC 544
+      title: Dynamic Modelling of Human-Environment Systems
+      cross_codes: EESC 444
+    - code: FWSC 375
+      title: Flora and Fauna of Inland Waters
+      cross_codes: BIOL 375
+    - code: GEOG 301
+      title: Mechanisms of Global Change
+      cross_codes: []
+    - code: GEOG 304
+      title: Anthropogenic Climate Change
+      cross_codes: EESC 304
+    - code: GEOG 307
+      title: Advanced Biogeography
+      cross_codes: []
+    - code: GEOG 314
+      title: 'Environmental Impact Assessment: Process, Regulation and Admin'
+      cross_codes: []
+    - code: GEOG 317
+      title: The Physical Environment of BC
+      cross_codes: []
+    - code: GEOG 370
+      title: Introduction to Geographic Information Science
+      cross_codes: []
+    - code: GEOG 380
+      title: Fundamentals of Geographic Information Science I
+      cross_codes: GISC 380
+    - code: GEOG 381
+      title: Fundamentals of Geographic Information Science II
+      cross_codes: GISC 381
+    - code: GEOG 414
+      title: Applied Climatology
+      cross_codes: []
+    - code: GEOG 421
+      title: Geography of Food Systems
+      cross_codes: []
+    - code: GEOG 422
+      title: Fluvial Geomorphology
+      cross_codes: EESC 422
+    - code: GEOG 435
+      title: Wine Geographies
+      cross_codes: []
+    - code: GEOG 437
+      title: Terrain Analysis
+      cross_codes: EESC 437
+    - code: GEOG 466
+      title: Soil Science
+      cross_codes: []
+    - code: GISC 380
+      title: Fundamentals of Geographic Information Science I
+      cross_codes: GEOG 380
+    - code: GISC 381
+      title: Fundamentals of Geographic Information Science II
+      cross_codes: GEOG 381
+    - code: GISC 480
+      title: Practical Applications in GIS
+      cross_codes: []

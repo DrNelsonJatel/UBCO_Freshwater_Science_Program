@@ -46,18 +46,133 @@ gap to close is the biology course count (need 13) and the
   BIOL 308 (Population Biology), FWSC/BIOL 375 (Flora & Fauna of
   Inland Waters).
 
-## Electives to close gaps
+## Required core areas + the three-of-five subject areas
 
-To reach the 13-biology count and the three-of-five subject areas:
+The tables below render directly from
+`data/designation_mappings/rpbio.yml` — the curated mapping of CAB's
+requirements onto UBCO courses, based on the
+[CAB Credentialing Standard (June 2025)](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf)
+plus the program-lead's advising pack (CAB does not publish a
+UBCO-specific approved-course PDF).
 
-- **Cell biology** → BIOL 200
-- **Genetics** → BIOL 265
-- **Physiology** → BIOL 356 or BIOL 358
-- **Systematics / taxonomy** → BIOL 371
-- **Evolution** → BIOL 201 (already in the core)
+```{r}
+#| label: rpbio-tables
+#| echo: false
+#| warning: false
+#| message: false
 
-Pick whichever combination of three covers your gap without doubling up
-on areas you already hold.
+suppressPackageStartupMessages({
+  library(yaml); library(DT)
+})
+y <- yaml::read_yaml("../data/designation_mappings/rpbio.yml")
+
+render_area <- function(area) {
+  df <- do.call(rbind, lapply(area$courses_eligible, function(c) {
+    data.frame(
+      Code  = c$code,
+      Title = c$title,
+      check.names = FALSE,
+      stringsAsFactors = FALSE
+    )
+  }))
+  DT::datatable(
+    df, rownames = FALSE, escape = FALSE,
+    options = list(pageLength = 8, dom = "t",
+                   columnDefs = list(list(className = "dt-left",
+                                          targets = "_all")))
+  )
+}
+```
+
+### Required core areas
+
+These six areas all need at least one qualifying UBCO course on the
+transcript.
+
+#### Communications
+```{r}
+#| echo: false
+render_area(y$categories$communications)
+```
+
+#### Chemistry
+```{r}
+#| echo: false
+render_area(y$categories$chemistry)
+```
+
+#### Numeracy
+```{r}
+#| echo: false
+render_area(y$categories$numeracy)
+```
+
+#### Statistics (≥ 2nd-year)
+```{r}
+#| echo: false
+render_area(y$categories$statistics_second_year_or_higher)
+```
+
+#### Applied biology / management
+```{r}
+#| echo: false
+render_area(y$categories$applied_biology_management)
+```
+
+#### Ecology
+```{r}
+#| echo: false
+render_area(y$categories$ecology)
+```
+
+### Three-of-five subject-area requirement
+
+CAB requires at least **three of these five** subject areas to be
+covered. Evolution (BIOL 201) is already in the Freshwater Science
+core, so the practical target is "two more of genetics / cell biology /
+physiology / systematics".
+
+#### Genetics
+```{r}
+#| echo: false
+render_area(y$categories$genetics)
+```
+
+#### Cell biology
+```{r}
+#| echo: false
+render_area(y$categories$cell_biology)
+```
+
+#### Physiology
+```{r}
+#| echo: false
+render_area(y$categories$physiology)
+```
+
+#### Systematics / taxonomy
+```{r}
+#| echo: false
+render_area(y$categories$systematics_taxonomy)
+```
+
+#### Evolution
+```{r}
+#| echo: false
+render_area(y$categories$evolution)
+```
+
+### Biology-count check
+
+CAB requires **13 biology courses**. The planner uses this list of
+UBCO codes when computing your biology-count coverage:
+
+```{r}
+#| echo: false
+codes <- y$biology_count_eligible_codes
+cat("**", length(codes), " UBCO course codes** counted toward the 13-biology threshold:\n\n",
+    paste0("`", codes, "`", collapse = "  ·  "), sep = "")
+```
 
 ## Sample 4-year plan for the RPBio track
 

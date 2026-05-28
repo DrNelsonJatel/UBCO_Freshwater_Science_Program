@@ -50,21 +50,70 @@ small set of category-specific electives.
   communications block satisfies BCIA's communications requirement.
 - **Mathematics / Statistics**: MATH 100 + STAT 230 / GEOG 271 / BIOL 202.
 
-## Suggested electives to satisfy the 20-course / 8-senior requirement
+## BCIA-approved UBCO courses by category {#bcia-approved}
 
-From BCIA's UBCO-specific approved list (June 2025), the most relevant
-electives for a Freshwater student:
+The tables below render directly from the
+[June-2025 BCIA UBCO approved course list (PDF)](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf),
+parsed into a YAML (`data/designation_mappings/pag.yml`) and committed
+to this repository. They update whenever BCIA republishes the list.
 
-- **EESC**: 301, 309, 313, 314, 315, 333, 342, 402, 413, 422, 423, 429,
-  431, 435
-- **GIS / Geography**: GISC 380, GISC 381, GEOG 380, GEOG 381
-- **Economics**: ECON 371, 372
-- **Chemistry (advanced)**: CHEM 301, 302, 317
+```{r}
+#| label: pag-tables
+#| echo: false
+#| warning: false
+#| message: false
 
-(See the [authoritative BCIA UBCO course list (PDF)](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf)
-for the complete approved list. The pathway documents in this repo at
-`docs/reference/program-pathways/` and
-`docs/reference/advising/` reflect the program lead's curated picks.)
+suppressPackageStartupMessages({
+  library(yaml); library(DT)
+})
+y <- yaml::read_yaml("../data/designation_mappings/pag.yml")
+
+render_category <- function(cat) {
+  df <- do.call(rbind, lapply(cat$courses, function(c) {
+    data.frame(
+      Code  = c$code,
+      Title = c$title,
+      `Cross-listed` = if (length(c$cross_codes))
+        paste(unlist(c$cross_codes), collapse = ", ") else "",
+      check.names = FALSE,
+      stringsAsFactors = FALSE
+    )
+  }))
+  DT::datatable(
+    df, rownames = FALSE, escape = FALSE,
+    options = list(pageLength = 15, dom = "tip",
+                   columnDefs = list(list(className = "dt-left",
+                                          targets = "_all")))
+  )
+}
+```
+
+### Foundational courses (8 required, 100/200-level)
+
+`r length(yaml::read_yaml("../data/designation_mappings/pag.yml")$categories$foundational$courses)` UBCO courses are recognised in this category.
+
+```{r}
+#| echo: false
+render_category(y$categories$foundational)
+```
+
+### Agrology courses — 100/200 level
+
+`r length(yaml::read_yaml("../data/designation_mappings/pag.yml")$categories$agrology_lower$courses)` UBCO courses in the lower-level agrology category. These can count toward the 20-course agrology requirement (≥8 must be senior, listed below).
+
+```{r}
+#| echo: false
+render_category(y$categories$agrology_lower)
+```
+
+### Agrology courses — 300/400+ level
+
+`r length(yaml::read_yaml("../data/designation_mappings/pag.yml")$categories$agrology_senior$courses)` UBCO senior-level agrology courses. BCIA requires **≥8 senior-level courses** within the 20-course agrology total.
+
+```{r}
+#| echo: false
+render_category(y$categories$agrology_senior)
+```
 
 ## Sample 4-year plan for the PAg track
 

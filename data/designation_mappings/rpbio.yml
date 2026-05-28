@@ -1,0 +1,233 @@
+designation: RPBio
+designation_body: College of Applied Biologists (CAB)
+source_documents:
+  - path: docs/reference/CAB_RPBio_Standard_2025-06.txt
+    url: https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf
+    dated: '2025-06-01'
+    notes: 'CAB Credentialing Standard, June 2025. Authority on the 25-science / 13-biology / 3-of-5 requirements.'
+  - path: docs/reference/advising/UBCO_Freshwater_Professional_Paths_Advising_Pack.pdf
+    url: ''
+    dated: '2025-09-04'
+    notes: 'Internal UBCO advising pack curated by the program lead (Dr. Nelson Jatel, PAg). Source of the UBCO-specific gap-filler list - CAB does NOT publish a UBCO-specific approved-course PDF.'
+
+# CAB requirements as a structured object the planner reads.
+requirements:
+  science_courses_total: 25
+  biology_courses_total: 13
+  three_of_five_required:
+    - genetics
+    - cell_biology
+    - physiology
+    - systematics_taxonomy
+    - evolution
+  required_core_areas:
+    - communications
+    - chemistry
+    - numeracy
+    - statistics_second_year_or_higher
+    - applied_biology_management
+    - ecology
+
+# Each core requirement mapped to the UBCO courses that satisfy it,
+# curated from the September-2025 advising pack. These are the
+# program lead's authoritative picks for what a Freshwater Science
+# transcript should look like to clear CAB review without a deficiency
+# letter.
+categories:
+
+  communications:
+    name: Communications
+    description: Communications / writing requirement (typically first-year writing).
+    requires: ['1 course']
+    courses_eligible:
+      - { code: ENGL 109, title: 'Writing Across the Curriculum' }
+      - { code: ENGL 112, title: 'Strategies for University Writing' }
+      - { code: ENGL 113, title: 'Introduction to Literature and Composition' }
+      - { code: ENGL 114, title: 'Introduction to Literature: Genre and Themes' }
+      - { code: ENGL 150, title: 'Introduction to Literature: Honours' }
+      - { code: ENGL 153, title: 'Critical Analysis and Composition' }
+      - { code: WRDS 150, title: 'Writing in the University' }
+
+  chemistry:
+    name: Chemistry
+    description: General chemistry sequence; analytical and aqueous environmental chemistry.
+    requires: ['CHEM 121/123 or CHEM 111/113 (1 year)', 'CHEM 211 (analytical)']
+    courses_eligible:
+      - { code: CHEM 121, title: 'Structural Chemistry' }
+      - { code: CHEM 123, title: 'Physical and Organic Chemistry' }
+      - { code: CHEM 111, title: 'Principles of Chemistry I' }
+      - { code: CHEM 113, title: 'Principles of Chemistry II' }
+      - { code: CHEM 201, title: 'Introduction to Physical Chemistry' }
+      - { code: CHEM 210, title: 'Organic Chemistry I' }
+      - { code: CHEM 211, title: 'Analytical Chemistry' }
+      - { code: CHEM 301, title: 'Aqueous Environmental Chemistry' }
+
+  numeracy:
+    name: Numeracy
+    description: First-year calculus.
+    requires: ['MATH 100 (and 101 strongly recommended)']
+    courses_eligible:
+      - { code: MATH 100, title: 'Differential Calculus' }
+      - { code: MATH 101, title: 'Integral Calculus' }
+      - { code: MATH 103, title: 'Integral Calculus with Applications' }
+
+  statistics_second_year_or_higher:
+    name: Statistics (2nd-year or higher)
+    description: Statistics course at the second-year level or higher.
+    requires: ['1 course']
+    courses_eligible:
+      - { code: STAT 230, title: 'Introductory Statistics' }
+      - { code: BIOL 202, title: 'Introduction to Biostatistics' }
+      - { code: GEOG 271, title: 'Statistics in Geography' }
+
+  applied_biology_management:
+    name: Applied biology / management
+    description: Applied biology, freshwater resource management, conservation planning.
+    requires: ['1+ course']
+    courses_eligible:
+      - { code: EESC 402, title: 'Freshwater Resources' }
+      - { code: BIOL 308, title: 'Population Biology' }
+      - { code: EESC 314, title: 'Environmental Impact Assessment: Process, Regulation and Administration' }
+      - { code: EESC 315, title: 'Environmental Impact Assessment: Techniques and Practice' }
+
+  ecology:
+    name: Ecology
+    description: Ecology and ecological thinking across populations, communities, and ecosystems.
+    requires: ['1+ course']
+    courses_eligible:
+      - { code: BIOL 201, title: 'Introduction to Evolution and Ecology' }
+      - { code: BIOL 203, title: 'Introduction to Ecology' }
+      - { code: BIOL 308, title: 'Population Biology' }
+      - { code: EESC 301, title: 'Limnology' }
+      - { code: FWSC 375, title: 'Flora and Fauna of Inland Waters' }
+      - { code: BIOL 375, title: 'Flora and Fauna of Inland Waters (cross-listed FWSC 375)' }
+
+  # The three-of-five required subject areas.
+  genetics:
+    name: Genetics
+    description: One of the five required subject areas; need at least 3 of 5.
+    requires: ['1 course']
+    courses_eligible:
+      - { code: BIOL 265, title: 'Principles of Genetics' }
+    notes: |
+      The advising pack flags BIOL 265 as the canonical gap-filler for
+      this area in a Freshwater Science transcript.
+
+  cell_biology:
+    name: Cell biology
+    description: One of the five required subject areas; need at least 3 of 5.
+    requires: ['1 course']
+    courses_eligible:
+      - { code: BIOL 200, title: 'Cell Biology' }
+    notes: |
+      The advising pack flags BIOL 200 as the canonical gap-filler for
+      this area.
+
+  physiology:
+    name: Physiology
+    description: One of the five required subject areas; need at least 3 of 5.
+    requires: ['1 course']
+    courses_eligible:
+      - { code: BIOL 356, title: 'Plant Physiology' }
+      - { code: BIOL 358, title: 'Animal Physiology' }
+    notes: |
+      The advising pack flags BIOL 356 (plant) or BIOL 358 (animal) as
+      acceptable; pick whichever aligns with your applied interest.
+
+  systematics_taxonomy:
+    name: Systematics / taxonomy
+    description: One of the five required subject areas; need at least 3 of 5.
+    requires: ['1 course']
+    courses_eligible:
+      - { code: BIOL 371, title: 'Plant Systematics' }
+    notes: |
+      BIOL 371 is the advising pack's canonical pick for this area.
+
+  evolution:
+    name: Evolution
+    description: One of the five required subject areas; need at least 3 of 5.
+    requires: ['1 course']
+    courses_eligible:
+      - { code: BIOL 201, title: 'Introduction to Evolution and Ecology' }
+      - { code: BIOL 250, title: 'Evolutionary Biology' }
+    notes: |
+      BIOL 201 is already in the Freshwater Science core, so the
+      evolution requirement is satisfied "for free" by the program;
+      the advising pack therefore typically frames the 3-of-5 as
+      "evolution (BIOL 201) + 2 more of the four remaining areas".
+
+# Biology-count helpers. The planner uses this list to compute "13
+# biology courses" coverage from a transcript.
+biology_count_eligible_codes:
+  - BIOL 116
+  - BIOL 125
+  - BIOL 200
+  - BIOL 201
+  - BIOL 202
+  - BIOL 203
+  - BIOL 204
+  - BIOL 205
+  - BIOL 209
+  - BIOL 210
+  - BIOL 228
+  - BIOL 250
+  - BIOL 265
+  - BIOL 308
+  - BIOL 311
+  - BIOL 319
+  - BIOL 354
+  - BIOL 356
+  - BIOL 357
+  - BIOL 358
+  - BIOL 363
+  - BIOL 364
+  - BIOL 366
+  - BIOL 371
+  - BIOL 375
+  - FWSC 375
+  - EESC 301  # Limnology - applied biology
+  - EESC 402  # Freshwater Resources - applied biology
+
+# Curated 4-year sample plan from the advising pack (Track 1 - RPBio).
+# Each term lists the courses that satisfy the requirements in that
+# slot. "ex." marks examples (substitutable with comparable content).
+sample_plan:
+  year_1_t1:
+    - BIOL 116
+    - 'CHEM 121 or CHEM 123 (one of)'
+    - MATH 100
+    - 'WRDS 150 / ENGL / Comm'
+    - 'elective'
+  year_1_t2:
+    - BIOL 125
+    - 'CHEM 121/123 (the other)'
+    - 'PHYS 111 or PHYS 112'
+    - 'elective'
+  year_2_t1:
+    - BIOL 201
+    - 'STAT 230 / GEOG 271 / BIOL 202 (>=2nd-year stats)'
+    - EESC 205
+    - 'elective'
+  year_2_t2:
+    - EESC 222
+    - CHEM 211
+    - BIOL 200
+    - 'elective'
+  year_3_t1:
+    - 'EESC 301 (Limnology)'
+    - 'FWSC 375 / BIOL 375'
+    - CHEM 301
+    - 'elective'
+  year_3_t2:
+    - BIOL 265
+    - 'BIOL 356 or BIOL 358 (Physiology)'
+    - 'BIOL 371 (Systematics)'
+    - 'BIO upper-level (reach 13 BIO courses)'
+  year_4_t1:
+    - EESC 402
+    - 'EESC 309 / 323 / 423 (choose 1-2)'
+    - 'BIO upper-level'
+  year_4_t2:
+    - 'EESC 342 or EESC 413'
+    - 'BIO upper-level'
+    - 'Directed Studies / Field / Special Topics'

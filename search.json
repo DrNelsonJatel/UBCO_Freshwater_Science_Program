@@ -35,11 +35,11 @@
     "text": "What’s already covered\n\nCommunications: first-year writing block (ENGL or program-approved alternatives).\nChemistry: CHEM 121/123, 201/210/211, 301 — comfortable coverage.\nNumeracy: MATH 100/101.\nStatistics (≥2nd-year): STAT 230 or GEOG 271 or BIOL 202.\nEcology / applied biology: BIOL 201 (Ecology & Evolution), BIOL 308 (Population Biology), FWSC/BIOL 375 (Flora & Fauna of Inland Waters)."
   },
   {
-    "objectID": "designations/rpbio.html#electives-to-close-gaps",
-    "href": "designations/rpbio.html#electives-to-close-gaps",
+    "objectID": "designations/rpbio.html#required-core-areas-the-three-of-five-subject-areas",
+    "href": "designations/rpbio.html#required-core-areas-the-three-of-five-subject-areas",
     "title": "RPBio — Registered Professional Biologist (College of Applied Biologists)",
-    "section": "Electives to close gaps",
-    "text": "Electives to close gaps\nTo reach the 13-biology count and the three-of-five subject areas:\n\nCell biology → BIOL 200\nGenetics → BIOL 265\nPhysiology → BIOL 356 or BIOL 358\nSystematics / taxonomy → BIOL 371\nEvolution → BIOL 201 (already in the core)\n\nPick whichever combination of three covers your gap without doubling up on areas you already hold."
+    "section": "Required core areas + the three-of-five subject areas",
+    "text": "Required core areas + the three-of-five subject areas\nThe tables below render directly from data/designation_mappings/rpbio.yml — the curated mapping of CAB’s requirements onto UBCO courses, based on the CAB Credentialing Standard (June 2025) plus the program-lead’s advising pack (CAB does not publish a UBCO-specific approved-course PDF).\n\nRequired core areas\nThese six areas all need at least one qualifying UBCO course on the transcript.\n\nCommunications\n\n\n\n\n\n\n\n\nChemistry\n\n\n\n\n\n\n\n\nNumeracy\n\n\n\n\n\n\n\n\nStatistics (≥ 2nd-year)\n\n\n\n\n\n\n\n\nApplied biology / management\n\n\n\n\n\n\n\n\nEcology\n\n\n\n\n\n\n\n\n\nThree-of-five subject-area requirement\nCAB requires at least three of these five subject areas to be covered. Evolution (BIOL 201) is already in the Freshwater Science core, so the practical target is “two more of genetics / cell biology / physiology / systematics”.\n\nGenetics\n\n\n\n\n\n\n\n\nCell biology\n\n\n\n\n\n\n\n\nPhysiology\n\n\n\n\n\n\n\n\nSystematics / taxonomy\n\n\n\n\n\n\n\n\nEvolution\n\n\n\n\n\n\n\n\n\nBiology-count check\nCAB requires 13 biology courses. The planner uses this list of UBCO codes when computing your biology-count coverage:\n\n\n**28 UBCO course codes** counted toward the 13-biology threshold:\n\n`BIOL 116`  ·  `BIOL 125`  ·  `BIOL 200`  ·  `BIOL 201`  ·  `BIOL 202`  ·  `BIOL 203`  ·  `BIOL 204`  ·  `BIOL 205`  ·  `BIOL 209`  ·  `BIOL 210`  ·  `BIOL 228`  ·  `BIOL 250`  ·  `BIOL 265`  ·  `BIOL 308`  ·  `BIOL 311`  ·  `BIOL 319`  ·  `BIOL 354`  ·  `BIOL 356`  ·  `BIOL 357`  ·  `BIOL 358`  ·  `BIOL 363`  ·  `BIOL 364`  ·  `BIOL 366`  ·  `BIOL 371`  ·  `BIOL 375`  ·  `FWSC 375`  ·  `EESC 301`  ·  `EESC 402`"
   },
   {
     "objectID": "designations/rpbio.html#sample-4-year-plan-for-the-rpbio-track",
@@ -161,11 +161,11 @@
     "text": "What’s already covered\n\nFoundations (8 required): Year 1 science (BIOL 116, CHEM 113 or 121/123, MATH 100, PHYS 111/112 or 112/122) plus EESC 205 (Hydrology) and EESC 222 (Geomorphology) cover the foundational natural-science count.\nCommunications / Writing: the program’s 6-credit English / communications block satisfies BCIA’s communications requirement.\nMathematics / Statistics: MATH 100 + STAT 230 / GEOG 271 / BIOL 202."
   },
   {
-    "objectID": "designations/pag.html#suggested-electives-to-satisfy-the-20-course-8-senior-requirement",
-    "href": "designations/pag.html#suggested-electives-to-satisfy-the-20-course-8-senior-requirement",
+    "objectID": "designations/pag.html#bcia-approved",
+    "href": "designations/pag.html#bcia-approved",
     "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
-    "section": "Suggested electives to satisfy the 20-course / 8-senior requirement",
-    "text": "Suggested electives to satisfy the 20-course / 8-senior requirement\nFrom BCIA’s UBCO-specific approved list (June 2025), the most relevant electives for a Freshwater student:\n\nEESC: 301, 309, 313, 314, 315, 333, 342, 402, 413, 422, 423, 429, 431, 435\nGIS / Geography: GISC 380, GISC 381, GEOG 380, GEOG 381\nEconomics: ECON 371, 372\nChemistry (advanced): CHEM 301, 302, 317\n\n(See the authoritative BCIA UBCO course list (PDF) for the complete approved list. The pathway documents in this repo at docs/reference/program-pathways/ and docs/reference/advising/ reflect the program lead’s curated picks.)"
+    "section": "BCIA-approved UBCO courses by category",
+    "text": "BCIA-approved UBCO courses by category\nThe tables below render directly from the June-2025 BCIA UBCO approved course list (PDF), parsed into a YAML (data/designation_mappings/pag.yml) and committed to this repository. They update whenever BCIA republishes the list.\n\nFoundational courses (8 required, 100/200-level)\n48 UBCO courses are recognised in this category.\n\n\n\n\n\n\n\n\nAgrology courses — 100/200 level\n17 UBCO courses in the lower-level agrology category. These can count toward the 20-course agrology requirement (≥8 must be senior, listed below).\n\n\n\n\n\n\n\n\nAgrology courses — 300/400+ level\n85 UBCO senior-level agrology courses. BCIA requires ≥8 senior-level courses within the 20-course agrology total."
   },
   {
     "objectID": "designations/pag.html#sample-4-year-plan-for-the-pag-track",

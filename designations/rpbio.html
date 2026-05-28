@@ -73,6 +73,16 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../site_libs/datatables-binding-0.34.0/datatables.js"></script>
+<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
 
 <link rel="stylesheet" href="../assets/styles.css">
@@ -172,7 +182,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#how-freshwater-science-maps-to-rpbio" id="toc-how-freshwater-science-maps-to-rpbio" class="nav-link" data-scroll-target="#how-freshwater-science-maps-to-rpbio">How Freshwater Science maps to RPBio</a>
   <ul class="collapse">
   <li><a href="#whats-already-covered" id="toc-whats-already-covered" class="nav-link" data-scroll-target="#whats-already-covered">What’s already covered</a></li>
-  <li><a href="#electives-to-close-gaps" id="toc-electives-to-close-gaps" class="nav-link" data-scroll-target="#electives-to-close-gaps">Electives to close gaps</a></li>
+  <li><a href="#required-core-areas-the-three-of-five-subject-areas" id="toc-required-core-areas-the-three-of-five-subject-areas" class="nav-link" data-scroll-target="#required-core-areas-the-three-of-five-subject-areas">Required core areas + the three-of-five subject areas</a>
+  <ul class="collapse">
+  <li><a href="#required-core-areas" id="toc-required-core-areas" class="nav-link" data-scroll-target="#required-core-areas">Required core areas</a></li>
+  <li><a href="#three-of-five-subject-area-requirement" id="toc-three-of-five-subject-area-requirement" class="nav-link" data-scroll-target="#three-of-five-subject-area-requirement">Three-of-five subject-area requirement</a></li>
+  <li><a href="#biology-count-check" id="toc-biology-count-check" class="nav-link" data-scroll-target="#biology-count-check">Biology-count check</a></li>
+  </ul></li>
   <li><a href="#sample-4-year-plan-for-the-rpbio-track" id="toc-sample-4-year-plan-for-the-rpbio-track" class="nav-link" data-scroll-target="#sample-4-year-plan-for-the-rpbio-track">Sample 4-year plan for the RPBio track</a></li>
   <li><a href="#co-op-and-experience" id="toc-co-op-and-experience" class="nav-link" data-scroll-target="#co-op-and-experience">Co-op and experience</a></li>
   <li><a href="#seat-prerequisite-cautions" id="toc-seat-prerequisite-cautions" class="nav-link" data-scroll-target="#seat-prerequisite-cautions">Seat / prerequisite cautions</a></li>
@@ -246,17 +261,127 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Ecology / applied biology</strong>: BIOL 201 (Ecology &amp; Evolution), BIOL 308 (Population Biology), FWSC/BIOL 375 (Flora &amp; Fauna of Inland Waters).</li>
 </ul>
 </section>
-<section id="electives-to-close-gaps" class="level2">
-<h2 class="anchored" data-anchor-id="electives-to-close-gaps">Electives to close gaps</h2>
-<p>To reach the 13-biology count and the three-of-five subject areas:</p>
-<ul>
-<li><strong>Cell biology</strong> → BIOL 200</li>
-<li><strong>Genetics</strong> → BIOL 265</li>
-<li><strong>Physiology</strong> → BIOL 356 or BIOL 358</li>
-<li><strong>Systematics / taxonomy</strong> → BIOL 371</li>
-<li><strong>Evolution</strong> → BIOL 201 (already in the core)</li>
-</ul>
-<p>Pick whichever combination of three covers your gap without doubling up on areas you already hold.</p>
+<section id="required-core-areas-the-three-of-five-subject-areas" class="level2">
+<h2 class="anchored" data-anchor-id="required-core-areas-the-three-of-five-subject-areas">Required core areas + the three-of-five subject areas</h2>
+<p>The tables below render directly from <code>data/designation_mappings/rpbio.yml</code> — the curated mapping of CAB’s requirements onto UBCO courses, based on the <a href="https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf">CAB Credentialing Standard (June 2025)</a> plus the program-lead’s advising pack (CAB does not publish a UBCO-specific approved-course PDF).</p>
+<section id="required-core-areas" class="level3">
+<h3 class="anchored" data-anchor-id="required-core-areas">Required core areas</h3>
+<p>These six areas all need at least one qualifying UBCO course on the transcript.</p>
+<section id="communications" class="level4">
+<h4 class="anchored" data-anchor-id="communications">Communications</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0dbf4d530ba2b29ab8f4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0dbf4d530ba2b29ab8f4">{"x":{"filter":"none","vertical":false,"data":[["ENGL 109","ENGL 112","ENGL 113","ENGL 114","ENGL 150","ENGL 153","WRDS 150"],["Writing Across the Curriculum","Strategies for University Writing","Introduction to Literature and Composition","Introduction to Literature: Genre and Themes","Introduction to Literature: Honours","Critical Analysis and Composition","Writing in the University"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="chemistry" class="level4">
+<h4 class="anchored" data-anchor-id="chemistry">Chemistry</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-99478c649c372ef29951" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-99478c649c372ef29951">{"x":{"filter":"none","vertical":false,"data":[["CHEM 121","CHEM 123","CHEM 111","CHEM 113","CHEM 201","CHEM 210","CHEM 211","CHEM 301"],["Structural Chemistry","Physical and Organic Chemistry","Principles of Chemistry I","Principles of Chemistry II","Introduction to Physical Chemistry","Organic Chemistry I","Analytical Chemistry","Aqueous Environmental Chemistry"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="numeracy" class="level4">
+<h4 class="anchored" data-anchor-id="numeracy">Numeracy</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-7d3723b9f360795830dd" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7d3723b9f360795830dd">{"x":{"filter":"none","vertical":false,"data":[["MATH 100","MATH 101","MATH 103"],["Differential Calculus","Integral Calculus","Integral Calculus with Applications"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="statistics-2nd-year" class="level4">
+<h4 class="anchored" data-anchor-id="statistics-2nd-year">Statistics (≥ 2nd-year)</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-92ad1852308e06c80f43" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-92ad1852308e06c80f43">{"x":{"filter":"none","vertical":false,"data":[["STAT 230","BIOL 202","GEOG 271"],["Introductory Statistics","Introduction to Biostatistics","Statistics in Geography"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="applied-biology-management" class="level4">
+<h4 class="anchored" data-anchor-id="applied-biology-management">Applied biology / management</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-57d739d3a5868d846a55" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-57d739d3a5868d846a55">{"x":{"filter":"none","vertical":false,"data":[["EESC 402","BIOL 308","EESC 314","EESC 315"],["Freshwater Resources","Population Biology","Environmental Impact Assessment: Process, Regulation and Administration","Environmental Impact Assessment: Techniques and Practice"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="ecology" class="level4">
+<h4 class="anchored" data-anchor-id="ecology">Ecology</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d434e24748510aba4d4e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d434e24748510aba4d4e">{"x":{"filter":"none","vertical":false,"data":[["BIOL 201","BIOL 203","BIOL 308","EESC 301","FWSC 375","BIOL 375"],["Introduction to Evolution and Ecology","Introduction to Ecology","Population Biology","Limnology","Flora and Fauna of Inland Waters","Flora and Fauna of Inland Waters (cross-listed FWSC 375)"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="three-of-five-subject-area-requirement" class="level3">
+<h3 class="anchored" data-anchor-id="three-of-five-subject-area-requirement">Three-of-five subject-area requirement</h3>
+<p>CAB requires at least <strong>three of these five</strong> subject areas to be covered. Evolution (BIOL 201) is already in the Freshwater Science core, so the practical target is “two more of genetics / cell biology / physiology / systematics”.</p>
+<section id="genetics" class="level4">
+<h4 class="anchored" data-anchor-id="genetics">Genetics</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-c314bf89bdc5ee30b614" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c314bf89bdc5ee30b614">{"x":{"filter":"none","vertical":false,"data":[["BIOL 265"],["Principles of Genetics"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="cell-biology" class="level4">
+<h4 class="anchored" data-anchor-id="cell-biology">Cell biology</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-30cfc894e170d6b1aa28" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-30cfc894e170d6b1aa28">{"x":{"filter":"none","vertical":false,"data":[["BIOL 200"],["Cell Biology"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="physiology" class="level4">
+<h4 class="anchored" data-anchor-id="physiology">Physiology</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-e4f79032c462948d4095" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e4f79032c462948d4095">{"x":{"filter":"none","vertical":false,"data":[["BIOL 356","BIOL 358"],["Plant Physiology","Animal Physiology"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="systematics-taxonomy" class="level4">
+<h4 class="anchored" data-anchor-id="systematics-taxonomy">Systematics / taxonomy</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f20940ffcac117a0f814" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f20940ffcac117a0f814">{"x":{"filter":"none","vertical":false,"data":[["BIOL 371"],["Plant Systematics"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="evolution" class="level4">
+<h4 class="anchored" data-anchor-id="evolution">Evolution</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-de2a080b19afa4b795b9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-de2a080b19afa4b795b9">{"x":{"filter":"none","vertical":false,"data":[["BIOL 201","BIOL 250"],["Introduction to Evolution and Ecology","Evolutionary Biology"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Code<\/th>\n      <th>Title<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"dom":"t","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"Code","targets":0},{"name":"Title","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="biology-count-check" class="level3">
+<h3 class="anchored" data-anchor-id="biology-count-check">Biology-count check</h3>
+<p>CAB requires <strong>13 biology courses</strong>. The planner uses this list of UBCO codes when computing your biology-count coverage:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>**28 UBCO course codes** counted toward the 13-biology threshold:
+
+`BIOL 116`  ·  `BIOL 125`  ·  `BIOL 200`  ·  `BIOL 201`  ·  `BIOL 202`  ·  `BIOL 203`  ·  `BIOL 204`  ·  `BIOL 205`  ·  `BIOL 209`  ·  `BIOL 210`  ·  `BIOL 228`  ·  `BIOL 250`  ·  `BIOL 265`  ·  `BIOL 308`  ·  `BIOL 311`  ·  `BIOL 319`  ·  `BIOL 354`  ·  `BIOL 356`  ·  `BIOL 357`  ·  `BIOL 358`  ·  `BIOL 363`  ·  `BIOL 364`  ·  `BIOL 366`  ·  `BIOL 371`  ·  `BIOL 375`  ·  `FWSC 375`  ·  `EESC 301`  ·  `EESC 402`</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="sample-4-year-plan-for-the-rpbio-track" class="level2">
 <h2 class="anchored" data-anchor-id="sample-4-year-plan-for-the-rpbio-track">Sample 4-year plan for the RPBio track</h2>

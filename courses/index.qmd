@@ -4,11 +4,55 @@ subtitle: "Every UBCO course relevant to the Freshwater Science program"
 date: last-modified
 ---
 
-::: {.callout-warning}
-## Scaffold placeholder
-The catalogue is populated by `data-raw/01_scrape_ubco_calendar.R` and
-rendered from `data/courses.parquet`. The scraper has not yet run.
-:::
+The table below is populated daily from the
+[UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/)
+via `data-raw/01_scrape_ubco_calendar.R` -> `data/courses.parquet`.
+Filter and sort it freely.
+
+```{r}
+#| label: course-catalogue
+#| echo: false
+#| message: false
+#| warning: false
+
+suppressPackageStartupMessages({
+  library(arrow); library(DT); library(dplyr); library(jsonlite)
+})
+
+courses <- arrow::read_parquet("../data/courses.parquet")
+
+# Pretty-format the prereq codes column for display: JSON list -> "a, b, c"
+courses$prereqs <- vapply(courses$prereq_codes, function(j) {
+  if (is.na(j) || !nzchar(j)) return("")
+  paste(jsonlite::fromJSON(j), collapse = ", ")
+}, character(1))
+
+tbl <- courses |>
+  dplyr::transmute(
+    Code        = code,
+    Title       = title,
+    Credits     = credits,
+    LTP         = ltp,
+    Prereqs     = prereqs,
+    Description = stringr::str_trunc(description, 240)
+  ) |>
+  dplyr::arrange(Code)
+
+DT::datatable(
+  tbl, rownames = FALSE, filter = "top",
+  options = list(
+    pageLength = 20,
+    dom = "ftip",
+    autoWidth = FALSE,
+    columnDefs = list(
+      list(className = "dt-left", targets = "_all"),
+      list(width = "120px", targets = 0),
+      list(width = "80px",  targets = 2),
+      list(width = "80px",  targets = 3)
+    )
+  )
+)
+```
 
 ::: {.callout-note}
 ## Authoritative UBC pages

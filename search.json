@@ -116,7 +116,7 @@
     "href": "courses/index.html",
     "title": "Course catalogue",
     "section": "",
-    "text": "WarningScaffold placeholder\n\n\n\nThe catalogue is populated by data-raw/01_scrape_ubco_calendar.R and rendered from data/courses.parquet. The scraper has not yet run."
+    "text": "The table below is populated daily from the UBC Okanagan Academic Calendar via data-raw/01_scrape_ubco_calendar.R -&gt; data/courses.parquet. Filter and sort it freely."
   },
   {
     "objectID": "courses/index.html#year-1-30-credits",

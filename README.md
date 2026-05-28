@@ -5,6 +5,14 @@ program at the UBC Okanagan campus. Built and maintained by
 [Limnology Research Corp](https://limnology.ca) on behalf of the program lead
 (Nelson R. Jatel, PAg).
 
+**Live site**: https://drnelsonjatel.github.io/UBCO_Freshwater_Science_Program/
+
+**Official UBCO program pages** (authoritative):
+
+- [UBC Undergraduate Admissions — Freshwater Science](https://you.ubc.ca/ubc_programs/freshwater-science/)
+- [Department of EESC — Freshwater Science](https://eesc.ok.ubc.ca/undergraduate/freshwater-science/)
+- [UBC Academic Calendar — Freshwater Science requirements](https://okanagan.calendar.ubc.ca/faculties-schools-and-colleges/faculty-science/bachelor-science-programs/major-programs/freshwater-science)
+
 ## What it does
 
 - **Course catalogue** — every UBCO course relevant to Freshwater Science

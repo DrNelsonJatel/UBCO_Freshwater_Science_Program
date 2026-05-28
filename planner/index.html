@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-05-28">
 
-<title>Skills scaffolding – UBCO Freshwater Science</title>
+<title>Interactive Degree Planner – UBCO Freshwater Science</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -127,11 +127,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Outcomes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../skills/index.html" aria-current="page"> 
+    <a class="nav-link" href="../skills/index.html"> 
 <span class="menu-text">Skills</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../planner/index.html"> 
+    <a class="nav-link active" href="../planner/index.html" aria-current="page"> 
 <span class="menu-text">Planner</span></a>
   </li>  
 </ul>
@@ -161,9 +161,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-idea" id="toc-the-idea" class="nav-link active" data-scroll-target="#the-idea">The idea</a></li>
-  <li><a href="#controlled-skill-vocabulary-draft" id="toc-controlled-skill-vocabulary-draft" class="nav-link" data-scroll-target="#controlled-skill-vocabulary-draft">Controlled skill vocabulary (draft)</a></li>
-  <li><a href="#pending-content" id="toc-pending-content" class="nav-link" data-scroll-target="#pending-content">Pending content</a></li>
+  <li><a href="#what-it-will-do" id="toc-what-it-will-do" class="nav-link active" data-scroll-target="#what-it-will-do">What it will do</a></li>
+  <li><a href="#in-the-meantime" id="toc-in-the-meantime" class="nav-link" data-scroll-target="#in-the-meantime">In the meantime</a></li>
+  <li><a href="#want-to-help-shape-it" id="toc-want-to-help-shape-it" class="nav-link" data-scroll-target="#want-to-help-shape-it">Want to help shape it?</a></li>
   </ul>
 </nav>
     </div>
@@ -172,8 +172,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Skills scaffolding</h1>
-<p class="subtitle lead">Where each transferable skill is introduced, practised, and expected across the four-year arc</p>
+<h1 class="title">Interactive Degree Planner</h1>
+<p class="subtitle lead">Drag-and-drop course planning with live designation gap analysis</p>
 </div>
 
 
@@ -202,65 +202,46 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Scaffold placeholder
+<span class="screen-reader-only">Warning</span>Coming soon
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Skills are stored in <code>skills/skills_vocab.yml</code> (the controlled vocabulary) and <code>skills/course_tags.yml</code> (per-course tagging with introduce/practise/expect markers). Neither file exists yet. The heatmap viz on this page is the eventual rendering of those YAMLs.</p>
+<p>The interactive planner is under active development. The Shiny app at <code>app/app.R</code> in the <a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program">project source repository</a> is currently a scaffold; it will go live once:</p>
+<ol type="1">
+<li>The daily UBCO calendar scraper is implemented (so the planner has live course-offering data).</li>
+<li>The PAg and RPBio designation YAMLs are curated from the source PDFs (so the planner can compute live gap analysis against your goals).</li>
+<li>A shinyapps.io or Cloud Run deployment is wired up and the <code>_quarto.yml</code> Planner link is repointed at it.</li>
+</ol>
+<p>Until then, the static designation pages and the curriculum-map source documents in this repository are the working reference:</p>
 </div>
 </div>
-<section id="the-idea" class="level1">
-<h1>The idea</h1>
-<p>Skills get <strong>scaffolded</strong> through a degree: introduced in one course, practised in several, and expected as background in upper-year courses. Without an explicit map, neither students nor instructors can see this arc clearly.</p>
-<p>This page shows the scaffolded coverage as a heatmap: rows are skills from a controlled vocabulary, columns are the four years of the program, cells are coloured by introduce / practise / expect status.</p>
-</section>
-<section id="controlled-skill-vocabulary-draft" class="level1">
-<h1>Controlled skill vocabulary (draft)</h1>
-<p>Three top-level skill families to start, each with sub-skills. These are stubs; the real vocabulary will be co-developed with department instructors.</p>
-<div class="grid">
-<section id="quantitative-computational" class="level3 g-col-md-4 g-col-12">
-<h3 class="anchored" data-anchor-id="quantitative-computational">Quantitative / computational</h3>
+<section id="what-it-will-do" class="level1">
+<h1>What it will do</h1>
+<p>When live, the planner will let you:</p>
 <ul>
-<li>R basics</li>
-<li>R intermediate (tidyverse)</li>
-<li>R for hydrology (tidyhydat, dataRetrieval)</li>
-<li>Statistical inference</li>
-<li>Geostatistics</li>
-<li>Spatial analysis (sf, terra)</li>
-<li>Modelling (GLM, GAM)</li>
-</ul>
-</section>
-<section id="field-lab" class="level3 g-col-md-4 g-col-12">
-<h3 class="anchored" data-anchor-id="field-lab">Field / lab</h3>
+<li><strong>Drag courses</strong> into year slots (Year 1, 2, 3, 4 and post-Year-4 summer).</li>
+<li><strong>Toggle designation goals</strong> (PAg, RPBio, neither, both).</li>
+<li>See <strong>live gap analysis</strong>:
 <ul>
-<li>Sampling design</li>
-<li>Water-quality sampling</li>
-<li>Macroinvertebrate identification</li>
-<li>Hydrometric measurement</li>
-<li>Lab safety</li>
-<li>Calibration and QC</li>
+<li>Which prerequisites are missing for the courses you have chosen.</li>
+<li>Which BCIA / CAB category requirements are still unfilled.</li>
+<li>Whether your total credits clear the 120 / 78 Science / 42 upper-level / 36 upper-level-Science thresholds.</li>
+</ul></li>
+<li>View the <strong>prerequisite graph</strong> for your selected courses (<code>visNetwork</code>).</li>
+<li><strong>Export your plan</strong> as a PDF or text summary you can share with the program advisor.</li>
 </ul>
 </section>
-<section id="communication-professional" class="level3 g-col-md-4 g-col-12">
-<h3 class="anchored" data-anchor-id="communication-professional">Communication / professional</h3>
+<section id="in-the-meantime" class="level1">
+<h1>In the meantime</h1>
 <ul>
-<li>Scientific writing</li>
-<li>Public-facing communication</li>
-<li>Peer review</li>
-<li>Project management</li>
-<li>Ethics</li>
-<li>Working with First Nations</li>
+<li>Use the <a href="../courses/index.html">course catalogue</a> for the year-by-year course list and prerequisite notes.</li>
+<li>Use the <a href="../designations/pag.html">PAg pathway</a> and <a href="../designations/rpbio.html">RPBio pathway</a> for the curated 4-year sample plans + designation-fit narrative.</li>
+<li>Use the <a href="../designations/complementary.html">Complementary pathways</a> page for Chemistry, Biology, and hydrology/water-resources bundles.</li>
 </ul>
 </section>
-</div>
-</section>
-<section id="pending-content" class="level1">
-<h1>Pending content</h1>
-<ul class="task-list">
-<li><label><input type="checkbox">Co-develop the controlled skill vocabulary with the program instructor cohort.</label></li>
-<li><label><input type="checkbox">Tag each Freshwater Science course with the skills it introduces / practises / expects.</label></li>
-<li><label><input type="checkbox">Render the skills-by-year heatmap.</label></li>
-</ul>
+<section id="want-to-help-shape-it" class="level1">
+<h1>Want to help shape it?</h1>
+<p>If you are a Freshwater Science student or instructor and want input into how the planner should behave — what gap signals matter most, what visual encoding is most useful, how aggressively it should flag prerequisite conflicts — please drop a note to <strong>Nelson.Jatel@UBC.ca</strong> or open a GitHub issue at the <a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/issues">project source repository</a>.</p>
 
 
 </section>

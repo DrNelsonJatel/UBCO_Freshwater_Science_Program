@@ -54,8 +54,6 @@ flood/drought risk, and water infrastructure.
 - **GISC Minor** for geospatial modelling.
 - **Co-op targets**: hydrometric agencies (ECCC, WSC), engineering
   consulting (NHC, Associated Engineering, etc.), utilities.
-- **Designation fit**: this is the natural pairing with the
-  [P.Geo pathway](pgeo.qmd) (Environmental Geoscience).
 
 # Practical notes for mixing and matching
 

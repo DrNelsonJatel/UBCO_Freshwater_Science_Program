@@ -29,8 +29,6 @@ website:
             text: PAg (BC Institute of Agrologists)
           - href: designations/rpbio.qmd
             text: RPBio (College of Applied Biology)
-          - href: designations/pgeo.qmd
-            text: P.Geo (Engineers and Geoscientists BC)
           - href: designations/complementary.qmd
             text: Complementary pathways
       - text: Outcomes

@@ -1,0 +1,27 @@
+"BSc Ecology, Evolution, and Conservation Biology Major CLO-PLO Mapping",,"Instructions:
+1. Place an ""X"" in the box that maps each CLO to the PLO(s) it aligns with. (It should have moderate to strong alignment)
+
+2. In the far right column, indicate with a ""I, R, or M"" the level of development of the PLO in this course.
+I - Introductory; R - Reinforcement; M - Mastery
+*see legend on right side of sheet
+
+",Course code,EESC 301,,,,,,"Level of Development (I, R, or M)"
+,,,Course Name,Limnology,,,,,,
+,,,Course Learning Outcomes,"Explain key physical, chemical, and biological processes in freshwater systems, including lakes, reservoirs, rivers, and wetlands.","Analyze limnological data, applying quantitative and graphical techniques to assess ecosystem dynamics.","Evaluate human impacts on freshwater ecosystems, such as nutrient enrichment, invasive species, and climate change.","Conduct field and laboratory investigations, demonstrating proper sampling techniques, data collection, and analytical procedures used in limnology. ",Integrate limnological principles to propose management or conservation strategies for freshwater resources.,"Communicate scientific findings effectively, both orally and in written technical reports.",
+Program Learning Outcomes,Depth and Breadth of Knowledge,"Describe fundamental biological concepts and principles, including:
+a. evolution as a unifying concept of biology;
+b. macro- and micro-evolutionary principles and mechanisms;
+c. interactions between organisms and their environments across different scales of time and space and the processes that shape the diversity of life;
+d. connections between structure and function from individual, population, community, and ecosystem perspectives including the influence of biotic and abiotic processes;
+e. energy flow within and among biological systems;
+f. sustainable balance of the health of organisms and ecosystems and value of biodiversity and its conservation on a local and global scale. ",PLO 1,x,,,,,,I
+,,"Demonstrate knowledge of the ethical, economic, and social implications of biological discovery and technological innovation. ",PLO 2,,,x,,x,,R
+,,"Discuss the historical and social context of biological thought and research, including Indigenous ways of knowing.",PLO 3,,,x,,,,R
+,Application of Knowledge,"Use qualitative observation, quantitative reasoning, and analytical skills for scientific problem solving of biological data from wet labs, dry labs, and/or field studies.",PLO 4,X,,,X,X,,I
+,,Apply scientific inquiry methods and critical thinking skills to investigate and analyze biological problems.,PLO 5,X,X,,X,X,,R
+,Generation of Knowledge,"Complete all stages of a full scientific investigation that is transparent, open, and reproducible, including (i) exploratory research informing, (ii) question and hypothesis formulation, (iii) experimental or observational study design, (iv) data collection, (v) data analysis, (vi) data and code archiving, (vii) data presentation and visualization, and (viii) communication and dissemination of all research outputs in accessible and useable formats.",PLO 6,X,,,X,X,X,R
+,Communication,"Discriminate among scientific claims by finding relevant research, identifying bias, and critically evaluating data and conclusions.",PLO 7,X,X,,,,X,R
+,,"Effectively communicate scientific ideas and findings through oral presentations, written reports, and digital media using appropriate terminology, data visualization and formatting for diverse audiences including relevant stakeholders.",PLO 8,,,,,,X,R
+,,"Develop and defend logical, structured, and coherent claims with appropriate supporting evidence while acknowledging potential bias. ",PLO 9,X,X,X,X,X,X,R
+,Professional Conduct,"Demonstrate the ability to work independently and collaboratively to solve biological problems, through mutual respect, leadership skills, goal setting, and task and time management.",PLO 10,X,,,X,X,X,R
+,,"Demonstrate personal, academic, and professional integrity by respecting diverse perspectives, valuing the intellectual contribution of others, and following ethical standards in scientific practice.",PLO 11,,,,X,X,X,I

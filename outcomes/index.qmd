@@ -1,41 +1,141 @@
 ---
-title: "Learning outcomes"
-subtitle: "Program, department, and course-level outcomes mapped against each other"
+title: "Program Learning Outcomes"
+subtitle: "What a Freshwater Science graduate is expected to be able to do"
 date: last-modified
 ---
 
-::: {.callout-warning}
-## Scaffold placeholder
-Outcomes are stored as YAML files under `outcomes/data/` (one file per
-level) and rendered into this page. The mapping work has not started.
-This page is the eventual home of the outcomes cross-reference matrix.
+The current authority for **Program Learning Outcomes (PLOs)** is the
+**v2 PLO set** finalised on **28 April 2026** by Dr. Nelson Jatel, PAg,
+Lecturer and Program Advisor (memo: `docs/reference/learning-outcomes/UBCO_Memo_PLOs_v2_20260428.docx`).
+The v2 set consolidated the v1 draft (14 outcomes) down to **8 outcomes
+in 4 categories**, based on:
+
+- Student focus-group feedback (Freshwater Science majors),
+- Faculty working-session input, and
+- Best-practice benchmarking against Penn State, Washington State,
+  CSUSB, SUNY, U Michigan-Dearborn, and comparator BSc Freshwater
+  programs at UW-Milwaukee, Western Michigan, and UW-Madison.
+
+The 5-to-7-outcome range is the sector norm; v1's 14 was flagged by
+both faculty and benchmarks as too long for meaningful assessment.
+
+# The eight v2 outcomes
+
+## Depth and Breadth of Knowledge
+
+1. Explain water processes in the context of planetary cycles, surface
+   processes, and environmental systems, including human alterations to
+   freshwater ecosystems.
+2. Describe the physical, chemical, and biological structure and
+   function of freshwater systems.
+
+## Application of Knowledge
+
+3. Collect, organise, and analyse water and environmental science data
+   using appropriate field, laboratory, computational (e.g., R, Python),
+   and statistical techniques, and represent results in appropriate
+   graphical formats.
+4. Apply the scientific method and quantitative reasoning to develop
+   conceptual models, test hypotheses, and evaluate trade-offs in
+   freshwater management decisions.
+5. Acquire, critically assess, and synthesise freshwater science
+   literature, Indigenous knowledge systems (ways of knowing), data
+   sources, and spatial resources (e.g., maps, remotely sensed data) to
+   inform interpretation and decision-making.
+6. Develop water-related policy options and communicate them
+   effectively to advance uptake by decision-makers.
+
+## Communication
+
+7. Communicate limnology and environmental concepts to diverse
+   audiences through formal written reports, oral presentations,
+   technical posters, illustrations, and clear field, laboratory, and
+   code documentation.
+
+## Professional Conduct
+
+8. Demonstrate professional ethics, safe field and laboratory practice,
+   effective teamwork, and respectful engagement with Indigenous
+   Peoples, lands, and rights-holders.
+
+# How each course contributes — the I / R / M methodology
+
+The curriculum-map methodology used to trace these PLOs through the
+program uses three coding labels for each course-learning-outcome
+(CLO) → PLO link:
+
+| Code | Meaning |
+|---|---|
+| **I** | Introductory — the course introduces the concept; students encounter it for the first time. |
+| **R** | Reinforcement — the course practises the concept; students extend prior exposure. |
+| **M** | Mastery — the course expects students to demonstrate the concept independently. |
+
+Combined with an **X** marker showing which CLO maps to which PLO,
+this is the same framework UBC's Faculty of Science uses for the
+EECB program (Ecology, Evolution, and Conservation Biology) and other
+B.Sc. programs.
+
+::: {.callout-note}
+## Pilot: EESC 301 Limnology
+A worked example of the methodology for **EESC 301 (Limnology)**
+mapped to the EECB program PLOs is committed at
+`docs/reference/learning-outcomes/EESC 301 - Mapping to EECB Program Learning Outcomes - NJ.xlsx`.
+It captures six course learning outcomes, links each to one or more
+program PLOs, and codes the depth (I / R / M). This is the template
+that needs to be replicated for every Freshwater Science required and
+elective course.
 :::
 
-# The three levels
+# Curriculum map — pending build
 
-| Level | Authority | Granularity |
-|---|---|---|
-| Program | Faculty of Science / EESC | "A Freshwater Science graduate will..." |
-| Department | EESC / Biology | Subject-area outcomes |
-| Course | Individual instructor | Per-course / per-module outcomes |
+Following the v2 PLO finalisation memo (§7 Recommended Next Steps), the
+next deliverable is the **full curriculum map**: every required
+Freshwater Science course mapped against the 8 PLOs with I / R / M
+coding. This page will eventually render that matrix as a sortable
+table:
 
-# Why this matters
+::: {.callout-warning}
+## Scaffold placeholder
+The curriculum-map matrix (rows = course, columns = PLO 1-8, cells = I / R / M)
+is not yet built. The schema for `outcomes/data/curriculum_map.yml`
+plus a script to render it as the table above is queued. Each course's
+mapping requires a structured conversation with the instructor, using
+the EESC 301 pilot as the template.
+:::
 
-Mapping outcomes against each other reveals two things students rarely see
-clearly:
+# Version history
 
-1. **Vertical coherence** — does each program-level outcome map to a
-   department-level outcome map to one or more course-level outcomes?
-   Gaps point to missing course content.
-2. **Lateral coverage** — does the program graduate students with
-   *transferable* skills, or do skills stay siloed within their
-   teaching course?
+| Version | Date | Outcomes | Notes |
+|---|---|---|---|
+| **v2** (current) | 28 April 2026 | 8 in 4 categories | Refined by Dr. Nelson Jatel, PAg, following student + faculty consultation and best-practice benchmarking. Memo: `UBCO_Memo_PLOs_v2_20260428.docx`. |
+| v1 (draft) | 2025 | 14 in 5 categories | Superseded by v2. Mapping of v1 → v2 in the memo §6 crosswalk. Draft: `BSc Freshwater Science Draft PLOs (V1).docx`. |
 
-# Pending content
+# Assessment plan — pending
 
-- [ ] Define schema for `program_outcomes.yml`, `department_outcomes.yml`,
-      and `course_outcomes.yml`.
-- [ ] Seed program-level outcomes from the Faculty of Science statement.
-- [ ] Interview each Freshwater Science instructor for course-level
-      outcomes (estimated 20-40 hours of structured interviews).
-- [ ] Render the outcomes-by-course matrix here.
+The v2 finalisation memo flags two further deliverables:
+
+1. **Direct assessment artifacts** in EESC 301, EESC 402, and the
+   capstone course, identifying which artifact assesses which PLO.
+2. **Three-year review cycle** aligned with UBC institutional
+   assessment guidance.
+
+Both are pending and will be tracked in the project's GitHub issues.
+
+# References
+
+- UBCO Freshwater Science Program. (2026). *Finalisation of Freshwater
+  Science Program Learning Outcomes (PLOs), v2.* Internal memo, 28 April 2026.
+  (`docs/reference/learning-outcomes/UBCO_Memo_PLOs_v2_20260428.docx`)
+- UBCO Freshwater Science Program. (2025). *Draft Program Learning
+  Outcomes (V1).* Internal document.
+  (`docs/reference/learning-outcomes/BSc Freshwater Science Draft PLOs (V1).docx`)
+- UBC Faculty of Science EECB program curriculum-map template (used as
+  the basis for the I / R / M methodology and the EESC 301 worked
+  example).
+- Penn State Office of Planning, Assessment and Institutional Research.
+  [Program Learning Objectives](https://opair.psu.edu/assessment/loa-handbook/program-learning-objectives/).
+- Washington State University Office of Assessment for Curricular
+  Effectiveness. (2024). [Quick Guide to Program-level Student
+  Learning Outcomes](https://ace.wsu.edu/documents/2015/02/quick-guide-to-program-slos.pdf/).
+- University of Wisconsin-Milwaukee. [Freshwater Sciences, BS — Program
+  Learning Outcomes](https://catalog.uwm.edu/freshwater-sciences/freshwater-sciences-bs/).

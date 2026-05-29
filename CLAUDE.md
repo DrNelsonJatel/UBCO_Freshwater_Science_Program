@@ -4,10 +4,13 @@ Student-facing interactive website + degree planner for the **Bachelor of
 Science Freshwater Science** major at the UBC Okanagan campus. Curated and
 maintained by Dr. Nelson Jatel, PAg, Lecturer and Freshwater Science Program
 Advisor. Repo at `DrNelsonJatel/UBCO_Freshwater_Science_Program` (public).
-Live site at https://drnelsonjatel.github.io/UBCO_Freshwater_Science_Program/
-and embedded into a Squarespace page at https://www.limnologyresearch.com/ubco-freshwater
-(LRC corporate chrome hidden via per-page CSS injection so the embed reads as
-a UBCO academic resource, not an LRC product).
+
+**Public URL**: https://drnelsonjatel.github.io/UBCO_Freshwater_Science_Program/
+
+A prior Squarespace embed at `limnologyresearch.com/ubco-freshwater` was
+retired 2026-05-28; the GitHub Pages URL above is now the single public
+address. A future move to a dedicated domain (e.g. `ubcofwsc.ca`) is
+possible but unplanned.
 
 ## Audience priority
 

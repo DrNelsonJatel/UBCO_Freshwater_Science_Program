@@ -179,6 +179,21 @@ ui <- page_sidebar(
       )
     ),
     nav_panel(
+      "Board: years side-by-side",
+      div(class = "p-3",
+          h4("Your plan, as a board"),
+          p(class = "text-muted small",
+            "Five columns, one per year of the curated pathway. Each card
+             is a recommended course for that year; cards fill solid
+             when ticked and stay outlined when not. \"Other\" courses
+             you have ticked at that level appear under a dashed
+             divider at the bottom of the column. Use the column
+             headers as a scannable equivalent of the accordion in
+             Step 1, especially on a wide screen."),
+          uiOutput("year_board")
+      )
+    ),
+    nav_panel(
       "Map: prerequisite graph",
       div(class = "p-3",
           h4("Your courses + prerequisite chains"),
@@ -979,6 +994,101 @@ server <- function(input, output, session) {
         paste("Could not load plan:", conditionMessage(e)),
         type = "error", duration = 10)
     })
+  })
+
+  # ---- Year board (years-as-columns, Notion-style) -----------------------
+  # Read-only horizontal board: one column per year of the curated
+  # pathway. Cards are coloured by tick state. "Other ticked at this
+  # level" courses fall to the bottom of the column under a dashed
+  # rule, so transfers and electives still show up where they belong.
+  output$year_board <- renderUI({
+    completed <- completed_codes()
+    palette <- c(year_1 = "#94c5d4", year_2 = "#6aa6c4",
+                  year_3 = "#3f7da9", year_4 = "#1f3a5f",
+                  summer = "#5c4e7a")
+
+    card <- function(code, ticked) {
+      ttl <- code_to_title[code] %||% NA_character_
+      cr  <- code_to_credits[code] %||% NA_real_
+      bg  <- if (isTRUE(ticked)) "#e3efe8" else "#ffffff"
+      border <- if (isTRUE(ticked)) "#1f7a3b" else "#c8d1de"
+      check <- if (isTRUE(ticked))
+        tags$span(style = "color:#1f7a3b; font-weight:700;", "✓ ")
+      else
+        tags$span(style = "color:#c8d1de;", "○ ")
+      tags$div(
+        style = sprintf(paste("background:%s; border:1px solid %s;",
+                                "border-radius:8px; padding:8px 10px;",
+                                "margin-bottom:6px; font-size:0.85em;",
+                                "line-height:1.25;"),
+                         bg, border),
+        tags$div(check,
+                  tags$strong(code),
+                  if (!is.na(cr)) tags$span(class = "text-muted",
+                    style = "float:right; font-size:0.85em;",
+                    sprintf("%g cr", cr))),
+        if (!is.na(ttl))
+          tags$div(class = "text-muted", style = "font-size:0.85em;", ttl)
+      )
+    }
+
+    columns <- lapply(names(pathway), function(yk) {
+      yspec <- pathway[[yk]]
+      rec <- yspec$recommended %||% character(0)
+      have <- intersect(rec, completed)
+      n_have <- length(have); n_total <- length(rec)
+      chip_colour <- if (n_have == n_total && n_total > 0) "#1f7a3b"
+                     else if (n_have > 0) "#d9822b"
+                     else "#a0a4ad"
+      header_colour <- palette[[yk]] %||% "#1f3a5f"
+
+      # "Other ticked at this level": courses from this column's level
+      # band that are ticked but not in the recommended list.
+      level <- YEAR_TO_BANDS[[yk]]
+      other_ticked <- completed[
+        completed %in% courses$short_code[courses$level_band == level] &
+        !completed %in% rec
+      ]
+      # Don't double-list: only assign "other ticked" to the FIRST
+      # year column matching that level band. summer + year_4 share
+      # "400+", so attribute 400+ extras to year_4.
+      if (yk == "summer") other_ticked <- character(0)
+
+      tags$div(
+        style = paste("flex:1 1 0; min-width:200px; max-width:280px;",
+                       "background:#f7f9fc; border:1px solid #d6deea;",
+                       "border-radius:10px; padding:12px;"),
+        tags$div(
+          style = sprintf(paste("border-bottom:3px solid %s;",
+                                  "padding-bottom:6px; margin-bottom:10px;"),
+                           header_colour),
+          tags$div(style = "font-weight:700; color:#1f3a5f;",
+                    yspec$label),
+          tags$span(style = sprintf(paste("background:%s; color:white;",
+                                            "padding:2px 8px;",
+                                            "border-radius:999px;",
+                                            "font-size:0.75em;"),
+                                     chip_colour),
+                    sprintf("%d / %d ticked", n_have, n_total))
+        ),
+        lapply(rec, function(c) card(c, c %in% completed)),
+        if (length(other_ticked)) tagList(
+          tags$div(style = paste("margin:10px 0 6px;",
+                                   "border-top:1px dashed #c8d1de;",
+                                   "padding-top:8px;",
+                                   "font-size:0.75em; color:#54607a;"),
+                    sprintf("Other ticked at %s-level (%d)",
+                            level, length(other_ticked))),
+          lapply(other_ticked, function(c) card(c, TRUE))
+        )
+      )
+    })
+
+    tags$div(
+      style = paste("display:flex; gap:12px; flex-wrap:wrap;",
+                     "align-items:flex-start; margin-top:6px;"),
+      columns
+    )
   })
 
   # ---- Prerequisite map (visNetwork) -------------------------------------

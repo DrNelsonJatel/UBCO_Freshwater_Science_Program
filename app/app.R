@@ -218,6 +218,25 @@ ui <- page_sidebar(
       )
     ),
     nav_panel(
+      "Suggestions: gaps + next steps",
+      div(class = "p-3",
+          h4("What looks off, and what you could take next"),
+          p(class = "text-muted small",
+            "Two reads on the same data: prereq-gap warnings for
+             courses you have ticked but seem to be missing a foot,
+             and a curated list of UBCO courses you could realistically
+             register for next term based on what you've already
+             cleared. ", tags$strong("Heuristic, not gospel: "),
+             "the UBC calendar uses natural-language prereq strings
+             (\"either (a) X or (b) Y and Z\") that this tool collapses
+             into a flat code list. Always confirm with the program
+             advisor before locking a term."),
+          uiOutput("prereq_warnings"),
+          tags$hr(),
+          uiOutput("next_courses")
+      )
+    ),
+    nav_panel(
       "Step 2: Credit + degree summary",
       div(class = "p-3",
           h4("How you sit against the degree thresholds"),
@@ -1113,6 +1132,171 @@ server <- function(input, output, session) {
       style = paste("display:flex; gap:12px; flex-wrap:wrap;",
                      "align-items:flex-start; margin-top:6px;"),
       columns
+    )
+  })
+
+  # ---- Suggestions: prereq alerts + "could take next" --------------------
+  # Parsed prereq codes per course (short-code form), cached as a list
+  # column so the suggestion machinery doesn't re-parse JSON on every
+  # reactive read.
+  course_prereqs <- local({
+    parsed <- lapply(courses$prereq_codes, function(j) {
+      if (is.na(j) || !nzchar(j)) character(0)
+      else short_code(jsonlite::fromJSON(j))
+    })
+    setNames(parsed, courses$short_code)
+  })
+
+  output$prereq_warnings <- renderUI({
+    completed <- completed_codes()
+    if (!length(completed)) {
+      return(tags$div(class = "text-muted",
+        tags$h5("Prereq alerts"),
+        "Tick some courses in Step 1 to see prereq alerts here."))
+    }
+    # High-precision warning: a course is flagged only when EVERY one
+    # of its parsed prereq codes is missing from the ticked set.
+    # That keeps the noise floor low; "missing some prereqs" is too
+    # easy to false-flag against the calendar's natural-language
+    # constraints.
+    flagged <- lapply(completed, function(c) {
+      pre <- course_prereqs[[c]]
+      if (!length(pre)) return(NULL)
+      have <- intersect(pre, completed)
+      if (length(have)) return(NULL)  # at least one prereq met
+      list(code = c, missing = pre,
+            raw = courses$prereq_raw[match(c, courses$short_code)])
+    })
+    flagged <- Filter(Negate(is.null), flagged)
+    if (!length(flagged)) {
+      return(tags$div(
+        tags$h5("Prereq alerts"),
+        tags$div(class = "alert alert-success",
+                  tags$strong("Looking good. "),
+                  "Every ticked course has at least one of its listed
+                   prerequisites also ticked.")))
+    }
+    tagList(
+      tags$h5(sprintf("Prereq alerts (%d course%s)",
+                       length(flagged),
+                       if (length(flagged) == 1) "" else "s")),
+      tags$div(class = "small text-muted",
+                "These ticked courses don't seem to have any of their
+                 listed prereqs in your ticked set. Often this means
+                 you have a transfer credit equivalent, or you ticked
+                 the course but haven't ticked the prereq yet, or the
+                 prereq is listed but not in the planner scope (e.g.
+                 a high-school course)."),
+      tags$div(style = "margin-top:10px;",
+        lapply(flagged, function(x) {
+          tags$div(class = "card mb-2",
+            tags$div(class = "card-body p-3",
+              tags$div(class = "d-flex justify-content-between align-items-baseline",
+                tags$strong(x$code),
+                tags$span(class = "badge bg-warning text-dark",
+                          "Missing prereq")),
+              tags$div(class = "small mt-1",
+                tags$strong("Listed prereqs: "),
+                paste(x$missing, collapse = ", ")),
+              if (!is.na(x$raw) && nzchar(x$raw))
+                tags$div(class = "small text-muted mt-1",
+                  tags$em(paste("Calendar text:", x$raw)))
+            )
+          )
+        })
+      )
+    )
+  })
+
+  output$next_courses <- renderUI({
+    completed <- completed_codes()
+    goals     <- input$goals %||% character(0)
+    current   <- input$year_in_program %||% ""
+
+    # Conservative eligibility: every parsed prereq code is in the
+    # ticked set. False-negatives ("one of X or Y" where you have X)
+    # are tolerable here, false-positives are not.
+    untaken <- setdiff(courses$short_code, completed)
+    eligible <- Filter(function(c) {
+      pre <- course_prereqs[[c]]
+      length(pre) > 0 && all(pre %in% completed)
+    }, untaken)
+    # Also surface "no listed prereq" courses at the appropriate
+    # level for the current year — these are always registerable.
+    if (length(current) && nzchar(current) && current != "5") {
+      target_band <- YEAR_TO_BANDS[[paste0("year_", current)]]
+      no_prereq <- courses$short_code[
+        courses$level_band == target_band &
+        vapply(course_prereqs[courses$short_code],
+               function(p) length(p) == 0, logical(1)) &
+        !courses$short_code %in% completed
+      ]
+      eligible <- unique(c(eligible, no_prereq))
+    }
+    if (!length(eligible)) {
+      return(tags$div(class = "text-muted",
+        tags$h5("Could take next"),
+        "Tick some courses in Step 1 first, then this section will
+         surface UBCO courses you're cleared to register for next."))
+    }
+
+    # Rank: in-pathway courses first, designation-relevant second,
+    # then by level (ascending so the foundations bubble up).
+    pathway_codes <- unlist(lapply(pathway, function(y) y$recommended))
+    pag_codes     <- if ("pag"   %in% goals) pag_required_codes()   else character(0)
+    rpbio_codes   <- if ("rpbio" %in% goals) rpbio_required_codes() else character(0)
+    designation_codes <- unique(c(pag_codes, rpbio_codes))
+
+    score <- function(c) {
+      level_num <- suppressWarnings(as.integer(courses$number[
+        match(c, courses$short_code)]))
+      pathway_bonus    <- if (c %in% pathway_codes)    -1000 else 0
+      designation_bonus <- if (c %in% designation_codes) -500  else 0
+      pathway_bonus + designation_bonus + (level_num %||% 999)
+    }
+    eligible <- eligible[order(vapply(eligible, score, numeric(1)))]
+    # Cap the list so it stays scannable.
+    cap <- 12
+    shown <- head(eligible, cap)
+
+    card <- function(c) {
+      rec_year <- names(pathway)[vapply(pathway, function(y)
+        c %in% (y$recommended %||% character(0)), logical(1))]
+      tags$div(class = "card mb-2",
+        tags$div(class = "card-body p-3",
+          tags$div(class = "d-flex justify-content-between align-items-baseline",
+            tags$div(
+              tags$strong(c), " ",
+              tags$span(class = "text-muted small",
+                        code_to_title[c] %||% NA)),
+            tags$span(class = "small text-muted",
+                      sprintf("%g cr",
+                              code_to_credits[c] %||% NA_real_))),
+          tags$div(class = "small mt-1",
+            if (length(rec_year))
+              tags$span(class = "badge bg-info text-dark me-1",
+                        sprintf("Recommended in %s",
+                                pathway[[rec_year[1]]]$label)),
+            if (c %in% pag_codes)
+              tags$span(class = "badge bg-success me-1", "PAg-eligible"),
+            if (c %in% rpbio_codes)
+              tags$span(class = "badge",
+                        style = "background:#7a2c8a; color:white;",
+                        "RPBio-eligible"))
+        )
+      )
+    }
+
+    tagList(
+      tags$h5(sprintf("Could take next (top %d of %d eligible)",
+                       length(shown), length(eligible))),
+      tags$div(class = "small text-muted",
+        "Courses whose listed prereqs are entirely in your ticked
+         set. Ranked by: pathway-recommended first, then designation-
+         eligible, then by level. The full ranked list often runs to
+         50+ once you have a year ticked; this is the top slice."),
+      tags$div(style = "margin-top:10px;",
+        lapply(shown, card))
     )
   })
 

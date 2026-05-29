@@ -30,7 +30,14 @@ suppressPackageStartupMessages({
   library(yaml)
   library(jsonlite)
   library(stringr)
+  library(htmltools)
 })
+
+# pagedown gives us HTML -> PDF via headless Chrome. We require it
+# lazily inside the download handler so the app still loads if the
+# package is unavailable.
+
+`%||%` <- function(a, b) if (is.null(a)) b else a
 
 # ------- Data load (works whether CWD is project root or /app) ----------
 .proj <- if (dir.exists("data")) "." else ".."
@@ -117,6 +124,14 @@ ui <- page_sidebar(
     nav_panel(
       "Step 3: Designation gap analysis",
       div(class = "p-3",
+          div(style = "margin-bottom: 14px;",
+              downloadButton("download_report",
+                              "Download report (PDF)",
+                              class = "btn-primary"),
+              downloadButton("download_report_html",
+                              "Download report (HTML)",
+                              class = "btn-outline-secondary",
+                              style = "margin-left:8px;")),
           uiOutput("designation_summary")
       )
     )
@@ -337,6 +352,231 @@ server <- function(input, output, session) {
     }
     do.call(tagList, blocks)
   })
+
+  # ---- Report generation -------------------------------------------------
+  # Build a single HTML document summarising the student's plan + gap
+  # analysis. The HTML download is always available; the PDF button
+  # routes through pagedown::chrome_print() if Chrome is reachable,
+  # otherwise falls back to the same HTML so a click is never lost.
+  build_report_html <- function() {
+    completed <- short_code(completed_codes())
+    rows      <- completed_rows()
+    goals     <- input$goals %||% character(0)
+    year_in   <- as.integer(input$year_in_program %||% 0L)
+
+    when <- format(Sys.time(), "%d %B %Y, %H:%M %Z")
+
+    total       <- sum(rows$credits, na.rm = TRUE)
+    sci_rows    <- rows[rows$subject %in%
+                         c("BIOL_O","CHEM_O","EESC_O","FWSC_O","GEOG_O",
+                           "GISC_O","MATH_O","PHYS_O","STAT_O"), , drop = FALSE]
+    sci_credits <- sum(sci_rows$credits, na.rm = TRUE)
+    upper_rows  <- rows[suppressWarnings(as.integer(rows$number)) >= 300, ,
+                        drop = FALSE]
+    upper_cr    <- sum(upper_rows$credits, na.rm = TRUE)
+    upper_sci   <- sum(upper_rows[upper_rows$subject %in%
+                                    c("BIOL_O","CHEM_O","EESC_O","FWSC_O","GEOG_O",
+                                      "GISC_O","MATH_O","PHYS_O","STAT_O"),
+                                   "credits"], na.rm = TRUE)
+
+    threshold_row <- function(label, value, target) {
+      ok <- value >= target
+      tags$tr(
+        tags$td(label),
+        tags$td(sprintf("%g", value)),
+        tags$td(sprintf("%g", target)),
+        tags$td(if (ok) "Met" else "Not yet",
+                style = sprintf("color:%s; font-weight:600;",
+                                if (ok) "#1f7a3b" else "#b30000"))
+      )
+    }
+
+    designation_block <- function() {
+      if (!length(goals)) {
+        return(tags$p("No designation goals selected."))
+      }
+      tags$div(
+        if ("pag" %in% goals) {
+          cats <- pag$categories
+          tags$section(
+            tags$h2("PAg - BC Institute of Agrologists"),
+            tags$p(em("Need: 8 foundational + 20 agrology with at least 8 senior.")),
+            cat_block(cats$foundational, completed),
+            cat_block(cats$agrology_lower, completed),
+            cat_block(cats$agrology_senior, completed)
+          )
+        },
+        if ("rpbio" %in% goals) {
+          cats <- rpbio$categories
+          n_bio <- length(intersect(completed,
+                                     rpbio$biology_count_eligible_codes))
+          tags$section(
+            tags$h2("RPBio - College of Applied Biologists"),
+            tags$p(em("Need: 25 science / 13 biology / at least 3 of the 5 subject areas.")),
+            tags$h3("Required core areas"),
+            cat_block_rp(cats$communications, completed),
+            cat_block_rp(cats$chemistry, completed),
+            cat_block_rp(cats$numeracy, completed),
+            cat_block_rp(cats$statistics_second_year_or_higher, completed),
+            cat_block_rp(cats$applied_biology_management, completed),
+            cat_block_rp(cats$ecology, completed),
+            tags$h3("Three-of-five subject areas"),
+            cat_block_rp(cats$genetics, completed),
+            cat_block_rp(cats$cell_biology, completed),
+            cat_block_rp(cats$physiology, completed),
+            cat_block_rp(cats$systematics_taxonomy, completed),
+            cat_block_rp(cats$evolution, completed),
+            tags$h3("Biology-count check"),
+            tags$p(sprintf("You have %d of the 13 biology courses CAB counts.", n_bio))
+          )
+        }
+      )
+    }
+
+    cat_block <- function(cat, completed) {
+      have <- intersect(pag_category_codes(cat), completed)
+      tags$div(style = "margin: 10px 0; padding: 10px; border: 1px solid #d6deea; border-radius: 6px;",
+        tags$strong(cat$name),
+        tags$br(),
+        tags$span(sprintf("Have: %d of %d eligible. ",
+                          length(have), length(pag_category_codes(cat)))),
+        if (length(have))
+          tags$div(style = "color:#54607a; font-size:0.9em;",
+                   paste("Counted:", paste(have, collapse = ", ")))
+      )
+    }
+    cat_block_rp <- function(cat, completed) {
+      have <- intersect(rpbio_area_codes(cat), completed)
+      tags$div(style = "margin: 8px 0; padding: 8px 10px; border: 1px solid #d6deea; border-radius: 6px;",
+        tags$strong(cat$name),
+        tags$br(),
+        tags$span(sprintf("Have: %d of %d eligible. ",
+                          length(have), length(rpbio_area_codes(cat)))),
+        if (length(have))
+          tags$div(style = "color:#54607a; font-size:0.9em;",
+                   paste("Counted:", paste(have, collapse = ", ")))
+        else
+          tags$div(style = "color:#b30000; font-size:0.9em;",
+                   "No completed courses recognised in this category yet.")
+      )
+    }
+
+    completed_table <- if (nrow(rows)) {
+      tags$table(class = "course-list",
+        tags$thead(tags$tr(tags$th("Code"), tags$th("Title"),
+                            tags$th("Credits"))),
+        tags$tbody(lapply(seq_len(nrow(rows)), function(i) {
+          tags$tr(tags$td(rows$short_code[i]),
+                  tags$td(rows$title[i]),
+                  tags$td(rows$credits[i]))
+        }))
+      )
+    } else tags$p(em("(No courses ticked.)"))
+
+    htmltools::tagList(
+      tags$head(
+        tags$meta(charset = "utf-8"),
+        tags$title("UBCO Freshwater Science - Personal degree plan"),
+        tags$style(htmltools::HTML("
+          body { font-family: -apple-system, 'Helvetica Neue', sans-serif;
+                 max-width: 900px; margin: 28px auto; padding: 0 24px;
+                 color: #1f3a5f; line-height: 1.45; }
+          h1 { color: #1f3a5f; border-bottom: 3px solid #1f3a5f;
+                padding-bottom: 6px; }
+          h2 { color: #1f3a5f; margin-top: 28px; }
+          h3 { color: #2c517f; margin-top: 18px; }
+          table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+          th, td { border: 1px solid #d6deea; padding: 6px 10px;
+                    text-align: left; }
+          th { background: #f4f7fb; }
+          .course-list { font-size: 0.92em; }
+          .meta { background: #f4f7fb; padding: 12px 16px;
+                   border-radius: 8px; font-size: 0.95em; }
+          @media print {
+            body { margin: 0; padding: 18mm; }
+          }
+        "))
+      ),
+      tags$body(
+        tags$h1("Personal degree plan - UBCO Freshwater Science"),
+        tags$div(class = "meta",
+          tags$div(tags$strong("Generated: "), when),
+          tags$div(tags$strong("Year in program: "),
+                   if (year_in == 5L) "Beyond Year 4 / Completed"
+                   else sprintf("Year %d", year_in)),
+          tags$div(tags$strong("Designation goals: "),
+                   if (length(goals)) paste(goals, collapse = ", ")
+                   else "none selected")
+        ),
+        tags$h2("Credit and degree-threshold summary"),
+        tags$table(
+          tags$thead(tags$tr(tags$th("Threshold"),
+                              tags$th("You have"),
+                              tags$th("Target"),
+                              tags$th("Status"))),
+          tags$tbody(
+            threshold_row("Total credits", total, 120),
+            threshold_row("Science credits", sci_credits, 78),
+            threshold_row("Upper-level credits (300+)", upper_cr, 42),
+            threshold_row("Upper-level Science credits", upper_sci, 36)
+          )
+        ),
+        tags$h2("Designation gap analysis"),
+        designation_block(),
+        tags$h2("Courses you ticked"),
+        completed_table,
+        tags$hr(),
+        tags$p(style = "font-size:0.85em; color:#54607a;",
+          em("Illustrative report. The "),
+          tags$a(href = "https://okanagan.calendar.ubc.ca/",
+                  "UBC Okanagan Academic Calendar"),
+          em(" is the authoritative source for all degree requirements. "),
+          em("Confirm any planning decision with the Freshwater Science "),
+          em("Program Advisor (nelson.jatel@ubc.ca).")
+        )
+      )
+    )
+  }
+
+  output$download_report_html <- downloadHandler(
+    filename = function()
+      sprintf("UBCO_FWSc_plan_%s.html", format(Sys.Date(), "%Y%m%d")),
+    content = function(file) {
+      htmltools::save_html(build_report_html(), file = file,
+                            libdir = NULL)
+    },
+    contentType = "text/html"
+  )
+
+  output$download_report <- downloadHandler(
+    filename = function()
+      sprintf("UBCO_FWSc_plan_%s.pdf", format(Sys.Date(), "%Y%m%d")),
+    content = function(file) {
+      tmp_html <- tempfile(fileext = ".html")
+      htmltools::save_html(build_report_html(), file = tmp_html,
+                            libdir = NULL)
+      tryCatch({
+        if (!requireNamespace("pagedown", quietly = TRUE)) {
+          stop("pagedown not available")
+        }
+        pagedown::chrome_print(tmp_html, output = file, format = "pdf",
+                                wait = 1)
+      }, error = function(e) {
+        # Fallback: ship the HTML with a .pdf extension renamed to
+        # .html so the user still gets something useful. We rename
+        # by writing the HTML to `file` directly.
+        showNotification(
+          paste0("PDF rendering unavailable on the server (",
+                 conditionMessage(e),
+                 "). Downloading the HTML version instead - ",
+                 "use your browser's File > Print > Save as PDF."),
+          type = "warning", duration = 15)
+        file.copy(tmp_html, file, overwrite = TRUE)
+      })
+    },
+    contentType = "application/pdf"
+  )
+
 }
 
 shinyApp(ui, server)

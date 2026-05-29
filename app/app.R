@@ -1,45 +1,342 @@
 # app/app.R
-# Interactive degree planner for the UBCO Freshwater Science program.
-# Embedded as an iframe inside the Quarto static site.
+# UBCO Freshwater Science - interactive degree planner v1.
 #
-# *** SCAFFOLD - not yet implemented. ***
+# Reads:
+#   data/courses.parquet               (scraped UBC Okanagan calendar)
+#   data/designation_mappings/pag.yml  (BCIA UBCO approved list)
+#   data/designation_mappings/rpbio.yml (CAB credentialing mapping)
 #
-# v1 goals:
-#   - Read data/courses.parquet (the daily-scraped catalogue).
-#   - Read data/designation_mappings/{pag,rpbio}.yml.
-#   - Let the student drag courses into year slots (year 1, 2, 3, 4).
-#   - Toggle designation goals (PAg, RPBio, neither, both).
-#   - Live gap analysis: prerequisites missing, designation categories
-#     under-covered, total credit count vs the 120/78/42/36 thresholds.
-#   - Prereq graph (visNetwork) of the selected courses.
-#   - Export a plan as a PDF or text summary.
+# Lets the student:
+#   1. Tick the UBCO courses they have already completed (filterable
+#      DT table per subject).
+#   2. Toggle one or both designation goals (PAg, RPBio).
+#   3. See live gap analysis:
+#        - total credits + thresholds (120 / 78 Sci / 42 upper / 36 upper Sci)
+#        - PAg category coverage: foundational / lower agrology / senior agrology
+#        - RPBio category coverage: 6 core areas + 5 three-of-five subject areas
+#        - biology-count check against the 13-biology RPBio threshold
+#
+# Local dev:
+#   shiny::runApp("app")           from the project root
+# Deploy:
+#   rsconnect::deployApp("app", appFiles = c(...))   to shinyapps.io
 
 suppressPackageStartupMessages({
   library(shiny)
   library(bslib)
+  library(DT)
+  library(dplyr)
+  library(arrow)
+  library(yaml)
+  library(jsonlite)
+  library(stringr)
 })
 
+# ------- Data load (works whether CWD is project root or /app) ----------
+.proj <- if (dir.exists("data")) "." else ".."
+.data_dir <- file.path(.proj, "data")
+
+courses <- arrow::read_parquet(file.path(.data_dir, "courses.parquet"))
+pag     <- yaml::read_yaml(file.path(.data_dir, "designation_mappings", "pag.yml"))
+rpbio   <- yaml::read_yaml(file.path(.data_dir, "designation_mappings", "rpbio.yml"))
+
+# Normalise both sources to a consistent "BIOL 116" / "FWSC 375" style.
+# The scrape produces "BIOL_O 116"; the YAMLs use "BIOL 116".
+short_code <- function(x) stringr::str_replace(x, "_O", "")
+courses$short_code <- short_code(courses$code)
+
+# Subject -> long-form labels for the UI.
+SUBJECT_LABELS <- c(
+  FWSC_O = "FWSC - Freshwater Science",
+  BIOL_O = "BIOL - Biology",
+  EESC_O = "EESC - Earth, Environmental & Geographic Sciences",
+  CHEM_O = "CHEM - Chemistry",
+  GEOG_O = "GEOG - Geography",
+  GISC_O = "GISC - Geographic Information Sciences",
+  MATH_O = "MATH - Mathematics",
+  PHYS_O = "PHYS - Physics",
+  STAT_O = "STAT - Statistics",
+  INDG_O = "INDG - Indigenous Studies",
+  ENGL_O = "ENGL - English",
+  ECON_O = "ECON - Economics"
+)
+
+# Helpers to flatten the YAMLs.
+pag_category_codes <- function(cat) vapply(cat$courses, function(c) c$code, character(1))
+rpbio_area_codes   <- function(area) vapply(area$courses_eligible, function(c) c$code, character(1))
+
+# ------- UI ---------------------------------------------------------------
 ui <- page_sidebar(
-  title = "UBCO Freshwater Science Planner",
-  sidebar = sidebar(
-    title = "Goals",
-    checkboxGroupInput("designations", "Target designations:",
-                       choices = c("PAg" = "pag", "RPBio" = "rpbio")),
-    radioButtons("year_in_program", "Current year:",
-                 choices = c("Year 1", "Year 2", "Year 3", "Year 4", "Done")),
-    hr(),
-    helpText("Scaffold UI - the planner is not yet implemented. ",
-             "Drag-drop year slots, prereq DAG, and gap analysis are queued.")
+  title = "UBCO Freshwater Science - Degree Planner",
+  theme = bs_theme(
+    version = 5, bootswatch = "cosmo",
+    "primary" = "#1f3a5f"
   ),
-  card(
-    card_header("Plan"),
-    p("This is a placeholder. Once data/courses.parquet exists and the
-       designation YAMLs are curated, this panel renders the planner.")
+  sidebar = sidebar(
+    width = 320,
+    title = "Your plan",
+    checkboxGroupInput("goals", "Target designations:",
+                       choices = c("PAg (BC Institute of Agrologists)" = "pag",
+                                   "RPBio (College of Applied Biology)" = "rpbio")),
+    hr(),
+    radioButtons("year_in_program", "Current year in program:",
+                 choices = c("Year 1" = 1L, "Year 2" = 2L, "Year 3" = 3L,
+                             "Year 4" = 4L, "Beyond Year 4 / Completed" = 5L),
+                 selected = 2L),
+    hr(),
+    helpText("Tick the courses you have completed (or transferred in) on
+              the right. Live gap analysis updates below as you change
+              selections."),
+    hr(),
+    div(class = "small text-muted",
+        "MVP - results are illustrative only. ",
+        "Confirm with the program advisor and the UBC Okanagan Academic Calendar.")
+  ),
+
+  navset_tab(
+    nav_panel(
+      "Step 1: Tick completed courses",
+      div(class = "p-3",
+          h4("Tick everything on your transcript"),
+          p(class = "text-muted small",
+            "Filter by subject prefix, course number, or title. The
+             selection drives every panel in Steps 2 and 3."),
+          DT::DTOutput("course_picker", height = "62vh")
+      )
+    ),
+    nav_panel(
+      "Step 2: Credit + degree summary",
+      div(class = "p-3",
+          h4("How you sit against the degree thresholds"),
+          uiOutput("credit_summary"),
+          tags$hr(),
+          h5("Courses you have ticked"),
+          DT::DTOutput("completed_table")
+      )
+    ),
+    nav_panel(
+      "Step 3: Designation gap analysis",
+      div(class = "p-3",
+          uiOutput("designation_summary")
+      )
+    )
   )
 )
 
+# ------- Server -----------------------------------------------------------
 server <- function(input, output, session) {
-  # TODO: load courses + designation mappings, wire the planner.
+
+  # Picker table: every course, sortable + filterable.
+  picker_df <- reactive({
+    courses |>
+      dplyr::transmute(
+        Code    = short_code,
+        Title   = title,
+        Credits = credits,
+        Subject = SUBJECT_LABELS[subject]
+      ) |>
+      dplyr::arrange(Code)
+  })
+
+  output$course_picker <- DT::renderDT({
+    DT::datatable(
+      picker_df(),
+      filter = "top",
+      rownames = FALSE,
+      selection = list(mode = "multiple", target = "row"),
+      options = list(pageLength = 25, scrollX = FALSE,
+                     dom = "tip",
+                     columnDefs = list(list(className = "dt-left",
+                                             targets = "_all")))
+    )
+  }, server = TRUE)
+
+  completed_codes <- reactive({
+    sel <- input$course_picker_rows_selected
+    if (!length(sel)) return(character(0))
+    picker_df()$Code[sel]
+  })
+
+  completed_rows <- reactive({
+    codes <- completed_codes()
+    if (!length(codes)) return(courses[0, , drop = FALSE])
+    courses[courses$short_code %in% codes, , drop = FALSE]
+  })
+
+  # ---- Credit summary -----------------------------------------------------
+  output$credit_summary <- renderUI({
+    rows <- completed_rows()
+    if (!nrow(rows)) {
+      return(tags$div(class = "text-muted",
+                      "Tick courses in Step 1 to populate this summary."))
+    }
+    total       <- sum(rows$credits, na.rm = TRUE)
+    sci_rows    <- rows[rows$subject %in%
+                         c("BIOL_O","CHEM_O","EESC_O","FWSC_O","GEOG_O",
+                           "GISC_O","MATH_O","PHYS_O","STAT_O"), , drop = FALSE]
+    sci_credits <- sum(sci_rows$credits, na.rm = TRUE)
+    upper_rows  <- rows[suppressWarnings(as.integer(rows$number)) >= 300, ,
+                        drop = FALSE]
+    upper_cr    <- sum(upper_rows$credits, na.rm = TRUE)
+    upper_sci   <- sum(upper_rows[upper_rows$subject %in%
+                                    c("BIOL_O","CHEM_O","EESC_O","FWSC_O","GEOG_O",
+                                      "GISC_O","MATH_O","PHYS_O","STAT_O"), "credits"],
+                       na.rm = TRUE)
+
+    chip <- function(label, value, target, units = "cr") {
+      pct <- if (target > 0) min(value / target, 1) else 0
+      ok  <- value >= target
+      colour <- if (ok) "#1f7a3b" else if (pct >= 0.7) "#d9822b" else "#b30000"
+      tags$div(
+        class = "card mb-2",
+        tags$div(class = "card-body p-3",
+          tags$div(class = "d-flex justify-content-between align-items-baseline",
+            tags$strong(label),
+            tags$span(style = sprintf("color:%s; font-weight:600;", colour),
+                      sprintf("%g / %g %s", value, target, units))
+          ),
+          tags$div(class = "progress mt-2", style = "height:6px;",
+            tags$div(class = "progress-bar", role = "progressbar",
+                     style = sprintf("width:%.1f%%; background:%s;",
+                                     pct * 100, colour))
+          )
+        )
+      )
+    }
+
+    tagList(
+      chip("Total credits",                total, 120),
+      chip("Science credits (BIOL/CHEM/EESC/FWSC/GEOG/GISC/MATH/PHYS/STAT)",
+           sci_credits, 78),
+      chip("Upper-level credits (300+)",   upper_cr, 42),
+      chip("Upper-level Science credits",  upper_sci, 36)
+    )
+  })
+
+  output$completed_table <- DT::renderDT({
+    rows <- completed_rows()
+    if (!nrow(rows)) return(DT::datatable(
+      data.frame(Code = character(), Title = character(), Credits = integer()),
+      rownames = FALSE))
+    DT::datatable(
+      rows |> dplyr::transmute(Code = short_code, Title = title,
+                                Credits = credits, LTP = ltp,
+                                Prereqs = vapply(prereq_codes, function(j) {
+                                  if (is.na(j) || !nzchar(j)) "" else
+                                    paste(jsonlite::fromJSON(j), collapse = ", ")
+                                }, character(1))),
+      rownames = FALSE,
+      options = list(pageLength = 15, dom = "tip",
+                     columnDefs = list(list(className = "dt-left",
+                                             targets = "_all")))
+    )
+  })
+
+  # ---- Designation gap analysis ------------------------------------------
+  render_category <- function(name, eligible_codes, completed) {
+    have <- intersect(eligible_codes, completed)
+    need <- setdiff(eligible_codes,  completed)
+    n_have <- length(have)
+    tags$div(class = "card mb-3",
+      tags$div(class = "card-body p-3",
+        tags$h5(class = "mb-2", name),
+        tags$div(class = "d-flex gap-2 mb-2",
+          tags$span(class = "badge bg-success",
+                    sprintf("Have: %d", n_have)),
+          tags$span(class = "badge bg-secondary",
+                    sprintf("Eligible total: %d", length(eligible_codes)))
+        ),
+        if (n_have)
+          tags$div(class = "small text-muted",
+                   tags$strong("Already ticked: "),
+                   paste(have, collapse = ", "))
+        else
+          tags$div(class = "small text-danger",
+                   "No completed courses recognised in this category yet.")
+      )
+    )
+  }
+
+  output$designation_summary <- renderUI({
+    completed <- short_code(completed_codes())
+    if (!length(input$goals)) {
+      return(tags$div(class = "text-muted p-3",
+        "Tick one or both target designations in the sidebar to see the
+         gap analysis here."))
+    }
+    if (!length(completed)) {
+      return(tags$div(class = "text-muted p-3",
+        "Tick some completed courses in Step 1 first."))
+    }
+    blocks <- list()
+    if ("pag" %in% input$goals) {
+      cats <- pag$categories
+      blocks[[length(blocks) + 1]] <- tags$div(
+        tags$h4("PAg - BC Institute of Agrologists"),
+        tags$p(class = "small text-muted",
+          "Need: 8 foundational + 20 agrology (with at least 8 senior)."),
+        render_category(cats$foundational$name,
+                         pag_category_codes(cats$foundational), completed),
+        render_category(cats$agrology_lower$name,
+                         pag_category_codes(cats$agrology_lower), completed),
+        render_category(cats$agrology_senior$name,
+                         pag_category_codes(cats$agrology_senior), completed),
+        tags$hr()
+      )
+    }
+    if ("rpbio" %in% input$goals) {
+      cats <- rpbio$categories
+      blocks[[length(blocks) + 1]] <- tags$div(
+        tags$h4("RPBio - College of Applied Biologists"),
+        tags$p(class = "small text-muted",
+          "Need: 25 science / 13 biology / at least 3 of the 5
+           subject areas (genetics, cell, physiology, systematics,
+           evolution). UBCO does not currently offer a systematics
+           course - confirm a transfer plan with the program advisor."),
+        tags$h5("Required core areas"),
+        render_category(cats$communications$name,
+                         rpbio_area_codes(cats$communications), completed),
+        render_category(cats$chemistry$name,
+                         rpbio_area_codes(cats$chemistry), completed),
+        render_category(cats$numeracy$name,
+                         rpbio_area_codes(cats$numeracy), completed),
+        render_category(cats$statistics_second_year_or_higher$name,
+                         rpbio_area_codes(cats$statistics_second_year_or_higher),
+                         completed),
+        render_category(cats$applied_biology_management$name,
+                         rpbio_area_codes(cats$applied_biology_management),
+                         completed),
+        render_category(cats$ecology$name,
+                         rpbio_area_codes(cats$ecology), completed),
+        tags$h5("Three-of-five subject areas"),
+        render_category(cats$genetics$name,
+                         rpbio_area_codes(cats$genetics), completed),
+        render_category(cats$cell_biology$name,
+                         rpbio_area_codes(cats$cell_biology), completed),
+        render_category(cats$physiology$name,
+                         rpbio_area_codes(cats$physiology), completed),
+        render_category(cats$systematics_taxonomy$name,
+                         rpbio_area_codes(cats$systematics_taxonomy), completed),
+        render_category(cats$evolution$name,
+                         rpbio_area_codes(cats$evolution), completed),
+        tags$hr(),
+        tags$h5("Biology-count check (RPBio needs 13)"),
+        tags$div(class = "card",
+          tags$div(class = "card-body p-3",
+            tags$p(sprintf("You have %d of the 13 biology courses CAB counts.",
+                            length(intersect(completed,
+                                             rpbio$biology_count_eligible_codes)))),
+            if (length(intersect(completed, rpbio$biology_count_eligible_codes)))
+              tags$div(class = "small text-muted",
+                tags$strong("Eligible biology courses on your transcript: "),
+                paste(intersect(completed, rpbio$biology_count_eligible_codes),
+                       collapse = ", "))
+          )
+        )
+      )
+    }
+    do.call(tagList, blocks)
+  })
 }
 
 shinyApp(ui, server)

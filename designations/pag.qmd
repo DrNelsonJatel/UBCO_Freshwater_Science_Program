@@ -4,6 +4,12 @@ subtitle: "Mapping the UBCO Freshwater Science degree to BCIA's coursework requi
 date: last-modified
 ---
 
+::: {.designation-nav}
+**Other professional pathways**:
+[RPBio (College of Applied Biologists)](rpbio.qmd) ·
+[Complementary course bundles (Chemistry, Biology, Hydrology)](complementary.qmd)
+:::
+
 # The designation
 
 **PAg** = Professional Agrologist, the senior tier of the

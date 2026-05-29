@@ -1,0 +1,154 @@
+---
+title: "For Department Review"
+subtitle: "Cover note for the UBCO Freshwater Science planning resource"
+date: last-modified
+toc: true
+---
+
+# Purpose of this note
+
+This site is a curated advising and planning resource for the
+**Bachelor of Science Freshwater Science** major. It exists alongside
+— **not in place of** — the
+[UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/),
+which remains the authoritative source for all degree requirements.
+
+The site is intended for **two audiences**: current Freshwater Science
+students (the headline use case is the in-development interactive
+planner) and prospective students browsing the program.
+
+I am sharing this with the **Freshwater Science Program Committee**
+and the **Department of Earth, Environmental and Geographic Sciences**
+to invite review of three specific judgement calls embedded in the
+material. Each is summarised below, with the relevant evidence and the
+section of the site where the curated content lives.
+
+# What I want your input on
+
+## 1. The v2 Program Learning Outcomes
+
+The site renders the **v2 PLO list (eight outcomes in four categories)**
+finalised in the [28 April 2026 memo](docs/reference/learning-outcomes/UBCO_Memo_PLOs_v2_20260428.docx),
+which consolidated the v1 draft of 14 outcomes following:
+
+- a student focus group (Freshwater Science majors),
+- a faculty working session, and
+- best-practice benchmarking (Penn State, WSU, CSUSB, SUNY, U Michigan-Dearborn,
+  plus comparator BSc freshwater programs at UW-Milwaukee, Western
+  Michigan, and UW-Madison).
+
+The v1→v2 crosswalk and benchmarking evidence are in §4 and §6 of the
+memo, and the eight outcomes themselves are rendered verbatim on the
+[Outcomes page](../outcomes/index.qmd).
+
+**Asks**:
+
+- Is the eight-outcome v2 list the final version the Program
+  Committee endorses for institutional submission, or should we
+  iterate?
+- The curriculum-map matrix (per-course I/R/M coding for each PLO)
+  is the **next deliverable** from the memo. The
+  [EESC 301 pilot mapping](../docs/reference/learning-outcomes/EESC%20301%20-%20Mapping%20to%20EECB%20Program%20Learning%20Outcomes%20-%20NJ.xlsx)
+  shows the methodology. We need a path to interview each
+  Freshwater Science instructor (≈ 20-40 hours total). Can the
+  department support this in fall 2026?
+
+## 2. The RPBio systematics-taxonomy gap
+
+UBCO **does not currently offer** a dedicated undergraduate course in
+systematics or taxonomy. This is a real gap for Freshwater Science
+students targeting **Registered Professional Biologist (RPBio)**
+registration with the College of Applied Biology, because the
+[June 2025 CAB Credentialing Standard](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf)
+lists systematics as one of the five subject areas from which RPBio
+candidates must hold at least three. The
+[RPBio designation page](../designations/rpbio.qmd) carries a
+prominent callout-warning surfacing this gap and recommending that
+students either transfer in a systematics course from another
+institution or cover the three-of-five via evolution + cell biology +
+genetics instead.
+
+**Asks**:
+
+- Should the department **propose a UBCO course** to close this gap
+  (e.g., a 300-level "Biodiversity and Systematics" course shared
+  with BIOL or EESC)? If yes, this advising site can become the
+  forcing function for that proposal.
+- In the interim, is the **callout-warning on the RPBio page** an
+  acceptable disclosure for students considering this designation,
+  or do we want to soften / strengthen the language?
+
+## 3. The designation pathway recommendations
+
+The site surfaces curated 4-year sample plans for **two** professional
+designations:
+
+- **Professional Agrologist (PAg)** — BC Institute of Agrologists
+- **Registered Professional Biologist (RPBio)** — College of Applied
+  Biology
+
+It deliberately **does not** surface pathways for:
+
+- **Professional Geoscientist (P.Geo)** — EGBC. The
+  Environmental Geoscience track is technically viable but
+  cross-loaded with compulsory geoscience courses (mineralogy,
+  sed/strat, structural, geophysics) that compete with the freshwater
+  core. Decision: better signposted as a complementary pathway, not a
+  headline track.
+- **Professional Engineer (P.Eng)** — EGBC. A B.Sc. degree does not
+  normally meet CEAB engineering academic standards; this is a
+  second-degree path.
+
+Both decisions were made by the program lead based on the
+[advising-pack source document](../docs/reference/advising/UBCO_Freshwater_Professional_Paths_Advising_Pack.pdf)
+and on what we hear from students. The
+[Complementary pathways page](../designations/complementary.qmd)
+covers the GISC-Minor, Chemistry, Biology, and hydrology/water-resources
+course bundles that students can layer on top of the FW degree.
+
+**Asks**:
+
+- Does the department agree with surfacing only **PAg + RPBio** as
+  headline designation tracks?
+- The complementary-pathways page suggests three curated electives
+  bundles — water quality + biogeochemistry, aquatic ecology, and
+  hydrology + water resources. Are there additional bundles the
+  department would surface, or wording on these we want to refine?
+
+# What is on the site
+
+A quick orientation so you can review the most material content first.
+
+| Page | What it is | Status |
+|---|---|---|
+| [Home](../index.qmd) | Landing page with land acknowledgement + Academic Calendar disclaimer + status table | Live |
+| [Courses](../courses/index.qmd) | Filterable catalogue of 626 UBCO courses across 12 subjects | **Live data** — scraped daily from the UBC Okanagan Academic Calendar |
+| [Designations → PAg](../designations/pag.qmd) | 150 BCIA-approved UBCO courses across 3 categories + 4-year sample plan | **Live data** — rendered from BCIA's June 2025 UBCO-specific list |
+| [Designations → RPBio](../designations/rpbio.qmd) | CAB credentialing requirements mapped to UBCO courses with **gap warning** | Curated by program lead |
+| [Designations → Complementary](../designations/complementary.qmd) | Chemistry, Biology, and water-resources elective bundles | Curated by program lead |
+| [Outcomes](../outcomes/index.qmd) | v2 PLO list + I/R/M methodology + EESC 301 pilot pointer | Curated; curriculum-map matrix pending |
+| [Skills](../skills/index.qmd) | Draft skills vocabulary (R, GIS, field methods, communication, etc.) | In development |
+| [Planner](../planner/index.qmd) | Interactive degree planner (drag-drop + gap analysis) | In development |
+| [Methodology](../docs/methodology.qmd) | Architecture, data feeds, scrape policy, refresh cadence | Live |
+
+# How to give feedback
+
+- **Email**: [nelson.jatel@ubc.ca](mailto:nelson.jatel@ubc.ca?subject=UBCO%20Freshwater%20Science%20-%20Department%20review)
+  for direct comments, or to schedule a 30-minute walk-through.
+- **GitHub issues**: open at the
+  [project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/issues)
+  if you prefer a tracked, threaded discussion.
+- **Annotated PDF**: the entire site is also rendered as a printable
+  PDF via Quarto if you would prefer to mark up a physical document
+  — let me know and I'll send.
+
+# Maintainer
+
+**Dr. Nelson Jatel, PAg**
+Lecturer and Freshwater Science Program Advisor
+Department of Earth, Environmental and Geographic Sciences
+UBC Okanagan
+[nelson.jatel@ubc.ca](mailto:nelson.jatel@ubc.ca)
+
+Site source code is open and at
+[github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program).

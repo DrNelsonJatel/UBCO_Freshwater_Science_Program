@@ -4,6 +4,12 @@ subtitle: "Mapping the UBCO Freshwater Science degree to CAB's coursework requir
 date: last-modified
 ---
 
+::: {.designation-nav}
+**Other professional pathways**:
+[PAg (BC Institute of Agrologists)](pag.qmd) ·
+[Complementary course bundles (Chemistry, Biology, Hydrology)](complementary.qmd)
+:::
+
 # The designation
 
 **RPBio** = Registered Professional Biologist, granted by the

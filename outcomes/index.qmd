@@ -21,42 +21,74 @@ both faculty and benchmarks as too long for meaningful assessment.
 
 # The eight v2 outcomes
 
-## Depth and Breadth of Knowledge
+::: {.plo-card}
 
-1. Explain water processes in the context of planetary cycles, surface
-   processes, and environmental systems, including human alterations to
-   freshwater ecosystems.
-2. Describe the physical, chemical, and biological structure and
-   function of freshwater systems.
+::: {.plo-category}
+### Depth and Breadth of Knowledge
 
-## Application of Knowledge
+::: {.plo-item}
+**1.** Explain water processes in the context of planetary cycles,
+surface processes, and environmental systems, including human
+alterations to freshwater ecosystems.
+:::
 
-3. Collect, organise, and analyse water and environmental science data
-   using appropriate field, laboratory, computational (e.g., R, Python),
-   and statistical techniques, and represent results in appropriate
-   graphical formats.
-4. Apply the scientific method and quantitative reasoning to develop
-   conceptual models, test hypotheses, and evaluate trade-offs in
-   freshwater management decisions.
-5. Acquire, critically assess, and synthesise freshwater science
-   literature, Indigenous knowledge systems (ways of knowing), data
-   sources, and spatial resources (e.g., maps, remotely sensed data) to
-   inform interpretation and decision-making.
-6. Develop water-related policy options and communicate them
-   effectively to advance uptake by decision-makers.
+::: {.plo-item}
+**2.** Describe the physical, chemical, and biological structure and
+function of freshwater systems.
+:::
+:::
 
-## Communication
+::: {.plo-category}
+### Application of Knowledge
 
-7. Communicate limnology and environmental concepts to diverse
-   audiences through formal written reports, oral presentations,
-   technical posters, illustrations, and clear field, laboratory, and
-   code documentation.
+::: {.plo-item}
+**3.** Collect, organise, and analyse water and environmental science
+data using appropriate field, laboratory, computational (e.g., R,
+Python), and statistical techniques, and represent results in
+appropriate graphical formats.
+:::
 
-## Professional Conduct
+::: {.plo-item}
+**4.** Apply the scientific method and quantitative reasoning to
+develop conceptual models, test hypotheses, and evaluate trade-offs in
+freshwater management decisions.
+:::
 
-8. Demonstrate professional ethics, safe field and laboratory practice,
-   effective teamwork, and respectful engagement with Indigenous
-   Peoples, lands, and rights-holders.
+::: {.plo-item}
+**5.** Acquire, critically assess, and synthesise freshwater science
+literature, Indigenous knowledge systems (ways of knowing), data
+sources, and spatial resources (e.g., maps, remotely sensed data) to
+inform interpretation and decision-making.
+:::
+
+::: {.plo-item}
+**6.** Develop water-related policy options and communicate them
+effectively to advance uptake by decision-makers.
+:::
+:::
+
+::: {.plo-category}
+### Communication
+
+::: {.plo-item}
+**7.** Communicate limnology and environmental concepts to diverse
+audiences through formal written reports, oral presentations,
+technical posters, illustrations, and clear field, laboratory, and
+code documentation.
+:::
+:::
+
+::: {.plo-category}
+### Professional Conduct
+
+::: {.plo-item}
+**8.** Demonstrate professional ethics, safe field and laboratory
+practice, effective teamwork, and respectful engagement with
+Indigenous Peoples, lands, and rights-holders.
+:::
+:::
+
+:::
 
 # How each course contributes — the I / R / M methodology
 

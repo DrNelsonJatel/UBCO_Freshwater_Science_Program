@@ -4,21 +4,24 @@ subtitle: "Drag-and-drop course planning with live designation gap analysis"
 date: last-modified
 ---
 
-::: {.callout-warning}
-## Coming soon
-The interactive planner is under active development. The Shiny app at
-`app/app.R` in the [project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program)
-is currently a scaffold; it will go live once:
+::: {.callout-note}
+## Status — MVP built, awaiting hosting
+The Shiny degree-planner MVP **is functional** in
+[`app/app.R` in the project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/tree/main/app).
+It reads the live UBCO course catalogue and the PAg + RPBio designation
+mappings curated on the rest of this site, and reports:
 
-1. The daily UBCO calendar scraper is implemented (so the planner has
-   live course-offering data).
-2. The PAg and RPBio designation YAMLs are curated from the source PDFs
-   (so the planner can compute live gap analysis against your goals).
-3. A shinyapps.io or Cloud Run deployment is wired up and the
-   `_quarto.yml` Planner link is repointed at it.
+- credits + degree-threshold check (120 / 78 Science / 42 upper /
+  36 upper Science)
+- PAg category coverage (8 foundational + 20 agrology with 8 senior)
+- RPBio category coverage (6 core areas + 5 three-of-five areas) +
+  the 13-biology count
 
-Until then, the static designation pages and the curriculum-map source
-documents in this repository are the working reference:
+Pending: a public hosted URL (shinyapps.io or Cloud Run). Once
+deployed, the navbar **Planner** link will point at the live app.
+Until then, students can preview the app locally via
+`shiny::runApp("app")` from the cloned repository, or email the
+program advisor for a guided demo.
 :::
 
 # What it will do

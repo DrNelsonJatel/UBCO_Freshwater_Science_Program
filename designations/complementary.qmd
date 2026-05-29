@@ -11,6 +11,12 @@ advising map (`docs/reference/advising/Map UBCO Freshwater Science
 (BSc) - Pathways.docx`). Use them as starting points; the program
 advisor will sharpen the specific course choices to your goals.
 
+::: {.designation-nav}
+**Professional designation pathways**:
+[PAg (BC Institute of Agrologists)](pag.qmd) ·
+[RPBio (College of Applied Biologists)](rpbio.qmd)
+:::
+
 # Water quality and biogeochemistry
 
 A Chemistry-leaning track that builds applied analytical and

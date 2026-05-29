@@ -4,6 +4,18 @@ subtitle: "How this site is built, where its data come from, and how often it re
 date: last-modified
 ---
 
+::: {.callout-note}
+## Executive summary
+This site is a Quarto static-content layer plus an embedded Shiny
+planner, with daily-refreshed UBC Okanagan course data sourced from
+the [UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/)
+and curated designation mappings sourced from the regulatory bodies'
+published standards. The full data pipeline is open and reproducible
+from the [project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program);
+this page documents the architecture, the sources, and the refresh
+cadences in detail.
+:::
+
 # Architecture
 
 The site has three coupled layers:

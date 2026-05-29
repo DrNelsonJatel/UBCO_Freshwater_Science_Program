@@ -8,6 +8,7 @@ project:
     - outcomes/*.qmd
     - skills/*.qmd
     - planner/*.qmd
+    - review/*.qmd
     - docs/methodology.qmd
 
 website:

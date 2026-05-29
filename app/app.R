@@ -253,11 +253,25 @@ server <- function(input, output, session) {
       open_by_default <- identical(yk, sprintf("year_%s", current)) ||
                          (yk == "summer" && current == "5")
 
+      tips <- yspec$tips %||% list()
+      tips_block <- if (length(tips)) {
+        tags$div(
+          style = paste("background:#fff8e1; border-left:4px solid #f59e0b;",
+                         "border-radius:6px; padding:10px 14px;",
+                         "margin:10px 0 14px;"),
+          tags$div(style = "font-weight:600; color:#5b3d00; margin-bottom:4px;",
+                   "Year-specific tips"),
+          tags$ul(style = "margin:0; padding-left:18px; font-size:0.9em;",
+                  lapply(tips, function(t) tags$li(t)))
+        )
+      } else NULL
+
       bslib::accordion_panel(
         title = yspec$label,
         value = yk,
         if (nzchar(yspec$description %||% ""))
           p(class = "text-muted small", yspec$description),
+        tips_block,
         tags$h6("Recommended for this year"),
         checkboxGroupInput(checkbox_id, label = NULL,
                             choices = rec_choices,

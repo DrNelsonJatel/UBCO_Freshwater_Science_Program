@@ -4,28 +4,154 @@
     "href": "docs/methodology.html",
     "title": "Methodology",
     "section": "",
-    "text": "Architecture\nThe site has three coupled layers:\n\nStatic Quarto site — all content pages (course catalogue, designation pathways, learning outcomes, skills scaffold, methodology, announcements). Authored in markdown / qmd; rendered to HTML and served as static files.\nShiny degree planner — the interactive component, embedded as an iframe in the static site. Lets a student drag courses into year slots, pick a designation goal, and see real-time gap analysis.\ntargets data pipeline — daily scrape of the UBCO Academic Calendar, normalisation to a tidy parquet, plus the curated designation-mapping YAMLs. Output artefacts feed both the Quarto site (via embedded chunks) and the Shiny planner.\n\n\n\nData sources and refresh cadence\n\n\n\n\n\n\n\n\n\nFeed\nSource URL\nHow\nCadence\n\n\n\n\nCourse descriptions\nokanagan.calendar.ubc.ca/course-descriptions/subject/&lt;code&gt;\nrvest scrape, per-subject\nDaily, 12:00 UTC\n\n\nProgram structure\nokanagan.calendar.ubc.ca/.../freshwater-science\nrvest scrape\nDaily, 12:00 UTC\n\n\nCourse schedule (offered next year?)\nUBCO Workday Student / SSC\nTBD — scrape vs. API\nDaily, 12:00 UTC\n\n\nBCIA PAg UBCO-approved list\nbcia.com/sites/.../UBCO Approved Courses_*.pdf\nManual OCR + curated YAML\nTriggered on PDF update (BCIA edits the file ~annually)\n\n\nCAB RPBio Credentialing Standard\ncab-bc.org/wp-content/uploads/Credentialing_Standard_*.pdf\nManual OCR + curated YAML\nTriggered on standard update\n\n\nProgram learning outcomes\nFaculty of Science / EESC departmental docs\nManual transcription\nAnnual\n\n\nCourse learning outcomes\nInstructor interviews\nManual collection\nPer-course, on rolling basis\n\n\n\n\n\nScrape policy\nUBCO’s calendar is publicly accessible. The scraper respects the following constraints:\n\nSingle sequential scrape (no parallel requests) with a polite User-Agent: limnology.ca UBCO Freshwater Pathways v0.x.\nPer-request delay of 1 second between subject pages.\nLocal cache (file mtime check) so a re-run within the same day is a no-op.\nAll scraping happens server-side in GitHub Actions, never in the user’s browser.\n\nIf UBCO’s registrar office can provide a data feed or API, the scraper will be retired in favour of that.\n\n\nDesignation-mapping authority\nThe PAg and RPBio mappings are not scraped. The source documents (BCIA UBCO list, CAB Credentialing Standard) are PDF publications by the respective regulatory bodies. The workflow:\n\nDownload the latest PDF when published.\nOCR locally to a text file in docs/reference/.\nHand-curate the UBCO course-code -&gt; designation-category map into data/designation_mappings/pag.yml and .../rpbio.yml.\nVersioned, dated YAMLs so historical pathways are preserved.\n\nThis preserves traceability: every course-counts-for-X claim on the site is backed by a citable, dated source.\n\n\nPipeline reproducibility\nThe targets pipeline plus the GitHub Actions cron workflow give:\n\nFull provenance for every artefact (which scrape run, which source version, which curator).\nDeterministic re-renders.\nPublic commit history of when designation mappings changed.\n\n\n\nStack inventory\n\n\n\n\n\n\n\nComponent\nLibrary\n\n\n\n\nSite\nQuarto 1.6+\n\n\nScraping\nrvest, httr2, xml2\n\n\nTidying\ndplyr, tidyr, stringr, lubridate\n\n\nStorage\narrow (parquet)\n\n\nPipeline\ntargets\n\n\nPlanner\nshiny, bslib, DT, visNetwork (prereq graph)\n\n\nValidation\nassertr, testthat\n\n\nDeploy\nGitHub Actions, shinyapps.io (planner), limnology.ca (static site)"
+    "text": "NoteExecutive summary\n\n\n\nThis site is a Quarto static-content layer plus an embedded Shiny planner, with daily-refreshed UBC Okanagan course data sourced from the UBC Okanagan Academic Calendar and curated designation mappings sourced from the regulatory bodies’ published standards. The full data pipeline is open and reproducible from the project source repository; this page documents the architecture, the sources, and the refresh cadences in detail.\n\n\n\nArchitecture\nThe site has three coupled layers:\n\nStatic Quarto site — all content pages (course catalogue, designation pathways, learning outcomes, skills scaffold, methodology, announcements). Authored in markdown / qmd; rendered to HTML and served as static files.\nShiny degree planner — the interactive component, embedded as an iframe in the static site. Lets a student drag courses into year slots, pick a designation goal, and see real-time gap analysis.\ntargets data pipeline — daily scrape of the UBCO Academic Calendar, normalisation to a tidy parquet, plus the curated designation-mapping YAMLs. Output artefacts feed both the Quarto site (via embedded chunks) and the Shiny planner.\n\n\n\nData sources and refresh cadence\n\n\n\n\n\n\n\n\n\nFeed\nSource URL\nHow\nCadence\n\n\n\n\nCourse descriptions\nokanagan.calendar.ubc.ca/course-descriptions/subject/&lt;code&gt;\nrvest scrape, per-subject\nDaily, 12:00 UTC\n\n\nProgram structure\nokanagan.calendar.ubc.ca/.../freshwater-science\nrvest scrape\nDaily, 12:00 UTC\n\n\nCourse schedule (offered next year?)\nUBCO Workday Student / SSC\nTBD — scrape vs. API\nDaily, 12:00 UTC\n\n\nBCIA PAg UBCO-approved list\nbcia.com/sites/.../UBCO Approved Courses_*.pdf\nManual OCR + curated YAML\nTriggered on PDF update (BCIA edits the file ~annually)\n\n\nCAB RPBio Credentialing Standard\ncab-bc.org/wp-content/uploads/Credentialing_Standard_*.pdf\nManual OCR + curated YAML\nTriggered on standard update\n\n\nProgram learning outcomes\nFaculty of Science / EESC departmental docs\nManual transcription\nAnnual\n\n\nCourse learning outcomes\nInstructor interviews\nManual collection\nPer-course, on rolling basis\n\n\n\n\n\nScrape policy\nUBCO’s calendar is publicly accessible. The scraper respects the following constraints:\n\nSingle sequential scrape (no parallel requests) with a polite User-Agent: limnology.ca UBCO Freshwater Pathways v0.x.\nPer-request delay of 1 second between subject pages.\nLocal cache (file mtime check) so a re-run within the same day is a no-op.\nAll scraping happens server-side in GitHub Actions, never in the user’s browser.\n\nIf UBCO’s registrar office can provide a data feed or API, the scraper will be retired in favour of that.\n\n\nDesignation-mapping authority\nThe PAg and RPBio mappings are not scraped. The source documents (BCIA UBCO list, CAB Credentialing Standard) are PDF publications by the respective regulatory bodies. The workflow:\n\nDownload the latest PDF when published.\nOCR locally to a text file in docs/reference/.\nHand-curate the UBCO course-code -&gt; designation-category map into data/designation_mappings/pag.yml and .../rpbio.yml.\nVersioned, dated YAMLs so historical pathways are preserved.\n\nThis preserves traceability: every course-counts-for-X claim on the site is backed by a citable, dated source.\n\n\nPipeline reproducibility\nThe targets pipeline plus the GitHub Actions cron workflow give:\n\nFull provenance for every artefact (which scrape run, which source version, which curator).\nDeterministic re-renders.\nPublic commit history of when designation mappings changed.\n\n\n\nStack inventory\n\n\n\n\n\n\n\nComponent\nLibrary\n\n\n\n\nSite\nQuarto 1.6+\n\n\nScraping\nrvest, httr2, xml2\n\n\nTidying\ndplyr, tidyr, stringr, lubridate\n\n\nStorage\narrow (parquet)\n\n\nPipeline\ntargets\n\n\nPlanner\nshiny, bslib, DT, visNetwork (prereq graph)\n\n\nValidation\nassertr, testthat\n\n\nDeploy\nGitHub Actions, shinyapps.io (planner), limnology.ca (static site)"
   },
   {
-    "objectID": "skills/index.html",
-    "href": "skills/index.html",
-    "title": "Skills scaffolding",
+    "objectID": "planner/index.html",
+    "href": "planner/index.html",
+    "title": "Interactive Degree Planner",
     "section": "",
-    "text": "WarningScaffold placeholder\n\n\n\nSkills are stored in skills/skills_vocab.yml (the controlled vocabulary) and skills/course_tags.yml (per-course tagging with introduce/practise/expect markers). Neither file exists yet. The heatmap viz on this page is the eventual rendering of those YAMLs.\n\n\n\nThe idea\nSkills get scaffolded through a degree: introduced in one course, practised in several, and expected as background in upper-year courses. Without an explicit map, neither students nor instructors can see this arc clearly.\nThis page shows the scaffolded coverage as a heatmap: rows are skills from a controlled vocabulary, columns are the four years of the program, cells are coloured by introduce / practise / expect status.\n\n\nControlled skill vocabulary (draft)\nThree top-level skill families to start, each with sub-skills. These are stubs; the real vocabulary will be co-developed with department instructors.\n\n\nQuantitative / computational\n\nR basics\nR intermediate (tidyverse)\nR for hydrology (tidyhydat, dataRetrieval)\nStatistical inference\nGeostatistics\nSpatial analysis (sf, terra)\nModelling (GLM, GAM)\n\n\n\nField / lab\n\nSampling design\nWater-quality sampling\nMacroinvertebrate identification\nHydrometric measurement\nLab safety\nCalibration and QC\n\n\n\nCommunication / professional\n\nScientific writing\nPublic-facing communication\nPeer review\nProject management\nEthics\nWorking with First Nations\n\n\n\n\n\nPending content\n\nCo-develop the controlled skill vocabulary with the program instructor cohort.\nTag each Freshwater Science course with the skills it introduces / practises / expects.\nRender the skills-by-year heatmap."
+    "text": "NoteStatus — MVP built, awaiting hosting\n\n\n\nThe Shiny degree-planner MVP is functional in app/app.R in the project source repository. It reads the live UBCO course catalogue and the PAg + RPBio designation mappings curated on the rest of this site, and reports:\n\ncredits + degree-threshold check (120 / 78 Science / 42 upper / 36 upper Science)\nPAg category coverage (8 foundational + 20 agrology with 8 senior)\nRPBio category coverage (6 core areas + 5 three-of-five areas) + the 13-biology count\n\nPending: a public hosted URL (shinyapps.io or Cloud Run). Once deployed, the navbar Planner link will point at the live app. Until then, students can preview the app locally via shiny::runApp(\"app\") from the cloned repository, or email the program advisor for a guided demo.\n\n\n\nWhat it will do\nWhen live, the planner will let you:\n\nDrag courses into year slots (Year 1, 2, 3, 4 and post-Year-4 summer).\nToggle designation goals (PAg, RPBio, neither, both).\nSee live gap analysis:\n\nWhich prerequisites are missing for the courses you have chosen.\nWhich BCIA / CAB category requirements are still unfilled.\nWhether your total credits clear the 120 / 78 Science / 42 upper-level / 36 upper-level-Science thresholds.\n\nView the prerequisite graph for your selected courses (visNetwork).\nExport your plan as a PDF or text summary you can share with the program advisor.\n\n\n\nIn the meantime\n\nUse the course catalogue for the year-by-year course list and prerequisite notes.\nUse the PAg pathway and RPBio pathway for the curated 4-year sample plans + designation-fit narrative.\nUse the Complementary pathways page for Chemistry, Biology, and hydrology/water-resources bundles.\n\n\n\nWant to help shape it?\nIf you are a Freshwater Science student or instructor and want input into how the planner should behave — what gap signals matter most, what visual encoding is most useful, how aggressively it should flag prerequisite conflicts — please drop a note to Nelson.Jatel@UBC.ca or open a GitHub issue at the project source repository."
+  },
+  {
+    "objectID": "outcomes/index.html",
+    "href": "outcomes/index.html",
+    "title": "Program Learning Outcomes",
+    "section": "",
+    "text": "The current authority for Program Learning Outcomes (PLOs) is the v2 PLO set finalised on 28 April 2026 by Dr. Nelson Jatel, PAg, Lecturer and Program Advisor (memo: docs/reference/learning-outcomes/UBCO_Memo_PLOs_v2_20260428.docx). The v2 set consolidated the v1 draft (14 outcomes) down to 8 outcomes in 4 categories, based on:\n\nStudent focus-group feedback (Freshwater Science majors),\nFaculty working-session input, and\nBest-practice benchmarking against Penn State, Washington State, CSUSB, SUNY, U Michigan-Dearborn, and comparator BSc Freshwater programs at UW-Milwaukee, Western Michigan, and UW-Madison.\n\nThe 5-to-7-outcome range is the sector norm; v1’s 14 was flagged by both faculty and benchmarks as too long for meaningful assessment.\n\nThe eight v2 outcomes\n\n\nDepth and Breadth of Knowledge\n\n1. Explain water processes in the context of planetary cycles, surface processes, and environmental systems, including human alterations to freshwater ecosystems.\n\n\n2. Describe the physical, chemical, and biological structure and function of freshwater systems.\n\n\n\nApplication of Knowledge\n\n3. Collect, organise, and analyse water and environmental science data using appropriate field, laboratory, computational (e.g., R, Python), and statistical techniques, and represent results in appropriate graphical formats.\n\n\n4. Apply the scientific method and quantitative reasoning to develop conceptual models, test hypotheses, and evaluate trade-offs in freshwater management decisions.\n\n\n5. Acquire, critically assess, and synthesise freshwater science literature, Indigenous knowledge systems (ways of knowing), data sources, and spatial resources (e.g., maps, remotely sensed data) to inform interpretation and decision-making.\n\n\n6. Develop water-related policy options and communicate them effectively to advance uptake by decision-makers.\n\n\n\nCommunication\n\n7. Communicate limnology and environmental concepts to diverse audiences through formal written reports, oral presentations, technical posters, illustrations, and clear field, laboratory, and code documentation.\n\n\n\nProfessional Conduct\n\n8. Demonstrate professional ethics, safe field and laboratory practice, effective teamwork, and respectful engagement with Indigenous Peoples, lands, and rights-holders.\n\n\n\n\n\nHow each course contributes — the I / R / M methodology\nThe curriculum-map methodology used to trace these PLOs through the program uses three coding labels for each course-learning-outcome (CLO) → PLO link:\n\n\n\n\n\n\n\nCode\nMeaning\n\n\n\n\nI\nIntroductory — the course introduces the concept; students encounter it for the first time.\n\n\nR\nReinforcement — the course practises the concept; students extend prior exposure.\n\n\nM\nMastery — the course expects students to demonstrate the concept independently.\n\n\n\nCombined with an X marker showing which CLO maps to which PLO, this is the same framework UBC’s Faculty of Science uses for the EECB program (Ecology, Evolution, and Conservation Biology) and other B.Sc. programs.\n\n\n\n\n\n\nNotePilot: EESC 301 Limnology\n\n\n\nA worked example of the methodology for EESC 301 (Limnology) mapped to the EECB program PLOs is committed at docs/reference/learning-outcomes/EESC 301 - Mapping to EECB Program Learning Outcomes - NJ.xlsx. It captures six course learning outcomes, links each to one or more program PLOs, and codes the depth (I / R / M). This is the template that needs to be replicated for every Freshwater Science required and elective course.\n\n\n\n\nCurriculum map — pending build\nFollowing the v2 PLO finalisation memo (§7 Recommended Next Steps), the next deliverable is the full curriculum map: every required Freshwater Science course mapped against the 8 PLOs with I / R / M coding. This page will eventually render that matrix as a sortable table:\n\n\n\n\n\n\nWarningScaffold placeholder\n\n\n\nThe curriculum-map matrix (rows = course, columns = PLO 1-8, cells = I / R / M) is not yet built. The schema for outcomes/data/curriculum_map.yml plus a script to render it as the table above is queued. Each course’s mapping requires a structured conversation with the instructor, using the EESC 301 pilot as the template.\n\n\n\n\nVersion history\n\n\n\n\n\n\n\n\n\nVersion\nDate\nOutcomes\nNotes\n\n\n\n\nv2 (current)\n28 April 2026\n8 in 4 categories\nRefined by Dr. Nelson Jatel, PAg, following student + faculty consultation and best-practice benchmarking. Memo: UBCO_Memo_PLOs_v2_20260428.docx.\n\n\nv1 (draft)\n2025\n14 in 5 categories\nSuperseded by v2. Mapping of v1 → v2 in the memo §6 crosswalk. Draft: BSc Freshwater Science Draft PLOs (V1).docx.\n\n\n\n\n\nAssessment plan — pending\nThe v2 finalisation memo flags two further deliverables:\n\nDirect assessment artifacts in EESC 301, EESC 402, and the capstone course, identifying which artifact assesses which PLO.\nThree-year review cycle aligned with UBC institutional assessment guidance.\n\nBoth are pending and will be tracked in the project’s GitHub issues.\n\n\nReferences\n\nUBCO Freshwater Science Program. (2026). Finalisation of Freshwater Science Program Learning Outcomes (PLOs), v2. Internal memo, 28 April 2026. (docs/reference/learning-outcomes/UBCO_Memo_PLOs_v2_20260428.docx)\nUBCO Freshwater Science Program. (2025). Draft Program Learning Outcomes (V1). Internal document. (docs/reference/learning-outcomes/BSc Freshwater Science Draft PLOs (V1).docx)\nUBC Faculty of Science EECB program curriculum-map template (used as the basis for the I / R / M methodology and the EESC 301 worked example).\nPenn State Office of Planning, Assessment and Institutional Research. Program Learning Objectives.\nWashington State University Office of Assessment for Curricular Effectiveness. (2024). Quick Guide to Program-level Student Learning Outcomes.\nUniversity of Wisconsin-Milwaukee. Freshwater Sciences, BS — Program Learning Outcomes."
+  },
+  {
+    "objectID": "designations/pag.html",
+    "href": "designations/pag.html",
+    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
+    "section": "",
+    "text": "Other professional pathways: RPBio (College of Applied Biologists) · Complementary course bundles (Chemistry, Biology, Hydrology)"
+  },
+  {
+    "objectID": "designations/pag.html#academic-requirements-aag-entry",
+    "href": "designations/pag.html#academic-requirements-aag-entry",
+    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
+    "section": "Academic requirements (AAg entry)",
+    "text": "Academic requirements (AAg entry)\nA four-year accredited B.Sc. with a science focus, where the coursework includes:\n\nAt least 8 entry-level foundational courses (100/200-level) in the subjects on BCIA’s Academic Worksheet.\nAt least 20 courses in agriculture, natural sciences, or agriculture/resource economics that relate to agrology under the Agrologists Regulation, 2021.\nAt least 8 senior-level courses (drawn from the 20 above) in those same subject areas.\n\nEligible course categories:\n\nAgrology\nFoundational Natural Science\nMathematics or Statistics\nEconomics\nCommunications / Writing\nComputer Science"
+  },
+  {
+    "objectID": "designations/pag.html#whats-already-covered",
+    "href": "designations/pag.html#whats-already-covered",
+    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
+    "section": "What’s already covered",
+    "text": "What’s already covered\n\nFoundations (8 required): Year 1 science (BIOL 116, CHEM 121 + CHEM 123, MATH 100, PHYS 111/112 paired with PHYS 121/122) plus EESC 205 (Hydrology) and EESC 222 (Geomorphology) cover the foundational natural-science count.\nCommunications / Writing: the program’s 6-credit English / communications block satisfies BCIA’s communications requirement.\nMathematics / Statistics: MATH 100 + STAT 230 / GEOG 271 / BIOL 202."
+  },
+  {
+    "objectID": "designations/pag.html#bcia-approved",
+    "href": "designations/pag.html#bcia-approved",
+    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
+    "section": "BCIA-approved UBCO courses by category",
+    "text": "BCIA-approved UBCO courses by category\nThe tables below render directly from the June-2025 BCIA UBCO approved course list (PDF), parsed into a YAML (data/designation_mappings/pag.yml) and committed to this repository. They update whenever BCIA republishes the list.\n\nFoundational courses (8 required, 100/200-level)\n48 UBCO courses are recognised in this category.\n\n\n\n\n\n\n\n\nAgrology courses — 100/200 level\n17 UBCO courses in the lower-level agrology category. These can count toward the 20-course agrology requirement (≥8 must be senior, listed below).\n\n\n\n\n\n\n\n\nAgrology courses — 300/400+ level\n85 UBCO senior-level agrology courses. BCIA requires ≥8 senior-level courses within the 20-course agrology total."
+  },
+  {
+    "objectID": "designations/pag.html#sample-4-year-plan-for-the-pag-track",
+    "href": "designations/pag.html#sample-4-year-plan-for-the-pag-track",
+    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
+    "section": "Sample 4-year plan for the PAg track",
+    "text": "Sample 4-year plan for the PAg track\nIllustrative; verify with the program advisor and current BCIA rules.\n\n\n\n\n\n\nNoteYear 1\n\n\n\n\n\n\nT1: BIOL 116; CHEM 121; MATH 100; ENGL 109/112/114 (writing requirement); elective.\nT2: BIOL 125; CHEM 123/121; PHYS 111 or 112; elective.\n\n\n\n\n\n\n\n\n\n\nNoteYear 2\n\n\n\n\n\n\nT1: EESC 205 (Hydrology); STAT 230 / GEOG 271 / BIOL 202; ECON 371 or 372 (example); elective.\nT2: EESC 222 (Geomorphology); CHEM 211; CHEM 201 or 210 (example); elective.\n\n\n\n\n\n\n\n\n\n\nNoteYear 3\n\n\n\n\n\n\nT1: EESC 301 (Limnology); EESC 402 or other policy/management upper-level; GISC/GEOG 380/381 (GIS/Remote Sensing).\nT2: Choose among EESC 333, 413, 422, 429, 431, 435; consider CHEM 301/302 as relevant.\n\n\n\n\n\n\n\n\n\n\nNoteYear 4\n\n\n\n\n\n\nRound out to ≥20 agrology-related courses with ≥8 at 3rd/4th-year across EESC, BIOL, CHEM, GEOG, GISC, ECON. Add a field or industry project (Directed Studies, Honours Thesis, or co-op term)."
+  },
+  {
+    "objectID": "designations/pag.html#co-op-and-experience",
+    "href": "designations/pag.html#co-op-and-experience",
+    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
+    "section": "Co-op and experience",
+    "text": "Co-op and experience\nCo-op terms after Year 2 or Year 3 target utilities, local and regional governments, environmental consulting, and agriculture / watershed NGOs. These count toward the post-degree articling experience required to convert AAg → PAg."
+  },
+  {
+    "objectID": "designations/pag.html#seat-prerequisite-cautions",
+    "href": "designations/pag.html#seat-prerequisite-cautions",
+    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
+    "section": "Seat / prerequisite cautions",
+    "text": "Seat / prerequisite cautions\n\nGIS courses (GISC 380/381) often have priority rules for majors. Request permission early.\nECON seats fill quickly; plan registration day.\nSome upper-level EESC courses alternate years (313/413). Coordinate with the program advisor."
+  },
+  {
+    "objectID": "courses/index.html",
+    "href": "courses/index.html",
+    "title": "Course catalogue",
+    "section": "",
+    "text": "The table below is populated daily from the UBC Okanagan Academic Calendar via data-raw/01_scrape_ubco_calendar.R -&gt; data/courses.parquet. Filter and sort it freely."
+  },
+  {
+    "objectID": "courses/index.html#year-1-30-credits",
+    "href": "courses/index.html#year-1-30-credits",
+    "title": "Course catalogue",
+    "section": "Year 1 (30 credits)",
+    "text": "Year 1 (30 credits)\n\nBIOL_O 116 and 125 (6)\nCHEM_O 121 and 123 (6)\nEESC_O 111 and 112 (6)\nMATH_O 100 (3) plus one of MATH_O 101 or 103 (3)\nOne of PHYS_O 111 or 112 (3) plus one of PHYS_O 121 or 122 (3)"
+  },
+  {
+    "objectID": "courses/index.html#year-2-30-credits",
+    "href": "courses/index.html#year-2-30-credits",
+    "title": "Course catalogue",
+    "section": "Year 2 (30 credits)",
+    "text": "Year 2 (30 credits)\n\nBIOL_O 201 (3)\nOne of BIOL_O 202, GEOG_O 271, STAT_O 121, STAT_O 230 (3)\nOne of CHEM_O 201 or 210 (3) plus CHEM_O 211 (3)\nEESC_O 205 and 222 (6)\nEnglish / communication electives (6)\nINDG_O 100 or ENGL_O 114 (3)\nNon-science electives (3)"
+  },
+  {
+    "objectID": "courses/index.html#years-3-and-4-60-credits",
+    "href": "courses/index.html#years-3-and-4-60-credits",
+    "title": "Course catalogue",
+    "section": "Years 3 and 4 (60 credits)",
+    "text": "Years 3 and 4 (60 credits)\n\nBIOL_O 308 (3)\nFWSC_O 375 (3)\nCHEM_O 301 (3)\nEESC_O 212, 301, 402 (9)\nOne of EESC_O 342, 413, 435 (3)\nTwo of EESC_O 309, 323, 423 (6)\nOne of EESC_O 313, 314, 315 (3)\nUpper-level science electives (9)\nNon-science electives (6)\nGeneral electives (15)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "UBCO Freshwater Science",
+    "section": "",
+    "text": "NoteLand acknowledgement\n\n\n\nThe UBC Okanagan campus is situated within the unceded, ancestral, and traditional territory of the Syilx Okanagan Nation. The Freshwater Science program — its teaching, its research, its applied work in freshwater systems — depends on this land and on relationships with the Indigenous Peoples and rights-holders who continue to steward it."
+  },
+  {
+    "objectID": "index.html#quick-starts",
+    "href": "index.html#quick-starts",
+    "title": "UBCO Freshwater Science",
+    "section": "Quick starts",
+    "text": "Quick starts\n\n\nI’m a current student\n\nThe interactive Planner is in development; preview the design intent on its placeholder page.\nCheck the PAg pathway and RPBio pathway to see what gaps you still need to fill before graduation.\nBrowse the course catalogue for prerequisites and “is this offered next year?” signals.\nThe department’s official page lives at eesc.ok.ubc.ca → Freshwater Science.\n\n\n\nI’m a prospective student\n\nRead the official program description at UBC Undergraduate Admissions → Freshwater Science.\nSkim the program overview below.\nCompare the designation pathways to see what professional qualifications this degree can lead to.\nBrowse the first-year courses to get a feel for the workload."
+  },
+  {
+    "objectID": "index.html#about-the-program",
+    "href": "index.html#about-the-program",
+    "title": "UBCO Freshwater Science",
+    "section": "About the program",
+    "text": "About the program\nThe Freshwater Science program integrates aquatic biology, chemistry, geography, and earth and environmental sciences. Students study water quality and quantity, aquatic organisms, and the health of aquatic ecosystems.\nThe four-year B.Sc. requires 120 credits with at least 78 in Science, at least 42 at the upper level (300+), and at least 36 of those upper-level credits in Science. The Honours track adds a research thesis (EESC_O 449).\nOfficial UBCO pages:\n\nUBC Undergraduate Admissions — Freshwater Science (program overview for prospective students)\nDepartment of Earth, Environmental and Geographic Sciences — Freshwater Science (department page; current-student facing)\nUBC Academic Calendar — Freshwater Science requirements (authoritative degree requirements)\n\n\n\n\n\n\n\nNoteSource of truth\n\n\n\nCourse descriptions and prerequisites are pulled daily from the UBC Okanagan Academic Calendar. Designation requirements are curated from the BCIA UBCO Approved Course List and the CAB Credentialing Standard by the program lead. The Methodology page details the data pipeline and refresh cadence."
+  },
+  {
+    "objectID": "index.html#talk-to-your-advisor",
+    "href": "index.html#talk-to-your-advisor",
+    "title": "UBCO Freshwater Science",
+    "section": "Talk to your advisor",
+    "text": "Talk to your advisor\n\n\nDr. Nelson Jatel, PAg\nFreshwater Science Program Advisor, UBC Okanagan\nEmail for advising appointments, course planning, designation questions, Honours / Co-op / NSERC USRA enquiries, or anything else.\n📧 nelson.jatel@ubc.ca"
+  },
+  {
+    "objectID": "index.html#who-maintains-this",
+    "href": "index.html#who-maintains-this",
+    "title": "UBCO Freshwater Science",
+    "section": "Who maintains this",
+    "text": "Who maintains this\nCurated and maintained by Dr. Nelson Jatel, PAg — Lecturer and Freshwater Science Program Advisor, Department of Earth, Environmental and Geographic Sciences, UBC Okanagan. For advising appointments or to flag a correction, email nelson.jatel@ubc.ca.\nSource code is open and at github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program. Issues and suggestions welcome via the GitHub issues tracker.\n\nStatus of this resource (as of last update)\n\n\n\nSection\nStatus\n\n\n\n\nCourse catalogue\nLive data — scraped daily from the UBC Okanagan Academic Calendar\n\n\nDesignations (PAg)\nLive data — rendered from the BCIA UBCO approved-course list (June 2025)\n\n\nDesignations (RPBio)\nCurated by the program advisor from the CAB Credentialing Standard (June 2025) — CAB does not publish a UBCO-specific list\n\n\nProgram Learning Outcomes\nCurated from the v2 PLO memo (28 April 2026)\n\n\nComplementary pathways\nCurated from the program advisor’s pathway map\n\n\nCurriculum-map matrix (PLOs × courses)\nIn development — EESC 301 pilot only; instructor interviews pending\n\n\nSkills scaffolding\nIn development — draft vocabulary only\n\n\nInteractive Degree Planner\nIn development — see Planner page for the design intent"
+  },
+  {
+    "objectID": "designations/complementary.html",
+    "href": "designations/complementary.html",
+    "title": "Complementary pathways",
+    "section": "",
+    "text": "Many students who pick Freshwater Science want a focus on top of the broad core — an applied direction they can take into work or graduate school. The patterns below come from the program lead’s curated advising map (docs/reference/advising/Map UBCO Freshwater Science (BSc) - Pathways.docx). Use them as starting points; the program advisor will sharpen the specific course choices to your goals.\n\nProfessional designation pathways: PAg (BC Institute of Agrologists) · RPBio (College of Applied Biologists)\n\n\nWater quality and biogeochemistry\nA Chemistry-leaning track that builds applied analytical and contaminant-cycling expertise.\n\nCore EESC: EESC 301 (Limnology), EESC 309 (Global Biogeochemistry), EESC 423 (Tracers of Natural Processes).\nCore CHEM: CHEM 211 (Analytical), CHEM 301 (Aqueous Environmental Chemistry).\nGISC Minor to add spatial analysis and remote sensing.\nSuits: contaminant monitoring, redox / speciation work, trace analysis in waters, water-utility lab roles.\nLab home: UBCO Chemistry FiLTER (Field Lab for Trace Element Research) is a frequent collaborator.\n\n\n\nAquatic ecology and conservation\nA Biology-leaning track for biomonitoring, fisheries, and species-level work.\n\nCore EESC: EESC 301 (Limnology), EESC 402 (Freshwater Resources).\nCore BIOL: BIOL 308 (Population Biology), BIOL 375 / FWSC 375 (Flora & Fauna of Inland Waters).\nYear-4 capstone: Directed Studies or EESC 449 (Honours Thesis).\nCo-op targets: provincial and federal biology agencies, fisheries consulting, NGOs.\nDesignation fit: this is the natural pairing with the RPBio pathway.\n\n\n\nHydrology and water resources\nA Civil-Engineering-adjacent track for watershed modelling, flood/drought risk, and water infrastructure.\n\nCore EESC: EESC 413 (Analytical Methods in Hydrology), EESC 435 (Fluvial Field Techniques), EESC 423 (Tracers), EESC 342 (Hydrogeology).\nENGR pairing: ENGR 342 (Open Channel Flow) — seat and prerequisite limits apply; coordinate with Engineering advising.\nGISC Minor for geospatial modelling.\nCo-op targets: hydrometric agencies (ECCC, WSC), engineering consulting (NHC, Associated Engineering, etc.), utilities.\n\n\n\nPractical notes for mixing and matching\n\nCo-op across programs. Co-op is available in Freshwater, Chemistry, Biology, and Engineering — ideal for stitching together applied experience.\nCredit double-counting. The UBCO Academic Calendar caps double-counting of upper-level credits toward a second major or minor (generally max 6 credits for program-specified requirements). Schedule intentionally if you’re aiming for a double credential.\nAdvising. Use the official Program Plan and meet program advisors early — especially if you’re eyeing Honours, co-op, or cross-faculty electives.\n\n\n\nReferences\n\nUBCO Freshwater Science (program page)\nUBC Academic Calendar — Freshwater Science requirements\nUBCO BSc Freshwater Science — Program Plan (PDF)\nUBCO Chemistry — undergraduate page\nUBCO Civil Engineering — programs\nUBCO GISC Minor\nSource notes in this repo: docs/reference/advising/Map UBCO Freshwater Science (BSc) - Pathways.docx."
   },
   {
     "objectID": "designations/rpbio.html",
     "href": "designations/rpbio.html",
     "title": "RPBio — Registered Professional Biologist (College of Applied Biologists)",
     "section": "",
-    "text": "RPBio = Registered Professional Biologist, granted by the College of Applied Biologists — the regulatory body for applied biology professionals in BC. Entry-level is Biologist in Training (BIT) with the academic credential complete; RPBio follows after validated experience, competencies, and submitted work products.\n\n\nA bachelor’s degree (or master’s) with:\n\n25 science courses, 13 in biology.\nRequired core courses across:\n\nCommunications (typically first-year writing)\nChemistry\nNumeracy (math)\nStatistics at 2nd-year or higher\nApplied biology / management\nEcology\nThree of five from: genetics, cell biology, physiology, systematics/taxonomy, evolution\n\n\n\n\n\n\n\n\nWarningKnown UBCO gap: systematics / taxonomy\n\n\n\nUBCO does not currently offer a dedicated undergraduate course in systematics or taxonomy. Students targeting RPBio should either (a) plan to satisfy this requirement via a course taken at another institution and transferred in, or (b) cover the three-of-five via evolution + cell biology + genetics (or + physiology) instead. Confirm with the program advisor and CAB before registering. This gap was identified during the May 2026 QAQC pass against the live UBC Okanagan Academic Calendar."
+    "text": "Other professional pathways: PAg (BC Institute of Agrologists) · Complementary course bundles (Chemistry, Biology, Hydrology)"
   },
   {
     "objectID": "designations/rpbio.html#academic-requirements",
     "href": "designations/rpbio.html#academic-requirements",
     "title": "RPBio — Registered Professional Biologist (College of Applied Biologists)",
-    "section": "",
-    "text": "A bachelor’s degree (or master’s) with:\n\n25 science courses, 13 in biology.\nRequired core courses across:\n\nCommunications (typically first-year writing)\nChemistry\nNumeracy (math)\nStatistics at 2nd-year or higher\nApplied biology / management\nEcology\nThree of five from: genetics, cell biology, physiology, systematics/taxonomy, evolution\n\n\n\n\n\n\n\n\nWarningKnown UBCO gap: systematics / taxonomy\n\n\n\nUBCO does not currently offer a dedicated undergraduate course in systematics or taxonomy. Students targeting RPBio should either (a) plan to satisfy this requirement via a course taken at another institution and transferred in, or (b) cover the three-of-five via evolution + cell biology + genetics (or + physiology) instead. Confirm with the program advisor and CAB before registering. This gap was identified during the May 2026 QAQC pass against the live UBC Okanagan Academic Calendar."
+    "section": "Academic requirements",
+    "text": "Academic requirements\nA bachelor’s degree (or master’s) with:\n\n25 science courses, 13 in biology.\nRequired core courses across:\n\nCommunications (typically first-year writing)\nChemistry\nNumeracy (math)\nStatistics at 2nd-year or higher\nApplied biology / management\nEcology\nThree of five from: genetics, cell biology, physiology, systematics/taxonomy, evolution\n\n\n\n\n\n\n\n\nWarningKnown UBCO gap: systematics / taxonomy\n\n\n\nUBCO does not currently offer a dedicated undergraduate course in systematics or taxonomy. Students targeting RPBio should either (a) plan to satisfy this requirement via a course taken at another institution and transferred in, or (b) cover the three-of-five via evolution + cell biology + genetics (or + physiology) instead. Confirm with the program advisor and CAB before registering. This gap was identified during the May 2026 QAQC pass against the live UBC Okanagan Academic Calendar."
   },
   {
     "objectID": "designations/rpbio.html#whats-already-covered",
@@ -70,164 +196,38 @@
     "text": "Professional work products\nTo convert BIT → RPBio you must submit at least one scientific or risk-assessment report that meets College criteria, plus at least one public-facing communication piece (annotated presentation, briefing note, interpretation document, etc.). Directed Studies, Honours Thesis, and co-op term reports are the natural vehicles for these."
   },
   {
-    "objectID": "designations/complementary.html",
-    "href": "designations/complementary.html",
-    "title": "Complementary pathways",
+    "objectID": "skills/index.html",
+    "href": "skills/index.html",
+    "title": "Skills scaffolding",
     "section": "",
-    "text": "Many students who pick Freshwater Science want a focus on top of the broad core — an applied direction they can take into work or graduate school. The patterns below come from the program lead’s curated advising map (docs/reference/advising/Map UBCO Freshwater Science (BSc) - Pathways.docx). Use them as starting points; the program advisor will sharpen the specific course choices to your goals.\n\nWater quality and biogeochemistry\nA Chemistry-leaning track that builds applied analytical and contaminant-cycling expertise.\n\nCore EESC: EESC 301 (Limnology), EESC 309 (Global Biogeochemistry), EESC 423 (Tracers of Natural Processes).\nCore CHEM: CHEM 211 (Analytical), CHEM 301 (Aqueous Environmental Chemistry).\nGISC Minor to add spatial analysis and remote sensing.\nSuits: contaminant monitoring, redox / speciation work, trace analysis in waters, water-utility lab roles.\nLab home: UBCO Chemistry FiLTER (Field Lab for Trace Element Research) is a frequent collaborator.\n\n\n\nAquatic ecology and conservation\nA Biology-leaning track for biomonitoring, fisheries, and species-level work.\n\nCore EESC: EESC 301 (Limnology), EESC 402 (Freshwater Resources).\nCore BIOL: BIOL 308 (Population Biology), BIOL 375 / FWSC 375 (Flora & Fauna of Inland Waters).\nYear-4 capstone: Directed Studies or EESC 449 (Honours Thesis).\nCo-op targets: provincial and federal biology agencies, fisheries consulting, NGOs.\nDesignation fit: this is the natural pairing with the RPBio pathway.\n\n\n\nHydrology and water resources\nA Civil-Engineering-adjacent track for watershed modelling, flood/drought risk, and water infrastructure.\n\nCore EESC: EESC 413 (Analytical Methods in Hydrology), EESC 435 (Fluvial Field Techniques), EESC 423 (Tracers), EESC 342 (Hydrogeology).\nENGR pairing: ENGR 342 (Open Channel Flow) — seat and prerequisite limits apply; coordinate with Engineering advising.\nGISC Minor for geospatial modelling.\nCo-op targets: hydrometric agencies (ECCC, WSC), engineering consulting (NHC, Associated Engineering, etc.), utilities.\n\n\n\nPractical notes for mixing and matching\n\nCo-op across programs. Co-op is available in Freshwater, Chemistry, Biology, and Engineering — ideal for stitching together applied experience.\nCredit double-counting. The UBCO Academic Calendar caps double-counting of upper-level credits toward a second major or minor (generally max 6 credits for program-specified requirements). Schedule intentionally if you’re aiming for a double credential.\nAdvising. Use the official Program Plan and meet program advisors early — especially if you’re eyeing Honours, co-op, or cross-faculty electives.\n\n\n\nReferences\n\nUBCO Freshwater Science (program page)\nUBC Academic Calendar — Freshwater Science requirements\nUBCO BSc Freshwater Science — Program Plan (PDF)\nUBCO Chemistry — undergraduate page\nUBCO Civil Engineering — programs\nUBCO GISC Minor\nSource notes in this repo: docs/reference/advising/Map UBCO Freshwater Science (BSc) - Pathways.docx."
+    "text": "WarningScaffold placeholder\n\n\n\nSkills are stored in skills/skills_vocab.yml (the controlled vocabulary) and skills/course_tags.yml (per-course tagging with introduce/practise/expect markers). Neither file exists yet. The heatmap viz on this page is the eventual rendering of those YAMLs.\n\n\n\nThe idea\nSkills get scaffolded through a degree: introduced in one course, practised in several, and expected as background in upper-year courses. Without an explicit map, neither students nor instructors can see this arc clearly.\nThis page shows the scaffolded coverage as a heatmap: rows are skills from a controlled vocabulary, columns are the four years of the program, cells are coloured by introduce / practise / expect status.\n\n\nControlled skill vocabulary (draft)\nThree top-level skill families to start, each with sub-skills. These are stubs; the real vocabulary will be co-developed with department instructors.\n\n\nQuantitative / computational\n\nR basics\nR intermediate (tidyverse)\nR for hydrology (tidyhydat, dataRetrieval)\nStatistical inference\nGeostatistics\nSpatial analysis (sf, terra)\nModelling (GLM, GAM)\n\n\n\nField / lab\n\nSampling design\nWater-quality sampling\nMacroinvertebrate identification\nHydrometric measurement\nLab safety\nCalibration and QC\n\n\n\nCommunication / professional\n\nScientific writing\nPublic-facing communication\nPeer review\nProject management\nEthics\nWorking with First Nations\n\n\n\n\n\nPending content\n\nCo-develop the controlled skill vocabulary with the program instructor cohort.\nTag each Freshwater Science course with the skills it introduces / practises / expects.\nRender the skills-by-year heatmap."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "UBCO Freshwater Science",
+    "objectID": "review/index.html",
+    "href": "review/index.html",
+    "title": "For Department Review",
     "section": "",
-    "text": "NoteLand acknowledgement\n\n\n\nThe UBC Okanagan campus is situated within the unceded, ancestral, and traditional territory of the Syilx Okanagan Nation. The Freshwater Science program — its teaching, its research, its applied work in freshwater systems — depends on this land and on relationships with the Indigenous Peoples and rights-holders who continue to steward it."
+    "text": "This site is a curated advising and planning resource for the Bachelor of Science Freshwater Science major. It exists alongside — not in place of — the UBC Okanagan Academic Calendar, which remains the authoritative source for all degree requirements.\nThe site is intended for two audiences: current Freshwater Science students (the headline use case is the in-development interactive planner) and prospective students browsing the program.\nI am sharing this with the Freshwater Science Program Committee and the Department of Earth, Environmental and Geographic Sciences to invite review of three specific judgement calls embedded in the material. Each is summarised below, with the relevant evidence and the section of the site where the curated content lives."
   },
   {
-    "objectID": "index.html#quick-starts",
-    "href": "index.html#quick-starts",
-    "title": "UBCO Freshwater Science",
-    "section": "Quick starts",
-    "text": "Quick starts\n\n\nI’m a current student\n\nThe interactive Planner is in development; preview the design intent on its placeholder page.\nCheck the PAg pathway and RPBio pathway to see what gaps you still need to fill before graduation.\nBrowse the course catalogue for prerequisites and “is this offered next year?” signals.\nThe department’s official page lives at eesc.ok.ubc.ca → Freshwater Science.\n\n\n\nI’m a prospective student\n\nRead the official program description at UBC Undergraduate Admissions → Freshwater Science.\nSkim the program overview below.\nCompare the designation pathways to see what professional qualifications this degree can lead to.\nBrowse the first-year courses to get a feel for the workload."
+    "objectID": "review/index.html#the-v2-program-learning-outcomes",
+    "href": "review/index.html#the-v2-program-learning-outcomes",
+    "title": "For Department Review",
+    "section": "1. The v2 Program Learning Outcomes",
+    "text": "1. The v2 Program Learning Outcomes\nThe site renders the v2 PLO list (eight outcomes in four categories) finalised in the 28 April 2026 memo, which consolidated the v1 draft of 14 outcomes following:\n\na student focus group (Freshwater Science majors),\na faculty working session, and\nbest-practice benchmarking (Penn State, WSU, CSUSB, SUNY, U Michigan-Dearborn, plus comparator BSc freshwater programs at UW-Milwaukee, Western Michigan, and UW-Madison).\n\nThe v1→v2 crosswalk and benchmarking evidence are in §4 and §6 of the memo, and the eight outcomes themselves are rendered verbatim on the Outcomes page.\nAsks:\n\nIs the eight-outcome v2 list the final version the Program Committee endorses for institutional submission, or should we iterate?\nThe curriculum-map matrix (per-course I/R/M coding for each PLO) is the next deliverable from the memo. The EESC 301 pilot mapping shows the methodology. We need a path to interview each Freshwater Science instructor (≈ 20-40 hours total). Can the department support this in fall 2026?"
   },
   {
-    "objectID": "index.html#about-the-program",
-    "href": "index.html#about-the-program",
-    "title": "UBCO Freshwater Science",
-    "section": "About the program",
-    "text": "About the program\nThe Freshwater Science program integrates aquatic biology, chemistry, geography, and earth and environmental sciences. Students study water quality and quantity, aquatic organisms, and the health of aquatic ecosystems.\nThe four-year B.Sc. requires 120 credits with at least 78 in Science, at least 42 at the upper level (300+), and at least 36 of those upper-level credits in Science. The Honours track adds a research thesis (EESC_O 449).\nOfficial UBCO pages:\n\nUBC Undergraduate Admissions — Freshwater Science (program overview for prospective students)\nDepartment of Earth, Environmental and Geographic Sciences — Freshwater Science (department page; current-student facing)\nUBC Academic Calendar — Freshwater Science requirements (authoritative degree requirements)\n\n\n\n\n\n\n\nNoteSource of truth\n\n\n\nCourse descriptions and prerequisites are pulled daily from the UBC Okanagan Academic Calendar. Designation requirements are curated from the BCIA UBCO Approved Course List and the CAB Credentialing Standard by the program lead. The Methodology page details the data pipeline and refresh cadence."
+    "objectID": "review/index.html#the-rpbio-systematics-taxonomy-gap",
+    "href": "review/index.html#the-rpbio-systematics-taxonomy-gap",
+    "title": "For Department Review",
+    "section": "2. The RPBio systematics-taxonomy gap",
+    "text": "2. The RPBio systematics-taxonomy gap\nUBCO does not currently offer a dedicated undergraduate course in systematics or taxonomy. This is a real gap for Freshwater Science students targeting Registered Professional Biologist (RPBio) registration with the College of Applied Biology, because the June 2025 CAB Credentialing Standard lists systematics as one of the five subject areas from which RPBio candidates must hold at least three. The RPBio designation page carries a prominent callout-warning surfacing this gap and recommending that students either transfer in a systematics course from another institution or cover the three-of-five via evolution + cell biology + genetics instead.\nAsks:\n\nShould the department propose a UBCO course to close this gap (e.g., a 300-level “Biodiversity and Systematics” course shared with BIOL or EESC)? If yes, this advising site can become the forcing function for that proposal.\nIn the interim, is the callout-warning on the RPBio page an acceptable disclosure for students considering this designation, or do we want to soften / strengthen the language?"
   },
   {
-    "objectID": "index.html#talk-to-your-advisor",
-    "href": "index.html#talk-to-your-advisor",
-    "title": "UBCO Freshwater Science",
-    "section": "Talk to your advisor",
-    "text": "Talk to your advisor\n\n\nDr. Nelson Jatel, PAg\nFreshwater Science Program Advisor, UBC Okanagan\nEmail for advising appointments, course planning, designation questions, Honours / Co-op / NSERC USRA enquiries, or anything else.\n📧 nelson.jatel@ubc.ca"
-  },
-  {
-    "objectID": "index.html#who-maintains-this",
-    "href": "index.html#who-maintains-this",
-    "title": "UBCO Freshwater Science",
-    "section": "Who maintains this",
-    "text": "Who maintains this\nCurated and maintained by Dr. Nelson Jatel, PAg — Lecturer and Freshwater Science Program Advisor, Department of Earth, Environmental and Geographic Sciences, UBC Okanagan. For advising appointments or to flag a correction, email nelson.jatel@ubc.ca.\nSource code is open and at github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program. Issues and suggestions welcome via the GitHub issues tracker.\n\nStatus of this resource (as of last update)\n\n\n\nSection\nStatus\n\n\n\n\nCourse catalogue\nLive data — scraped daily from the UBC Okanagan Academic Calendar\n\n\nDesignations (PAg)\nLive data — rendered from the BCIA UBCO approved-course list (June 2025)\n\n\nDesignations (RPBio)\nCurated by the program advisor from the CAB Credentialing Standard (June 2025) — CAB does not publish a UBCO-specific list\n\n\nProgram Learning Outcomes\nCurated from the v2 PLO memo (28 April 2026)\n\n\nComplementary pathways\nCurated from the program advisor’s pathway map\n\n\nCurriculum-map matrix (PLOs × courses)\nIn development — EESC 301 pilot only; instructor interviews pending\n\n\nSkills scaffolding\nIn development — draft vocabulary only\n\n\nInteractive Degree Planner\nIn development — see Planner page for the design intent"
-  },
-  {
-    "objectID": "courses/index.html",
-    "href": "courses/index.html",
-    "title": "Course catalogue",
-    "section": "",
-    "text": "The table below is populated daily from the UBC Okanagan Academic Calendar via data-raw/01_scrape_ubco_calendar.R -&gt; data/courses.parquet. Filter and sort it freely."
-  },
-  {
-    "objectID": "courses/index.html#year-1-30-credits",
-    "href": "courses/index.html#year-1-30-credits",
-    "title": "Course catalogue",
-    "section": "Year 1 (30 credits)",
-    "text": "Year 1 (30 credits)\n\nBIOL_O 116 and 125 (6)\nCHEM_O 121 and 123 (6)\nEESC_O 111 and 112 (6)\nMATH_O 100 (3) plus one of MATH_O 101 or 103 (3)\nOne of PHYS_O 111 or 112 (3) plus one of PHYS_O 121 or 122 (3)"
-  },
-  {
-    "objectID": "courses/index.html#year-2-30-credits",
-    "href": "courses/index.html#year-2-30-credits",
-    "title": "Course catalogue",
-    "section": "Year 2 (30 credits)",
-    "text": "Year 2 (30 credits)\n\nBIOL_O 201 (3)\nOne of BIOL_O 202, GEOG_O 271, STAT_O 121, STAT_O 230 (3)\nOne of CHEM_O 201 or 210 (3) plus CHEM_O 211 (3)\nEESC_O 205 and 222 (6)\nEnglish / communication electives (6)\nINDG_O 100 or ENGL_O 114 (3)\nNon-science electives (3)"
-  },
-  {
-    "objectID": "courses/index.html#years-3-and-4-60-credits",
-    "href": "courses/index.html#years-3-and-4-60-credits",
-    "title": "Course catalogue",
-    "section": "Years 3 and 4 (60 credits)",
-    "text": "Years 3 and 4 (60 credits)\n\nBIOL_O 308 (3)\nFWSC_O 375 (3)\nCHEM_O 301 (3)\nEESC_O 212, 301, 402 (9)\nOne of EESC_O 342, 413, 435 (3)\nTwo of EESC_O 309, 323, 423 (6)\nOne of EESC_O 313, 314, 315 (3)\nUpper-level science electives (9)\nNon-science electives (6)\nGeneral electives (15)"
-  },
-  {
-    "objectID": "designations/pag.html",
-    "href": "designations/pag.html",
-    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
-    "section": "",
-    "text": "PAg = Professional Agrologist, the senior tier of the BC Institute of Agrologists. You first qualify as an Articling Agrologist (AAg) straight from your degree, then complete BCIA’s Articling Program plus two years of agrology-related work experience to bridge to PAg.\n\n\nA four-year accredited B.Sc. with a science focus, where the coursework includes:\n\nAt least 8 entry-level foundational courses (100/200-level) in the subjects on BCIA’s Academic Worksheet.\nAt least 20 courses in agriculture, natural sciences, or agriculture/resource economics that relate to agrology under the Agrologists Regulation, 2021.\nAt least 8 senior-level courses (drawn from the 20 above) in those same subject areas.\n\nEligible course categories:\n\nAgrology\nFoundational Natural Science\nMathematics or Statistics\nEconomics\nCommunications / Writing\nComputer Science"
-  },
-  {
-    "objectID": "designations/pag.html#academic-requirements-aag-entry",
-    "href": "designations/pag.html#academic-requirements-aag-entry",
-    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
-    "section": "",
-    "text": "A four-year accredited B.Sc. with a science focus, where the coursework includes:\n\nAt least 8 entry-level foundational courses (100/200-level) in the subjects on BCIA’s Academic Worksheet.\nAt least 20 courses in agriculture, natural sciences, or agriculture/resource economics that relate to agrology under the Agrologists Regulation, 2021.\nAt least 8 senior-level courses (drawn from the 20 above) in those same subject areas.\n\nEligible course categories:\n\nAgrology\nFoundational Natural Science\nMathematics or Statistics\nEconomics\nCommunications / Writing\nComputer Science"
-  },
-  {
-    "objectID": "designations/pag.html#whats-already-covered",
-    "href": "designations/pag.html#whats-already-covered",
-    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
-    "section": "What’s already covered",
-    "text": "What’s already covered\n\nFoundations (8 required): Year 1 science (BIOL 116, CHEM 121 + CHEM 123, MATH 100, PHYS 111/112 paired with PHYS 121/122) plus EESC 205 (Hydrology) and EESC 222 (Geomorphology) cover the foundational natural-science count.\nCommunications / Writing: the program’s 6-credit English / communications block satisfies BCIA’s communications requirement.\nMathematics / Statistics: MATH 100 + STAT 230 / GEOG 271 / BIOL 202."
-  },
-  {
-    "objectID": "designations/pag.html#bcia-approved",
-    "href": "designations/pag.html#bcia-approved",
-    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
-    "section": "BCIA-approved UBCO courses by category",
-    "text": "BCIA-approved UBCO courses by category\nThe tables below render directly from the June-2025 BCIA UBCO approved course list (PDF), parsed into a YAML (data/designation_mappings/pag.yml) and committed to this repository. They update whenever BCIA republishes the list.\n\nFoundational courses (8 required, 100/200-level)\n48 UBCO courses are recognised in this category.\n\n\n\n\n\n\n\n\nAgrology courses — 100/200 level\n17 UBCO courses in the lower-level agrology category. These can count toward the 20-course agrology requirement (≥8 must be senior, listed below).\n\n\n\n\n\n\n\n\nAgrology courses — 300/400+ level\n85 UBCO senior-level agrology courses. BCIA requires ≥8 senior-level courses within the 20-course agrology total."
-  },
-  {
-    "objectID": "designations/pag.html#sample-4-year-plan-for-the-pag-track",
-    "href": "designations/pag.html#sample-4-year-plan-for-the-pag-track",
-    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
-    "section": "Sample 4-year plan for the PAg track",
-    "text": "Sample 4-year plan for the PAg track\nIllustrative; verify with the program advisor and current BCIA rules.\n\n\n\n\n\n\nNoteYear 1\n\n\n\n\n\n\nT1: BIOL 116; CHEM 121; MATH 100; ENGL 109/112/114 (writing requirement); elective.\nT2: BIOL 125; CHEM 123/121; PHYS 111 or 112; elective.\n\n\n\n\n\n\n\n\n\n\nNoteYear 2\n\n\n\n\n\n\nT1: EESC 205 (Hydrology); STAT 230 / GEOG 271 / BIOL 202; ECON 371 or 372 (example); elective.\nT2: EESC 222 (Geomorphology); CHEM 211; CHEM 201 or 210 (example); elective.\n\n\n\n\n\n\n\n\n\n\nNoteYear 3\n\n\n\n\n\n\nT1: EESC 301 (Limnology); EESC 402 or other policy/management upper-level; GISC/GEOG 380/381 (GIS/Remote Sensing).\nT2: Choose among EESC 333, 413, 422, 429, 431, 435; consider CHEM 301/302 as relevant.\n\n\n\n\n\n\n\n\n\n\nNoteYear 4\n\n\n\n\n\n\nRound out to ≥20 agrology-related courses with ≥8 at 3rd/4th-year across EESC, BIOL, CHEM, GEOG, GISC, ECON. Add a field or industry project (Directed Studies, Honours Thesis, or co-op term)."
-  },
-  {
-    "objectID": "designations/pag.html#co-op-and-experience",
-    "href": "designations/pag.html#co-op-and-experience",
-    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
-    "section": "Co-op and experience",
-    "text": "Co-op and experience\nCo-op terms after Year 2 or Year 3 target utilities, local and regional governments, environmental consulting, and agriculture / watershed NGOs. These count toward the post-degree articling experience required to convert AAg → PAg."
-  },
-  {
-    "objectID": "designations/pag.html#seat-prerequisite-cautions",
-    "href": "designations/pag.html#seat-prerequisite-cautions",
-    "title": "PAg — Professional Agrologist (BC Institute of Agrologists)",
-    "section": "Seat / prerequisite cautions",
-    "text": "Seat / prerequisite cautions\n\nGIS courses (GISC 380/381) often have priority rules for majors. Request permission early.\nECON seats fill quickly; plan registration day.\nSome upper-level EESC courses alternate years (313/413). Coordinate with the program advisor."
-  },
-  {
-    "objectID": "outcomes/index.html",
-    "href": "outcomes/index.html",
-    "title": "Program Learning Outcomes",
-    "section": "",
-    "text": "The current authority for Program Learning Outcomes (PLOs) is the v2 PLO set finalised on 28 April 2026 by Dr. Nelson Jatel, PAg, Lecturer and Program Advisor (memo: docs/reference/learning-outcomes/UBCO_Memo_PLOs_v2_20260428.docx). The v2 set consolidated the v1 draft (14 outcomes) down to 8 outcomes in 4 categories, based on:\nThe 5-to-7-outcome range is the sector norm; v1’s 14 was flagged by both faculty and benchmarks as too long for meaningful assessment."
-  },
-  {
-    "objectID": "outcomes/index.html#depth-and-breadth-of-knowledge",
-    "href": "outcomes/index.html#depth-and-breadth-of-knowledge",
-    "title": "Program Learning Outcomes",
-    "section": "Depth and Breadth of Knowledge",
-    "text": "Depth and Breadth of Knowledge\n\nExplain water processes in the context of planetary cycles, surface processes, and environmental systems, including human alterations to freshwater ecosystems.\nDescribe the physical, chemical, and biological structure and function of freshwater systems."
-  },
-  {
-    "objectID": "outcomes/index.html#application-of-knowledge",
-    "href": "outcomes/index.html#application-of-knowledge",
-    "title": "Program Learning Outcomes",
-    "section": "Application of Knowledge",
-    "text": "Application of Knowledge\n\nCollect, organise, and analyse water and environmental science data using appropriate field, laboratory, computational (e.g., R, Python), and statistical techniques, and represent results in appropriate graphical formats.\nApply the scientific method and quantitative reasoning to develop conceptual models, test hypotheses, and evaluate trade-offs in freshwater management decisions.\nAcquire, critically assess, and synthesise freshwater science literature, Indigenous knowledge systems (ways of knowing), data sources, and spatial resources (e.g., maps, remotely sensed data) to inform interpretation and decision-making.\nDevelop water-related policy options and communicate them effectively to advance uptake by decision-makers."
-  },
-  {
-    "objectID": "outcomes/index.html#communication",
-    "href": "outcomes/index.html#communication",
-    "title": "Program Learning Outcomes",
-    "section": "Communication",
-    "text": "Communication\n\nCommunicate limnology and environmental concepts to diverse audiences through formal written reports, oral presentations, technical posters, illustrations, and clear field, laboratory, and code documentation."
-  },
-  {
-    "objectID": "outcomes/index.html#professional-conduct",
-    "href": "outcomes/index.html#professional-conduct",
-    "title": "Program Learning Outcomes",
-    "section": "Professional Conduct",
-    "text": "Professional Conduct\n\nDemonstrate professional ethics, safe field and laboratory practice, effective teamwork, and respectful engagement with Indigenous Peoples, lands, and rights-holders."
-  },
-  {
-    "objectID": "planner/index.html",
-    "href": "planner/index.html",
-    "title": "Interactive Degree Planner",
-    "section": "",
-    "text": "WarningComing soon\n\n\n\nThe interactive planner is under active development. The Shiny app at app/app.R in the project source repository is currently a scaffold; it will go live once:\n\nThe daily UBCO calendar scraper is implemented (so the planner has live course-offering data).\nThe PAg and RPBio designation YAMLs are curated from the source PDFs (so the planner can compute live gap analysis against your goals).\nA shinyapps.io or Cloud Run deployment is wired up and the _quarto.yml Planner link is repointed at it.\n\nUntil then, the static designation pages and the curriculum-map source documents in this repository are the working reference:\n\n\n\nWhat it will do\nWhen live, the planner will let you:\n\nDrag courses into year slots (Year 1, 2, 3, 4 and post-Year-4 summer).\nToggle designation goals (PAg, RPBio, neither, both).\nSee live gap analysis:\n\nWhich prerequisites are missing for the courses you have chosen.\nWhich BCIA / CAB category requirements are still unfilled.\nWhether your total credits clear the 120 / 78 Science / 42 upper-level / 36 upper-level-Science thresholds.\n\nView the prerequisite graph for your selected courses (visNetwork).\nExport your plan as a PDF or text summary you can share with the program advisor.\n\n\n\nIn the meantime\n\nUse the course catalogue for the year-by-year course list and prerequisite notes.\nUse the PAg pathway and RPBio pathway for the curated 4-year sample plans + designation-fit narrative.\nUse the Complementary pathways page for Chemistry, Biology, and hydrology/water-resources bundles.\n\n\n\nWant to help shape it?\nIf you are a Freshwater Science student or instructor and want input into how the planner should behave — what gap signals matter most, what visual encoding is most useful, how aggressively it should flag prerequisite conflicts — please drop a note to Nelson.Jatel@UBC.ca or open a GitHub issue at the project source repository."
+    "objectID": "review/index.html#the-designation-pathway-recommendations",
+    "href": "review/index.html#the-designation-pathway-recommendations",
+    "title": "For Department Review",
+    "section": "3. The designation pathway recommendations",
+    "text": "3. The designation pathway recommendations\nThe site surfaces curated 4-year sample plans for two professional designations:\n\nProfessional Agrologist (PAg) — BC Institute of Agrologists\nRegistered Professional Biologist (RPBio) — College of Applied Biology\n\nIt deliberately does not surface pathways for:\n\nProfessional Geoscientist (P.Geo) — EGBC. The Environmental Geoscience track is technically viable but cross-loaded with compulsory geoscience courses (mineralogy, sed/strat, structural, geophysics) that compete with the freshwater core. Decision: better signposted as a complementary pathway, not a headline track.\nProfessional Engineer (P.Eng) — EGBC. A B.Sc. degree does not normally meet CEAB engineering academic standards; this is a second-degree path.\n\nBoth decisions were made by the program lead based on the advising-pack source document and on what we hear from students. The Complementary pathways page covers the GISC-Minor, Chemistry, Biology, and hydrology/water-resources course bundles that students can layer on top of the FW degree.\nAsks:\n\nDoes the department agree with surfacing only PAg + RPBio as headline designation tracks?\nThe complementary-pathways page suggests three curated electives bundles — water quality + biogeochemistry, aquatic ecology, and hydrology + water resources. Are there additional bundles the department would surface, or wording on these we want to refine?"
   }
 ]

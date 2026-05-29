@@ -292,7 +292,7 @@ server <- function(input, output, session) {
                             !(courses$short_code %in% rec_codes), ,
                             drop = FALSE]
       other_choices <- setNames(other_pool$short_code,
-                                 sprintf("%s — %s (%g cr)",
+                                 sprintf("%s, %s (%g cr)",
                                          other_pool$short_code,
                                          other_pool$title,
                                          other_pool$credits))
@@ -304,13 +304,12 @@ server <- function(input, output, session) {
           ttl <- code_to_title[c]
           cr  <- code_to_credits[c]
           if (is.na(ttl)) c
-          else sprintf("%s — %s (%g cr)", c, ttl, cr)
+          else sprintf("%s, %s (%g cr)", c, ttl, cr)
         }, character(1))
       )
 
-      open_by_default <- identical(yk, sprintf("year_%s", current)) ||
-                         (yk == "summer" && current == "5")
-
+      # open_by_default was computed here but the accordion's `open=`
+      # argument now derives the target panel name once, just below.
       tips <- yspec$tips %||% list()
       tips_block <- if (length(tips)) {
         tags$div(
@@ -373,17 +372,20 @@ server <- function(input, output, session) {
         )
       )
     })
-    bslib::accordion(!!!panels,
-                      open = names(pathway)[
-                        identical(input$year_in_program, "5") + 1L
-                      ],
-                      multiple = TRUE)
+    # Auto-open the panel matching the student's current-year radio so
+    # the most relevant set of courses is in front of them. With
+    # multiple=TRUE this just expands one panel by default; the
+    # student is free to expand more.
+    target_open <- if (identical(current, "5")) "summer"
+                   else sprintf("year_%s", current)
+    if (!target_open %in% names(pathway)) target_open <- names(pathway)[1]
+    bslib::accordion(!!!panels, open = target_open, multiple = TRUE)
   })
 
   # Populate the "Transfer / other" selectize once.
   observe({
     all_choices <- setNames(courses$short_code,
-                             sprintf("%s — %s (%g cr)",
+                             sprintf("%s, %s (%g cr)",
                                      courses$short_code,
                                      courses$title,
                                      courses$credits))
@@ -1014,6 +1016,13 @@ server <- function(input, output, session) {
     palette <- c(year_1 = "#94c5d4", year_2 = "#6aa6c4",
                   year_3 = "#3f7da9", year_4 = "#1f3a5f",
                   summer = "#5c4e7a")
+    # Union of every code that is recommended somewhere in the
+    # pathway. We exclude these from "other ticked at this level" so a
+    # code like EESC 435 (in summer recommended, 400+ level band) is
+    # never double-listed: it shows in summer's recommended cards as
+    # filled, and does NOT also show in year_4's "other ticked".
+    all_recommended <- unique(unlist(lapply(pathway,
+                                              function(y) y$recommended %||% character(0))))
 
     card <- function(code, ticked) {
       ttl <- code_to_title[code] %||% NA_character_
@@ -1050,16 +1059,16 @@ server <- function(input, output, session) {
                      else "#a0a4ad"
       header_colour <- palette[[yk]] %||% "#1f3a5f"
 
-      # "Other ticked at this level": courses from this column's level
-      # band that are ticked but not in the recommended list.
+      # "Other ticked at this level": courses ticked at this column's
+      # level band that are NOT recommended in ANY year (transfers,
+      # electives, anything off-path). summer + year_4 share the 400+
+      # band, so attribute 400+ extras to year_4 and force summer's
+      # extras to empty to avoid double-listing.
       level <- YEAR_TO_BANDS[[yk]]
       other_ticked <- completed[
         completed %in% courses$short_code[courses$level_band == level] &
-        !completed %in% rec
+        !completed %in% all_recommended
       ]
-      # Don't double-list: only assign "other ticked" to the FIRST
-      # year column matching that level band. summer + year_4 share
-      # "400+", so attribute 400+ extras to year_4.
       if (yk == "summer") other_ticked <- character(0)
 
       tags$div(

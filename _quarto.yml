@@ -51,7 +51,8 @@ website:
       - text: Skills
         href: skills/index.qmd
       - text: Planner
-        href: planner/index.qmd
+        href: https://obwb.shinyapps.io/ubco-freshwater-planner/
+        target: _blank
     right:
       - href: docs/methodology.qmd
         text: Methodology

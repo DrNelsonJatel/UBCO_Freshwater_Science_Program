@@ -4,24 +4,26 @@ subtitle: "Drag-and-drop course planning with live designation gap analysis"
 date: last-modified
 ---
 
-::: {.callout-note}
-## Status — MVP built, awaiting hosting
-The Shiny degree-planner MVP **is functional** in
-[`app/app.R` in the project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/tree/main/app).
-It reads the live UBCO course catalogue and the PAg + RPBio designation
-mappings curated on the rest of this site, and reports:
+::: {.callout-tip}
+## The planner is live
+Open the interactive planner in a new tab:
+**[obwb.shinyapps.io/ubco-freshwater-planner/](https://obwb.shinyapps.io/ubco-freshwater-planner/){target="_blank"}**
+
+The app reads the live UBCO course catalogue and the PAg + RPBio
+designation mappings curated on this site. Tick the courses you've
+completed (or transferred in), pick one or both designation goals,
+and the app reports:
 
 - credits + degree-threshold check (120 / 78 Science / 42 upper /
   36 upper Science)
-- PAg category coverage (8 foundational + 20 agrology with 8 senior)
-- RPBio category coverage (6 core areas + 5 three-of-five areas) +
-  the 13-biology count
+- PAg category coverage (8 foundational + 20 agrology with at least
+  8 senior)
+- RPBio category coverage (6 core areas + 5 three-of-five areas)
+  plus the 13-biology count
 
-Pending: a public hosted URL (shinyapps.io or Cloud Run). Once
-deployed, the navbar **Planner** link will point at the live app.
-Until then, students can preview the app locally via
-`shiny::runApp("app")` from the cloned repository, or email the
-program advisor for a guided demo.
+This is v1: it's intentionally simple (no drag-drop year slots yet,
+no prereq DAG viz). v2 will add those features once the v1 has been
+in front of students for a term.
 :::
 
 # What it will do

@@ -323,31 +323,16 @@ server <- function(input, output, session) {
         )
       } else NULL
 
-      year_rec_codes <- yspec$recommended %||% character(0)
-      year_rec_have  <- length(intersect(year_rec_codes,
-                                          completed_codes()))
-      year_rec_total <- length(year_rec_codes)
-      chip_colour <- if (year_rec_have == year_rec_total && year_rec_total > 0)
-        "#1f7a3b" else if (year_rec_have > 0) "#d9822b" else "#a0a4ad"
-      # aria-label gives the screen reader one clean phrase to read
-      # for the accordion button; the chip itself is marked aria-hidden
-      # so it does not get read a second time.
-      a11y_label <- sprintf("%s, %d of %d recommended courses ticked",
-                             yspec$label, year_rec_have, year_rec_total)
-      title_with_chip <- tags$span(
-        `aria-label` = a11y_label,
-        yspec$label,
-        tags$span(
-          `aria-hidden` = "true",
-          style = sprintf(paste("background:%s; color:white;",
-                                  "padding:2px 8px; border-radius:999px;",
-                                  "font-size:0.78em; margin-left:10px;"),
-                           chip_colour),
-          sprintf("%d / %d ticked", year_rec_have, year_rec_total))
-      )
-
+      # NOTE: the accordion title is intentionally static. An earlier
+      # version embedded a live "N / M ticked" chip here, which forced
+      # the whole renderUI to take a reactive dependency on
+      # completed_codes() and rebuild the entire accordion DOM on
+      # every checkbox click. That caused the form to blink and steal
+      # focus from the user. Per-year tick counts now live in the
+      # progress_summary band above the accordion, which is its own
+      # renderUI and updates without touching the form structure.
       bslib::accordion_panel(
-        title = title_with_chip,
+        title = yspec$label,
         value = yk,
         if (nzchar(yspec$description %||% ""))
           p(class = "text-muted small", yspec$description),
@@ -920,12 +905,35 @@ server <- function(input, output, session) {
                                     have, length(need), "#7a2c8a"))
     }
 
+    # Per-year breakdown: small chips below the main progress line so
+    # the same "year X: A / B ticked" info that used to sit in the
+    # accordion titles is still scannable, without the accordion-blink
+    # reactive cycle.
+    year_chip <- function(label, have, total) {
+      colour <- if (total == 0) "#a0a4ad"
+                else if (have == total) "#1f7a3b"
+                else if (have > 0) "#d9822b"
+                else "#a0a4ad"
+      tags$span(
+        style = sprintf(paste("background:%s; color:white;",
+                                "padding:3px 9px; border-radius:999px;",
+                                "font-size:0.75em; margin-right:6px;"),
+                         colour),
+        sprintf("%s: %d / %d", label, have, total))
+    }
+    per_year <- lapply(names(pathway), function(yk) {
+      rec <- pathway[[yk]]$recommended %||% character(0)
+      year_chip(pathway[[yk]]$label, length(intersect(rec, completed)),
+                 length(rec))
+    })
+
     tags$div(
       style = paste("background:#f4f7fb; border:1px solid #d6deea;",
                      "border-radius:8px; padding:12px 16px; margin:10px 0 14px;"),
       tags$div(style = "font-weight:600; color:#1f3a5f; margin-bottom:8px;",
                "Live progress"),
-      chips
+      chips,
+      tags$div(style = "margin-top:8px;", per_year)
     )
   })
 

@@ -124,12 +124,29 @@ ui <- page_sidebar(
     nav_panel(
       "Step 3: Designation gap analysis",
       div(class = "p-3",
+          # JS hook the server uses to open the report in a new tab and
+          # auto-trigger the browser's print dialog (which has "Save as
+          # PDF" built in on every modern browser).
+          tags$head(tags$script(htmltools::HTML("
+            Shiny.addCustomMessageHandler('openPrintReport', function(msg) {
+              var w = window.open('', '_blank');
+              if (!w) {
+                alert('Pop-up blocked. Please allow pop-ups for this site, then click again.');
+                return;
+              }
+              w.document.open();
+              w.document.write(msg.html);
+              w.document.close();
+              setTimeout(function() { w.print(); }, 600);
+            });
+          "))),
           div(style = "margin-bottom: 14px;",
-              downloadButton("download_report",
-                              "Download report (PDF)",
-                              class = "btn-primary"),
+              actionButton("open_report",
+                            "Open printable report (Save as PDF from browser)",
+                            class = "btn-primary",
+                            icon = icon("print")),
               downloadButton("download_report_html",
-                              "Download report (HTML)",
+                              "Or download HTML",
                               class = "btn-outline-secondary",
                               style = "margin-left:8px;")),
           uiOutput("designation_summary")
@@ -548,34 +565,20 @@ server <- function(input, output, session) {
     contentType = "text/html"
   )
 
-  output$download_report <- downloadHandler(
-    filename = function()
-      sprintf("UBCO_FWSc_plan_%s.pdf", format(Sys.Date(), "%Y%m%d")),
-    content = function(file) {
-      tmp_html <- tempfile(fileext = ".html")
-      htmltools::save_html(build_report_html(), file = tmp_html,
-                            libdir = NULL)
-      tryCatch({
-        if (!requireNamespace("pagedown", quietly = TRUE)) {
-          stop("pagedown not available")
-        }
-        pagedown::chrome_print(tmp_html, output = file, format = "pdf",
-                                wait = 1)
-      }, error = function(e) {
-        # Fallback: ship the HTML with a .pdf extension renamed to
-        # .html so the user still gets something useful. We rename
-        # by writing the HTML to `file` directly.
-        showNotification(
-          paste0("PDF rendering unavailable on the server (",
-                 conditionMessage(e),
-                 "). Downloading the HTML version instead - ",
-                 "use your browser's File > Print > Save as PDF."),
-          type = "warning", duration = 15)
-        file.copy(tmp_html, file, overwrite = TRUE)
-      })
-    },
-    contentType = "application/pdf"
-  )
+  # "Open printable report" button: render the report to an HTML
+  # string and push it to the JS handler in the UI, which opens the
+  # HTML in a new tab and triggers the browser's print dialog. Modern
+  # browsers (Chrome, Edge, Safari, Firefox) all have "Save as PDF"
+  # in the print dialog by default, so the student gets a real PDF
+  # without any server-side PDF rendering.
+  observeEvent(input$open_report, {
+    tmp <- tempfile(fileext = ".html")
+    htmltools::save_html(build_report_html(), file = tmp, libdir = NULL)
+    html_str <- paste(readLines(tmp, warn = FALSE), collapse = "\n")
+    unlink(tmp)
+    session$sendCustomMessage("openPrintReport",
+                               list(html = html_str))
+  })
 
 }
 

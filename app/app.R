@@ -653,8 +653,45 @@ server <- function(input, output, session) {
           .course-list { font-size: 0.92em; }
           .meta { background: #f4f7fb; padding: 12px 16px;
                    border-radius: 8px; font-size: 0.95em; }
+
+          /* Print rules: keep groupings together so the report does
+             not break mid-table or orphan a heading at the bottom of
+             a page. The browser's Save-as-PDF dialog respects these. */
           @media print {
-            body { margin: 0; padding: 18mm; }
+            @page { margin: 18mm 16mm; }
+            body  { margin: 0; padding: 0; }
+
+            /* Headings stay with the content that follows. */
+            h1, h2, h3, h4 {
+              page-break-after: avoid;
+              break-after: avoid;
+            }
+            h2 { page-break-before: auto; break-before: auto; }
+
+            /* Keep tables together when they fit on one page;
+               for tall tables, never orphan a single row. */
+            table       { page-break-inside: avoid; break-inside: avoid; }
+            thead       { display: table-header-group; }
+            tfoot       { display: table-footer-group; }
+            tr          { page-break-inside: avoid; break-inside: avoid; }
+
+            /* Sections (designation card, contact block, meta box)
+               stay together as a unit. */
+            section, .meta, [class*='course-list'],
+            div[style*='border'] {
+              page-break-inside: avoid;
+              break-inside: avoid;
+            }
+
+            /* Big-table fallback: if the PAg senior-agrology table
+               (85 rows) cannot fit on one page, allow breaks but
+               repeat headers and don't orphan trailing rows. */
+            table.course-list { page-break-inside: auto;
+                                break-inside: auto; }
+
+            /* Hide any tooltips / hover-only elements that might
+               accidentally render in print. */
+            [class*='popover'], [class*='tooltip'] { display: none !important; }
           }
         "))
       ),

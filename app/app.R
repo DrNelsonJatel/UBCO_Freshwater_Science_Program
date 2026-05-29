@@ -31,6 +31,7 @@ suppressPackageStartupMessages({
   library(jsonlite)
   library(stringr)
   library(htmltools)
+  library(visNetwork)
 })
 
 # pagedown gives us HTML -> PDF via headless Chrome. We require it
@@ -175,6 +176,30 @@ ui <- page_sidebar(
                           choices = NULL, multiple = TRUE,
                           width = "100%",
                           options = list(placeholder = "Search by code or title..."))
+      )
+    ),
+    nav_panel(
+      "Map: prerequisite graph",
+      div(class = "p-3",
+          h4("Your courses + prerequisite chains"),
+          p(class = "text-muted small",
+            "Curated map of the ", tags$strong("~70 Freshwater Science core
+             and recommended courses"), ". Arrows point from a prerequisite to
+             the course that needs it. Nodes are coloured by level
+             (100, 200, 300, 400+). Ticked courses are filled solid;
+             un-ticked courses are outlined. Hover any node for the full
+             title and a list of its prereqs from the live UBC Okanagan
+             Academic Calendar. Pan and zoom with mouse / trackpad."),
+          visNetwork::visNetworkOutput("prereq_map", height = "640px"),
+          tags$div(class = "small text-muted", style = "padding-top:6px;",
+            tags$strong("Caveats. "),
+            "Prereq strings on the UBC calendar are natural-language
+             (\"either (a) X or (b) all of Y and Z\"). The arrows below
+             collapse that structure into the codes mentioned, so
+             treat them as a guide to ", tags$em("which courses sit
+             upstream of which"), " rather than as a deterministic
+             plan-validator. Confirm with the program advisor before
+             registering.")
       )
     ),
     nav_panel(
@@ -954,6 +979,114 @@ server <- function(input, output, session) {
         paste("Could not load plan:", conditionMessage(e)),
         type = "error", duration = 10)
     })
+  })
+
+  # ---- Prerequisite map (visNetwork) -------------------------------------
+  # Build nodes + edges from the live scraped prereq_codes column. The
+  # node set is restricted to the curated pathway + every code that
+  # appears in either PAg or RPBio mapping plus any direct prereq of
+  # those. Keeps the map readable (~70 nodes vs. 626).
+  map_data <- reactive({
+    in_pathway <- unique(unlist(lapply(pathway, function(y) y$recommended)))
+    in_pag     <- pag_required_codes()
+    in_rpbio   <- rpbio_required_codes()
+    core_codes <- short_code(unique(c(in_pathway, in_pag, in_rpbio)))
+    # Pull rows in the courses table by short_code.
+    core_rows <- courses[courses$short_code %in% core_codes, , drop = FALSE]
+    # Add direct prereqs of core courses (one hop upstream).
+    prereq_codes_list <- lapply(core_rows$prereq_codes, function(j) {
+      if (is.na(j) || !nzchar(j)) character(0)
+      else short_code(jsonlite::fromJSON(j))
+    })
+    direct_prereqs <- unique(unlist(prereq_codes_list))
+    keep_codes <- unique(c(core_rows$short_code, direct_prereqs))
+    nodes_df <- courses[courses$short_code %in% keep_codes, , drop = FALSE]
+    # Build edges: prereq -> course.
+    edges_list <- lapply(seq_len(nrow(nodes_df)), function(i) {
+      j <- nodes_df$prereq_codes[i]
+      if (is.na(j) || !nzchar(j)) return(NULL)
+      pre <- short_code(jsonlite::fromJSON(j))
+      pre <- intersect(pre, nodes_df$short_code)
+      if (!length(pre)) return(NULL)
+      data.frame(from = pre, to = nodes_df$short_code[i],
+                 stringsAsFactors = FALSE)
+    })
+    edges_df <- do.call(rbind, edges_list)
+    list(nodes = nodes_df, edges = edges_df)
+  })
+
+  output$prereq_map <- visNetwork::renderVisNetwork({
+    md <- map_data()
+    if (!nrow(md$nodes)) return(visNetwork(data.frame(), data.frame()))
+    completed <- completed_codes()
+
+    # Level palette.
+    level_colour <- c(`100` = "#94c5d4", `200` = "#6aa6c4",
+                      `300` = "#3f7da9", `400+` = "#1f3a5f")
+    nodes <- data.frame(
+      id    = md$nodes$short_code,
+      label = md$nodes$short_code,
+      title = sprintf("<b>%s</b><br>%s<br><i>%g cr</i><br><span style='color:#666;'>%s</span>",
+                       md$nodes$short_code,
+                       md$nodes$title,
+                       md$nodes$credits,
+                       ifelse(is.na(md$nodes$prereq_raw) | !nzchar(md$nodes$prereq_raw),
+                              "(no listed prerequisite)",
+                              paste("Prereq:", md$nodes$prereq_raw))),
+      level = match(md$nodes$level_band, names(level_colour)),
+      color.background = ifelse(md$nodes$short_code %in% completed,
+                                 level_colour[md$nodes$level_band],
+                                 "#ffffff"),
+      color.border = level_colour[md$nodes$level_band],
+      color.highlight.background = level_colour[md$nodes$level_band],
+      color.highlight.border = "#000000",
+      font.color = ifelse(md$nodes$short_code %in% completed, "#ffffff", "#1f3a5f"),
+      borderWidth = 2,
+      shape = "box",
+      stringsAsFactors = FALSE
+    )
+
+    edges <- if (!is.null(md$edges) && nrow(md$edges))
+      data.frame(from = md$edges$from, to = md$edges$to,
+                 arrows = "to", color = list(color = "#a9b6c8",
+                                              highlight = "#1f3a5f"),
+                 smooth = FALSE,
+                 stringsAsFactors = FALSE)
+    else data.frame()
+
+    vn <- visNetwork(nodes, edges, width = "100%") |>
+      visNetwork::visHierarchicalLayout(
+        direction = "UD",
+        sortMethod = "directed",
+        levelSeparation = 110,
+        nodeSpacing = 130,
+        treeSpacing = 200,
+        blockShifting = TRUE,
+        edgeMinimization = TRUE) |>
+      visNetwork::visOptions(
+        highlightNearest = list(enabled = TRUE, degree = 2,
+                                 hover = TRUE),
+        nodesIdSelection = list(enabled = TRUE,
+                                 main = "Find a course...",
+                                 style = "width:240px;")) |>
+      visNetwork::visInteraction(
+        navigationButtons = TRUE,
+        tooltipDelay = 200) |>
+      visNetwork::visLegend(
+        useGroups = FALSE,
+        addNodes = list(
+          list(label = "100-level", shape = "box", color = level_colour[["100"]]),
+          list(label = "200-level", shape = "box", color = level_colour[["200"]]),
+          list(label = "300-level", shape = "box", color = level_colour[["300"]]),
+          list(label = "400+ level", shape = "box", color = level_colour[["400+"]]),
+          list(label = "Ticked (filled)", shape = "box",
+               color = list(background = level_colour[["300"]],
+                            border = level_colour[["300"]])),
+          list(label = "Not ticked (outline)", shape = "box",
+               color = list(background = "#ffffff",
+                            border = level_colour[["300"]]))),
+        position = "right", width = 0.18)
+    vn
   })
 
   observeEvent(input$open_report, {

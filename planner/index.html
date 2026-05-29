@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Skills</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../planner/index.html" aria-current="page"> 
+    <a class="nav-link" href="https://obwb.shinyapps.io/ubco-freshwater-planner/" target="_blank"> 
 <span class="menu-text">Planner</span></a>
   </li>  
 </ul>
@@ -200,23 +200,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Status — MVP built, awaiting hosting
+<span class="screen-reader-only">Tip</span>The planner is live
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The Shiny degree-planner MVP <strong>is functional</strong> in <a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/tree/main/app"><code>app/app.R</code> in the project source repository</a>. It reads the live UBCO course catalogue and the PAg + RPBio designation mappings curated on the rest of this site, and reports:</p>
+<p>Open the interactive planner in a new tab: <strong><a href="https://obwb.shinyapps.io/ubco-freshwater-planner/" target="_blank">obwb.shinyapps.io/ubco-freshwater-planner/</a></strong></p>
+<p>The app reads the live UBCO course catalogue and the PAg + RPBio designation mappings curated on this site. Tick the courses you’ve completed (or transferred in), pick one or both designation goals, and the app reports:</p>
 <ul>
 <li>credits + degree-threshold check (120 / 78 Science / 42 upper / 36 upper Science)</li>
-<li>PAg category coverage (8 foundational + 20 agrology with 8 senior)</li>
-<li>RPBio category coverage (6 core areas + 5 three-of-five areas) + the 13-biology count</li>
+<li>PAg category coverage (8 foundational + 20 agrology with at least 8 senior)</li>
+<li>RPBio category coverage (6 core areas + 5 three-of-five areas) plus the 13-biology count</li>
 </ul>
-<p>Pending: a public hosted URL (shinyapps.io or Cloud Run). Once deployed, the navbar <strong>Planner</strong> link will point at the live app. Until then, students can preview the app locally via <code>shiny::runApp("app")</code> from the cloned repository, or email the program advisor for a guided demo.</p>
+<p>This is v1: it’s intentionally simple (no drag-drop year slots yet, no prereq DAG viz). v2 will add those features once the v1 has been in front of students for a term.</p>
 </div>
 </div>
 <section id="what-it-will-do" class="level1">

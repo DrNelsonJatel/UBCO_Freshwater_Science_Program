@@ -330,13 +330,21 @@ server <- function(input, output, session) {
       year_rec_total <- length(year_rec_codes)
       chip_colour <- if (year_rec_have == year_rec_total && year_rec_total > 0)
         "#1f7a3b" else if (year_rec_have > 0) "#d9822b" else "#a0a4ad"
+      # aria-label gives the screen reader one clean phrase to read
+      # for the accordion button; the chip itself is marked aria-hidden
+      # so it does not get read a second time.
+      a11y_label <- sprintf("%s, %d of %d recommended courses ticked",
+                             yspec$label, year_rec_have, year_rec_total)
       title_with_chip <- tags$span(
+        `aria-label` = a11y_label,
         yspec$label,
-        tags$span(style = sprintf(paste("background:%s; color:white;",
-                                          "padding:2px 8px; border-radius:999px;",
-                                          "font-size:0.78em; margin-left:10px;"),
-                                   chip_colour),
-                  sprintf("%d / %d ticked", year_rec_have, year_rec_total))
+        tags$span(
+          `aria-hidden` = "true",
+          style = sprintf(paste("background:%s; color:white;",
+                                  "padding:2px 8px; border-radius:999px;",
+                                  "font-size:0.78em; margin-left:10px;"),
+                           chip_colour),
+          sprintf("%d / %d ticked", year_rec_have, year_rec_total))
       )
 
       bslib::accordion_panel(

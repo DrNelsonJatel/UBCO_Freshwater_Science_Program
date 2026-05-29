@@ -1,4 +1,4 @@
-# CLAUDE.md — UBCO Freshwater Science Program tool
+# CLAUDE.md, UBCO Freshwater Science Program tool
 
 Student-facing interactive website + degree planner for the **Bachelor of
 Science Freshwater Science** major at the UBC Okanagan campus. Curated and
@@ -65,7 +65,7 @@ possible but unplanned.
 
 ## Roadmap (rough, to be expanded into GitHub issues)
 
-1. **Scrape v1** — pull every relevant subject's course descriptions and
+1. **Scrape v1**, pull every relevant subject's course descriptions and
    normalise to a tidy parquet (`data/courses.parquet`). Subjects:
    FWSC_O, BIOL_O, EESC_O, CHEM_O, GEOG_O, MATH_O, PHYS_O, STAT_O,
    INDG_O, ENGL_O.
@@ -74,16 +74,16 @@ possible but unplanned.
 3. **Hand-curate PAg and RPBio YAML** files mapping UBCO course codes to
    designation categories. These are the authoritative inputs to the
    designation pathway pages and the planner's gap-finder.
-4. **Quarto site v1** — landing page, course catalogue list, PAg page,
+4. **Quarto site v1**, landing page, course catalogue list, PAg page,
    RPBio page, methodology page. Deploy via GitHub Pages or limnology.ca.
-5. **Shiny planner v1** — drag-drop year planner with designation
+5. **Shiny planner v1**, drag-drop year planner with designation
    gap-finder. Deploy to shinyapps.io (free tier) or Cloud Run if the
    limnology.ca infra needs it.
-6. **Learning outcomes v1** — YAML schema, program / department / course
+6. **Learning outcomes v1**, YAML schema, program / department / course
    levels, cross-reference viz.
-7. **Skills scaffold v1** — controlled vocabulary, course tagging, Sankey
+7. **Skills scaffold v1**, controlled vocabulary, course tagging, Sankey
    or heatmap viz.
-8. **Communication tool** — start with an announcements feed in Quarto.
+8. **Communication tool**, start with an announcements feed in Quarto.
    Discussion forum (Discourse) only if it earns its keep.
 
 ## Citations and references

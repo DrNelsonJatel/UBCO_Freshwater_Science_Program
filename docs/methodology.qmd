@@ -20,14 +20,14 @@ cadences in detail.
 
 The site has three coupled layers:
 
-1. **Static Quarto site** — all content pages (course catalogue,
+1. **Static Quarto site**, all content pages (course catalogue,
    designation pathways, learning outcomes, skills scaffold, methodology,
    announcements). Authored in markdown / qmd; rendered to HTML and
    served as static files.
-2. **Shiny degree planner** — the interactive component, embedded as
+2. **Shiny degree planner**, the interactive component, embedded as
    an iframe in the static site. Lets a student drag courses into year
    slots, pick a designation goal, and see real-time gap analysis.
-3. **`targets` data pipeline** — daily scrape of the UBCO Academic
+3. **`targets` data pipeline**, daily scrape of the UBCO Academic
    Calendar, normalisation to a tidy parquet, plus the curated
    designation-mapping YAMLs. Output artefacts feed both the Quarto
    site (via embedded chunks) and the Shiny planner.
@@ -38,7 +38,7 @@ The site has three coupled layers:
 |---|---|---|---|
 | Course descriptions | `okanagan.calendar.ubc.ca/course-descriptions/subject/<code>` | `rvest` scrape, per-subject | Daily, 12:00 UTC |
 | Program structure | `okanagan.calendar.ubc.ca/.../freshwater-science` | `rvest` scrape | Daily, 12:00 UTC |
-| Course schedule (offered next year?) | UBCO Workday Student / SSC | TBD — scrape vs. API | Daily, 12:00 UTC |
+| Course schedule (offered next year?) | UBCO Workday Student / SSC | TBD, scrape vs. API | Daily, 12:00 UTC |
 | BCIA PAg UBCO-approved list | `bcia.com/sites/.../UBCO Approved Courses_*.pdf` | Manual OCR + curated YAML | Triggered on PDF update (BCIA edits the file ~annually) |
 | CAB RPBio Credentialing Standard | `cab-bc.org/wp-content/uploads/Credentialing_Standard_*.pdf` | Manual OCR + curated YAML | Triggered on standard update |
 | Program learning outcomes | Faculty of Science / EESC departmental docs | Manual transcription | Annual |

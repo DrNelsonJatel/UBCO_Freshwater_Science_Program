@@ -55,8 +55,8 @@ When live, the planner will let you:
 # Want to help shape it?
 
 If you are a Freshwater Science student or instructor and want input
-into how the planner should behave — what gap signals matter most, what
+into how the planner should behave, what gap signals matter most, what
 visual encoding is most useful, how aggressively it should flag
-prerequisite conflicts — please drop a note to **Nelson.Jatel@UBC.ca**
+prerequisite conflicts, please drop a note to **Nelson.Jatel@UBC.ca**
 or open a GitHub issue at the
 [project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/issues).

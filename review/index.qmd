@@ -9,7 +9,7 @@ toc: true
 
 This site is a curated advising and planning resource for the
 **Bachelor of Science Freshwater Science** major. It exists alongside
-— **not in place of** — the
+,  **not in place of**, the
 [UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/),
 which remains the authoritative source for all degree requirements.
 
@@ -83,19 +83,19 @@ genetics instead.
 The site surfaces curated 4-year sample plans for **two** professional
 designations:
 
-- **Professional Agrologist (PAg)** — BC Institute of Agrologists
-- **Registered Professional Biologist (RPBio)** — College of Applied
+- **Professional Agrologist (PAg)**, BC Institute of Agrologists
+- **Registered Professional Biologist (RPBio)**, College of Applied
   Biology
 
 It deliberately **does not** surface pathways for:
 
-- **Professional Geoscientist (P.Geo)** — EGBC. The
+- **Professional Geoscientist (P.Geo)**, EGBC. The
   Environmental Geoscience track is technically viable but
   cross-loaded with compulsory geoscience courses (mineralogy,
   sed/strat, structural, geophysics) that compete with the freshwater
   core. Decision: better signposted as a complementary pathway, not a
   headline track.
-- **Professional Engineer (P.Eng)** — EGBC. A B.Sc. degree does not
+- **Professional Engineer (P.Eng)**, EGBC. A B.Sc. degree does not
   normally meet CEAB engineering academic standards; this is a
   second-degree path.
 
@@ -111,7 +111,7 @@ course bundles that students can layer on top of the FW degree.
 - Does the department agree with surfacing only **PAg + RPBio** as
   headline designation tracks?
 - The complementary-pathways page suggests three curated electives
-  bundles — water quality + biogeochemistry, aquatic ecology, and
+  bundles, water quality + biogeochemistry, aquatic ecology, and
   hydrology + water resources. Are there additional bundles the
   department would surface, or wording on these we want to refine?
 
@@ -122,8 +122,8 @@ A quick orientation so you can review the most material content first.
 | Page | What it is | Status |
 |---|---|---|
 | [Home](../index.qmd) | Landing page with land acknowledgement + Academic Calendar disclaimer + status table | Live |
-| [Courses](../courses/index.qmd) | Filterable catalogue of 626 UBCO courses across 12 subjects | **Live data** — scraped daily from the UBC Okanagan Academic Calendar |
-| [Designations → PAg](../designations/pag.qmd) | 150 BCIA-approved UBCO courses across 3 categories + 4-year sample plan | **Live data** — rendered from BCIA's June 2025 UBCO-specific list |
+| [Courses](../courses/index.qmd) | Filterable catalogue of 626 UBCO courses across 12 subjects | **Live data**, scraped daily from the UBC Okanagan Academic Calendar |
+| [Designations → PAg](../designations/pag.qmd) | 150 BCIA-approved UBCO courses across 3 categories + 4-year sample plan | **Live data**, rendered from BCIA's June 2025 UBCO-specific list |
 | [Designations → RPBio](../designations/rpbio.qmd) | CAB credentialing requirements mapped to UBCO courses with **gap warning** | Curated by program lead |
 | [Designations → Complementary](../designations/complementary.qmd) | Chemistry, Biology, and water-resources elective bundles | Curated by program lead |
 | [Outcomes](../outcomes/index.qmd) | v2 PLO list + I/R/M methodology + EESC 301 pilot pointer | Curated; curriculum-map matrix pending |
@@ -140,7 +140,7 @@ A quick orientation so you can review the most material content first.
   if you prefer a tracked, threaded discussion.
 - **Annotated PDF**: the entire site is also rendered as a printable
   PDF via Quarto if you would prefer to mark up a physical document
-  — let me know and I'll send.
+ , let me know and I'll send.
 
 # Maintainer
 

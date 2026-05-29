@@ -43,10 +43,33 @@ suppressPackageStartupMessages({
 .proj <- if (dir.exists("data")) "." else ".."
 .data_dir <- file.path(.proj, "data")
 
-courses  <- arrow::read_parquet(file.path(.data_dir, "courses.parquet"))
-pag      <- yaml::read_yaml(file.path(.data_dir, "designation_mappings", "pag.yml"))
-rpbio    <- yaml::read_yaml(file.path(.data_dir, "designation_mappings", "rpbio.yml"))
-pathway  <- yaml::read_yaml(file.path(.data_dir, "program_pathway.yml"))
+# Wrap the four data loads so that a missing or corrupt file gives a
+# user-friendly error rather than a stack trace at app start.
+.load_required <- function(path, loader, label) {
+  if (!file.exists(path)) {
+    stop(sprintf(
+      "Required data file missing: %s\nThe planner cannot start without %s. ",
+      path, label),
+      "Run data-raw/01_scrape_ubco_calendar.R and the YAML scripts ",
+      "in the project repository to regenerate the data layer.",
+      call. = FALSE)
+  }
+  tryCatch(loader(path),
+    error = function(e) stop(sprintf(
+      "Could not parse %s (%s).\nCheck the file is valid %s and ",
+      path, conditionMessage(e), label),
+      "redeploy. Contact nelson.jatel@ubc.ca if this persists.",
+      call. = FALSE))
+}
+
+courses  <- .load_required(file.path(.data_dir, "courses.parquet"),
+                            arrow::read_parquet, "the scraped courses parquet")
+pag      <- .load_required(file.path(.data_dir, "designation_mappings", "pag.yml"),
+                            yaml::read_yaml, "the PAg designation YAML")
+rpbio    <- .load_required(file.path(.data_dir, "designation_mappings", "rpbio.yml"),
+                            yaml::read_yaml, "the RPBio designation YAML")
+pathway  <- .load_required(file.path(.data_dir, "program_pathway.yml"),
+                            yaml::read_yaml, "the year-by-year recommended pathway YAML")
 
 # Normalise both sources to a consistent "BIOL 116" / "FWSC 375" style.
 # The scrape produces "BIOL_O 116"; the YAMLs use "BIOL 116".
@@ -346,7 +369,12 @@ server <- function(input, output, session) {
     rows <- completed_rows()
     if (!nrow(rows)) return(DT::datatable(
       data.frame(Code = character(), Title = character(), Credits = integer()),
-      rownames = FALSE))
+      rownames = FALSE,
+      caption = htmltools::tags$caption(
+        style = "caption-side:top; text-align:left;
+                  font-size:0.9em; color:#54607a;",
+        "Courses you have ticked so far. ",
+        htmltools::tags$em("(None yet, tick courses in Step 1 to populate.)"))))
     DT::datatable(
       rows |> dplyr::transmute(Code = short_code, Title = title,
                                 Credits = credits, LTP = ltp,
@@ -355,6 +383,11 @@ server <- function(input, output, session) {
                                     paste(jsonlite::fromJSON(j), collapse = ", ")
                                 }, character(1))),
       rownames = FALSE,
+      caption = htmltools::tags$caption(
+        style = "caption-side:top; text-align:left;
+                  font-size:0.9em; color:#54607a;",
+        sprintf("Courses you have ticked (%d), Code, Title, Credits, LTP pattern, and parsed prerequisites.",
+                 nrow(rows))),
       options = list(pageLength = 15, dom = "tip",
                      columnDefs = list(list(className = "dt-left",
                                              targets = "_all")))
@@ -639,6 +672,30 @@ server <- function(input, output, session) {
         designation_block(),
         tags$h2("Courses you ticked"),
         completed_table,
+
+        # ---- Advisor contact block (printed on every report) ----------
+        tags$div(
+          style = paste("margin: 24px 0; padding: 18px 22px;",
+                         "background: #f4f7fb; border: 1px solid #d6deea;",
+                         "border-radius: 10px;"),
+          tags$h2(style = "margin-top: 0;", "Need more help?"),
+          tags$p(
+            tags$strong("Dr. Nelson Jatel, PAg"), tags$br(),
+            "Lecturer and Freshwater Science Program Advisor", tags$br(),
+            "Department of Earth, Environmental and Geographic Sciences,
+             UBC Okanagan"),
+          tags$p(
+            tags$strong("Email: "),
+            tags$a(href = "mailto:nelson.jatel@ubc.ca?subject=UBCO%20Freshwater%20Science%20-%20Advising%20appointment",
+                    "nelson.jatel@ubc.ca")
+          ),
+          tags$p(class = "muted-note", style = "margin-bottom:0;",
+            "Email to book a 30-minute advising appointment to walk
+             through your plan, ask about designation pathways
+             (PAg, RPBio), or talk through Co-op, NSERC USRA, and
+             Honours options.")
+        ),
+
         tags$hr(),
         tags$p(style = "font-size:0.85em; color:#54607a;",
           em("Illustrative report. The "),

@@ -1,5 +1,5 @@
 ---
-title: "RPBio — Registered Professional Biologist (College of Applied Biologists)"
+title: "RPBio, Registered Professional Biologist (College of Applied Biologists)"
 subtitle: "Mapping the UBCO Freshwater Science degree to CAB's coursework requirements"
 date: last-modified
 ---
@@ -13,7 +13,7 @@ date: last-modified
 # The designation
 
 **RPBio** = Registered Professional Biologist, granted by the
-[College of Applied Biologists](https://cab-bc.org/) — the regulatory
+[College of Applied Biologists](https://cab-bc.org/), the regulatory
 body for applied biology professionals in BC. Entry-level is
 **Biologist in Training (BIT)** with the academic credential complete;
 RPBio follows after validated experience, competencies, and submitted
@@ -57,7 +57,7 @@ gap to close is the biology course count (need 13) and the
 
 - **Communications**: first-year writing block (ENGL or
   program-approved alternatives).
-- **Chemistry**: CHEM 121/123, 201/210/211, 301 — comfortable coverage.
+- **Chemistry**: CHEM 121/123, 201/210/211, 301, comfortable coverage.
 - **Numeracy**: MATH 100/101.
 - **Statistics (≥2nd-year)**: STAT 230 or GEOG 271 or BIOL 202.
 - **Ecology / applied biology**: BIOL 201 (Ecology & Evolution),
@@ -67,7 +67,7 @@ gap to close is the biology course count (need 13) and the
 ## Required core areas + the three-of-five subject areas
 
 The tables below render directly from
-`data/designation_mappings/rpbio.yml` — the curated mapping of CAB's
+`data/designation_mappings/rpbio.yml`, the curated mapping of CAB's
 requirements onto UBCO courses, based on the
 [CAB Credentialing Standard (June 2025)](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf)
 plus the program-lead's advising pack (CAB does not publish a
@@ -238,7 +238,7 @@ toward the RPBio bridge.
 
 - Some 3xx BIOL seats prioritise Biology majors. Request permission
   early.
-- BIOL 200, 265, 356, 358, 371 are the gap-filler electives — plan
+- BIOL 200, 265, 356, 358, 371 are the gap-filler electives, plan
   registration so they aren't squeezed by required EESC courses.
 
 ## Professional work products

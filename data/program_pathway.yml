@@ -12,7 +12,7 @@
 # codes are recognised.
 
 year_1:
-  label: "Year 1 — Foundations"
+  label: "Year 1, Foundations"
   description: |
     The core science sequence. Most students take all of these in
     their first year. Indigenous content (INDG 100 or ENGL 114) and
@@ -33,7 +33,7 @@ year_1:
     - ENGL 112    # Writing requirement (or ENGL 109/114/150/151/153)
 
 year_2:
-  label: "Year 2 — Core competencies"
+  label: "Year 2, Core competencies"
   description: |
     Hydrology, geomorphology, and the second-year biology + chemistry
     layer. The Statistics requirement (one of STAT 230, BIOL 202, or
@@ -50,7 +50,7 @@ year_2:
     - BIOL 265    # Principles of Genetics  (RPBio gap-filler; can be Y2 or Y3)
 
 year_3:
-  label: "Year 3 — Applied & integrative science"
+  label: "Year 3, Applied & integrative science"
   description: |
     Limnology, biogeochemistry, hydrogeology, and the upper-level
     chemistry + biology layer. This is where most professional-
@@ -73,7 +73,7 @@ year_3:
     - ECON 371    # PAg complementary track (if pursuing PAg)
 
 year_4:
-  label: "Year 4 — Specialisation & synthesis"
+  label: "Year 4, Specialisation & synthesis"
   description: |
     Freshwater resources, advanced hydrology methods, tracers, and the
     Honours option. Some students take EESC 435 (Fluvial Field

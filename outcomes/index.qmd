@@ -90,7 +90,7 @@ Indigenous Peoples, lands, and rights-holders.
 
 :::
 
-# How each course contributes — the I / R / M methodology
+# How each course contributes, the I / R / M methodology
 
 The curriculum-map methodology used to trace these PLOs through the
 program uses three coding labels for each course-learning-outcome
@@ -98,9 +98,9 @@ program uses three coding labels for each course-learning-outcome
 
 | Code | Meaning |
 |---|---|
-| **I** | Introductory — the course introduces the concept; students encounter it for the first time. |
-| **R** | Reinforcement — the course practises the concept; students extend prior exposure. |
-| **M** | Mastery — the course expects students to demonstrate the concept independently. |
+| **I** | Introductory, the course introduces the concept; students encounter it for the first time. |
+| **R** | Reinforcement, the course practises the concept; students extend prior exposure. |
+| **M** | Mastery, the course expects students to demonstrate the concept independently. |
 
 Combined with an **X** marker showing which CLO maps to which PLO,
 this is the same framework UBC's Faculty of Science uses for the
@@ -118,7 +118,7 @@ that needs to be replicated for every Freshwater Science required and
 elective course.
 :::
 
-# Curriculum map — pending build
+# Curriculum map, pending build
 
 Following the v2 PLO finalisation memo (§7 Recommended Next Steps), the
 next deliverable is the **full curriculum map**: every required
@@ -142,7 +142,7 @@ the EESC 301 pilot as the template.
 | **v2** (current) | 28 April 2026 | 8 in 4 categories | Refined by Dr. Nelson Jatel, PAg, following student + faculty consultation and best-practice benchmarking. Memo: `UBCO_Memo_PLOs_v2_20260428.docx`. |
 | v1 (draft) | 2025 | 14 in 5 categories | Superseded by v2. Mapping of v1 → v2 in the memo §6 crosswalk. Draft: `BSc Freshwater Science Draft PLOs (V1).docx`. |
 
-# Assessment plan — pending
+# Assessment plan, pending
 
 The v2 finalisation memo flags two further deliverables:
 
@@ -169,5 +169,5 @@ Both are pending and will be tracked in the project's GitHub issues.
 - Washington State University Office of Assessment for Curricular
   Effectiveness. (2024). [Quick Guide to Program-level Student
   Learning Outcomes](https://ace.wsu.edu/documents/2015/02/quick-guide-to-program-slos.pdf/).
-- University of Wisconsin-Milwaukee. [Freshwater Sciences, BS — Program
+- University of Wisconsin-Milwaukee. [Freshwater Sciences, BS, Program
   Learning Outcomes](https://catalog.uwm.edu/freshwater-sciences/freshwater-sciences-bs/).

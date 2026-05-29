@@ -5,7 +5,7 @@ date: last-modified
 ---
 
 Many students who pick Freshwater Science want a *focus* on top of the
-broad core — an applied direction they can take into work or graduate
+broad core, an applied direction they can take into work or graduate
 school. The patterns below come from the program lead's curated
 advising map (`docs/reference/advising/Map UBCO Freshwater Science
 (BSc) - Pathways.docx`). Use them as starting points; the program
@@ -55,8 +55,13 @@ flood/drought risk, and water infrastructure.
 - **Core EESC**: EESC 413 (Analytical Methods in Hydrology),
   EESC 435 (Fluvial Field Techniques), EESC 423 (Tracers),
   EESC 342 (Hydrogeology).
-- **ENGR pairing**: ENGR 342 (Open Channel Flow) — *seat and
-  prerequisite limits apply; coordinate with Engineering advising*.
+- **ENGR pairing (advisory only)**: students with strong interest in
+  the engineering side of hydrology sometimes pursue ENGR courses
+  such as Open Channel Flow with permission from the School of
+  Engineering. Seat and prerequisite limits favour Engineering
+  majors, and ENGR courses are outside the scope of this planning
+  resource (the planner does not track them). Coordinate any ENGR
+  pursuit with the Engineering advising office directly.
 - **GISC Minor** for geospatial modelling.
 - **Co-op targets**: hydrometric agencies (ECCC, WSC), engineering
   consulting (NHC, Associated Engineering, etc.), utilities.
@@ -64,22 +69,22 @@ flood/drought risk, and water infrastructure.
 # Practical notes for mixing and matching
 
 - **Co-op across programs.** Co-op is available in Freshwater,
-  Chemistry, Biology, and Engineering — ideal for stitching together
+  Chemistry, Biology, and Engineering, ideal for stitching together
   applied experience.
 - **Credit double-counting.** The UBCO Academic Calendar caps
   double-counting of upper-level credits toward a second major or
   minor (generally max 6 credits for program-specified requirements).
   Schedule intentionally if you're aiming for a double credential.
 - **Advising.** Use the official Program Plan and meet program
-  advisors early — especially if you're eyeing Honours, co-op, or
+  advisors early, especially if you're eyeing Honours, co-op, or
   cross-faculty electives.
 
 # References
 
 - [UBCO Freshwater Science (program page)](https://you.ubc.ca/ubc_programs/freshwater-science/)
-- [UBC Academic Calendar — Freshwater Science requirements](https://okanagan.calendar.ubc.ca/faculties-schools-and-colleges/faculty-science/bachelor-science-programs/major-programs/freshwater-science)
-- [UBCO BSc Freshwater Science — Program Plan (PDF)](https://students.ok.ubc.ca/wp-content/uploads/sites/90/2025/06/BSc-Freshwater-Science_Program-Plan.pdf)
-- [UBCO Chemistry — undergraduate page](https://chemistry.ok.ubc.ca/undergraduate/)
-- [UBCO Civil Engineering — programs](https://engineering.ok.ubc.ca/programs-admissions/civil/)
+- [UBC Academic Calendar, Freshwater Science requirements](https://okanagan.calendar.ubc.ca/faculties-schools-and-colleges/faculty-science/bachelor-science-programs/major-programs/freshwater-science)
+- [UBCO BSc Freshwater Science, Program Plan (PDF)](https://students.ok.ubc.ca/wp-content/uploads/sites/90/2025/06/BSc-Freshwater-Science_Program-Plan.pdf)
+- [UBCO Chemistry, undergraduate page](https://chemistry.ok.ubc.ca/undergraduate/)
+- [UBCO Civil Engineering, programs](https://engineering.ok.ubc.ca/programs-admissions/civil/)
 - [UBCO GISC Minor](https://eesc.ok.ubc.ca/undergraduate/gisc-minor/)
 - Source notes in this repo: `docs/reference/advising/Map UBCO Freshwater Science (BSc) - Pathways.docx`.

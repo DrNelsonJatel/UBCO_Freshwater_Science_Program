@@ -8,8 +8,8 @@ date: last-modified
 ## Land acknowledgement
 The UBC Okanagan campus is situated within the unceded, ancestral, and
 traditional territory of the **Syilx Okanagan Nation**. The Freshwater
-Science program — its teaching, its research, its applied work in
-freshwater systems — depends on this land and on relationships with
+Science program, its teaching, its research, its applied work in
+freshwater systems, depends on this land and on relationships with
 the Indigenous Peoples and rights-holders who continue to steward it.
 :::
 
@@ -102,11 +102,11 @@ thesis (EESC_O 449).
 
 **Official UBCO pages**:
 
-- [UBC Undergraduate Admissions — Freshwater Science](https://you.ubc.ca/ubc_programs/freshwater-science/)
+- [UBC Undergraduate Admissions, Freshwater Science](https://you.ubc.ca/ubc_programs/freshwater-science/)
   (program overview for prospective students)
-- [Department of Earth, Environmental and Geographic Sciences — Freshwater Science](https://eesc.ok.ubc.ca/undergraduate/freshwater-science/)
+- [Department of Earth, Environmental and Geographic Sciences, Freshwater Science](https://eesc.ok.ubc.ca/undergraduate/freshwater-science/)
   (department page; current-student facing)
-- [UBC Academic Calendar — Freshwater Science requirements](https://okanagan.calendar.ubc.ca/faculties-schools-and-colleges/faculty-science/bachelor-science-programs/major-programs/freshwater-science)
+- [UBC Academic Calendar, Freshwater Science requirements](https://okanagan.calendar.ubc.ca/faculties-schools-and-colleges/faculty-science/bachelor-science-programs/major-programs/freshwater-science)
   (authoritative degree requirements)
 
 ::: {.callout-note}
@@ -136,7 +136,7 @@ questions, Honours / Co-op / NSERC USRA enquiries, or anything else.
 
 ## Who maintains this
 
-Curated and maintained by **Dr. Nelson Jatel, PAg** — Lecturer and
+Curated and maintained by **Dr. Nelson Jatel, PAg**, Lecturer and
 Freshwater Science Program Advisor, Department of Earth, Environmental
 and Geographic Sciences, UBC Okanagan. For advising appointments or to
 flag a correction, email
@@ -150,11 +150,11 @@ Issues and suggestions welcome via the GitHub issues tracker.
 
 | Section | Status |
 |---|---|
-| Course catalogue | **Live data** — scraped daily from the UBC Okanagan Academic Calendar |
-| Designations (PAg) | **Live data** — rendered from the [BCIA UBCO approved-course list](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf) (June 2025) |
-| Designations (RPBio) | **Curated** by the program advisor from the [CAB Credentialing Standard](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf) (June 2025) — CAB does not publish a UBCO-specific list |
+| Course catalogue | **Live data**, scraped daily from the UBC Okanagan Academic Calendar |
+| Designations (PAg) | **Live data**, rendered from the [BCIA UBCO approved-course list](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf) (June 2025) |
+| Designations (RPBio) | **Curated** by the program advisor from the [CAB Credentialing Standard](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf) (June 2025), CAB does not publish a UBCO-specific list |
 | Program Learning Outcomes | **Curated** from the v2 PLO memo (28 April 2026) |
 | Complementary pathways | **Curated** from the program advisor's pathway map |
-| Curriculum-map matrix (PLOs × courses) | **In development** — EESC 301 pilot only; instructor interviews pending |
-| Skills scaffolding | **In development** — draft vocabulary only |
-| Interactive Degree Planner | **In development** — see [Planner page](planner/index.qmd) for the design intent |
+| Curriculum-map matrix (PLOs × courses) | **In development**, EESC 301 pilot only; instructor interviews pending |
+| Skills scaffolding | **In development**, draft vocabulary only |
+| Interactive Degree Planner | **In development**, see [Planner page](planner/index.qmd) for the design intent |

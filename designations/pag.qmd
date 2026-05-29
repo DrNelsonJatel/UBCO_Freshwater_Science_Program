@@ -1,5 +1,5 @@
 ---
-title: "PAg — Professional Agrologist (BC Institute of Agrologists)"
+title: "PAg, Professional Agrologist (BC Institute of Agrologists)"
 subtitle: "Mapping the UBCO Freshwater Science degree to BCIA's coursework requirements"
 date: last-modified
 ---
@@ -103,7 +103,7 @@ render_category <- function(cat) {
 render_category(y$categories$foundational)
 ```
 
-### Agrology courses — 100/200 level
+### Agrology courses, 100/200 level
 
 `r length(yaml::read_yaml("../data/designation_mappings/pag.yml")$categories$agrology_lower$courses)` UBCO courses in the lower-level agrology category. These can count toward the 20-course agrology requirement (≥8 must be senior, listed below).
 
@@ -112,7 +112,7 @@ render_category(y$categories$foundational)
 render_category(y$categories$agrology_lower)
 ```
 
-### Agrology courses — 300/400+ level
+### Agrology courses, 300/400+ level
 
 `r length(yaml::read_yaml("../data/designation_mappings/pag.yml")$categories$agrology_senior$courses)` UBCO senior-level agrology courses. BCIA requires **≥8 senior-level courses** within the 20-course agrology total.
 

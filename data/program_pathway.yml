@@ -1,0 +1,96 @@
+# Year-by-year recommended course pathway for the UBCO Freshwater
+# Science Major. Curated by the program advisor and aligned with the
+# live UBC Okanagan Academic Calendar (verified 2026-05-28).
+#
+# The planner reads this file to populate the Step-1 accordion. Each
+# year has a flat "recommended" list of UBCO course codes; the planner
+# then surfaces every other course at that level via a searchable
+# selector underneath.
+#
+# Codes use the "BIOL 116" short form (no _O suffix). The app
+# normalises against data/courses.parquet at load time so cross-listed
+# codes are recognised.
+
+year_1:
+  label: "Year 1 — Foundations"
+  description: |
+    The core science sequence. Most students take all of these in
+    their first year. Indigenous content (INDG 100 or ENGL 114) and
+    the 6-credit Communications block are typically scheduled in
+    Year 1 as well.
+  recommended:
+    - BIOL 116    # Biology for Science Majors I
+    - BIOL 125    # Biology for Science Majors II
+    - CHEM 121    # Atomic and Molecular Chemistry
+    - CHEM 123    # Physical and Organic Chemistry
+    - EESC 111    # Earth Science
+    - EESC 112    # Environmental Earth Science
+    - MATH 100    # Differential Calculus
+    - MATH 101    # Integral Calculus  (or MATH 103)
+    - PHYS 111    # Intro Physics term 1 (or PHYS 112)
+    - PHYS 121    # Intro Physics term 2 (or PHYS 122)
+    - INDG 100    # Indigenous content
+    - ENGL 112    # Writing requirement (or ENGL 109/114/150/151/153)
+
+year_2:
+  label: "Year 2 — Core competencies"
+  description: |
+    Hydrology, geomorphology, and the second-year biology + chemistry
+    layer. The Statistics requirement (one of STAT 230, BIOL 202, or
+    GEOG 271) belongs here.
+  recommended:
+    - BIOL 201    # Introduction to Evolution and Ecology
+    - BIOL 202    # Introduction to Biostatistics (or STAT 230 / GEOG 271)
+    - STAT 230    # Introductory Statistics (alternative)
+    - CHEM 201    # Introduction to Physical Chemistry (or CHEM 210)
+    - CHEM 211    # Analytical Chemistry
+    - EESC 205    # Introduction to Hydrology
+    - EESC 222    # Geomorphology
+    - BIOL 200    # Cell Biology  (RPBio gap-filler)
+    - BIOL 265    # Principles of Genetics  (RPBio gap-filler; can be Y2 or Y3)
+
+year_3:
+  label: "Year 3 — Applied & integrative science"
+  description: |
+    Limnology, biogeochemistry, hydrogeology, and the upper-level
+    chemistry + biology layer. This is where most professional-
+    designation electives get scheduled.
+  recommended:
+    - EESC 212    # Atmospheric Environments (if not in Y2)
+    - EESC 301    # Limnology
+    - EESC 309    # Global Biogeochemistry
+    - EESC 342    # Hydrogeology
+    - FWSC 375    # Flora and Fauna of Inland Waters
+    - BIOL 308    # Population Biology
+    - CHEM 301    # Aqueous Environmental Chemistry
+    - EESC 313    # Management of Forested Watersheds  (choose one of 313/314/315)
+    - EESC 314    # Environmental Impact Assessment: Process
+    - EESC 315    # Environmental Impact Assessment: Techniques
+    - EESC 323    # Geochemistry  (geochem requirement: 2 of 309/323/423)
+    - BIOL 356    # Comparative Animal Physiology  (RPBio Physiology gap-filler)
+    - BIOL 358    # Plant Ecophysiology              (RPBio Physiology alternative)
+    - GISC 380    # Fundamentals of GIS  (PAg + complementary GIS)
+    - ECON 371    # PAg complementary track (if pursuing PAg)
+
+year_4:
+  label: "Year 4 — Specialisation & synthesis"
+  description: |
+    Freshwater resources, advanced hydrology methods, tracers, and the
+    Honours option. Some students take EESC 435 (Fluvial Field
+    Techniques) in May after Year 4.
+  recommended:
+    - EESC 402    # Freshwater Resources
+    - EESC 413    # Analytical Methods in Hydrology
+    - EESC 423    # Tracers of Natural Processes  (geochem requirement)
+    - EESC 422    # Fluvial Geomorphology
+    - EESC 449    # Honours Thesis  (76% minimum GPA, optional)
+    - GISC 381    # Remote Sensing  (advanced GIS continuation)
+    - ECON 372    # PAg complementary track Year 4
+
+summer:
+  label: "Summer / Beyond Year 4"
+  description: |
+    Field-based courses and enrichment opportunities that often run in
+    May after Year 4 or as summer field schools.
+  recommended:
+    - EESC 435    # Fluvial Field Techniques  (typically May after Y4)

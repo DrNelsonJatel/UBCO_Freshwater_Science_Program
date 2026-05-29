@@ -43,14 +43,26 @@ suppressPackageStartupMessages({
 .proj <- if (dir.exists("data")) "." else ".."
 .data_dir <- file.path(.proj, "data")
 
-courses <- arrow::read_parquet(file.path(.data_dir, "courses.parquet"))
-pag     <- yaml::read_yaml(file.path(.data_dir, "designation_mappings", "pag.yml"))
-rpbio   <- yaml::read_yaml(file.path(.data_dir, "designation_mappings", "rpbio.yml"))
+courses  <- arrow::read_parquet(file.path(.data_dir, "courses.parquet"))
+pag      <- yaml::read_yaml(file.path(.data_dir, "designation_mappings", "pag.yml"))
+rpbio    <- yaml::read_yaml(file.path(.data_dir, "designation_mappings", "rpbio.yml"))
+pathway  <- yaml::read_yaml(file.path(.data_dir, "program_pathway.yml"))
 
 # Normalise both sources to a consistent "BIOL 116" / "FWSC 375" style.
 # The scrape produces "BIOL_O 116"; the YAMLs use "BIOL 116".
 short_code <- function(x) stringr::str_replace(x, "_O", "")
 courses$short_code <- short_code(courses$code)
+courses$level_band <- dplyr::case_when(
+  suppressWarnings(as.integer(courses$number)) <  200 ~ "100",
+  suppressWarnings(as.integer(courses$number)) <  300 ~ "200",
+  suppressWarnings(as.integer(courses$number)) <  400 ~ "300",
+  TRUE                                                ~ "400+"
+)
+
+# Build a lookup so the planner can render label + title for any short
+# code from the pathway file.
+code_to_title <- setNames(courses$title, courses$short_code)
+code_to_credits <- setNames(courses$credits, courses$short_code)
 
 # Subject -> long-form labels for the UI.
 SUBJECT_LABELS <- c(
@@ -104,11 +116,24 @@ ui <- page_sidebar(
     nav_panel(
       "Step 1: Tick completed courses",
       div(class = "p-3",
-          h4("Tick everything on your transcript"),
+          h4("Tick courses by year"),
           p(class = "text-muted small",
-            "Filter by subject prefix, course number, or title. The
-             selection drives every panel in Steps 2 and 3."),
-          DT::DTOutput("course_picker", height = "62vh")
+            "Each year panel lists the curated recommended courses
+             first. Use the 'Other Y[NNN]-level courses' selector
+             below the recommendations to add anything not in the
+             default path (transfers, electives outside the
+             recommendations, courses taken in a different year).
+             Selections from every panel feed into Steps 2 and 3."),
+          uiOutput("year_accordion"),
+          tags$hr(),
+          h5("Transfer credits or anything not at a UBCO 100-400 level"),
+          p(class = "text-muted small",
+            "If you have credits from another institution or anything
+             not surfaced above, search for them here."),
+          selectizeInput("other_completed", label = NULL,
+                          choices = NULL, multiple = TRUE,
+                          width = "100%",
+                          options = list(placeholder = "Search by code or title..."))
       )
     ),
     nav_panel(
@@ -158,35 +183,107 @@ ui <- page_sidebar(
 # ------- Server -----------------------------------------------------------
 server <- function(input, output, session) {
 
-  # Picker table: every course, sortable + filterable.
-  picker_df <- reactive({
-    courses |>
-      dplyr::transmute(
-        Code    = short_code,
-        Title   = title,
-        Credits = credits,
-        Subject = SUBJECT_LABELS[subject]
-      ) |>
-      dplyr::arrange(Code)
+  # ------- Year-based course picker accordion ------------------------------
+  # Build the accordion server-side so the panel for each year auto-
+  # expands when the student's current-year radio matches.
+
+  YEAR_TO_BANDS <- list(
+    year_1 = "100",
+    year_2 = "200",
+    year_3 = "300",
+    year_4 = "400+",
+    summer = "400+"
+  )
+
+  output$year_accordion <- renderUI({
+    current <- input$year_in_program
+    panels <- lapply(names(pathway), function(yk) {
+      yspec <- pathway[[yk]]
+      checkbox_id <- paste0("y_", yk, "_recommended")
+      other_id    <- paste0("y_", yk, "_other")
+      level <- YEAR_TO_BANDS[[yk]]
+
+      # Filter the scraped courses for "other at this level" -
+      # everything at the level band that isn't already a recommended
+      # code.
+      rec_codes <- yspec$recommended
+      other_pool <- courses[courses$level_band == level &
+                            !(courses$short_code %in% rec_codes), ,
+                            drop = FALSE]
+      other_choices <- setNames(other_pool$short_code,
+                                 sprintf("%s — %s (%g cr)",
+                                         other_pool$short_code,
+                                         other_pool$title,
+                                         other_pool$credits))
+
+      # Pretty checkbox labels for the recommended list.
+      rec_choices <- setNames(
+        rec_codes,
+        vapply(rec_codes, function(c) {
+          ttl <- code_to_title[c]
+          cr  <- code_to_credits[c]
+          if (is.na(ttl)) c
+          else sprintf("%s — %s (%g cr)", c, ttl, cr)
+        }, character(1))
+      )
+
+      open_by_default <- identical(yk, sprintf("year_%s", current)) ||
+                         (yk == "summer" && current == "5")
+
+      bslib::accordion_panel(
+        title = yspec$label,
+        value = yk,
+        if (nzchar(yspec$description %||% ""))
+          p(class = "text-muted small", yspec$description),
+        tags$h6("Recommended for this year"),
+        checkboxGroupInput(checkbox_id, label = NULL,
+                            choices = rec_choices,
+                            selected = isolate(input[[checkbox_id]])),
+        tags$details(
+          tags$summary(class = "text-muted small",
+                       sprintf("Other %s-level courses (%d available)",
+                               level, nrow(other_pool))),
+          div(style = "margin-top:8px;",
+            selectizeInput(other_id, label = NULL,
+                            choices = other_choices,
+                            selected = isolate(input[[other_id]]),
+                            multiple = TRUE, width = "100%",
+                            options = list(
+                              placeholder = sprintf("Search %s-level courses...",
+                                                     level)))
+          )
+        )
+      )
+    })
+    bslib::accordion(!!!panels,
+                      open = names(pathway)[
+                        identical(input$year_in_program, "5") + 1L
+                      ],
+                      multiple = TRUE)
   })
 
-  output$course_picker <- DT::renderDT({
-    DT::datatable(
-      picker_df(),
-      filter = "top",
-      rownames = FALSE,
-      selection = list(mode = "multiple", target = "row"),
-      options = list(pageLength = 25, scrollX = FALSE,
-                     dom = "tip",
-                     columnDefs = list(list(className = "dt-left",
-                                             targets = "_all")))
-    )
-  }, server = TRUE)
+  # Populate the "Transfer / other" selectize once.
+  observe({
+    all_choices <- setNames(courses$short_code,
+                             sprintf("%s — %s (%g cr)",
+                                     courses$short_code,
+                                     courses$title,
+                                     courses$credits))
+    updateSelectizeInput(session, "other_completed",
+                         choices = all_choices, server = TRUE,
+                         selected = isolate(input$other_completed))
+  })
 
   completed_codes <- reactive({
-    sel <- input$course_picker_rows_selected
-    if (!length(sel)) return(character(0))
-    picker_df()$Code[sel]
+    yr_ids <- c(
+      paste0("y_", names(pathway), "_recommended"),
+      paste0("y_", names(pathway), "_other")
+    )
+    picks <- unlist(lapply(yr_ids, function(id) input[[id]]),
+                    use.names = FALSE)
+    picks <- c(picks, input$other_completed)
+    picks <- picks[!is.na(picks) & nzchar(picks)]
+    unique(picks)
   })
 
   completed_rows <- reactive({

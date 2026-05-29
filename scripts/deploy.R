@@ -33,7 +33,8 @@ rsconnect::deployApp(
     "app/app.R",
     "data/courses.parquet",
     "data/designation_mappings/pag.yml",
-    "data/designation_mappings/rpbio.yml"
+    "data/designation_mappings/rpbio.yml",
+    "data/program_pathway.yml"
   ),
   appName        = APP_NAME,
   account        = ACCOUNT,

@@ -130,6 +130,23 @@ ui <- page_sidebar(
               the right. Live gap analysis updates below as you change
               selections."),
     hr(),
+    tags$details(
+      tags$summary(class = "small", "Save / load plan"),
+      div(style = "margin-top:8px;",
+        downloadButton("download_plan", "Save plan to file",
+                        class = "btn-outline-secondary btn-sm",
+                        style = "width:100%; margin-bottom:6px;"),
+        fileInput("upload_plan", label = NULL, accept = ".json",
+                   buttonLabel = "Load plan...",
+                   placeholder = "no file selected",
+                   width = "100%"),
+        p(class = "small text-muted", style = "margin-bottom:0;",
+          "Saves your ticks, goals, and current year as a small JSON
+           file. Reload it next session, or email it to the program
+           advisor before an advising appointment.")
+      )
+    ),
+    hr(),
     div(class = "small text-muted",
         "MVP - results are illustrative only. ",
         "Confirm with the program advisor and the UBC Okanagan Academic Calendar.")
@@ -147,6 +164,7 @@ ui <- page_sidebar(
              default path (transfers, electives outside the
              recommendations, courses taken in a different year).
              Selections from every panel feed into Steps 2 and 3."),
+          uiOutput("progress_summary"),
           uiOutput("year_accordion"),
           tags$hr(),
           h5("Transfer credits or anything not at a UBCO 100-400 level"),
@@ -266,8 +284,23 @@ server <- function(input, output, session) {
         )
       } else NULL
 
+      year_rec_codes <- yspec$recommended %||% character(0)
+      year_rec_have  <- length(intersect(year_rec_codes,
+                                          completed_codes()))
+      year_rec_total <- length(year_rec_codes)
+      chip_colour <- if (year_rec_have == year_rec_total && year_rec_total > 0)
+        "#1f7a3b" else if (year_rec_have > 0) "#d9822b" else "#a0a4ad"
+      title_with_chip <- tags$span(
+        yspec$label,
+        tags$span(style = sprintf(paste("background:%s; color:white;",
+                                          "padding:2px 8px; border-radius:999px;",
+                                          "font-size:0.78em; margin-left:10px;"),
+                                   chip_colour),
+                  sprintf("%d / %d ticked", year_rec_have, year_rec_total))
+      )
+
       bslib::accordion_panel(
-        title = yspec$label,
+        title = title_with_chip,
         value = yk,
         if (nzchar(yspec$description %||% ""))
           p(class = "text-muted small", yspec$description),
@@ -776,6 +809,153 @@ server <- function(input, output, session) {
   # browsers (Chrome, Edge, Safari, Firefox) all have "Save as PDF"
   # in the print dialog by default, so the student gets a real PDF
   # without any server-side PDF rendering.
+  # ---- Progress summary band + per-year chip math ------------------------
+  # Numbers used by both the top-of-Step-1 summary and the per-year
+  # accordion-title chips. Single source of truth so they can't drift.
+  recommended_per_year <- reactive({
+    setNames(
+      lapply(pathway, function(yspec) yspec$recommended %||% character(0)),
+      names(pathway)
+    )
+  })
+
+  pag_required_codes <- reactive({
+    cats <- pag$categories
+    unique(c(pag_category_codes(cats$foundational),
+              pag_category_codes(cats$agrology_lower),
+              pag_category_codes(cats$agrology_senior)))
+  })
+  rpbio_required_codes <- reactive({
+    cats <- rpbio$categories
+    unique(unlist(lapply(cats, function(c) rpbio_area_codes(c))))
+  })
+
+  output$progress_summary <- renderUI({
+    completed <- completed_codes()
+    goals     <- input$goals %||% character(0)
+    if (!length(completed) && !length(goals)) return(NULL)
+
+    chip <- function(label, have, total, colour) {
+      pct <- if (total > 0) round(100 * have / total) else 0
+      tags$span(
+        class = "badge",
+        style = sprintf(paste("background:%s; color:white;",
+                                "padding:6px 10px; border-radius:999px;",
+                                "font-size:0.85em; margin-right:6px;"),
+                         colour),
+        sprintf("%s: %d / %d (%d%%)", label, have, total, pct)
+      )
+    }
+
+    chips <- tagList()
+    rec_total <- sum(lengths(recommended_per_year()))
+    rec_have  <- sum(completed %in% unlist(recommended_per_year()))
+    chips <- tagAppendChild(
+      chips,
+      chip("Recommended courses ticked", rec_have, rec_total, "#1f3a5f")
+    )
+
+    if ("pag" %in% goals) {
+      need <- pag_required_codes()
+      have <- length(intersect(completed, need))
+      chips <- tagAppendChild(chips,
+                               chip("PAg-eligible UBCO courses ticked",
+                                    have, length(need), "#1f7a3b"))
+    }
+    if ("rpbio" %in% goals) {
+      need <- rpbio_required_codes()
+      have <- length(intersect(completed, need))
+      chips <- tagAppendChild(chips,
+                               chip("RPBio-eligible UBCO courses ticked",
+                                    have, length(need), "#7a2c8a"))
+    }
+
+    tags$div(
+      style = paste("background:#f4f7fb; border:1px solid #d6deea;",
+                     "border-radius:8px; padding:12px 16px; margin:10px 0 14px;"),
+      tags$div(style = "font-weight:600; color:#1f3a5f; margin-bottom:8px;",
+               "Live progress"),
+      chips
+    )
+  })
+
+  # ---- Save / load plan ---------------------------------------------------
+  output$download_plan <- downloadHandler(
+    filename = function()
+      sprintf("UBCO_FWSc_plan_%s.json", format(Sys.Date(), "%Y%m%d")),
+    content = function(file) {
+      payload <- list(
+        version = "1.0",
+        saved_at = format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+        year_in_program = input$year_in_program %||% "",
+        goals = input$goals %||% character(0),
+        completed = completed_codes()
+      )
+      writeLines(jsonlite::toJSON(payload, pretty = TRUE, auto_unbox = TRUE),
+                 file)
+    },
+    contentType = "application/json"
+  )
+
+  observeEvent(input$upload_plan, {
+    f <- input$upload_plan
+    req(f)
+    tryCatch({
+      payload <- jsonlite::fromJSON(f$datapath, simplifyVector = TRUE)
+      if (!is.null(payload$goals))
+        updateCheckboxGroupInput(session, "goals",
+                                  selected = as.character(payload$goals))
+      if (!is.null(payload$year_in_program))
+        updateRadioButtons(session, "year_in_program",
+                            selected = as.character(payload$year_in_program))
+      to_set <- as.character(payload$completed %||% character(0))
+      # Split the restored codes by year-recommended vs other.
+      for (yk in names(pathway)) {
+        rec_id   <- paste0("y_", yk, "_recommended")
+        other_id <- paste0("y_", yk, "_other")
+        rec_codes <- pathway[[yk]]$recommended %||% character(0)
+        rec_pick  <- intersect(to_set, rec_codes)
+        updateCheckboxGroupInput(session, rec_id, selected = rec_pick)
+        # Anything from this year's level band that isn't in
+        # recommended goes to the "other" selectize.
+        level <- YEAR_TO_BANDS[[yk]]
+        other_pool <- courses$short_code[courses$level_band == level]
+        other_pick <- intersect(to_set, setdiff(other_pool, rec_codes))
+        updateSelectizeInput(session, other_id, selected = other_pick,
+                              server = TRUE,
+                              choices = setNames(
+                                courses$short_code[courses$level_band == level],
+                                sprintf("%s, %s (%g cr)",
+                                         courses$short_code[courses$level_band == level],
+                                         courses$title[courses$level_band == level],
+                                         courses$credits[courses$level_band == level])))
+      }
+      # Everything left (no year mapping) goes to "other_completed".
+      placed <- unique(unlist(lapply(names(pathway), function(yk) {
+        c(intersect(to_set, pathway[[yk]]$recommended %||% character(0)),
+          intersect(to_set, courses$short_code[
+            courses$level_band == YEAR_TO_BANDS[[yk]]]))
+      })))
+      transfers <- setdiff(to_set, placed)
+      updateSelectizeInput(session, "other_completed", selected = transfers,
+                            server = TRUE,
+                            choices = setNames(courses$short_code,
+                              sprintf("%s, %s (%g cr)",
+                                      courses$short_code, courses$title,
+                                      courses$credits)))
+      showNotification(
+        sprintf("Plan loaded: %d courses, goals: %s, year: %s.",
+                length(to_set),
+                paste(payload$goals %||% "none", collapse = ", "),
+                payload$year_in_program %||% "n/a"),
+        type = "message", duration = 6)
+    }, error = function(e) {
+      showNotification(
+        paste("Could not load plan:", conditionMessage(e)),
+        type = "error", duration = 10)
+    })
+  })
+
   observeEvent(input$open_report, {
     tmp <- tempfile(fileext = ".html")
     htmltools::save_html(build_report_html(), file = tmp, libdir = NULL)

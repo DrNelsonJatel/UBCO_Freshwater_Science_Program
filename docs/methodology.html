@@ -220,9 +220,9 @@ ul.task-list li input[type="checkbox"] {
 <h1>Architecture</h1>
 <p>The site has three coupled layers:</p>
 <ol type="1">
-<li><strong>Static Quarto site</strong> — all content pages (course catalogue, designation pathways, learning outcomes, skills scaffold, methodology, announcements). Authored in markdown / qmd; rendered to HTML and served as static files.</li>
-<li><strong>Shiny degree planner</strong> — the interactive component, embedded as an iframe in the static site. Lets a student drag courses into year slots, pick a designation goal, and see real-time gap analysis.</li>
-<li><strong><code>targets</code> data pipeline</strong> — daily scrape of the UBCO Academic Calendar, normalisation to a tidy parquet, plus the curated designation-mapping YAMLs. Output artefacts feed both the Quarto site (via embedded chunks) and the Shiny planner.</li>
+<li><strong>Static Quarto site</strong>, all content pages (course catalogue, designation pathways, learning outcomes, skills scaffold, methodology, announcements). Authored in markdown / qmd; rendered to HTML and served as static files.</li>
+<li><strong>Shiny degree planner</strong>, the interactive component, embedded as an iframe in the static site. Lets a student drag courses into year slots, pick a designation goal, and see real-time gap analysis.</li>
+<li><strong><code>targets</code> data pipeline</strong>, daily scrape of the UBCO Academic Calendar, normalisation to a tidy parquet, plus the curated designation-mapping YAMLs. Output artefacts feed both the Quarto site (via embedded chunks) and the Shiny planner.</li>
 </ol>
 </section>
 <section id="data-sources-and-refresh-cadence" class="level1">
@@ -258,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>Course schedule (offered next year?)</td>
 <td>UBCO Workday Student / SSC</td>
-<td>TBD — scrape vs.&nbsp;API</td>
+<td>TBD, scrape vs.&nbsp;API</td>
 <td>Daily, 12:00 UTC</td>
 </tr>
 <tr class="even">
@@ -783,7 +783,7 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Maintained by Dr.&nbsp;Nelson Jatel, PAg — Lecturer and Freshwater Science Program Advisor, Department of Earth, Environmental and Geographic Sciences, UBC Okanagan. <a href="mailto:nelson.jatel@ubc.ca">nelson.jatel@ubc.ca</a></p>
+<p>Maintained by Dr.&nbsp;Nelson Jatel, PAg, Lecturer and Freshwater Science Program Advisor, Department of Earth, Environmental and Geographic Sciences, UBC Okanagan. <a href="mailto:nelson.jatel@ubc.ca">nelson.jatel@ubc.ca</a></p>
 </div>   
     <div class="nav-footer-center">
 <p>This is a curated advising resource. <strong>The <a href="https://okanagan.calendar.ubc.ca/">UBC Okanagan Academic Calendar</a> is the authoritative source for all degree requirements.</strong></p>

@@ -72,6 +72,11 @@ format:
     toc-depth: 3
     code-tools: false
     smooth-scroll: true
+    # All links to off-site URLs open in a new tab so a click never
+    # navigates the student away from the planning resource. Internal
+    # links inside this site keep their normal same-tab behaviour.
+    link-external-newwindow: true
+    link-external-icon: true
 
 execute:
   freeze: auto

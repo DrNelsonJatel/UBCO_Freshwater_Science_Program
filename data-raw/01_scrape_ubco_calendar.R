@@ -168,7 +168,10 @@ main <- function() {
   courses <- dplyr::bind_rows(per_subject)
   courses$prereq_codes <- purrr::map(courses$prereq_raw,
                                       extract_prereq_codes)
-  courses$fetched_at <- Sys.time()
+  # NB: do not stamp a per-row scrape timestamp into the parquet. The
+  # scrape time lives in data/scrape_meta.json; keeping it out of the
+  # parquet means courses.parquet only changes when the course CONTENT
+  # changes, so the planner is redeployed only when it needs to be.
   courses <- dplyr::arrange(courses, subject,
                              suppressWarnings(as.integer(number)))
   message(sprintf("Scraped %d courses across %d subjects.",

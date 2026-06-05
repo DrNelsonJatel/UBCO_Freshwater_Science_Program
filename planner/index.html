@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-05-28">
+<meta name="dcterms.date" content="2026-06-05">
 
 <title>Interactive Degree Planner – UBCO Freshwater Science</title>
 <style>
@@ -165,9 +165,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-it-will-do" id="toc-what-it-will-do" class="nav-link active" data-scroll-target="#what-it-will-do">What it will do</a></li>
-  <li><a href="#in-the-meantime" id="toc-in-the-meantime" class="nav-link" data-scroll-target="#in-the-meantime">In the meantime</a></li>
-  <li><a href="#want-to-help-shape-it" id="toc-want-to-help-shape-it" class="nav-link" data-scroll-target="#want-to-help-shape-it">Want to help shape it?</a></li>
+  <li><a href="#what-the-planner-does" id="toc-what-the-planner-does" class="nav-link active" data-scroll-target="#what-the-planner-does">What the planner does</a></li>
+  <li><a href="#related-pages" id="toc-related-pages" class="nav-link" data-scroll-target="#related-pages">Related pages</a></li>
+  <li><a href="#suggestions-welcome" id="toc-suggestions-welcome" class="nav-link" data-scroll-target="#suggestions-welcome">Suggestions welcome</a></li>
   </ul>
 </nav>
     </div>
@@ -177,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Interactive Degree Planner</h1>
-<p class="subtitle lead">Drag-and-drop course planning with live designation gap analysis</p>
+<p class="subtitle lead">Tick the courses you have completed and see your degree and designation progress</p>
 </div>
 
 
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 28, 2026</p>
+      <p class="date">June 5, 2026</p>
     </div>
   </div>
   
@@ -206,47 +206,51 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>The planner is live
+<span class="screen-reader-only">Tip</span>Open the planner
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Open the interactive planner in a new tab: <strong><a href="https://obwb.shinyapps.io/ubco-freshwater-planner/" target="_blank">obwb.shinyapps.io/ubco-freshwater-planner/</a></strong></p>
-<p>The app reads the live UBCO course catalogue and the PAg + RPBio designation mappings curated on this site. Tick the courses you’ve completed (or transferred in), pick one or both designation goals, and the app reports:</p>
-<ul>
-<li>credits + degree-threshold check (120 / 78 Science / 42 upper / 36 upper Science)</li>
-<li>PAg category coverage (8 foundational + 20 agrology with at least 8 senior)</li>
-<li>RPBio category coverage (6 core areas + 5 three-of-five areas) plus the 13-biology count</li>
-</ul>
-<p>This is v1: it’s intentionally simple (no drag-drop year slots yet, no prereq DAG viz). v2 will add those features once the v1 has been in front of students for a term.</p>
+<p><strong><a href="https://obwb.shinyapps.io/ubco-freshwater-planner/" target="_blank">obwb.shinyapps.io/ubco-freshwater-planner/</a></strong></p>
+<p>The planner reads the live UBC Okanagan course catalogue and the curated PAg and RPBio designation mappings from this site. Tick the courses you have completed (or transferred in), pick one or both designation goals, and it reports your progress against the degree and the designations in real time.</p>
 </div>
 </div>
-<section id="what-it-will-do" class="level1">
-<h1>What it will do</h1>
-<p>When live, the planner will let you:</p>
+<section id="what-the-planner-does" class="level1">
+<h1>What the planner does</h1>
+<p>Set two things in the sidebar, your <strong>target designations</strong> (PAg, RPBio, or both) and your <strong>current year in the program</strong>, then work through the tabs:</p>
 <ul>
-<li><strong>Drag courses</strong> into year slots (Year 1, 2, 3, 4 and post-Year-4 summer).</li>
-<li><strong>Toggle designation goals</strong> (PAg, RPBio, neither, both).</li>
-<li>See <strong>live gap analysis</strong>:
+<li><strong>Step 1, tick completed courses.</strong> Each year is an accordion panel listing the curated recommended courses first, with an “other Y<em>nnn</em>-level courses” selector for anything off the default path. A separate search box handles transfer credits and courses not surfaced in the year panels.</li>
+<li><strong>Board, years side-by-side.</strong> Your plan as a five-column board (one column per year). Cards fill solid when ticked and stay outlined when not, a scannable read of where you are across the whole degree.</li>
+<li><strong>Map, prerequisite graph.</strong> A <code>visNetwork</code> graph of roughly 70 core and recommended courses, arrows pointing from a prerequisite to the course that needs it, nodes coloured by level and filled when ticked. Hover any node for its full title and its prerequisites from the live UBC Okanagan Academic Calendar.</li>
+<li><strong>Suggestions, gaps and next steps.</strong> Prerequisite-gap warnings for courses you have ticked but seem to be missing a foundation, plus a curated list of courses you could realistically register for next term given what you have already cleared.</li>
+<li><strong>Step 2, credit and degree summary.</strong> How you sit against the degree thresholds (120 credits / 78 Science / 42 upper-level / 36 upper-level Science), with a table of everything you have ticked.</li>
+<li><strong>Step 3, designation gap analysis.</strong> PAg category coverage (8 foundational plus 20 agrology with at least 8 senior) and RPBio coverage (6 core areas, the three-of-five subject areas, and the 13-biology count), with an <strong>exportable plan</strong> you can print or save as a PDF to bring to an advising appointment.</li>
+</ul>
+<p>You can also <strong>save your plan to a file</strong> and reload it next session, or email it to the program advisor before a meeting (sidebar, “Save / load plan”).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Read the results as guidance, not a verdict
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The planner is an advising aid. UBC’s prerequisite strings are natural-language (“either (a) X or (b) all of Y and Z”), and the planner collapses them into a flat code list, so treat prerequisite arrows and gap flags as a guide rather than a plan-validator. <strong>Always confirm your degree plan with the program advisor and the <a href="https://okanagan.calendar.ubc.ca/">UBC Okanagan Academic Calendar</a>, which remains authoritative.</strong></p>
+</div>
+</div>
+</section>
+<section id="related-pages" class="level1">
+<h1>Related pages</h1>
 <ul>
-<li>Which prerequisites are missing for the courses you have chosen.</li>
-<li>Which BCIA / CAB category requirements are still unfilled.</li>
-<li>Whether your total credits clear the 120 / 78 Science / 42 upper-level / 36 upper-level-Science thresholds.</li>
-</ul></li>
-<li>View the <strong>prerequisite graph</strong> for your selected courses (<code>visNetwork</code>).</li>
-<li><strong>Export your plan</strong> as a PDF or text summary you can share with the program advisor.</li>
+<li>The <a href="../courses/index.html">course catalogue</a> for the year-by-year course list and prerequisite notes.</li>
+<li>The <a href="../designations/pag.html">PAg pathway</a> and <a href="../designations/rpbio.html">RPBio pathway</a> for the curated four-year sample plans and designation-fit narrative.</li>
+<li>The <a href="../designations/complementary.html">Complementary pathways</a> page for the Chemistry, Biology, and hydrology / water-resources bundles.</li>
 </ul>
 </section>
-<section id="in-the-meantime" class="level1">
-<h1>In the meantime</h1>
-<ul>
-<li>Use the <a href="../courses/index.html">course catalogue</a> for the year-by-year course list and prerequisite notes.</li>
-<li>Use the <a href="../designations/pag.html">PAg pathway</a> and <a href="../designations/rpbio.html">RPBio pathway</a> for the curated 4-year sample plans + designation-fit narrative.</li>
-<li>Use the <a href="../designations/complementary.html">Complementary pathways</a> page for Chemistry, Biology, and hydrology/water-resources bundles.</li>
-</ul>
-</section>
-<section id="want-to-help-shape-it" class="level1">
-<h1>Want to help shape it?</h1>
-<p>If you are a Freshwater Science student or instructor and want input into how the planner should behave, what gap signals matter most, what visual encoding is most useful, how aggressively it should flag prerequisite conflicts, please drop a note to <strong>Nelson.Jatel@UBC.ca</strong> or open a GitHub issue at the <a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/issues">project source repository</a>.</p>
+<section id="suggestions-welcome" class="level1">
+<h1>Suggestions welcome</h1>
+<p>If you are a Freshwater Science student or instructor and have ideas for the planner, what gap signals matter most, what visual encoding is most useful, how aggressively it should flag prerequisite conflicts, email <strong><a href="mailto:nelson.jatel@ubc.ca">nelson.jatel@ubc.ca</a></strong> or open an issue at the <a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/issues">project source repository</a>.</p>
 
 
 </section>
@@ -669,7 +673,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This is a curated advising resource. <strong>The <a href="https://okanagan.calendar.ubc.ca/">UBC Okanagan Academic Calendar</a> is the authoritative source for all degree requirements.</strong></p>
 </div>
     <div class="nav-footer-right">
-<p><a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program">Source code</a> · Last updated <code>May 28, 2026</code></p>
+<p><a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program">Source code</a> · Last updated <code>June 5, 2026</code></p>
 </div>
   </div>
 </footer>

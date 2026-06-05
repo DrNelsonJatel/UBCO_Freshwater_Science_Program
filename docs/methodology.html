@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-05-28">
+<meta name="dcterms.date" content="2026-06-05">
 
 <title>Methodology – UBCO Freshwater Science</title>
 <style>
@@ -191,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 28, 2026</p>
+      <p class="date">June 5, 2026</p>
     </div>
   </div>
   
@@ -213,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This site is a Quarto static-content layer plus an embedded Shiny planner, with daily-refreshed UBC Okanagan course data sourced from the <a href="https://okanagan.calendar.ubc.ca/">UBC Okanagan Academic Calendar</a> and curated designation mappings sourced from the regulatory bodies’ published standards. The full data pipeline is open and reproducible from the <a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program">project source repository</a>; this page documents the architecture, the sources, and the refresh cadences in detail.</p>
+<p>This site is a Quarto static-content layer plus a linked Shiny planner, with UBC Okanagan course data sourced from the <a href="https://okanagan.calendar.ubc.ca/">UBC Okanagan Academic Calendar</a> and curated designation mappings sourced from the regulatory bodies’ published standards. The full data pipeline is open and reproducible from the <a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program">project source repository</a>; this page documents the architecture, the sources, and the refresh cadences in detail.</p>
 </div>
 </div>
 <section id="architecture" class="level1">
@@ -221,8 +221,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The site has three coupled layers:</p>
 <ol type="1">
 <li><strong>Static Quarto site</strong>, all content pages (course catalogue, designation pathways, learning outcomes, skills scaffold, methodology, announcements). Authored in markdown / qmd; rendered to HTML and served as static files.</li>
-<li><strong>Shiny degree planner</strong>, the interactive component, embedded as an iframe in the static site. Lets a student drag courses into year slots, pick a designation goal, and see real-time gap analysis.</li>
-<li><strong><code>targets</code> data pipeline</strong>, daily scrape of the UBCO Academic Calendar, normalisation to a tidy parquet, plus the curated designation-mapping YAMLs. Output artefacts feed both the Quarto site (via embedded chunks) and the Shiny planner.</li>
+<li><strong>Shiny degree planner</strong>, the interactive component, opened in its own tab from the static site. Lets a student tick the courses they have completed, pick a designation goal, and see real-time credit and gap analysis.</li>
+<li><strong><code>targets</code> data pipeline</strong>, scrape of the UBCO Academic Calendar, normalisation to a tidy parquet, plus the curated designation-mapping YAMLs. Output artefacts feed both the Quarto site (via embedded chunks) and the Shiny planner.</li>
 </ol>
 </section>
 <section id="data-sources-and-refresh-cadence" class="level1">
@@ -247,19 +247,19 @@ ul.task-list li input[type="checkbox"] {
 <td>Course descriptions</td>
 <td><code>okanagan.calendar.ubc.ca/course-descriptions/subject/&lt;code&gt;</code></td>
 <td><code>rvest</code> scrape, per-subject</td>
-<td>Daily, 12:00 UTC</td>
+<td>On demand (daily refresh planned)</td>
 </tr>
 <tr class="even">
 <td>Program structure</td>
 <td><code>okanagan.calendar.ubc.ca/.../freshwater-science</code></td>
 <td><code>rvest</code> scrape</td>
-<td>Daily, 12:00 UTC</td>
+<td>On demand (daily refresh planned)</td>
 </tr>
 <tr class="odd">
 <td>Course schedule (offered next year?)</td>
 <td>UBCO Workday Student / SSC</td>
-<td>TBD, scrape vs.&nbsp;API</td>
-<td>Daily, 12:00 UTC</td>
+<td>Planned, not yet implemented</td>
+<td>Roadmap</td>
 </tr>
 <tr class="even">
 <td>BCIA PAg UBCO-approved list</td>
@@ -295,7 +295,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Single sequential scrape (no parallel requests) with a polite <code>User-Agent: limnology.ca UBCO Freshwater Pathways v0.x</code>.</li>
 <li>Per-request delay of 1 second between subject pages.</li>
 <li>Local cache (file mtime check) so a re-run within the same day is a no-op.</li>
-<li>All scraping happens server-side in GitHub Actions, never in the user’s browser.</li>
+<li>All scraping runs server-side, never in the user’s browser.</li>
 </ul>
 <p>If UBCO’s registrar office can provide a data feed or API, the scraper will be retired in favour of that.</p>
 </section>
@@ -312,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="pipeline-reproducibility" class="level1">
 <h1>Pipeline reproducibility</h1>
-<p>The <code>targets</code> pipeline plus the GitHub Actions cron workflow give:</p>
+<p>The <code>targets</code> pipeline plus versioned, dated source files give:</p>
 <ul>
 <li>Full provenance for every artefact (which scrape run, which source version, which curator).</li>
 <li>Deterministic re-renders.</li>
@@ -363,7 +363,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>Deploy</td>
-<td>GitHub Actions, shinyapps.io (planner), <code>limnology.ca</code> (static site)</td>
+<td><code>quarto publish</code> to GitHub Pages (static site), <code>rsconnect</code> to shinyapps.io (planner)</td>
 </tr>
 </tbody>
 </table>
@@ -789,7 +789,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This is a curated advising resource. <strong>The <a href="https://okanagan.calendar.ubc.ca/">UBC Okanagan Academic Calendar</a> is the authoritative source for all degree requirements.</strong></p>
 </div>
     <div class="nav-footer-right">
-<p><a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program">Source code</a> · Last updated <code>May 28, 2026</code></p>
+<p><a href="https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program">Source code</a> · Last updated <code>June 5, 2026</code></p>
 </div>
   </div>
 </footer>

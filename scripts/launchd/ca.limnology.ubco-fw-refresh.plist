@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Daily local scrape of the UBC Okanagan calendar for the Freshwater
+  Science planning resource. Runs scripts/refresh_local.sh at 05:00 local
+  time. If the Mac is asleep at 05:00, launchd runs the job when it next
+  wakes; if the Mac is off all day, it simply runs at the next scheduled
+  time (a stale "last refreshed" date on the site is the intended signal).
+
+  Install:
+    cp scripts/launchd/ca.limnology.ubco-fw-refresh.plist ~/Library/LaunchAgents/
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/ca.limnology.ubco-fw-refresh.plist
+  Run once now (test):
+    launchctl kickstart -k gui/$(id -u)/ca.limnology.ubco-fw-refresh
+  Logs: ~/Library/Logs/ubco-fw-refresh.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>ca.limnology.ubco-fw-refresh</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/nelson/dev/UBCO_Freshwater_Science_Program/scripts/refresh_local.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>5</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/nelson/Library/Logs/ubco-fw-refresh.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/nelson/Library/Logs/ubco-fw-refresh.log</string>
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

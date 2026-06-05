@@ -2,9 +2,13 @@ name: deploy-site
 
 # Re-render and publish the Quarto site to GitHub Pages (gh-pages branch)
 # on every push to main that touches site content, config, assets, or
-# data, plus on demand. The daily scrape (refresh-daily.yml) publishes
-# the site itself, so this workflow mainly covers manual edits to the
-# .qmd / _quarto.yml / assets that a human pushes to main.
+# data, plus on demand.
+#
+# The daily course-data refresh runs LOCALLY (scripts/refresh_local.sh via
+# launchd) because UBCO's calendar blocks GitHub's cloud runners. That job
+# pushes the refreshed data/ to main, which triggers this workflow to
+# republish the site, so the "course data last refreshed" stamp stays
+# current without any cloud scrape.
 
 on:
   push:

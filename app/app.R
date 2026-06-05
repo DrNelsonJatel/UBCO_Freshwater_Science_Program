@@ -88,6 +88,41 @@ courses$level_band <- dplyr::case_when(
 code_to_title <- setNames(courses$title, courses$short_code)
 code_to_credits <- setNames(courses$credits, courses$short_code)
 
+# ------- Data-freshness metadata ----------------------------------------
+# scrape_meta.json is written by data-raw/01_scrape_ubco_calendar.R on
+# every scrape. It is how the planner shows "course data last updated".
+# A stale date here is the visible signal that the daily refresh has
+# stopped, which is what makes it useful for troubleshooting the pipeline.
+bundled_meta <- tryCatch(
+  jsonlite::read_json(file.path(.data_dir, "scrape_meta.json"),
+                      simplifyVector = TRUE),
+  error = function(e) NULL)
+
+# ISO-8601 UTC string -> "05 Jun 2026" / "05 Jun 2026, 17:04 UTC".
+.parse_iso <- function(iso) {
+  if (is.null(iso) || !nzchar(iso)) return(NA)
+  as.POSIXct(iso, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+}
+fmt_date <- function(iso) {
+  d <- .parse_iso(iso); if (is.na(d)) return("unknown")
+  format(d, "%d %b %Y", tz = "UTC")
+}
+fmt_datetime <- function(iso) {
+  d <- .parse_iso(iso); if (is.na(d)) return("unknown")
+  paste0(format(d, "%d %b %Y, %H:%M", tz = "UTC"), " UTC")
+}
+
+.bundled_date_label  <- fmt_date(bundled_meta$scraped_at_utc %||% "")
+.bundled_scraped_full <- fmt_datetime(bundled_meta$scraped_at_utc %||% "")
+.bundled_n_courses   <- bundled_meta$n_courses  %||% nrow(courses)
+.bundled_n_subjects  <- bundled_meta$n_subjects %||% length(unique(courses$subject))
+
+# Published copy of the same metadata. The planner fetches it (best
+# effort, short timeout) so it can show when the source was LAST CHECKED
+# by the daily scrape, even between planner redeploys.
+.LIVE_META_URL <- paste0("https://drnelsonjatel.github.io/",
+                          "UBCO_Freshwater_Science_Program/data/scrape_meta.json")
+
 # Subject -> long-form labels for the UI.
 SUBJECT_LABELS <- c(
   FWSC_O = "FWSC - Freshwater Science",
@@ -118,6 +153,33 @@ ui <- page_sidebar(
   sidebar = sidebar(
     width = 320,
     title = "Your plan",
+    # Data-freshness indicator: at-a-glance "course data last updated"
+    # with a popover giving the full scrape detail and (best effort) the
+    # source's last-checked date from the live site.
+    div(class = "mb-1",
+      popover(
+        tags$button(
+          class = "btn btn-sm btn-outline-secondary w-100 text-start",
+          type  = "button",
+          HTML(paste0("&#128197; Course data: <strong>",
+                      .bundled_date_label, "</strong>"))
+        ),
+        title = "Course data freshness",
+        tags$div(class = "small", style = "max-width:260px;",
+          tags$p(class = "mb-1",
+            "Catalogue scraped from the UBC Okanagan Academic Calendar."),
+          tags$ul(class = "mb-1 ps-3",
+            tags$li(HTML(paste0("Scraped: <strong>",
+                                .bundled_scraped_full, "</strong>"))),
+            tags$li(paste0(.bundled_n_courses, " courses across ",
+                           .bundled_n_subjects, " subjects"))
+          ),
+          uiOutput("freshness_live"),
+          tags$p(class = "text-muted mt-1 mb-0",
+            "Refreshed automatically each day (05:00 PT).")
+        )
+      )
+    ),
     checkboxGroupInput("goals", "Target designations:",
                        choices = c("PAg (BC Institute of Agrologists)" = "pag",
                                    "RPBio (College of Applied Biology)" = "rpbio")),
@@ -282,6 +344,30 @@ ui <- page_sidebar(
 
 # ------- Server -----------------------------------------------------------
 server <- function(input, output, session) {
+
+  # ------- Data-freshness: live "source last checked" ----------------------
+  # Best-effort fetch of the published scrape metadata so the popover can
+  # show when the daily scrape last ran, even if this planner's bundled
+  # data is older. Never blocks or errors the app: a failed/slow fetch
+  # just omits the live line.
+  output$freshness_live <- renderUI({
+    live <- tryCatch({
+      old <- options(timeout = 5); on.exit(options(old), add = TRUE)
+      jsonlite::read_json(.LIVE_META_URL, simplifyVector = TRUE)
+    }, error = function(e) NULL)
+    if (is.null(live) || is.null(live$scraped_at_utc)) return(NULL)
+    live_d    <- fmt_date(live$scraped_at_utc)
+    bundled_d <- .bundled_date_label
+    tagList(
+      tags$hr(class = "my-1"),
+      tags$div(HTML(paste0("Source last checked: <strong>",
+                           live_d, "</strong>"))),
+      if (!identical(live_d, bundled_d))
+        tags$div(class = "text-muted",
+          "A newer scrape is live on the site; this planner picks it up",
+          " on its next deploy.")
+    )
+  })
 
   # ------- Year-based course picker accordion ------------------------------
   # Build the accordion server-side so the panel for each year auto-

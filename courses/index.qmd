@@ -10,6 +10,20 @@ via `data-raw/01_scrape_ubco_calendar.R` -> `data/courses.parquet`.
 Filter and sort it freely.
 
 ```{r}
+#| label: freshness-stamp
+#| echo: false
+#| message: false
+.meta <- jsonlite::read_json("../data/scrape_meta.json", simplifyVector = TRUE)
+.updated <- format(as.POSIXct(.meta$scraped_at_utc,
+                              format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+                   "%d %B %Y")
+```
+
+::: {.callout-note appearance="simple"}
+**Course data last refreshed:** `r .updated` · `r .meta$n_courses` courses across `r .meta$n_subjects` subjects · re-scraped automatically each day from the UBC Okanagan Academic Calendar.
+:::
+
+```{r}
 #| label: course-catalogue
 #| echo: false
 #| message: false

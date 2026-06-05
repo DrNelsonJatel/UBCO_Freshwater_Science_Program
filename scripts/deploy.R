@@ -32,6 +32,7 @@ rsconnect::deployApp(
   appFiles       = c(
     "app/app.R",
     "data/courses.parquet",
+    "data/scrape_meta.json",
     "data/designation_mappings/pag.yml",
     "data/designation_mappings/rpbio.yml",
     "data/program_pathway.yml"

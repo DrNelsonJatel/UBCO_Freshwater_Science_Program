@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: _site
+  # Publish the scrape metadata so the site and the Shiny planner can both
+  # read "course data last updated ..." from the same file.
+  resources:
+    - data/scrape_meta.json
   render:
     - index.qmd
     - courses/*.qmd

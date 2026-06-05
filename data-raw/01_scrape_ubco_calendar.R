@@ -183,6 +183,20 @@ main <- function() {
   message("Wrote data/courses.parquet (",
           format(file.info("data/courses.parquet")$size,
                  big.mark = ","), " bytes).")
+
+  # Freshness metadata: a tiny JSON the planner and the site read to show
+  # "course data last updated ...". Written on every run so the date
+  # tracks the most recent successful scrape (a stale date is the signal
+  # that the daily refresh has stopped working).
+  meta <- list(
+    scraped_at_utc = format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+    n_courses      = nrow(courses),
+    n_subjects     = length(unique(courses$subject)),
+    source         = "UBC Okanagan Academic Calendar"
+  )
+  jsonlite::write_json(meta, "data/scrape_meta.json",
+                       auto_unbox = TRUE, pretty = TRUE)
+  message("Wrote data/scrape_meta.json (scraped_at ", meta$scraped_at_utc, ").")
 }
 
 if (sys.nframe() == 0L) main()

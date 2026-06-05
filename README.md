@@ -22,9 +22,8 @@ https://drnelsonjatel.github.io/UBCO_Freshwater_Science_Program/review/
 
 - **Course catalogue**: every UBCO course relevant to Freshwater Science
   (FWSC_O, BIOL_O, EESC_O, CHEM_O, GEOG_O, GISC_O, MATH_O, PHYS_O, STAT_O,
-  INDG_O, ENGL_O, ECON_O) with prerequisites, equivalencies, lecture-lab
-  patterns, and "what's offered" notes. **Live data**, scraped from the
-  UBC Okanagan Academic Calendar.
+  INDG_O, ENGL_O, ECON_O) with prerequisites, credits, and lecture-lab
+  patterns. **Live data**, scraped from the UBC Okanagan Academic Calendar.
 - **Designation pathways**: concrete checklists for **PAg** (BC Institute
   of Agrologists) and **RPBio** (College of Applied Biology) registration:
   which UBCO courses count, which boxes are still empty, and what to take
@@ -73,9 +72,9 @@ Live surfaces:
 | Designation RPBio page | Curated by program advisor; gap-warning callout for systematics |
 | Designation Complementary page | Curated by program advisor |
 | Program Learning Outcomes | Curated (v2 PLO list verbatim from April 2026 memo) |
-| Interactive planner | Live MVP at shinyapps.io with year-based accordion and printable report |
-| Skills scaffolding | In development (draft vocabulary only) |
-| Curriculum-map matrix (PLO x course I/R/M) | In development (EESC 301 pilot only) |
+| Interactive planner | Live at shinyapps.io: tick courses, credit and degree-threshold check, PAg/RPBio gap analysis, prerequisite map, exportable plan |
+| Skills scaffolding | On the roadmap (vocabulary drafted) |
+| Curriculum-map matrix (PLO x course I/R/M) | On the roadmap (EESC 301 pilot complete) |
 
 ## Licence
 

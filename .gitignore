@@ -34,6 +34,10 @@ Thumbs.db
 data/cache/
 data/courses_raw_*.parquet
 
+# rsconnect deploy metadata (regenerated on each deploy)
+rsconnect/
+**/rsconnect/
+
 # Secrets (no Gmail / API tokens in this repo, but defensive)
 .secrets/
 .env

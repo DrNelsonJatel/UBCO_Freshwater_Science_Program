@@ -172,10 +172,12 @@ to convert AAg → PAg.
 # Your gap-finder (interactive)
 
 ::: {.callout-tip}
-## When the planner is wired up
-The interactive planner will read your completed-courses list and the
-authoritative BCIA UBCO course mapping and show exactly which BCIA
-categories are covered and which still need fills.
+## Check your PAg coverage in the planner
+The [interactive planner](../planner/index.qmd) reads your
+completed-courses list against the BCIA UBCO course mapping on this page
+and shows exactly which BCIA categories are covered and which still need
+fills. Open it at
+[obwb.shinyapps.io/ubco-freshwater-planner/](https://obwb.shinyapps.io/ubco-freshwater-planner/){target="_blank"}.
 :::
 
 # References

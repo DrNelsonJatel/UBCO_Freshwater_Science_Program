@@ -4,7 +4,7 @@ subtitle: "Every UBCO course relevant to the Freshwater Science program"
 date: last-modified
 ---
 
-The table below is populated daily from the
+The table below is scraped from the
 [UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/)
 via `data-raw/01_scrape_ubco_calendar.R` -> `data/courses.parquet`.
 Filter and sort it freely.
@@ -70,18 +70,16 @@ the format the calendar uses):
 
 - **FWSC_O**, Freshwater Science (program-specific courses)
 - **BIOL_O**, Biology
-- **EESC_O**, Earth and Environmental Sciences
+- **EESC_O**, Earth, Environmental and Geographic Sciences
 - **CHEM_O**, Chemistry
 - **GEOG_O**, Geography
+- **GISC_O**, Geographic Information Sciences
 - **MATH_O**, Mathematics
 - **PHYS_O**, Physics
 - **STAT_O**, Statistics
 - **INDG_O**, Indigenous Studies
 - **ENGL_O**, English
-
-When the scraper is wired up, this page will render a sortable table
-with: course code, title, credits, lecture-lab pattern, prerequisites,
-equivalencies, and an "offered next academic year?" badge.
+- **ECON_O**, Economics
 
 # Year structure (Freshwater Science Major)
 

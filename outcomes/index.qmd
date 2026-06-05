@@ -118,21 +118,21 @@ that needs to be replicated for every Freshwater Science required and
 elective course.
 :::
 
-# Curriculum map, pending build
+# Curriculum map
 
 Following the v2 PLO finalisation memo (§7 Recommended Next Steps), the
 next deliverable is the **full curriculum map**: every required
 Freshwater Science course mapped against the 8 PLOs with I / R / M
-coding. This page will eventually render that matrix as a sortable
-table:
+coding, rendered here as a sortable table.
 
-::: {.callout-warning}
-## Scaffold placeholder
+::: {.callout-note}
+## On the roadmap
 The curriculum-map matrix (rows = course, columns = PLO 1-8, cells = I / R / M)
-is not yet built. The schema for `outcomes/data/curriculum_map.yml`
-plus a script to render it as the table above is queued. Each course's
-mapping requires a structured conversation with the instructor, using
-the EESC 301 pilot as the template.
+is in development. The EESC 301 pilot above establishes the template;
+each remaining course's mapping requires a structured conversation with
+the instructor. Department support for these instructor interviews in
+fall 2026 is one of the asks in the
+[department review note](../review/index.qmd).
 :::
 
 # Version history
@@ -142,16 +142,15 @@ the EESC 301 pilot as the template.
 | **v2** (current) | 28 April 2026 | 8 in 4 categories | Refined by Dr. Nelson Jatel, PAg, following student + faculty consultation and best-practice benchmarking. Memo: `UBCO_Memo_PLOs_v2_20260428.docx`. |
 | v1 (draft) | 2025 | 14 in 5 categories | Superseded by v2. Mapping of v1 → v2 in the memo §6 crosswalk. Draft: `BSc Freshwater Science Draft PLOs (V1).docx`. |
 
-# Assessment plan, pending
+# Assessment plan
 
-The v2 finalisation memo flags two further deliverables:
+The v2 finalisation memo flags two further deliverables, both on the
+roadmap:
 
 1. **Direct assessment artifacts** in EESC 301, EESC 402, and the
    capstone course, identifying which artifact assesses which PLO.
-2. **Three-year review cycle** aligned with UBC institutional
+2. A **three-year review cycle** aligned with UBC institutional
    assessment guidance.
-
-Both are pending and will be tracked in the project's GitHub issues.
 
 # References
 

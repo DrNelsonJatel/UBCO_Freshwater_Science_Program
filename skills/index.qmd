@@ -4,12 +4,14 @@ subtitle: "Where each transferable skill is introduced, practised, and expected 
 date: last-modified
 ---
 
-::: {.callout-warning}
-## Scaffold placeholder
-Skills are stored in `skills/skills_vocab.yml` (the controlled
-vocabulary) and `skills/course_tags.yml` (per-course tagging with
-introduce/practise/expect markers). Neither file exists yet. The
-heatmap viz on this page is the eventual rendering of those YAMLs.
+::: {.callout-note}
+## On the roadmap
+This page will map transferable skills across the four-year degree,
+showing where each is introduced, practised, and expected. The proposed
+vocabulary below is the starting point; the next step is to co-develop
+it with the department instructor cohort, tag each Freshwater Science
+course, and render the coverage as a skills-by-year heatmap. The
+[roadmap](#roadmap) at the foot of this page sets out the sequence.
 :::
 
 # The idea
@@ -17,17 +19,14 @@ heatmap viz on this page is the eventual rendering of those YAMLs.
 Skills get **scaffolded** through a degree: introduced in one course,
 practised in several, and expected as background in upper-year courses.
 Without an explicit map, neither students nor instructors can see this
-arc clearly.
+arc clearly. The aim of this page is to make that scaffolding visible as
+a heatmap, skills on the rows, the four years on the columns, cells
+coloured by introduce / practise / expect status.
 
-This page shows the scaffolded coverage as a heatmap: rows are skills
-from a controlled vocabulary, columns are the four years of the
-program, cells are coloured by introduce / practise / expect status.
+# Proposed skill vocabulary
 
-# Controlled skill vocabulary (draft)
-
-Three top-level skill families to start, each with sub-skills. These
-are stubs; the real vocabulary will be co-developed with department
-instructors.
+Three top-level skill families to start, each with sub-skills, as a
+starting point to be refined with the department instructor cohort.
 
 ::: {.grid}
 
@@ -70,10 +69,10 @@ instructors.
 
 :::
 
-# Pending content
+# Roadmap {#roadmap}
 
-- [ ] Co-develop the controlled skill vocabulary with the program
-      instructor cohort.
-- [ ] Tag each Freshwater Science course with the skills it
-      introduces / practises / expects.
-- [ ] Render the skills-by-year heatmap.
+1. Co-develop the controlled skill vocabulary with the program
+   instructor cohort.
+2. Tag each Freshwater Science course with the skills it introduces,
+   practises, and expects.
+3. Render the skills-by-year heatmap from those tags.

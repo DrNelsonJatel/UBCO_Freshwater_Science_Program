@@ -8,14 +8,14 @@ toc: true
 # Purpose of this note
 
 This site is a curated advising and planning resource for the
-**Bachelor of Science Freshwater Science** major. It exists alongside
-,  **not in place of**, the
+**Bachelor of Science Freshwater Science** major. It exists alongside,
+**not in place of**, the
 [UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/),
 which remains the authoritative source for all degree requirements.
 
 The site is intended for **two audiences**: current Freshwater Science
-students (the headline use case is the in-development interactive
-planner) and prospective students browsing the program.
+students (the headline use case is the interactive degree planner) and
+prospective students browsing the program.
 
 I am sharing this with the **Freshwater Science Program Committee**
 and the **Department of Earth, Environmental and Geographic Sciences**
@@ -28,7 +28,7 @@ section of the site where the curated content lives.
 ## 1. The v2 Program Learning Outcomes
 
 The site renders the **v2 PLO list (eight outcomes in four categories)**
-finalised in the [28 April 2026 memo](docs/reference/learning-outcomes/UBCO_Memo_PLOs_v2_20260428.docx),
+finalised in the [28 April 2026 memo](../docs/reference/learning-outcomes/UBCO_Memo_PLOs_v2_20260428.docx),
 which consolidated the v1 draft of 14 outcomes following:
 
 - a student focus group (Freshwater Science majors),
@@ -122,13 +122,13 @@ A quick orientation so you can review the most material content first.
 | Page | What it is | Status |
 |---|---|---|
 | [Home](../index.qmd) | Landing page with land acknowledgement + Academic Calendar disclaimer + status table | Live |
-| [Courses](../courses/index.qmd) | Filterable catalogue of 626 UBCO courses across 12 subjects | **Live data**, scraped daily from the UBC Okanagan Academic Calendar |
+| [Courses](../courses/index.qmd) | Filterable catalogue of 626 UBCO courses across 12 subjects | **Live data**, scraped from the UBC Okanagan Academic Calendar |
 | [Designations → PAg](../designations/pag.qmd) | 150 BCIA-approved UBCO courses across 3 categories + 4-year sample plan | **Live data**, rendered from BCIA's June 2025 UBCO-specific list |
 | [Designations → RPBio](../designations/rpbio.qmd) | CAB credentialing requirements mapped to UBCO courses with **gap warning** | Curated by program lead |
 | [Designations → Complementary](../designations/complementary.qmd) | Chemistry, Biology, and water-resources elective bundles | Curated by program lead |
 | [Outcomes](../outcomes/index.qmd) | v2 PLO list + I/R/M methodology + EESC 301 pilot pointer | Curated; curriculum-map matrix pending |
-| [Skills](../skills/index.qmd) | Draft skills vocabulary (R, GIS, field methods, communication, etc.) | In development |
-| [Planner](../planner/index.qmd) | Interactive degree planner (drag-drop + gap analysis) | In development |
+| [Skills](../skills/index.qmd) | Proposed skills-scaffolding vocabulary (R, GIS, field methods, communication, etc.) | Roadmap; vocabulary drafted, instructor co-development pending |
+| [Planner](../planner/index.qmd) | Interactive degree planner: tick completed courses, credit and degree-threshold check, PAg / RPBio gap analysis, prerequisite map, and an exportable plan | **Live** |
 | [Methodology](../docs/methodology.qmd) | Architecture, data feeds, scrape policy, refresh cadence | Live |
 
 # How to give feedback
@@ -138,9 +138,9 @@ A quick orientation so you can review the most material content first.
 - **GitHub issues**: open at the
   [project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/issues)
   if you prefer a tracked, threaded discussion.
-- **Annotated PDF**: the entire site is also rendered as a printable
-  PDF via Quarto if you would prefer to mark up a physical document
- , let me know and I'll send.
+- **Annotated PDF**: the entire site can also be rendered as a printable
+  PDF via Quarto if you would prefer to mark up a physical document. Let
+  me know and I'll send one.
 
 # Maintainer
 

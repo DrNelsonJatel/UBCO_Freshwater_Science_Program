@@ -1,62 +1,82 @@
 ---
 title: "Interactive Degree Planner"
-subtitle: "Drag-and-drop course planning with live designation gap analysis"
+subtitle: "Tick the courses you have completed and see your degree and designation progress"
 date: last-modified
 ---
 
 ::: {.callout-tip}
-## The planner is live
-Open the interactive planner in a new tab:
+## Open the planner
 **[obwb.shinyapps.io/ubco-freshwater-planner/](https://obwb.shinyapps.io/ubco-freshwater-planner/){target="_blank"}**
 
-The app reads the live UBCO course catalogue and the PAg + RPBio
-designation mappings curated on this site. Tick the courses you've
-completed (or transferred in), pick one or both designation goals,
-and the app reports:
-
-- credits + degree-threshold check (120 / 78 Science / 42 upper /
-  36 upper Science)
-- PAg category coverage (8 foundational + 20 agrology with at least
-  8 senior)
-- RPBio category coverage (6 core areas + 5 three-of-five areas)
-  plus the 13-biology count
-
-This is v1: it's intentionally simple (no drag-drop year slots yet,
-no prereq DAG viz). v2 will add those features once the v1 has been
-in front of students for a term.
+The planner reads the live UBC Okanagan course catalogue and the curated
+PAg and RPBio designation mappings from this site. Tick the courses you
+have completed (or transferred in), pick one or both designation goals,
+and it reports your progress against the degree and the designations in
+real time.
 :::
 
-# What it will do
+# What the planner does
 
-When live, the planner will let you:
+Set two things in the sidebar, your **target designations** (PAg, RPBio,
+or both) and your **current year in the program**, then work through the
+tabs:
 
-- **Drag courses** into year slots (Year 1, 2, 3, 4 and post-Year-4
-  summer).
-- **Toggle designation goals** (PAg, RPBio, neither, both).
-- See **live gap analysis**:
-  - Which prerequisites are missing for the courses you have chosen.
-  - Which BCIA / CAB category requirements are still unfilled.
-  - Whether your total credits clear the 120 / 78 Science / 42
-    upper-level / 36 upper-level-Science thresholds.
-- View the **prerequisite graph** for your selected courses (`visNetwork`).
-- **Export your plan** as a PDF or text summary you can share with the
-  program advisor.
+- **Step 1, tick completed courses.** Each year is an accordion panel
+  listing the curated recommended courses first, with an "other
+  Y*nnn*-level courses" selector for anything off the default path. A
+  separate search box handles transfer credits and courses not surfaced
+  in the year panels.
+- **Board, years side-by-side.** Your plan as a five-column board (one
+  column per year). Cards fill solid when ticked and stay outlined when
+  not, a scannable read of where you are across the whole degree.
+- **Map, prerequisite graph.** A `visNetwork` graph of roughly 70 core
+  and recommended courses, arrows pointing from a prerequisite to the
+  course that needs it, nodes coloured by level and filled when ticked.
+  Hover any node for its full title and its prerequisites from the live
+  UBC Okanagan Academic Calendar.
+- **Suggestions, gaps and next steps.** Prerequisite-gap warnings for
+  courses you have ticked but seem to be missing a foundation, plus a
+  curated list of courses you could realistically register for next term
+  given what you have already cleared.
+- **Step 2, credit and degree summary.** How you sit against the degree
+  thresholds (120 credits / 78 Science / 42 upper-level / 36 upper-level
+  Science), with a table of everything you have ticked.
+- **Step 3, designation gap analysis.** PAg category coverage (8
+  foundational plus 20 agrology with at least 8 senior) and RPBio
+  coverage (6 core areas, the three-of-five subject areas, and the
+  13-biology count), with an **exportable plan** you can print or save as
+  a PDF to bring to an advising appointment.
 
-# In the meantime
+You can also **save your plan to a file** and reload it next session, or
+email it to the program advisor before a meeting (sidebar, "Save / load
+plan").
 
-- Use the [course catalogue](../courses/index.qmd) for the year-by-year
+::: {.callout-important}
+## Read the results as guidance, not a verdict
+The planner is an advising aid. UBC's prerequisite strings are
+natural-language ("either (a) X or (b) all of Y and Z"), and the planner
+collapses them into a flat code list, so treat prerequisite arrows and
+gap flags as a guide rather than a plan-validator. **Always confirm your
+degree plan with the program advisor and the
+[UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/),
+which remains authoritative.**
+:::
+
+# Related pages
+
+- The [course catalogue](../courses/index.qmd) for the year-by-year
   course list and prerequisite notes.
-- Use the [PAg pathway](../designations/pag.qmd) and
-  [RPBio pathway](../designations/rpbio.qmd) for the curated 4-year sample
-  plans + designation-fit narrative.
-- Use the [Complementary pathways](../designations/complementary.qmd)
-  page for Chemistry, Biology, and hydrology/water-resources bundles.
+- The [PAg pathway](../designations/pag.qmd) and
+  [RPBio pathway](../designations/rpbio.qmd) for the curated four-year
+  sample plans and designation-fit narrative.
+- The [Complementary pathways](../designations/complementary.qmd) page
+  for the Chemistry, Biology, and hydrology / water-resources bundles.
 
-# Want to help shape it?
+# Suggestions welcome
 
-If you are a Freshwater Science student or instructor and want input
-into how the planner should behave, what gap signals matter most, what
-visual encoding is most useful, how aggressively it should flag
-prerequisite conflicts, please drop a note to **Nelson.Jatel@UBC.ca**
-or open a GitHub issue at the
+If you are a Freshwater Science student or instructor and have ideas for
+the planner, what gap signals matter most, what visual encoding is most
+useful, how aggressively it should flag prerequisite conflicts, email
+**[nelson.jatel@ubc.ca](mailto:nelson.jatel@ubc.ca)** or open an issue at
+the
 [project source repository](https://github.com/DrNelsonJatel/UBCO_Freshwater_Science_Program/issues).

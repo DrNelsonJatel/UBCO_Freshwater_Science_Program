@@ -252,11 +252,13 @@ and co-op term reports are the natural vehicles for these.
 # Your gap-finder (interactive)
 
 ::: {.callout-tip}
-## When the planner is wired up
-The interactive planner cross-checks your completed-courses list
-against the CAB biology categories and flags which of the five
-required-area courses (genetics, cell, physiology, systematics,
-evolution) you have versus still need.
+## Check your RPBio coverage in the planner
+The [interactive planner](../planner/index.qmd) cross-checks your
+completed-courses list against the CAB biology categories and flags
+which of the five subject areas (genetics, cell biology, physiology,
+systematics, evolution) you have versus still need, alongside the
+13-biology count. Open it at
+[obwb.shinyapps.io/ubco-freshwater-planner/](https://obwb.shinyapps.io/ubco-freshwater-planner/){target="_blank"}.
 :::
 
 # References

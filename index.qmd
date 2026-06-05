@@ -24,18 +24,6 @@ disagree, the calendar wins. Always confirm your degree plan with the
 program advisor.
 :::
 
-<!--
-  Watershed photo gallery + advisor headshot land here once the
-  image files are saved into assets/photos/. CSS in assets/styles.css
-  is already styled for the .watershed-gallery and the .contact-card
-  .contact-card-photo class. Markup to drop back in:
-
-  ::: {.watershed-gallery}
-  <figure><img src="assets/photos/skaha-okfalls.jpg" alt="..."><figcaption>...</figcaption></figure>
-  ...four figures total...
-  :::
--->
-
 # A planning resource for current and prospective students
 
 Welcome to the planning hub for the **Freshwater Science** undergraduate
@@ -43,7 +31,7 @@ program at the [UBC Okanagan campus](https://ok.ubc.ca/). This site
 helps you:
 
 - **Browse the courses** that count toward Freshwater Science, with
-  current-year prerequisites, equivalencies, and offering status.
+  their prerequisites, credits, and descriptions.
 - **Plan a path** to the **PAg** (BC Institute of Agrologists) or
   **RPBio** (College of Applied Biology) professional designation
   alongside your degree.
@@ -61,13 +49,14 @@ helps you:
 ::: {.g-col-md-6 .g-col-12}
 
 ### I'm a current student
-- The interactive [Planner](planner/index.qmd) is in development;
-  preview the design intent on its placeholder page.
+- Use the interactive [Planner](planner/index.qmd) to tick the courses
+  you have completed and see your credit total, degree-threshold check,
+  and PAg / RPBio gap analysis at a glance.
 - Check the [PAg pathway](designations/pag.qmd) and [RPBio
   pathway](designations/rpbio.qmd) to see what gaps you still need
   to fill before graduation.
-- Browse the [course catalogue](courses/index.qmd) for prerequisites
-  and "is this offered next year?" signals.
+- Browse the [course catalogue](courses/index.qmd) for course
+  prerequisites, credits, and descriptions.
 - The department's official page lives at
   [eesc.ok.ubc.ca → Freshwater Science](https://eesc.ok.ubc.ca/undergraduate/freshwater-science/).
 
@@ -111,7 +100,7 @@ thesis (EESC_O 449).
 
 ::: {.callout-note}
 ## Source of truth
-Course descriptions and prerequisites are pulled daily from the
+Course descriptions and prerequisites are scraped from the
 [UBC Okanagan Academic Calendar](https://okanagan.calendar.ubc.ca/).
 Designation requirements are curated from the
 [BCIA UBCO Approved Course List](https://www.bcia.com/) and the
@@ -150,11 +139,11 @@ Issues and suggestions welcome via the GitHub issues tracker.
 
 | Section | Status |
 |---|---|
-| Course catalogue | **Live data**, scraped daily from the UBC Okanagan Academic Calendar |
+| Course catalogue | **Live data**, scraped from the UBC Okanagan Academic Calendar |
 | Designations (PAg) | **Live data**, rendered from the [BCIA UBCO approved-course list](https://www.bcia.com/sites/default/files/docs/resources/UBCO%20Approved%20Courses_June%2027,%202025.pdf) (June 2025) |
 | Designations (RPBio) | **Curated** by the program advisor from the [CAB Credentialing Standard](https://cab-bc.org/wp-content/uploads/Credentialing_Standard_June-2025.pdf) (June 2025), CAB does not publish a UBCO-specific list |
 | Program Learning Outcomes | **Curated** from the v2 PLO memo (28 April 2026) |
 | Complementary pathways | **Curated** from the program advisor's pathway map |
-| Curriculum-map matrix (PLOs × courses) | **In development**, EESC 301 pilot only; instructor interviews pending |
-| Skills scaffolding | **In development**, draft vocabulary only |
-| Interactive Degree Planner | **In development**, see [Planner page](planner/index.qmd) for the design intent |
+| Curriculum-map matrix (PLOs × courses) | **On the roadmap**, EESC 301 pilot complete; instructor interviews planned for fall 2026 |
+| Skills scaffolding | **On the roadmap**, vocabulary drafted; instructor co-development pending |
+| Interactive Degree Planner | **Live**, open the [Planner](planner/index.qmd) |

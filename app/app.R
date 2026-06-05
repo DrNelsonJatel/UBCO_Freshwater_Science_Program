@@ -149,7 +149,7 @@ ui <- page_sidebar(
     ),
     hr(),
     div(class = "small text-muted",
-        "MVP - results are illustrative only. ",
+        "Results are illustrative only. ",
         "Confirm with the program advisor and the UBC Okanagan Academic Calendar.")
   ),
 
@@ -1222,7 +1222,7 @@ server <- function(input, output, session) {
       length(pre) > 0 && all(pre %in% completed)
     }, untaken)
     # Also surface "no listed prereq" courses at the appropriate
-    # level for the current year — these are always registerable.
+    # level for the current year, these are always registerable.
     if (length(current) && nzchar(current) && current != "5") {
       target_band <- YEAR_TO_BANDS[[paste0("year_", current)]]
       no_prereq <- courses$short_code[
